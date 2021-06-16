@@ -32,25 +32,26 @@ export class AuthService {
   emailSignup(email: string, password: string) {
     this.afAuth.createUserWithEmailAndPassword(email, password)
     .then((value: any) => {
-     console.log('Sucess', value);
-     this.router.navigateByUrl('/profile');
+     console.log('Success', value);
+     this.router.navigateByUrl('/login');
     })
     .catch((error: any) => {
       console.log('Something went wrong: ', error);
     });
   }
 
-  // googleLogin() {
-  //   const provider = new firebase.GoogleAuthProvider();
-  //   return this.oAuthLogin(provider)
-  //     .then((value: any) => {
-  //    console.log('Sucess', value),
-  //    this.router.navigateByUrl('/profile');
-  //  })
-  //   .catch((error: any) => {
-  //     console.log('Something went wrong: ', error);
-  //   });
-  // }
+  // tslint:disable-next-line: typedef
+  googleLogin() {
+    const provider = new firebase.GoogleAuthProvider();
+    return this.oAuthLogin(provider)
+      .then((value: any) => {
+     console.log('Sucess', value),
+     this.router.navigateByUrl('/profile');
+   })
+    .catch((error: any) => {
+      console.log('Something went wrong: ', error);
+    });
+  }
 
   // tslint:disable-next-line: typedef
   logout() {
