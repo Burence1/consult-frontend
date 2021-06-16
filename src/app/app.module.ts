@@ -5,20 +5,30 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
-import { EmailComponent } from './User/email/email.component';
-import { ProfileComponent } from './User/profile/profile.component';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from "@angular/fire/auth";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB3mBUPgJ-drLGaMass8FdKRyJzToqEOa4",
+  authDomain: "userauth-3c76a.firebaseapp.com",
+  projectId: "userauth-3c76a",
+  storageBucket: "userauth-3c76a.appspot.com",
+  messagingSenderId: "329320770247",
+  appId: "1:329320770247:web:b0d6211ac58834b457ace2",
+  measurementId: "G-DXEDLCP9XL"
+}
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent,
-    EmailComponent,
-    ProfileComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFirestore,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
