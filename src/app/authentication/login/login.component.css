@@ -35,6 +35,8 @@ button {
     text-align: center;
     display: block;
     margin: 15px 0;
+    color: black;
+    text-decoration: none;
 }
 
 .auth-btn {
@@ -50,3 +52,4 @@ input.input-txt {
     width: 90%;
     margin-bottom: 1em;
 }
+

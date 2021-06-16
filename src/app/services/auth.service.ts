@@ -42,7 +42,7 @@ export class AuthService {
 
   // tslint:disable-next-line: typedef
   googleLogin() {
-    const provider = new firebase.GoogleAuthProvider();
+    const provider = '';
     return this.oAuthLogin(provider)
       .then((value: any) => {
      console.log('Sucess', value),

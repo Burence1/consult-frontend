@@ -8,23 +8,29 @@
       <form #formData="ngForm" (ngSubmit)="onSubmit(formData)" class="p-3 mt-3">
         <div class="mb-3">
           <label for="email" class="form-label">Email Address</label> <br />
-          <mat-form-field appearance="fill">
+          <mat-form-field appearance="outline">
             <mat-label>Enter your email</mat-label>
             <input
               matInput
               placeholder="janedoe@gmail.com"
-              (ngModel)="(email)"
-              (FormControl)="email"
+              (ngModel) ="(email)"
+              [formControl]="email"
+              [errorStateMatcher]="matcher"
               name="email"
               required
             />
-            <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="email.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="mb-3">
           <label for="RegisterPassword" class="form-label">Password</label>
           <br />
-          <mat-form-field appearance="fill">
+          <mat-form-field appearance="outline">
             <mat-label>Enter your password</mat-label>
             <input
               matInput
@@ -70,8 +76,8 @@
       </form>
       <div>
         <p>
-          <a routerLink="/login" id="goback"
-            >Have an account? Proceed to login</a
+          <a mat-button routerLink="/login" id="goback"
+            >Login</a
           >
         </p>
       </div>

@@ -1,0 +1,34 @@
+.consult {
+  background: #003060;
+  height: 100vh;
+}
+
+.container-fluid
+{
+  padding: 0;
+  margin: 0;
+}
+
+.row
+{
+  padding: 0;
+  margin: 0;
+}
+
+.navheader {
+  color: #fff;
+}
+
+.header {
+  color: black;
+}
+
+.login {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text
+ {
+   text-decoration: none;
+ }
