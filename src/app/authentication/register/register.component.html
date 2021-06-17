@@ -14,7 +14,6 @@
               matInput
               placeholder="janedoe@gmail.com"
               (ngModel)="(email)"
-              (FormControl)="email"
               [errorStateMatcher]="matcher"
               name="email"
               required
@@ -51,7 +50,7 @@
             </button>
           </mat-form-field>
         </div>
-      
+
         <button
           mat-raised-button
           color="primary"
