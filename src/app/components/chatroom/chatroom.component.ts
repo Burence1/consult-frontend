@@ -6,7 +6,7 @@ import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked } from '@ang
   styleUrls: ['./chatroom.component.css']
 })
 export class ChatroomComponent implements OnInit, AfterViewChecked {
-  @ViewChild('scroller') private feedContainer: ElementRef;
+  @ViewChild('scroller') private feedScroll: ElementRef;
 
 
   constructor() { }
@@ -15,8 +15,8 @@ export class ChatroomComponent implements OnInit, AfterViewChecked {
   }
 
   scrollToBottom(): void {
-    this.feedContainer.nativeElement.scrollTop
-      = this.feedContainer.nativeElement.scrollHeight;
+    this.feedScroll.nativeElement.scrollTop
+      = this.feedScroll.nativeElement.scrollHeight;
   }
 
   ngAfterViewChecked() {

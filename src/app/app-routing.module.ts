@@ -9,10 +9,10 @@ import { HomePageComponent } from './components/home/home-page/home-page.compone
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'email-login', component: EmailComponent },
-  { path: 'signup', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent },
+  {path: 'login', component: LoginComponent },
+  {path: 'email-login', component: EmailComponent },
+  {path: 'signup', component: RegisterComponent },
+  {path: 'profile', component: ProfileComponent },
   {path: 'home', component: HomePageComponent},
   {path: 'chatroom',component:ChatroomComponent},
   

@@ -2,6 +2,17 @@
   display: flex;
 }
 
+.sidebarWrapper{
+    color: #fff;
+    display: flex;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.2em;
+    flex: 1;
+    order: 1;
+    padding:20px 0px 40px 30px;
+    border-right: 1px solid #222;
+}
+
 .chatfeed {
     background-color: #eee;
     background: 
@@ -29,6 +40,6 @@
 	background-color: #F5F5F5;
 }
 
-app-user-list {
+app-navbar {
     width: 100%;
 }

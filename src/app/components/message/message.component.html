@@ -4,24 +4,10 @@
       {{ userName }}
     </span>
     <span class="timestamp" [ngClass]="{'isOwnTimestamp':isOwnMessage}">
-      {{ timeStamp | date:'medium' }}
+      {{ timeStamp | date:'shortTime' }}
     </span>
   </div>
   <div class="messageContent" [ngClass]="{'isOwnMessageContent':isOwnMessage}">
     {{ messageContent }}
   </div>
 </div>
-
-<!-- <div class="messageContainer">
-  <div class="messageData">
-    <span class="sender">
-      {{ userName }}
-    </span>
-    <span class="timestamp">
-      {{ timeStamp | date:'shortTime' }}
-    </span>
-  </div>
-  <div class="messageContent">
-    {{ messageContent }}
-  </div>
-</div> -->

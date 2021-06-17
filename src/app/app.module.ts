@@ -21,6 +21,8 @@ import { ChatFormComponent } from './components/chat-form/chat-form.component';
 import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
 import { MessageComponent } from './components/message/message.component';
 import { environment } from 'src/environments/environment';
+import { ChatUsersComponent } from './components/chat-users/chat-users.component';
+import { UserItemsComponent } from './components/user-items/user-items.component';
 
 
 // const firebaseConfig = {
@@ -44,7 +46,10 @@ import { environment } from 'src/environments/environment';
     ChatroomComponent,
     ChatFormComponent,
     ChatFeedComponent,
-    MessageComponent
+    MessageComponent,
+    ChatUsersComponent,
+    UserItemsComponent,
+
   ],
   imports: [
     BrowserModule,
