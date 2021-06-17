@@ -11,7 +11,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // loginGoogle() {
-  //   this.authService.googleLogin();
-  // }
+  // tslint:disable-next-line: typedef
+  loginGoogle() {
+    this.authService.googleLogin();
+  }
 }

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 // import { Observable } from 'rxjs/Observable';
 // import 'rxjs/add/operator/switchMap';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -32,25 +33,26 @@ export class AuthService {
   emailSignup(email: string, password: string) {
     this.afAuth.createUserWithEmailAndPassword(email, password)
     .then((value: any) => {
-     console.log('Sucess', value);
-     this.router.navigateByUrl('/profile');
+     console.log('Success', value);
+     this.router.navigateByUrl('/login');
     })
     .catch((error: any) => {
       console.log('Something went wrong: ', error);
     });
   }
 
-  // googleLogin() {
-  //   const provider = new firebase.GoogleAuthProvider();
-  //   return this.oAuthLogin(provider)
-  //     .then((value: any) => {
-  //    console.log('Sucess', value),
-  //    this.router.navigateByUrl('/profile');
-  //  })
-  //   .catch((error: any) => {
-  //     console.log('Something went wrong: ', error);
-  //   });
-  // }
+  // tslint:disable-next-line: typedef
+  googleLogin() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    return this.oAuthLogin(provider)
+      .then((value: any) => {
+     console.log('Success', value),
+     this.router.navigateByUrl('/profile');
+   })
+    .catch((error: any) => {
+      console.log('Something went wrong: ', error);
+    });
+  }
 
   // tslint:disable-next-line: typedef
   logout() {

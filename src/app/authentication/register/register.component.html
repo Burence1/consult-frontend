@@ -1,9 +1,73 @@
-<div class="form-container">
-  <a routerLink="/login" id="goback">Login</a>
-  <h2>Sign Up</h2>
-  <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
-    <input type="text" placeholder="Email address" (ngModel)="email" name="email" class="input-txt" required>
-    <input type="password" placeholder="Password" (ngModel)="password" name="password" class="input-txt" required>
-    <button type="submit" [disabled]="!formData.valid" class="auth-btn">Create Account</button>
-  </form>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6 consult">
+      <h1 class="header">Consult</h1>
+    </div>
+    <div class="col-6 mt-4">
+      <h3 class="text-center">Register</h3>
+      <form #formData="ngForm" (ngSubmit)="onSubmit(formData)" class="p-3 mt-3">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email Address</label> <br />
+          <mat-form-field appearance="outline">
+            <mat-label>Enter your email</mat-label>
+            <input
+              matInput
+              placeholder="janedoe@gmail.com"
+              (ngModel)="(email)"
+              [errorStateMatcher]="matcher"
+              name="email"
+              required
+            />
+            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="email.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="mb-3">
+          <label for="RegisterPassword" class="form-label">Password</label>
+          <br />
+          <mat-form-field appearance="outline">
+            <mat-label>Enter your password</mat-label>
+            <input
+              matInput
+              [type]="hide ? 'password' : 'text'"
+              placeholder="**********"
+              (ngModel)="(password)"
+              name="password"
+              required
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!formData.valid"
+          class="auth-btn text-center"
+        >
+          Sign Up <i class="fas fa-sign-in-alt"></i>
+        </button>
+      </form>
+      <div>
+        <p>
+          <a mat-button routerLink="/login" id="goback"
+            >Login</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
