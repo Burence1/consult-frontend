@@ -10,8 +10,11 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { EmailComponent } from './authentication/email/email.component';
+
 import { HomePageComponent } from './home/home-page/home-page.component';
 import { NavbarComponent } from './home/navbar/navbar.component';
+import {MatBadge, MatBadgeModule} from '@angular/material/badge'
+import { MatDatepicker } from '@angular/material/datepicker';
 
 
 const firebaseConfig = {
@@ -42,8 +45,9 @@ const firebaseConfig = {
     AngularFireAuthModule,
     MaterialModule,
     BrowserAnimationsModule,
+    MatBadgeModule
   ],
-  providers: [],
+  providers: [MatDatepicker,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
