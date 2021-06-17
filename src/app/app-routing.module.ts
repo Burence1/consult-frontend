@@ -1,3 +1,4 @@
+import { ChatroomComponent } from './components/chatroom/chatroom.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/authentication/login/login.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'signup', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   {path: 'home', component: HomePageComponent},
+  {path: 'chatroom',component:ChatroomComponent},
   
 ];
 

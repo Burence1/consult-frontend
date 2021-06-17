@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { MaterialModule } from './shared/material/material/material.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,17 +20,18 @@ import { ChatroomComponent } from './components/chatroom/chatroom.component';
 import { ChatFormComponent } from './components/chat-form/chat-form.component';
 import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
 import { MessageComponent } from './components/message/message.component';
+import { environment } from 'src/environments/environment';
 
 
-const firebaseConfig = {
-  apiKey: 'AIzaSyB3mBUPgJ-drLGaMass8FdKRyJzToqEOa4',
-  authDomain: 'userauth-3c76a.firebaseapp.com',
-  projectId: 'userauth-3c76a',
-  storageBucket: 'userauth-3c76a.appspot.com',
-  messagingSenderId: '329320770247',
-  appId: '1:329320770247:web:b0d6211ac58834b457ace2',
-  measurementId: 'G-DXEDLCP9XL'
-};
+// const firebaseConfig = {
+//   apiKey: 'AIzaSyB3mBUPgJ-drLGaMass8FdKRyJzToqEOa4',
+//   authDomain: 'userauth-3c76a.firebaseapp.com',
+//   projectId: 'userauth-3c76a',
+//   storageBucket: 'userauth-3c76a.appspot.com',
+//   messagingSenderId: '329320770247',
+//   appId: '1:329320770247:web:b0d6211ac58834b457ace2',
+//   measurementId: 'G-DXEDLCP9XL'
+// };
 
 @NgModule({
   declarations: [
@@ -49,11 +51,12 @@ const firebaseConfig = {
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    AngularFireDatabaseModule,
     MaterialModule,
     BrowserAnimationsModule,
-    MatBadgeModule
+    MatBadgeModule,
   ],
   providers: [MatDatepicker,],
   bootstrap: [AppComponent]
