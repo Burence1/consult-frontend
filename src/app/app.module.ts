@@ -5,13 +5,18 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { MaterialModule } from './shared/material/material/material.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { EmailComponent } from './authentication/email/email.component';
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
+
+import { HomePageComponent } from './home/home-page/home-page.component';
+import { NavbarComponent } from './home/navbar/navbar.component';
+import {MatBadge, MatBadgeModule} from '@angular/material/badge';
+import { MatDatepicker } from '@angular/material/datepicker';
+
 
 const firebaseConfig = {
   apiKey: 'AIzaSyB3mBUPgJ-drLGaMass8FdKRyJzToqEOa4',
@@ -29,7 +34,9 @@ const firebaseConfig = {
     LoginComponent,
     RegisterComponent,
     EmailComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    HomePageComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -40,8 +47,9 @@ const firebaseConfig = {
     AngularFireAuthModule,
     MaterialModule,
     BrowserAnimationsModule,
+    MatBadgeModule
   ],
-  providers: [],
+  providers: [MatDatepicker, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
