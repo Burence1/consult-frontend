@@ -7,45 +7,51 @@ import 'firebase/auth';
 // import 'rxjs/add/operator/switchMap';
 import { AngularFireAuth } from '@angular/fire/auth';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
 
+  // value: any;
+
   constructor(
     private afAuth: AngularFireAuth,
-    private router: Router) {}
+    private db: AngularFirestore,
+    private router: Router
+  ) {}
 
   // tslint:disable-next-line: typedef
   login(email: string, password: string) {
-    this.afAuth.signInWithEmailAndPassword(email, password)
-    .then((value: any) => {
-      console.log('Nice, it worked!');
-      this.router.navigateByUrl('/profile');
-    })
-    .catch((err: { message: any; }) => {
-      console.log('Something went wrong: ', err.message);
-    });
+    this.afAuth
+      .signInWithEmailAndPassword(email, password)
+      .then((value: any) => {
+        console.log('Nice, it worked!');
+        this.router.navigateByUrl('/profile');
+      })
+      .catch((err: { message: any }) => {
+        console.log('Something went wrong: ', err.message);
+      });
   }
 
   // tslint:disable-next-line: typedef
   emailSignup(email: string, password: string) {
-    this.afAuth.createUserWithEmailAndPassword(email, password)
-    .then((value: any) => {
-     console.log('Success', value);
-     this.router.navigateByUrl('/login');
-    })
-    .then( async value => {
-      (await this.afAuth.currentUser).sendEmailVerification()
-      .then(() => console.log('Email verification sent'))
+    this.afAuth
+      .createUserWithEmailAndPassword(email, password)
+      .then((value: any) => {
+        console.log('Success', value);
+        this.router.navigateByUrl('/login');
+       })
+      .then(async (value) => {
+        (await this.afAuth.currentUser)
+          .sendEmailVerification()
+          .then(() => console.log('Email verification sent'))
+          .catch((error: any) => {
+            console.log(error.message);
+          });
+      })
       .catch((error: any) => {
-        console.log(error.message);
+        console.log('Something went wrong: ', error);
       });
-    })
-    .catch((error: any) => {
-      console.log('Something went wrong: ', error);
-    });
   }
 
   // tslint:disable-next-line: typedef
@@ -53,19 +59,20 @@ export class AuthService {
     const provider = new firebase.auth.GoogleAuthProvider();
     return this.oAuthLogin(provider)
       .then((value: any) => {
-     console.log('Success', value),
-     this.router.navigateByUrl('/profile');
-   })
-    .catch((error: any) => {
-      console.log('Something went wrong: ', error);
-    });
+        console.log('Success', value), this.router.navigateByUrl('/profile');
+      })
+      .catch((error: any) => {
+        console.log('Something went wrong: ', error);
+      });
   }
 
   // tslint:disable-next-line: typedef
-  resetPassword(email) {
-    return firebase.auth().sendPasswordResetEmail(email)
-    .then(() => console.log('We have sent you a password reset link'))
-    .catch(error => console.log(error.message));
+  resetPassword(email: string) {
+    return firebase
+      .auth()
+      .sendPasswordResetEmail(email)
+      .then(() => console.log('We have sent you a password reset link'))
+      .catch((error) => console.log(error.message));
   }
 
   // tslint:disable-next-line: typedef
