@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './authentication/login/login.component';
-import { RegisterComponent } from './authentication/register/register.component';
-import { EmailComponent } from './authentication/email/email.component';
-import { ProfileComponent } from './User/profile/profile.component';
-import { HomePageComponent } from './home/home-page/home-page.component';
+import { LoginComponent } from './components/authentication/login/login.component';
+import { RegisterComponent } from './components/authentication/register/register.component';
+import { EmailComponent } from './components/authentication/email/email.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { HomePageComponent } from './components/home/home-page/home-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
