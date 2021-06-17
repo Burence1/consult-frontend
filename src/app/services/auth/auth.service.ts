@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-// import { Observable } from 'rxjs/Observable';
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
+
 // import 'rxjs/add/operator/switchMap';
 import { AngularFireAuth } from '@angular/fire/auth';
 
@@ -12,10 +13,19 @@ import { AngularFireAuth } from '@angular/fire/auth';
   providedIn: 'root'
 })
 export class AuthService {
+  user: any;
+  private authState: any;
+  currentId: any
 
   constructor(
     private afAuth: AngularFireAuth,
-    private router: Router) {}
+    private router: Router, private db: AngularFireDatabase) {
+    this.user = afAuth.authState;
+    }
+
+  authUser() {
+    return this.user;
+  }
 
   // tslint:disable-next-line: typedef
   login(email: string, password: string) {
