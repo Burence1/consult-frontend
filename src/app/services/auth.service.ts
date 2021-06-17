@@ -36,13 +36,13 @@ export class AuthService {
      console.log('Success', value);
      this.router.navigateByUrl('/login');
     })
-    // .then( user => {
-    //   this.afAuth.currentUser.then(u => u.sendEmailVerification())
-    //   .then(() => console.log('Email verification sent'))
-    //   .catch((error: any) => {
-    //     console.log(error.message);
-    //   });
-    // })
+    .then( async value => {
+      (await this.afAuth.currentUser).sendEmailVerification()
+      .then(() => console.log('Email verification sent'))
+      .catch((error: any) => {
+        console.log(error.message);
+      });
+    })
     .catch((error: any) => {
       console.log('Something went wrong: ', error);
     });
