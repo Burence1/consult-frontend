@@ -2,22 +2,10 @@
   display: flex;
 }
 
-.chatusers{
-  background-color: #2A2845;
-  color: #fff;
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.2em;
-  flex: 1;
-  order: 1;
-  padding:20px 0px 40px 30px;
-  border-right: 1px solid #222;
-}
-
 .chatfeed {
     background-color: #fff;
     background: 
-        linear-gradient(181deg, rgba(100,200,255,0.6), rgba(0, 0, 0, 0.9)),
+        linear-gradient(#F0F4F6),
         url('/assets/img/steve-johnson-hokONTrHIAQ-unsplash.jpg') center center no-repeat;;
     background-size: cover;
     font-family: "Open Sans", sans-serif;
