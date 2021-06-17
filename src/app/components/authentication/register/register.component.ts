@@ -36,9 +36,8 @@ export class RegisterComponent implements OnInit {
       this.authService.emailSignup(
         formData.value.email,
         formData.value.password,
+        formData.value.displayName,
       );
     }
   }
 }
-
-

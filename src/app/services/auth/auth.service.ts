@@ -83,7 +83,7 @@ export class AuthService {
   // tslint:disable-next-line: typedef
   logout() {
     this.afAuth.signOut().then(() => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/login']);
     });
   }
 

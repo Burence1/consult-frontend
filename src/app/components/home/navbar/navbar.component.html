@@ -21,7 +21,7 @@
 
      <div class="side">
       <mat-icon>logout</mat-icon>
-   <a class="nav-item nav-link" routerLink='logout'>Logout</a>
+   <a class="nav-item nav-link" *ngIf="(user|async)?.uid" (click)="logout()">Logout</a>
   </div>
     </div>
 
