@@ -36,6 +36,13 @@ export class AuthService {
      console.log('Success', value);
      this.router.navigateByUrl('/login');
     })
+    // .then( user => {
+    //   this.afAuth.currentUser.then(u => u.sendEmailVerification())
+    //   .then(() => console.log('Email verification sent'))
+    //   .catch((error: any) => {
+    //     console.log(error.message);
+    //   });
+    // })
     .catch((error: any) => {
       console.log('Something went wrong: ', error);
     });
@@ -52,6 +59,13 @@ export class AuthService {
     .catch((error: any) => {
       console.log('Something went wrong: ', error);
     });
+  }
+
+  // tslint:disable-next-line: typedef
+  resetPassword(email) {
+    return firebase.auth().sendPasswordResetEmail(email)
+    .then(() => console.log('We have sent you a password reset link'))
+    .catch(error => console.log(error.message));
   }
 
   // tslint:disable-next-line: typedef
