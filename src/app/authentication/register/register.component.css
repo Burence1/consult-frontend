@@ -1,0 +1,13 @@
+.consult {
+  background: #003060;
+  height: 100vh;
+}
+
+.header {
+  color: #fff;
+}
+
+.auth-btn {
+  margin-left: auto;
+  margin-right: auto;
+}

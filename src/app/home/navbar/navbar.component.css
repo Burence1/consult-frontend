@@ -1,0 +1,13 @@
+.sidebar-sticky .nav-link{
+    color: #003060;
+}
+.side mat-icon{
+    color: #003060;  
+}
+
+.side {
+    margin-left: 10px;
+    margin-top: 3rem;
+    display: flex;
+    font-size: 1.1rem;
+}

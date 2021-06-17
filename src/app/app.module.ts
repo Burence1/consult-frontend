@@ -1,19 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
-
+import { MaterialModule } from './shared/material/material/material.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { EmailComponent } from './authentication/email/email.component';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
 import { HomePageComponent } from './home/home-page/home-page.component';
+import { NavbarComponent } from './home/navbar/navbar.component';
 
 
 const firebaseConfig = {
@@ -32,17 +30,18 @@ const firebaseConfig = {
     LoginComponent,
     RegisterComponent,
     EmailComponent,
-    HomePageComponent
+    HomePageComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
+    MaterialModule,
     BrowserAnimationsModule,
-    MatIconModule,
-    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
