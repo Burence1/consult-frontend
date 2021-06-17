@@ -1,3 +1,11 @@
+.side-nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background-color: #dbdbdb;
+    color: white;
+    width: 200px;
+}
 .jumbotron {
     background-color: #003060;
     margin-top: 2rem;
