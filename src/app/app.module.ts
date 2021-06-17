@@ -10,6 +10,12 @@ import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { EmailComponent } from './authentication/email/email.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { HomePageComponent } from './home/home-page/home-page.component';
+
+
 const firebaseConfig = {
   apiKey: 'AIzaSyB3mBUPgJ-drLGaMass8FdKRyJzToqEOa4',
   authDomain: 'userauth-3c76a.firebaseapp.com',
@@ -25,14 +31,18 @@ const firebaseConfig = {
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    EmailComponent
+    EmailComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
