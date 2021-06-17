@@ -7,6 +7,14 @@
       <h3 class="text-center">Register</h3>
       <form #formData="ngForm" (ngSubmit)="onSubmit(formData)" class="p-3 mt-3">
         <div class="mb-3">
+          <label for="email" class="form-label">Name</label> <br />
+          <mat-form-field appearance="outline">
+            <mat-label>Enter name</mat-label>
+            <input matInput placeholder="displayName" (ngModel)="(displayName)" [errorStateMatcher]="matcher" name="displayName"
+              required />
+          </mat-form-field>
+        </div>
+        <div class="mb-3">
           <label for="email" class="form-label">Email Address</label> <br />
           <mat-form-field appearance="outline">
             <mat-label>Enter your email</mat-label>

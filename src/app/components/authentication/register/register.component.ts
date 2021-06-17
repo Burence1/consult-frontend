@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit {
 
   email = new FormControl('', [Validators.required, Validators.email]);
   password: any;
+  displayName:any;
 
   matcher = new MyErrorStateMatcher();
 
