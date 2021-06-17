@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 // import { Observable } from 'rxjs/Observable';
 // import 'rxjs/add/operator/switchMap';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -42,10 +43,10 @@ export class AuthService {
 
   // tslint:disable-next-line: typedef
   googleLogin() {
-    const provider = '';
+    const provider = new firebase.auth.GoogleAuthProvider();
     return this.oAuthLogin(provider)
       .then((value: any) => {
-     console.log('Sucess', value),
+     console.log('Success', value),
      this.router.navigateByUrl('/profile');
    })
     .catch((error: any) => {
