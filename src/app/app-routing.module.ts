@@ -1,3 +1,4 @@
+import { ForgotPasswordComponent } from './components/authentication/authentication/forgot-password/forgot-password.component';
 import { ChatroomComponent } from './components/chatroom/chatroom.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -15,7 +16,7 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent },
   {path: 'home', component: HomePageComponent},
   {path: 'chatroom',component:ChatroomComponent},
-  
+  { path: 'password_reset', component:ForgotPasswordComponent}
 ];
 
 @NgModule({

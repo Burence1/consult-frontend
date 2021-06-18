@@ -1,11 +1,25 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-6 consult">
-      <h1 class="header">Consult</h1>
+      <h1>
+        <a class="navheader text" routerLink="/login" routerLinkActive="active"
+          >Consult</a
+        >
+      </h1>
     </div>
     <div class="col-6 mt-4">
       <h3 class="text-center">Register</h3>
       <form #formData="ngForm" (ngSubmit)="onSubmit(formData)" class="p-3 mt-3">
+        <!-- <div class="row">
+          <div class="col-md-6 mb-2">
+            <label for="firstName">First name</label>
+            <input ngModel #firstname="ngModel" name="firstName" type="text" class="form-control" id="firstName">
+          </div>
+          <div class="col-md-6 mb-2">
+            <label for="lastName">Last name</label>
+            <input ngModel #lastname="ngModel" name="lastName" type="text" class="form-control" id="lastName" value="">
+          </div>
+        </div> -->
         <div class="mb-3">
           <label for="email" class="form-label">Name</label> <br />
           <mat-form-field appearance="outline">
@@ -26,7 +40,9 @@
               name="email"
               required
             />
-            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+            <mat-error
+              *ngIf="email.hasError('email') && !email.hasError('required')"
+            >
               Please enter a valid email address
             </mat-error>
             <mat-error *ngIf="email.hasError('required')">
@@ -71,9 +87,7 @@
       </form>
       <div>
         <p>
-          <a mat-button routerLink="/login" id="goback"
-            >Login</a
-          >
+          <a mat-button routerLink="/email-login" id="goback">Login</a>
         </p>
       </div>
     </div>
