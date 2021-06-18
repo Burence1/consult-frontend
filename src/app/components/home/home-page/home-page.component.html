@@ -1,0 +1,43 @@
+<mat-sidenav-container>
+    <mat-sidenav class="side-nav" #sidenav mode="side" opened>
+        <h1>
+          <a class="navbar navbar-brand logo">Consult</a>
+        </h1>
+        <app-navbar></app-navbar>
+    </mat-sidenav>
+   
+  </mat-sidenav-container>
+  
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                  <div class="row">
+                      <div class="col-md-5 jumbo-text">
+                        <h1 class="display-4">Welcome, Dr. Jane!</h1>
+                        <p class="lead">Have a nice day today</p>
+                        <button mat-raised-button routerLink='/profile' color="warn">Go to profile</button>
+                      </div>
+                      <div class="col-md-6">
+                          <img src="assets/images/team-doctors.jpg" alt="doctors illustration" class="jumbo-img">
+                      </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
+            <mat-card class="inline-calendar-card">
+                <mat-calendar (selectedChange)="selected = $event"></mat-calendar>
+              </mat-card>
+              <p>Selected date: {{selected|date}}</p>
+        </div>
+        <div class="highlights col-md-4">
+            <h3>Today's Highlights:</h3>
+        </div>
+    </div>
+</div>

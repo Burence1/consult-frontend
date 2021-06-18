@@ -1,0 +1,95 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6 consult">
+      <h1>
+        <a class="navheader text" routerLink="/login" routerLinkActive="active"
+          >Consult</a
+        >
+      </h1>
+    </div>
+    <div class="col-6 mt-4">
+      <h3 class="text-center">Register</h3>
+      <form #formData="ngForm" (ngSubmit)="onSubmit(formData)" class="p-3 mt-3">
+        <!-- <div class="row">
+          <div class="col-md-6 mb-2">
+            <label for="firstName">First name</label>
+            <input ngModel #firstname="ngModel" name="firstName" type="text" class="form-control" id="firstName">
+          </div>
+          <div class="col-md-6 mb-2">
+            <label for="lastName">Last name</label>
+            <input ngModel #lastname="ngModel" name="lastName" type="text" class="form-control" id="lastName" value="">
+          </div>
+        </div> -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Name</label> <br />
+          <mat-form-field appearance="outline">
+            <mat-label>Enter name</mat-label>
+            <input matInput placeholder="displayName" (ngModel)="(displayName)" [errorStateMatcher]="matcher" name="displayName"
+              required />
+          </mat-form-field>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email Address</label> <br />
+          <mat-form-field appearance="outline">
+            <mat-label>Enter your email</mat-label>
+            <input
+              matInput
+              placeholder="janedoe@gmail.com"
+              (ngModel)="(email)"
+              [errorStateMatcher]="matcher"
+              name="email"
+              required
+            />
+            <mat-error
+              *ngIf="email.hasError('email') && !email.hasError('required')"
+            >
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="email.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="mb-3">
+          <label for="RegisterPassword" class="form-label">Password</label>
+          <br />
+          <mat-form-field appearance="outline">
+            <mat-label>Enter your password</mat-label>
+            <input
+              matInput
+              [type]="hide ? 'password' : 'text'"
+              placeholder="**********"
+              (ngModel)="(password)"
+              name="password"
+              required
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!formData.valid"
+          class="auth-btn text-center"
+        >
+          Sign Up <i class="fas fa-sign-in-alt"></i>
+        </button>
+      </form>
+      <div>
+        <p>
+          <a mat-button routerLink="/email-login" id="goback">Login</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
