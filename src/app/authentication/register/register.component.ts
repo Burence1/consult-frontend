@@ -35,10 +35,9 @@ export class RegisterComponent implements OnInit {
       console.log(formData.value);
       this.authService.emailSignup(
         formData.value.email,
-        formData.value.password,
+        formData.value.password
       );
     }
   }
 }
-
 

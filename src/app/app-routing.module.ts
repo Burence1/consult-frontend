@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { EmailComponent } from './authentication/email/email.component';
+import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
 import { ProfileComponent } from './User/profile/profile.component';
 import { HomePageComponent } from './home/home-page/home-page.component';
 
@@ -12,8 +13,9 @@ const routes: Routes = [
   { path: 'email-login', component: EmailComponent },
   { path: 'signup', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
-  {path: 'home', component: HomePageComponent},
-  
+  { path: 'password_reset', component: ForgotPasswordComponent },
+  { path: 'home', component: HomePageComponent},
+
 ];
 
 @NgModule({
