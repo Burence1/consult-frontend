@@ -8,9 +8,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 
-app-chat-form{
-    width: 100%;
-    display: flex;
-    white-space: nowrap;
-    overflow: none;
-}
+

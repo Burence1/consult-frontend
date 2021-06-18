@@ -11,7 +11,7 @@
 }
 
 .isOwnMessageContainer{
-    background-color: #01579B;
+    background-color: #003060;
 }
 
 .messageData{
@@ -49,6 +49,6 @@
 }
 
 .isOwnMessageContent{
-    background-color: #E3F2FD;
-    color: #01579B;
+    background-color: #fff;
+    color: black;
 }

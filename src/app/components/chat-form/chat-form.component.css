@@ -1,7 +1,6 @@
 .chatInput{
     flex: 10;
     font-size: 1.3em;
-    font-family: 'Open Sans', sans-serif;
     background-color: #eee;
     color: #000;
     transition: 0.1s ease-out;

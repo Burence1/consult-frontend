@@ -5,7 +5,6 @@
 .sidebarWrapper{
     color: #fff;
     display: flex;
-    font-family: "Open Sans", sans-serif;
     font-size: 1.2em;
     flex: 1;
     order: 1;
@@ -19,7 +18,6 @@
         linear-gradient(#F0F4F6),
         url('/assets/img/steve-johnson-hokONTrHIAQ-unsplash.jpg') center center no-repeat;;
     background-size: cover;
-    font-family: "Open Sans", sans-serif;
     font-size: 1.2em;
     flex: 5;
     order: 2;
@@ -37,9 +35,20 @@
 #scroll-style::-webkit-scrollbar-track
 {
 	border-radius: 10px;
-	background-color: #F5F5F5;
+	background-color: gray;
 }
 
 app-navbar {
     width: 100%;
+}
+
+*{
+    height: 100%;
+}
+
+app-chat-form{
+    width: 100%;
+    display: flex;
+    white-space: nowrap;
+    overflow: none;
 }
