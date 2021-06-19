@@ -28,6 +28,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { MatCarouselModule } from 'ng-mat-carousel';
 
 
+import { TasksComponent } from './tasks/tasks.component';
+import { TaskDialogComponent } from './tasks/task-dialog/task-dialog.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { NewTaskComponent } from './tasks/new-task/new-task.component';
 
 
 @NgModule({
@@ -45,6 +49,9 @@ import { MatCarouselModule } from 'ng-mat-carousel';
     MessageComponent,
     ChatUsersComponent,
     UserItemsComponent,
+    TasksComponent,
+    NewTaskComponent,
+    TaskDialogComponent
 
   ],
   imports: [
@@ -61,6 +68,7 @@ import { MatCarouselModule } from 'ng-mat-carousel';
     MatCarouselModule.forRoot(),
     ToastrModule.forRoot(),
     
+    DragDropModule
   ],
   providers: [MatDatepicker, ],
   bootstrap: [AppComponent]
