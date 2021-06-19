@@ -4,7 +4,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
-
 // import 'rxjs/add/operator/switchMap';
 import { AngularFireAuth } from '@angular/fire/auth';
 
@@ -58,7 +57,7 @@ export class AuthService {
     });
   }
 
-  // move data ton real-time database
+  // move data to real-time database
   setUserData(email: string, displayName: string, status: string, currentId: any): void {
     const path = `users/${currentId}`;
     const data = {
@@ -94,7 +93,9 @@ export class AuthService {
   // tslint:disable-next-line: typedef
   logout() {
     this.afAuth.signOut().then(() => {
+      console.log('signOut successful');
       this.router.navigate(['/login']);
+      return 'You have been signed out.';
     });
   }
 
