@@ -24,6 +24,10 @@ import { MessageComponent } from './components/message/message.component';
 import { environment } from 'src/environments/environment';
 import { ChatUsersComponent } from './components/chat-users/chat-users.component';
 import { UserItemsComponent } from './components/user-items/user-items.component';
+import { TasksComponent } from './tasks/tasks.component';
+import { TaskDialogComponent } from './tasks/task-dialog/task-dialog.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { NewTaskComponent } from './tasks/new-task/new-task.component';
 
 
 @NgModule({
@@ -41,6 +45,9 @@ import { UserItemsComponent } from './components/user-items/user-items.component
     MessageComponent,
     ChatUsersComponent,
     UserItemsComponent,
+    TasksComponent,
+    NewTaskComponent,
+    TaskDialogComponent
 
   ],
   imports: [
@@ -54,6 +61,7 @@ import { UserItemsComponent } from './components/user-items/user-items.component
     MaterialModule,
     BrowserAnimationsModule,
     MatBadgeModule,
+    DragDropModule
   ],
   providers: [MatDatepicker, ],
   bootstrap: [AppComponent]
