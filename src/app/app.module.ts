@@ -24,6 +24,10 @@ import { MessageComponent } from './components/message/message.component';
 import { environment } from 'src/environments/environment';
 import { ChatUsersComponent } from './components/chat-users/chat-users.component';
 import { UserItemsComponent } from './components/user-items/user-items.component';
+import { ToastrModule } from 'ngx-toastr';
+import { MatCarouselModule } from 'ng-mat-carousel';
+
+
 
 
 @NgModule({
@@ -54,6 +58,9 @@ import { UserItemsComponent } from './components/user-items/user-items.component
     MaterialModule,
     BrowserAnimationsModule,
     MatBadgeModule,
+    MatCarouselModule.forRoot(),
+    ToastrModule.forRoot(),
+    
   ],
   providers: [MatDatepicker, ],
   bootstrap: [AppComponent]
