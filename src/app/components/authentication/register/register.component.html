@@ -20,6 +20,17 @@
             <input ngModel #lastname="ngModel" name="lastName" type="text" class="form-control" id="lastName" value="">
           </div>
         </div> -->
+<<<<<<< HEAD:src/app/authentication/register/register.component.html
+=======
+        <div class="mb-3">
+          <label for="email" class="form-label">Name</label> <br />
+          <mat-form-field appearance="outline">
+            <mat-label>Enter name</mat-label>
+            <input matInput placeholder="displayName" (ngModel)="(displayName)" [errorStateMatcher]="matcher" name="displayName"
+              required />
+          </mat-form-field>
+        </div>
+>>>>>>> 080b960c82d9533da5b482495964d1c072f2ab49:src/app/components/authentication/register/register.component.html
         <div class="mb-3">
           <label for="email" class="form-label">Email Address</label> <br />
           <mat-form-field appearance="outline">
@@ -79,7 +90,11 @@
       </form>
       <div>
         <p>
+<<<<<<< HEAD:src/app/authentication/register/register.component.html
           <a mat-button routerLink="/login" id="goback">Login</a>
+=======
+          <a mat-button routerLink="/email-login" id="goback">Login</a>
+>>>>>>> 080b960c82d9533da5b482495964d1c072f2ab49:src/app/components/authentication/register/register.component.html
         </p>
       </div>
     </div>

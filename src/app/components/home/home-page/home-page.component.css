@@ -1,0 +1,31 @@
+.side-nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background-color: #dbdbdb;
+    color: white;
+    width: 200px;
+}
+.jumbotron {
+    background-color: #003060;
+    margin-top: 2rem;
+    height: 300px;
+    color: white;
+}
+.jumbo-img {
+    max-width: 300px;
+    max-height: 250px;
+   margin-top: 20px;
+}
+.jumbo-text{
+    margin-left: 10px;
+    margin-top: 3rem;
+}
+.inline-calendar-card{
+    width: 450px;
+    margin-left: 7rem;
+}
+.highlights{
+    margin-top: 1rem;
+   
+}
