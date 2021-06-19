@@ -1,4 +1,4 @@
-import { ForgotPasswordComponent } from './components/authentication/authentication/forgot-password/forgot-password.component';
+import { ForgotPasswordComponent } from './components/authentication/forgot-password/forgot-password.component';
 import { ChatroomComponent } from './components/chatroom/chatroom.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';

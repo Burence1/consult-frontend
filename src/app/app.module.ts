@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/authentication/login/login.component';
 import { RegisterComponent } from './components/authentication/register/register.component';
 import { EmailComponent } from './components/authentication/email/email.component';
-import { ForgotPasswordComponent } from './components/authentication/authentication/forgot-password/forgot-password.component';
+import { ForgotPasswordComponent } from './components/authentication/forgot-password/forgot-password.component';
 
 import { HomePageComponent } from './components/home/home-page/home-page.component';
 import { NavbarComponent } from './components/home/navbar/navbar.component';

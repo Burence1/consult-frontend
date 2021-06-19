@@ -6,6 +6,7 @@ import 'firebase/auth';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 // import 'rxjs/add/operator/switchMap';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,9 @@ export class AuthService {
 
   constructor(
     private afAuth: AngularFireAuth,
-    private router: Router, private db: AngularFireDatabase) {
+    private router: Router,
+    private db: AngularFireDatabase,
+    private toastr: ToastrService) {
     this.user = afAuth.authState;
     }
 
@@ -34,10 +37,12 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then((value: any) => {
         console.log('Nice, it worked!');
+        this.toastr.success('Welcome to Consult!');
         this.router.navigateByUrl('/home');
       })
       .catch((err: { message: any }) => {
         console.log('Something went wrong: ', err.message);
+        this.toastr.error('Incorrect email or password');
       });
   }
 
@@ -86,9 +91,16 @@ export class AuthService {
     return firebase
       .auth()
       .sendPasswordResetEmail(email)
-      .then(() => console.log('We have sent you a password reset link'))
-      .catch((error) => console.log(error.message));
-  }
+      .then((value: any) => {
+        console.log('We have sent you a password reset link');
+        this.toastr.success('Password reset link sent!');
+        this.router.navigateByUrl('/login');
+      })
+      .catch((err: { message: any }) => {
+        console.log('Something went wrong: ', err.message);
+        this.toastr.error('Please check your email and try again');
+      });
+    }
 
   // tslint:disable-next-line: typedef
   logout() {

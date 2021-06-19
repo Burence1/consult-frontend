@@ -18,8 +18,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   resetPassword(email) {
-    this.auth.resetPassword(this.email)
-    .then(() => this.router.navigate(['/login']));
+    this.auth.resetPassword(this.email);
   }
 
 }

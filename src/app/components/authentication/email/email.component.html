@@ -171,7 +171,6 @@
                       type="submit"
                       [disabled]="!formData.valid"
                       class="auth-btn"
-                      (click)="showSuccess()"
                     >
                       Sign In <i class="fas fa-sign-in-alt"></i>
                     </button>
@@ -181,7 +180,7 @@
                       <a
                         mat-button
                         class="header"
-                        routerLink=""
+                        routerLink="/password_reset"
                         routerLinkActive="active"
                         >Forgot Password?</a
                       >
