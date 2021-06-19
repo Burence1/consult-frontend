@@ -59,6 +59,7 @@ export class AuthService {
     })
     .catch((error: any) => {
       console.log('Something went wrong: ', error);
+      this.toastr.error(error);
     });
   }
 
@@ -80,9 +81,11 @@ export class AuthService {
     return this.oAuthLogin(provider)
       .then((value: any) => {
         console.log('Success', value), this.router.navigateByUrl('/home');
+        this.toastr.success('Welcome to Consult!');
       })
       .catch((error: any) => {
         console.log('Something went wrong: ', error);
+        this.toastr.error('Incorrect email or password');
       });
   }
 
@@ -106,6 +109,7 @@ export class AuthService {
   logout() {
     this.afAuth.signOut().then(() => {
       console.log('signOut successful');
+      this.toastr.success('You have been logout. See you next time.');
       this.router.navigate(['/login']);
       return 'You have been signed out.';
     });
