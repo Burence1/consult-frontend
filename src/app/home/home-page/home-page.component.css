@@ -11,6 +11,8 @@
     margin-top: 2rem;
     height: 300px;
     color: white;
+    border: 10px solid black;
+    border-radius: 10px;
 }
 .jumbo-img {
     max-width: 300px;

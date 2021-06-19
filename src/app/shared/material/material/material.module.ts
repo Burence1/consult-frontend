@@ -7,6 +7,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCarouselModule } from 'ng-mat-carousel';
+
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatToolbarModule } from '@angular/material/toolbar'
 
@@ -19,6 +21,7 @@ const material = [
   MatDatepickerModule,
   MatNativeDateModule,
   MatSidenavModule,
+ 
   MatDialogModule,
   MatToolbarModule
 ];
