@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
 
   email = new FormControl('', [Validators.required, Validators.email]);
   password: any;
-  displayName:any;
+  displayName: any;
 
   matcher = new MyErrorStateMatcher();
 
@@ -36,17 +36,9 @@ export class RegisterComponent implements OnInit {
       console.log(formData.value);
       this.authService.emailSignup(
         formData.value.email,
-<<<<<<< HEAD:src/app/authentication/register/register.component.ts
-        formData.value.password
-=======
         formData.value.password,
         formData.value.displayName,
->>>>>>> 080b960c82d9533da5b482495964d1c072f2ab49:src/app/components/authentication/register/register.component.ts
       );
     }
   }
 }
-<<<<<<< HEAD:src/app/authentication/register/register.component.ts
-
-=======
->>>>>>> 080b960c82d9533da5b482495964d1c072f2ab49:src/app/components/authentication/register/register.component.ts

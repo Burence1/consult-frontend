@@ -14,7 +14,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class AuthService {
   user: any;
   private authState: any;
-  currentId: any
+  currentId: any;
 
   // value: any;
 
@@ -24,6 +24,7 @@ export class AuthService {
     this.user = afAuth.authState;
     }
 
+  // tslint:disable-next-line: typedef
   authUser() {
     return this.user;
   }
@@ -42,28 +43,28 @@ export class AuthService {
   }
 
   // tslint:disable-next-line: typedef
-  emailSignup(email: string, password: string,displayName:string) {
+  emailSignup(email: string, password: string, displayName: string) {
     this.afAuth.createUserWithEmailAndPassword(email, password)
     .then((user: any) => {
       this.authState = user;
-     console.log('Success', user);
-      const currentId = this.authState.user.uid
+      console.log('Success', user);
+      const currentId = this.authState.user.uid;
       const status = 'online';
       this.setUserData(email, displayName, status, currentId);
-     this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('/login');
     })
     .catch((error: any) => {
       console.log('Something went wrong: ', error);
     });
   }
 
-  //move data ton real-time database
+  // move data ton real-time database
   setUserData(email: string, displayName: string, status: string, currentId: any): void {
     const path = `users/${currentId}`;
     const data = {
-      email: email,
-      displayName: displayName,
-      status: status
+      email,
+      displayName,
+      status
     };
     this.db.object(path).update(data)
       .catch(error => console.log(error));
