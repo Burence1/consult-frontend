@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './../../services/auth.service';
+import { AuthService } from '../../../services/auth/auth.service';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 
@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit {
 
   email = new FormControl('', [Validators.required, Validators.email]);
   password: any;
+  displayName:any;
 
   matcher = new MyErrorStateMatcher();
 
@@ -36,9 +37,8 @@ export class RegisterComponent implements OnInit {
       this.authService.emailSignup(
         formData.value.email,
         formData.value.password,
+        formData.value.displayName,
       );
     }
   }
 }
-
-
