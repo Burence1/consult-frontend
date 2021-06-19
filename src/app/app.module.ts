@@ -15,8 +15,6 @@ import { ForgotPasswordComponent } from './components/authentication/authenticat
 
 import { HomePageComponent } from './components/home/home-page/home-page.component';
 import { NavbarComponent } from './components/home/navbar/navbar.component';
-import { MatBadge, MatBadgeModule } from '@angular/material/badge';
-import { MatDatepicker } from '@angular/material/datepicker';
 import { ChatroomComponent } from './components/chatroom/chatroom.component';
 import { ChatFormComponent } from './components/chat-form/chat-form.component';
 import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
@@ -24,6 +22,8 @@ import { MessageComponent } from './components/message/message.component';
 import { environment } from 'src/environments/environment';
 import { ChatUsersComponent } from './components/chat-users/chat-users.component';
 import { UserItemsComponent } from './components/user-items/user-items.component';
+import { ToastrModule } from 'ngx-toastr';
+
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskDialogComponent } from './tasks/task-dialog/task-dialog.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -60,10 +60,10 @@ import { NewTaskComponent } from './tasks/new-task/new-task.component';
     AngularFireDatabaseModule,
     MaterialModule,
     BrowserAnimationsModule,
-    MatBadgeModule,
-    DragDropModule
+    ToastrModule.forRoot(),
+    DragDropModule,
   ],
-  providers: [MatDatepicker, ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

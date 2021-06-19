@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -7,12 +8,17 @@ import { AuthService } from '../../../services/auth/auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private toastr: ToastrService) {}
 
   ngOnInit(): void {}
 
   // tslint:disable-next-line: typedef
   loginGoogle() {
     this.authService.googleLogin();
+  }
+
+  // tslint:disable-next-line: typedef
+  showSuccess() {
+    this.toastr.success('Hello world!', 'Toastr fun!');
   }
 }
