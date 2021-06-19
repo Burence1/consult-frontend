@@ -1,3 +1,43 @@
+
 <p>Welcome to your profile!</p>
 
 <button mat-raised-button color="primary" (click)="signOut()">Sign Out</button>
+
+<div class="user-info">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-xs-12 col-md-10 offset-md-1">
+          <img [src]="profile.image" class="user-img" />
+          <h4>Name: {{ profile.displayName }}</h4>
+          <p>Email: {{ profile.email }}</p>
+          <p>{{ profile.status }}</p>
+          <p>Department: {{ profile.department }}</p>
+          <p>Position: {{ profile.position }}</p>
+          <p>Contact: {{ profile.contact }}</p>
+          
+        </div>
+
+        <form (ngSubmit)='updateProfile()' #quoteForm='ngForm' id="form">
+          <div class="form-group">
+            <label for="department">Name</label><br>
+            <input type="text" class="form-control" id="name" placeholder="Change your name" [(ngModel)]="displayNameInput" name="name" required >
+        </div>
+          <div class="form-group">
+              <label for="department">Department</label><br>
+              <input type="text" class="form-control" id="department" placeholder="Enter your Department" [(ngModel)]="departmentInput" name="department" required >
+          </div>
+          <div class="form-group">
+            <label for="department">Position</label><br>
+            <input type="text" class="form-control" id="position" placeholder="Enter your Position" [(ngModel)]="positionInput" name="position" required >
+          </div>
+          <div class="form-group">
+            <label for="department">Contact</label><br>
+            <input type="text" class="form-control" id="contact" placeholder="Contact" [(ngModel)]="contactInput" name="contact" required >
+          </div>
+          
+          <button>Submit</button>
+      </form>
+
+      </div>
+    </div>

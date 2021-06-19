@@ -24,6 +24,8 @@ import { MessageComponent } from './components/message/message.component';
 import { environment } from 'src/environments/environment';
 import { ChatUsersComponent } from './components/chat-users/chat-users.component';
 import { UserItemsComponent } from './components/user-items/user-items.component';
+import { ProfileComponent } from './components/profile/profile.component';
+
 
 
 @NgModule({
@@ -41,6 +43,7 @@ import { UserItemsComponent } from './components/user-items/user-items.component
     MessageComponent,
     ChatUsersComponent,
     UserItemsComponent,
+    ProfileComponent
 
   ],
   imports: [
