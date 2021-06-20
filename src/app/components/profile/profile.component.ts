@@ -11,7 +11,9 @@ import { ProfileService } from 'src/app/services/profile.service';
 })
 export class ProfileComponent implements OnInit {
 
-  
+  isHovering: boolean;
+
+  files: File[] = [];
   route: any;
   profile: Profile;
   currentId: string;
@@ -20,6 +22,12 @@ export class ProfileComponent implements OnInit {
   positionInput: string;
   contactInput: number;
   displayNameInput: string;
+  imageInput: string
+  interest1Input: string
+  interest2Input: string
+  interest3Input: string
+
+  showForm: boolean=false
 
   constructor(public authService: AuthService, private profileService: ProfileService) {
     this.findProfiles();
@@ -40,6 +48,7 @@ export class ProfileComponent implements OnInit {
         console.error(error);
       }
     );
+    
   }
 
   findProfiles() {
@@ -51,6 +60,10 @@ export class ProfileComponent implements OnInit {
     this.profile.position = this.positionInput;
     this.profile.contact = this.contactInput;
     this.profile.displayName = this.displayNameInput;
+    this.profile.image = this.imageInput;
+    this.profile.interest1 = this.interest1Input
+    this.profile.interest2 = this.interest2Input
+    this.profile.interest3 = this.interest3Input
     this.profileService.update(this.currentId, this.profile);
   }
 
@@ -65,9 +78,26 @@ export class ProfileComponent implements OnInit {
     //   }
     // );
   }
+  toggleForm(){
+    this.showForm=!this.showForm
+  }
+
+  hideForm(){
+    this.showForm=false
+  }
 
   // tslint:disable-next-line: typedef
   signOut() {
     this.authService.logout();
+  }
+
+  toggleHover(event: boolean) {
+    this.isHovering = event;
+  }
+
+  onDrop(files: FileList) {
+    for (let i = 0; i < files.length; i++) {
+      this.files.push(files.item(i));
+    }
   }
 }

@@ -3,8 +3,11 @@ export class Profile {
     displayName: string;
     email: string;
     status: string;
-    image?: string;
+    image?: any;
     department?: string;
     position?: string;
     contact?: number;
+    interest1?: string;
+    interest2?: string;
+    interest3?: string;
 }

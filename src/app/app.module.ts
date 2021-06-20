@@ -25,6 +25,7 @@ import { environment } from 'src/environments/environment';
 import { ChatUsersComponent } from './components/chat-users/chat-users.component';
 import { UserItemsComponent } from './components/user-items/user-items.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { DropzoneDirective } from './dropzone.directive';
 
 
 
@@ -43,7 +44,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     MessageComponent,
     ChatUsersComponent,
     UserItemsComponent,
-    ProfileComponent
+    ProfileComponent,
+    DropzoneDirective
 
   ],
   imports: [
