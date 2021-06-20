@@ -74,7 +74,7 @@
             </div>
             <div class="form-group">
               <label for="profile_picture">Profile Picture</label><br>
-              <input type="file" id="myFile" name="filename" [(ngModel)]="imageInput" name="image">
+              <input type="file" id="myFile" name="filename" [(ngModel)]="imageInput" name="image" (change)="showPreview($event)">
               
           </div>
               <div class="form-group">

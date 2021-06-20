@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Profile } from 'src/app/profile';
 import { User } from 'src/app/user';
 import { ProfileService } from 'src/app/services/profile.service';
+import { FileServiceService } from 'src/app/services/files/file-service.service';
+import { AngularFireStorage } from "@angular/fire/storage";
+import { finalize } from "rxjs/operators";
 
 @Component({
   selector: 'app-profile',
@@ -11,9 +14,11 @@ import { ProfileService } from 'src/app/services/profile.service';
 })
 export class ProfileComponent implements OnInit {
 
-  isHovering: boolean;
+  selectedImage: any = null;
+  url:string;
+  id:string;
+  file:string;
 
-  files: File[] = [];
   route: any;
   profile: Profile;
   currentId: string;
@@ -29,7 +34,7 @@ export class ProfileComponent implements OnInit {
 
   showForm: boolean=false
 
-  constructor(public authService: AuthService, private profileService: ProfileService) {
+  constructor(public authService: AuthService, private profileService: ProfileService, @Inject(AngularFireStorage) private storage: AngularFireStorage, @Inject(FileServiceService) private fileService: FileServiceService) {
     this.findProfiles();
     this.authService.user.subscribe(
       (user) => {
@@ -64,7 +69,18 @@ export class ProfileComponent implements OnInit {
     this.profile.interest1 = this.interest1Input
     this.profile.interest2 = this.interest2Input
     this.profile.interest3 = this.interest3Input
-    this.profileService.update(this.currentId, this.profile);
+
+    var name = this.selectedImage.name;
+    const path = `profiles/${this.currentId}/${name}`
+    const fileRef = this.storage.ref(path);
+    this.storage.upload(path, this.selectedImage).snapshotChanges().pipe(
+      finalize(() => {
+        fileRef.getDownloadURL().subscribe((url) => {
+          this.profile.image = url;
+          this.profileService.update(this.currentId, this.profile);
+        })
+      })
+    ).subscribe();
   }
 
   // profile: Profile;
@@ -77,12 +93,14 @@ export class ProfileComponent implements OnInit {
     //     this.profile = data.profile;
     //   }
     // );
+    this.fileService.getImageDetailList();
   }
+  
   toggleForm(){
     this.showForm=!this.showForm
   }
-
   hideForm(){
+
     this.showForm=false
   }
 
@@ -91,13 +109,11 @@ export class ProfileComponent implements OnInit {
     this.authService.logout();
   }
 
-  toggleHover(event: boolean) {
-    this.isHovering = event;
+  showPreview(event: any) {
+    this.selectedImage = event.target.files[0];
   }
 
-  onDrop(files: FileList) {
-    for (let i = 0; i < files.length; i++) {
-      this.files.push(files.item(i));
-    }
+  view(){
+    this.fileService.getImage(this.file);
   }
 }
