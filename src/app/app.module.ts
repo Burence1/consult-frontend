@@ -28,6 +28,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { TaskDialogComponent } from './tasks/task-dialog/task-dialog.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NewTaskComponent } from './tasks/new-task/new-task.component';
+import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { NewTaskComponent } from './tasks/new-task/new-task.component';
     UserItemsComponent,
     TasksComponent,
     NewTaskComponent,
-    TaskDialogComponent
+    TaskDialogComponent,
+    NotFoundComponent
 
   ],
   imports: [
