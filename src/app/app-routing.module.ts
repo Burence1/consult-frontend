@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'password_reset', component: ForgotPasswordComponent },
   { path: 'tasks', component: TasksComponent },
   { path: '**', component: NotFoundComponent },
+
 ];
 
 @NgModule({
