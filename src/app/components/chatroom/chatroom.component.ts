@@ -19,6 +19,7 @@ export class ChatroomComponent implements OnInit, AfterViewChecked {
       = this.feedScroll.nativeElement.scrollHeight;
   }
 
+  // tslint:disable-next-line: typedef
   ngAfterViewChecked() {
     this.scrollToBottom();
   }

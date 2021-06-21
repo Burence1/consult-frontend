@@ -8,9 +8,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCarouselModule } from 'ng-mat-carousel';
+import { MatBadge, MatBadgeModule } from '@angular/material/badge';
 
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 const material = [
   MatButtonModule,
@@ -21,9 +22,10 @@ const material = [
   MatDatepickerModule,
   MatNativeDateModule,
   MatSidenavModule,
- 
+  MatCarouselModule.forRoot(),
   MatDialogModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatBadgeModule,
 ];
 
 @NgModule({
