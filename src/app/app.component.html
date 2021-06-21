@@ -1,1 +1,27 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+    <mat-sidenav class="side-nav" #sidenav mode="side" [(opened)]='opened'>
+    
+        <app-navbar></app-navbar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar class="toolbar">
+        <div class="d-flex">
+          <p><button mat-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button></p>
+          <p>Consult</p>
+        </div>
+        <div class="search">
+  
+        </div>
+      <div>
+        <ul class="d-flex">
+          <a routerLink="/" class="nav-link">Home</a>
+          <a routerLink='tasks' class="nav-link">Tasks</a>
+          <a routerLink="login" class="nav-link">Profile</a>
+          <a class="nav-link" routerLink="signup">Signup</a>
+        </ul>
+      </div>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+   
+  </mat-sidenav-container>
