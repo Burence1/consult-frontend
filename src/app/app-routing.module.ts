@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './components/authentication/forgot-password/forgot-password.component';
 import { ChatroomComponent } from './components/chatroom/chatroom.component';
 import { NgModule } from '@angular/core';
@@ -25,7 +26,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

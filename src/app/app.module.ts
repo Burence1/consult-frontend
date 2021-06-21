@@ -22,6 +22,9 @@ import { MessageComponent } from './components/message/message.component';
 import { environment } from 'src/environments/environment';
 import { ChatUsersComponent } from './components/chat-users/chat-users.component';
 import { UserItemsComponent } from './components/user-items/user-items.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { DropzoneDirective } from './dropzone.directive';
+
 import { ToastrModule } from 'ngx-toastr';
 
 import { TasksComponent } from './tasks/tasks.component';
@@ -46,6 +49,8 @@ import { NotFoundComponent } from './components/error-handling/not-found/not-fou
     MessageComponent,
     ChatUsersComponent,
     UserItemsComponent,
+    ProfileComponent,
+    DropzoneDirective,
     TasksComponent,
     NewTaskComponent,
     TaskDialogComponent,
@@ -63,6 +68,7 @@ import { NotFoundComponent } from './components/error-handling/not-found/not-fou
     MaterialModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    
     DragDropModule,
   ],
   providers: [],

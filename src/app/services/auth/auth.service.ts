@@ -6,13 +6,14 @@ import 'firebase/auth';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 // import 'rxjs/add/operator/switchMap';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  user: any;
+  user: Observable<firebase.User>;
   private authState: any;
   currentId: any;
 
@@ -79,8 +80,11 @@ export class AuthService {
   googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider();
     return this.oAuthLogin(provider)
-      .then((value: any) => {
+      .then((value: firebase.auth.UserCredential) => {
         console.log('Success', value), this.router.navigateByUrl('/home');
+        const currentId = value.user.uid;
+        const status = 'online';
+        this.setUserData(value.user.email, value.user.displayName, status, currentId);
         this.toastr.success('Welcome to Consult!');
       })
       .catch((error: any) => {
