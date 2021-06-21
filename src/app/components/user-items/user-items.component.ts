@@ -1,5 +1,5 @@
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { User } from 'src/app/classes/user/user';
 
 

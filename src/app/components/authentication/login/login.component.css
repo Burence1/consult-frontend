@@ -1,15 +1,14 @@
-body {
-    background: #E2E4E6;
-    padding-top: 4em;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
-.form-container {
-    background: white;
-    padding: 3.5em;
-    width: 500px;
-    position: fixed;
-    left: 45%;
-    margin-left: -250px;
+.container-fluid{
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    background-color: #003060;
+    background-repeat: no-repeat;
+    background: linear-gradient(-90deg, #007dfa, #783ce7, #003060, #3477b9);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
 }
 
 button {
@@ -18,26 +17,38 @@ button {
     cursor: pointer;
     margin-bottom: 15px;
     font-size: 1.3em;
+    font-family: 'Roboto', sans-serif;
+    text-shadow: 0  0.04em 0.04em #003060;
+    background-color: white;
+    transition: all 0.15s;
+    border-radius: 10px;
 }
 
+
+
 .google {
-    border: 1px solid #95989A;
-    background: #fff;
+    background: #ffffff;
     background-size: 25px;
+}
+.google:hover{
+    text-shadow: 0 0 2em rgba(255,255,255,1);
+    color: white;
+    border-color: white;
+    background: #003060;
 }
 
 .email {
-    background: #ECECEC;
+    background: #003060;
     background-size: 25px;
+    color: white;
+}
+.email:hover{
+    text-shadow: 0 0 2em rgb(67, 105, 233);
+    color: #003060;
+    border-color: white;
+    background: #ffffff;
 }
 
-.create-account-txt {
-    text-align: center;
-    display: block;
-    margin: 15px 0;
-    color: black;
-    text-decoration: none;
-}
 
 .auth-btn {
     background: #3B8598;
@@ -53,3 +64,97 @@ input.input-txt {
     margin-bottom: 1em;
 }
 
+/* new */
+
+.card0 {
+    box-shadow: 0px 4px 8px 0px #b3dcfc;
+    border-radius: 0px
+}
+
+.card2 {
+    margin: 0px 40px;
+    margin-top: 16%;
+}
+
+.logo {
+    width: 200px;
+    height: 100px;
+    margin-top: 20px;
+    margin-left: 35px
+}
+
+.image {
+    width: 360px;
+    height: 300px;
+}
+
+.border-line {
+    border-right: 1px solid #EEEEEE
+}
+.line {
+    height: 1px;
+    width: 25%;
+    background-color: #E0E0E0;
+    margin-top: 10px
+}
+
+.welcome {
+    width: 50%;
+    font-size: 30px;
+    font-weight: 700;
+    font-family: Comfortaa;
+    color: #003060;
+}
+
+.or {
+    margin: 3%;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 700;
+    font-family: Comfortaa;
+    color: #003060;
+}
+.reg{
+    color: #003060;
+}
+.text-sm {
+    font-size: 14px !important
+}
+
+.bg-blue {
+    color: #fff;
+    background-color: #003060
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@media screen and (max-width: 991px) {
+    .logo {
+        margin-left: 0px
+    }
+
+    .image {
+        width: 300px;
+        height: 220px
+    }
+
+    .border-line {
+        border-right: none
+    }
+
+    .card2 {
+        border-top: 1px solid #EEEEEE !important;
+        margin: 0px 15px
+    }
+}
