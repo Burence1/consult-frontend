@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthService } from '../auth/auth.service';
 import firebase from 'firebase/app';
-import 'firebase/auth'
+import 'firebase/auth';
 import { Chatmessage } from 'src/app/classes/message/chatmessage';
 
 @Injectable({
@@ -18,7 +18,7 @@ export class ChatService {
   userName: any;
 
   constructor(private db: AngularFireDatabase,
-    private Auth: AngularFireAuth) {
+              private Auth: AngularFireAuth) {
     this.Auth.authState.subscribe(auth => {
       if (auth !== undefined && auth !== null) {
         this.user = auth;
@@ -26,20 +26,23 @@ export class ChatService {
       this.getUser().valueChanges().subscribe(a => {
         this.userName = a;
       });
-    })
+    });
   }
+  // tslint:disable-next-line: typedef
   getUser() {
     const userId = this.user.uid;
     const path = `/users/${userId}`;
     return this.db.object(path);
   }
 
+  // tslint:disable-next-line: typedef
   getUsers() {
     const path = `/users`;
-    console.log(path)
+    console.log(path);
     return this.db.list(path);
   }
 
+  // tslint:disable-next-line: typedef
   sendMessage(msg: string) {
     const timestamp = this.getTimeStamp();
     const email = this.user.email;
@@ -48,8 +51,8 @@ export class ChatService {
       message: msg,
       timeSent: timestamp,
       userName: this.userName.displayName,
-      email: email
-    })
+      email
+    });
   }
 
   getMessages(): AngularFireList<Chatmessage[]> {
@@ -57,6 +60,7 @@ export class ChatService {
     return this.db.list(' messages', ref => ref.orderByKey().limitToLast(25));
   }
 
+  // tslint:disable-next-line: typedef
   getTimeStamp() {
     const now = new Date();
     const date = now.getUTCFullYear() + '/' +
