@@ -6,3 +6,4 @@ export interface Task{
     dateDue: Date,
     created: Date
 }
+//add status, creator, done

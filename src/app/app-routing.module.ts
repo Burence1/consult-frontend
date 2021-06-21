@@ -8,8 +8,9 @@ import { RegisterComponent } from './components/authentication/register/register
 import { EmailComponent } from './components/authentication/email/email.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { HomePageComponent } from './components/home/home-page/home-page.component';
-import { TasksComponent } from './tasks/tasks.component';
+import { TasksComponent } from './components/tasks/tasks.component';
 import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },

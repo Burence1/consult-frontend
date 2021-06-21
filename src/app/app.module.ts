@@ -27,10 +27,10 @@ import { DropzoneDirective } from './dropzone.directive';
 
 import { ToastrModule } from 'ngx-toastr';
 
-import { TasksComponent } from './tasks/tasks.component';
-import { TaskDialogComponent } from './tasks/task-dialog/task-dialog.component';
+import { TasksComponent } from './components/tasks/tasks.component';
+import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { NewTaskComponent } from './tasks/new-task/new-task.component';
+import { NewTaskComponent } from './components/tasks/new-task/new-task.component';
 import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
 
 
@@ -54,7 +54,7 @@ import { NotFoundComponent } from './components/error-handling/not-found/not-fou
     TasksComponent,
     NewTaskComponent,
     TaskDialogComponent,
-    NotFoundComponent
+    NotFoundComponent,
 
   ],
   imports: [
