@@ -40,21 +40,8 @@ import { NotFoundComponent } from './components/error-handling/not-found/not-fou
 
 
 @NgModule({
-  declarations: [AppComponent],
-
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
-    AngularFireMessagingModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
-    AngularFireDatabaseModule,
-    MaterialModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot(),
-    DragDropModule,
+  declarations: [
+    AppComponent,
     LoginComponent,
     RegisterComponent,
     EmailComponent,
@@ -73,6 +60,21 @@ import { NotFoundComponent } from './components/error-handling/not-found/not-fou
     NewTaskComponent,
     TaskDialogComponent,
     NotFoundComponent
+  ],
+
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    AngularFireMessagingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
+    MaterialModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    DragDropModule
   ],
   providers: [MessagingService, AsyncPipe],
   bootstrap: [AppComponent]

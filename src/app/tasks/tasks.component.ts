@@ -14,20 +14,20 @@ export class TasksComponent implements OnInit {
 
   todo: Task[] = [
     {
-      title: "Call patient 23",
-      description: "In regards to her appointment",
-      owner: "Dr J",
+      title: 'Call patient 23',
+      description: 'In regards to her appointment',
+      owner: 'Dr J',
       created: new Date(),
-      dateDue: new Date(2021,10,10)
+      dateDue: new Date(2021, 10, 10)
     },
     {
-      title: "Call nurse xyz",
-      description: "medical supplies",
-      owner: "Dr J",
+      title: 'Call nurse xyz',
+      description: 'medical supplies',
+      owner: 'Dr J',
       created: new Date(),
-      dateDue: new Date(2021,10,10)
+      dateDue: new Date(2021, 10, 10)
     }
-  ]
+  ];
   inProgress: Task[] = [];
   done: Task[] = [];
 
@@ -60,6 +60,6 @@ export class TasksComponent implements OnInit {
         task: {},
       },
     });
-    dialogRef.afterClosed().subscribe((result: TaskDialogResult) => this.todo.push(result.task))
+    dialogRef.afterClosed().subscribe((result: TaskDialogResult) => this.todo.push(result.task));
   }
 }
