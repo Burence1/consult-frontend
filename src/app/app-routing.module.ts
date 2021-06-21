@@ -8,17 +8,20 @@ import { EmailComponent } from './components/authentication/email/email.componen
 import { ProfileComponent } from './components/profile/profile.component';
 import { HomePageComponent } from './components/home/home-page/home-page.component';
 import { TasksComponent } from './tasks/tasks.component';
+import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  {path: 'login', component: LoginComponent },
-  {path: 'email-login', component: EmailComponent },
-  {path: 'signup', component: RegisterComponent },
-  {path: 'profile', component: ProfileComponent },
-  {path: 'home', component: HomePageComponent},
-  {path: 'chatroom', component: ChatroomComponent},
-  { path: 'password_reset', component: ForgotPasswordComponent},
-  {path: 'tasks', component: TasksComponent}
+  { path: 'login', component: LoginComponent },
+  { path: 'email-login', component: EmailComponent },
+  { path: 'signup', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'home', component: HomePageComponent },
+  { path: 'chatroom', component: ChatroomComponent },
+  { path: 'password_reset', component: ForgotPasswordComponent },
+  { path: 'tasks', component: TasksComponent },
+  { path: '**', component: NotFoundComponent },
+
 ];
 
 @NgModule({
