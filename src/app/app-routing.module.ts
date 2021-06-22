@@ -13,7 +13,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'addroom', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'email-login', component: EmailComponent },
   { path: 'signup', component: RegisterComponent },

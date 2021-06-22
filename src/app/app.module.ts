@@ -1,11 +1,12 @@
-import { AuthService } from 'src/app/services/auth/auth.service';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './shared/material/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,7 +27,6 @@ import { ChatroomComponent } from './components/chatroom/chatroom.component';
 import { ChatFormComponent } from './components/chat-form/chat-form.component';
 import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
 import { MessageComponent } from './components/message/message.component';
-import { environment } from 'src/environments/environment';
 import { ChatUsersComponent } from './components/chat-users/chat-users.component';
 import { UserItemsComponent } from './components/user-items/user-items.component';
 import { AddRoomComponent } from './components/add-room/add-room.component';
@@ -52,6 +52,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { ChatService } from './services/chat/chat.service';
+import { ChatRoomComponent } from './components/chat-room/chat-room.component';
 
 @NgModule({
   declarations: [
@@ -76,18 +77,19 @@ import { ChatService } from './services/chat/chat.service';
     TasksComponent,
     NewTaskComponent,
     TaskDialogComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ChatRoomComponent
   ],
 
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireMessagingModule,
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    AngularFireMessagingModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
-    AngularFireDatabaseModule,
     MaterialModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
