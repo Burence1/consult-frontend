@@ -3,11 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { MaterialModule } from './shared/material/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MessagingService } from './services/push-notifications/messaging.service';
+import { AsyncPipe } from '@angular/common';
+
+
 import { LoginComponent } from './components/authentication/login/login.component';
 import { RegisterComponent } from './components/authentication/register/register.component';
 import { EmailComponent } from './components/authentication/email/email.component';
@@ -22,6 +27,9 @@ import { MessageComponent } from './components/message/message.component';
 import { environment } from 'src/environments/environment';
 import { ChatUsersComponent } from './components/chat-users/chat-users.component';
 import { UserItemsComponent } from './components/user-items/user-items.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { DropzoneDirective } from './dropzone.directive';
+
 import { ToastrModule } from 'ngx-toastr';
 import { MatCarouselModule } from 'ng-mat-carousel';
 
@@ -58,36 +66,29 @@ import { MatMenuModule } from '@angular/material/menu';
     MessageComponent,
     ChatUsersComponent,
     UserItemsComponent,
+    ProfileComponent,
+    DropzoneDirective,
     TasksComponent,
     NewTaskComponent,
     TaskDialogComponent,
-    NotFoundComponent,
-    DashboardComponent,
-
+    NotFoundComponent
   ],
+
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    AngularFireMessagingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     MaterialModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    DragDropModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatGridListModule,
-    MatCardModule,
-    MatMenuModule,
+    DragDropModule
   ],
-  providers: [],
+  providers: [MessagingService, AsyncPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
