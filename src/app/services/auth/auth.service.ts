@@ -8,6 +8,7 @@ import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angula
 // import 'rxjs/add/operator/switchMap';
 import { AngularFireAuth } from '@angular/fire/auth';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -20,7 +21,8 @@ export class AuthService {
 
   constructor(
     private afAuth: AngularFireAuth,
-    private router: Router, private db: AngularFireDatabase) {
+    private router: Router, private db: AngularFireDatabase
+    ) {
     this.user = afAuth.authState;
     }
 

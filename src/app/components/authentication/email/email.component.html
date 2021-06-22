@@ -55,7 +55,7 @@
               />
               <button
               mat-icon-button
-              matSuffix
+              matSuffix 
               (click)="hide = !hide"
               [attr.aria-label]="'Hide password'"
               [attr.aria-pressed]="hide"
@@ -69,6 +69,7 @@
             mat-raised-button
             color="primary"
             type="submit"
+            (click)="toastMessage()"
             [disabled]="!formData.valid"
             class="auth-btn"
           >

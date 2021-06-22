@@ -5,6 +5,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { MaterialModule } from './shared/material/material/material.module';
+import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ import { MessageComponent } from './components/message/message.component';
 import { environment } from 'src/environments/environment';
 import { ChatUsersComponent } from './components/chat-users/chat-users.component';
 import { UserItemsComponent } from './components/user-items/user-items.component';
+import { AddRoomComponent } from './components/add-room/add-room.component';
 
 
 @NgModule({
@@ -41,6 +43,7 @@ import { UserItemsComponent } from './components/user-items/user-items.component
     MessageComponent,
     ChatUsersComponent,
     UserItemsComponent,
+    AddRoomComponent,
 
   ],
   imports: [
@@ -54,6 +57,7 @@ import { UserItemsComponent } from './components/user-items/user-items.component
     MaterialModule,
     BrowserAnimationsModule,
     MatBadgeModule,
+    ToastrModule.forRoot(),
   ],
   providers: [MatDatepicker, ],
   bootstrap: [AppComponent]
