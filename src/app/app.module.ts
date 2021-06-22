@@ -53,6 +53,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { ChatService } from './services/chat/chat.service';
 import { ChatRoomComponent } from './components/chat-room/chat-room.component';
+import { RoomlistComponent } from './components/roomlist/roomlist.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { ChatRoomComponent } from './components/chat-room/chat-room.component';
     NewTaskComponent,
     TaskDialogComponent,
     NotFoundComponent,
-    ChatRoomComponent
+    ChatRoomComponent,
+    RoomlistComponent
   ],
 
   imports: [

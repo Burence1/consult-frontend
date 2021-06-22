@@ -1,3 +1,4 @@
+import { ChatRoomComponent } from './components/chat-room/chat-room.component';
 import { AddRoomComponent } from './components/add-room/add-room.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './components/authentication/forgot-password/forgot-password.component';
@@ -13,16 +14,17 @@ import { TasksComponent } from './tasks/tasks.component';
 import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'addroom', pathMatch: 'full' },
+  { path: '', redirectTo: 'add-room', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'email-login', component: EmailComponent },
   { path: 'signup', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'home', component: HomePageComponent },
-  { path: 'chatroom', component: ChatroomComponent },
+  // { path: 'chatroom', component: ChatroomComponent },
   { path: 'password_reset', component: ForgotPasswordComponent },
   { path: 'tasks', component: TasksComponent },
-  { path: 'addroom', component: AddRoomComponent },
+  { path: 'add-room', component: AddRoomComponent },
+  { path: 'chatroom/: roomname',component:ChatRoomComponent},
   { path: '**', component: NotFoundComponent },
   
 
