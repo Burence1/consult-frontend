@@ -1,4 +1,3 @@
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './components/authentication/forgot-password/forgot-password.component';
 import { ChatroomComponent } from './components/chatroom/chatroom.component';
@@ -22,7 +21,6 @@ const routes: Routes = [
   { path: 'chatroom', component: ChatroomComponent },
   { path: 'password_reset', component: ForgotPasswordComponent },
   { path: 'tasks', component: TasksComponent },
-  {path: 'dashboard', component: DashboardComponent},
   { path: '**', component: NotFoundComponent },
 
 ];
