@@ -15,6 +15,15 @@ export class EmailComponent implements OnInit {
   email: any;
   password: any;
 
+  // tslint:disable-next-line: typedef
+  getErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return this.email.hasError('email') ? 'Not a valid email' : '';
+  }
+
   constructor(private authService: AuthService, private toastr: ToastrService) {}
 
   ngOnInit(): void {}
@@ -27,4 +36,7 @@ export class EmailComponent implements OnInit {
     }
   }
 
+  showSuccess() {
+    this.toastr.success('Hello world!', 'Toastr fun!');
+  }
 }

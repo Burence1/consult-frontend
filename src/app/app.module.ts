@@ -31,12 +31,23 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { DropzoneDirective } from './dropzone.directive';
 
 import { ToastrModule } from 'ngx-toastr';
+import { MatCarouselModule } from 'ng-mat-carousel';
+
 
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskDialogComponent } from './tasks/task-dialog/task-dialog.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NewTaskComponent } from './tasks/new-task/new-task.component';
 import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
