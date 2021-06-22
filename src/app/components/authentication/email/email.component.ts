@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth/auth.service';
 import { FormControl, Validators} from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-email',
   templateUrl: './email.component.html',
@@ -11,7 +12,7 @@ export class EmailComponent implements OnInit {
 
   hide = true;
 
-  email = new FormControl('', [Validators.required, Validators.email]);
+  email: any;
   password: any;
 
   // tslint:disable-next-line: typedef
@@ -34,7 +35,8 @@ export class EmailComponent implements OnInit {
       this.authService.login(formData.value.email, formData.value.password);
     }
   }
-  toastMessage() {
-    this.toastr.info("Please check username and password")
+
+  showSuccess() {
+    this.toastr.success('Hello world!', 'Toastr fun!');
   }
 }

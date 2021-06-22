@@ -1,0 +1,12 @@
+.side-nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background-color: #dbdbdb;
+    color: white;
+    width: 200px;
+}
+
+.profile{
+    background-color: #eee;
+}

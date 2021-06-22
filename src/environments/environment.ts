@@ -14,7 +14,6 @@ export const environment = {
       appId: '1:329320770247:web:b0d6211ac58834b457ace2',
       measurementId: 'G-DXEDLCP9XL'
     }
-  
   // firebase: {
   //   apiKey: "AIzaSyAmf-iuESeQTocOFJRd-UJKXro3S1qhu0c",
   //   authDomain: "fire-chat-d5ddf.firebaseapp.com",
