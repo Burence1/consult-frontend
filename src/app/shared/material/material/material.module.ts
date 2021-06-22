@@ -13,6 +13,13 @@ import { MatBadge, MatBadgeModule } from '@angular/material/badge';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+
+import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSortModule } from '@angular/material/sort';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
+
 const material = [
   MatButtonModule,
   MatFormFieldModule,
@@ -27,6 +34,13 @@ const material = [
   MatDialogModule,
   MatToolbarModule,
   MatBadgeModule,
+
+  MatFormFieldModule,
+  MatTableModule,
+  MatProgressSpinnerModule,
+  MatSortModule,
+  MatSnackBarModule,
+  MatInputModule,
 ];
 
 @NgModule({

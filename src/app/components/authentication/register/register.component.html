@@ -24,22 +24,22 @@
           <label for="email" class="form-label">Name</label> <br />
           <mat-form-field appearance="outline">
             <mat-label>Enter name</mat-label>
-            <!-- <input matInput placeholder="displayName" (ngModel)="(displayName)" [errorStateMatcher]="matcher" name="displayName"
-              required /> -->
+            <input matInput placeholder="displayName" (ngModel)="(displayName)" name="displayName"
+              required />
           </mat-form-field>
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email Address</label> <br />
           <mat-form-field appearance="outline">
             <mat-label>Enter your email</mat-label>
-            <!-- <input
+            <input
               matInput
               placeholder="janedoe@gmail.com"
               (ngModel)="(email)"
-              [errorStateMatcher]="matcher"
+              
               name="email"
               required
-            /> -->
+            />
             <mat-error
               *ngIf="email.hasError('email') && !email.hasError('required')"
             >
