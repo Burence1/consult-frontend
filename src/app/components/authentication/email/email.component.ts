@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth/auth.service';
-import { FormControl, Validators} from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -24,9 +24,9 @@ export class EmailComponent implements OnInit {
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
-  constructor(private authService: AuthService, private toastr: ToastrService) {}
+  constructor(private authService: AuthService, private toastr: ToastrService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   // tslint:disable-next-line: typedef
   onSubmit(formData) {
