@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MessagingService } from './services/push-notifications/messaging.service';
 import { AsyncPipe } from '@angular/common';
+import { ConfirmEqualValidatorDirective } from './shared/material/material/confirm-equal-validator.directive';
 
 
 import { LoginComponent } from './components/authentication/login/login.component';
@@ -55,6 +56,7 @@ import { MatMenuModule } from '@angular/material/menu';
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    ConfirmEqualValidatorDirective,
     EmailComponent,
     ForgotPasswordComponent,
     HomePageComponent,
