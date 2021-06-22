@@ -24,7 +24,7 @@ export class AddRoomComponent implements OnInit {
   roomForm: FormGroup;
   chatname = '';
   roomname = '';
-  ref = firebase.database().ref('rooms/');
+  ref:any
   matcher = new MyErrorStateMatcher();
 
   constructor(private router: Router,
@@ -40,6 +40,7 @@ export class AddRoomComponent implements OnInit {
   }
 
   onFormSubmit(form: any) {
+    this.ref = firebase.database().ref('rooms/');
     const room = form;
     this.ref.orderByChild('roomname').equalTo(room.roomname).once('value', (snapshot: any) => {
       if (snapshot.exists()) {

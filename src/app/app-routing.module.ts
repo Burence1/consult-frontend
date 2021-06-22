@@ -1,3 +1,4 @@
+import { RoomlistComponent } from './components/roomlist/roomlist.component';
 import { ChatRoomComponent } from './components/chat-room/chat-room.component';
 import { AddRoomComponent } from './components/add-room/add-room.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'tasks', component: TasksComponent },
   { path: 'add-room', component: AddRoomComponent },
   { path: 'chatroom/: roomname',component:ChatRoomComponent},
+  { path: 'roomlist',component:RoomlistComponent},
   { path: '**', component: NotFoundComponent },
   
 
