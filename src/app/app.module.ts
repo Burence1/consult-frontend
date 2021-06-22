@@ -27,11 +27,15 @@ import { DropzoneDirective } from './dropzone.directive';
 
 import { ToastrModule } from 'ngx-toastr';
 
-import { TasksComponent } from './components/tasks/tasks.component';
-import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
+// import { TasksComponent } from './components/tasks/tasks.component';
+// import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { NewTaskComponent } from './components/tasks/new-task/new-task.component';
+import { NewTaskComponent } from './task/new-task/new-task.component';
 import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
+import { TaskComponent } from './task/task.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { TaskDialogComponent } from './task-dialog/task-dialog.component';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 
 @NgModule({
@@ -51,10 +55,10 @@ import { NotFoundComponent } from './components/error-handling/not-found/not-fou
     UserItemsComponent,
     ProfileComponent,
     DropzoneDirective,
-    TasksComponent,
-    NewTaskComponent,
-    TaskDialogComponent,
     NotFoundComponent,
+    TaskComponent,
+    TaskDialogComponent,
+    NewTaskComponent
 
   ],
   imports: [
@@ -70,6 +74,8 @@ import { NotFoundComponent } from './components/error-handling/not-found/not-fou
     ToastrModule.forRoot(),
     
     DragDropModule,
+    MatFormFieldModule,
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
