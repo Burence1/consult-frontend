@@ -12,7 +12,7 @@ export class EmailComponent implements OnInit {
 
   hide = true;
 
-  email = new FormControl('', [Validators.required, Validators.email]);
+  email: any;
   password: any;
 
   // tslint:disable-next-line: typedef

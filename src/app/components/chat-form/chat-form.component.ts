@@ -15,11 +15,13 @@ export class ChatFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // tslint:disable-next-line: typedef
   send() {
     this.chat.sendMessage(this.message);
     this.message = '';
   }
 
+  // tslint:disable-next-line: typedef
   handleSubmit(event: any) {
     if (event.keyCode === 13) {
       this.send();

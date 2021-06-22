@@ -11,12 +11,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/authentication/login/login.component';
 import { RegisterComponent } from './components/authentication/register/register.component';
 import { EmailComponent } from './components/authentication/email/email.component';
-import { ForgotPasswordComponent } from './components/authentication/authentication/forgot-password/forgot-password.component';
+import { ForgotPasswordComponent } from './components/authentication/forgot-password/forgot-password.component';
 
 import { HomePageComponent } from './components/home/home-page/home-page.component';
 import { NavbarComponent } from './components/home/navbar/navbar.component';
-import { MatBadge, MatBadgeModule } from '@angular/material/badge';
-import { MatDatepicker } from '@angular/material/datepicker';
 import { ChatroomComponent } from './components/chatroom/chatroom.component';
 import { ChatFormComponent } from './components/chat-form/chat-form.component';
 import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
@@ -32,6 +30,17 @@ import { TasksComponent } from './tasks/tasks.component';
 import { TaskDialogComponent } from './tasks/task-dialog/task-dialog.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NewTaskComponent } from './tasks/new-task/new-task.component';
+import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -51,7 +60,9 @@ import { NewTaskComponent } from './tasks/new-task/new-task.component';
     UserItemsComponent,
     TasksComponent,
     NewTaskComponent,
-    TaskDialogComponent
+    TaskDialogComponent,
+    NotFoundComponent,
+    DashboardComponent,
 
   ],
   imports: [
@@ -64,13 +75,19 @@ import { NewTaskComponent } from './tasks/new-task/new-task.component';
     AngularFireDatabaseModule,
     MaterialModule,
     BrowserAnimationsModule,
-    MatBadgeModule,
-    MatCarouselModule.forRoot(),
     ToastrModule.forRoot(),
-    
-    DragDropModule
+    DragDropModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
   ],
-  providers: [MatDatepicker, ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
     this.authService.googleLogin();
   }
 
+  // tslint:disable-next-line: typedef
   showSuccess() {
     this.toastr.success('Hello world!', 'Toastr fun!');
   }
