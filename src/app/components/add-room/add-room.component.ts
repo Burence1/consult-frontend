@@ -33,6 +33,23 @@ export class AddRoomComponent implements OnInit {
     private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+    this.roomForm = this.formBuilder.group({
+      'roomname': [null, Validators.required]
+    });
+  }
+
+  onFormSubmit(form: any) {
+    this.ref = firebase.database().ref('rooms/');
+    const room = form;
+    this.ref.orderByChild('roomname').equalTo(room.roomname).once('value', (snapshot: any) => {
+      if (snapshot.exists()) {
+        this.snackBar.open('Room name already exist!');
+      } else {
+        const newRoom = firebase.database().ref('rooms/').push();
+        newRoom.set(room);
+        this.router.navigate(['/roomlist']);
+      }
+    });
   }
 
 }
