@@ -3,16 +3,18 @@
    <app-navbar></app-navbar>
   </div>
   <div #scroller class="chatfeed">
-    <app-chat-feed></app-chat-feed>
-    <app-chat-form></app-chat-form>
+    <div >
+      <app-chat-feed></app-chat-feed>
+    </div>
   </div>
-  <div class="row">
+  <div class="row" id="chats">
     <div class="col">
       <Button>Direct</Button>
     </div>
     <div class="col">Teams</div>
-
+    <app-add-room></app-add-room>
+    <app-roomlists></app-roomlists>
   </div><br>
-  <app-chat-form></app-chat-form>
+  <!-- <app-chat-form></app-chat-form> -->
 </div>
 
