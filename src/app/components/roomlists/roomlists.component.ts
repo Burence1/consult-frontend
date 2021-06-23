@@ -40,7 +40,7 @@ export class RoomlistsComponent implements OnInit {
       if (auth !== undefined && auth !== null) {
         this.user = auth;
         this.chatname = this.user.password;
-        console.log(this.chatname)
+       
       }
       this.getUser().valueChanges().subscribe(a => {
         this.userName = a;
@@ -91,6 +91,7 @@ export class RoomlistsComponent implements OnInit {
         newRoomUser.set(newroomuser);
       }
     });
+
     this.router.navigate(['/chatroom', roomname]);
   }
 }
