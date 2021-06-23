@@ -60,7 +60,6 @@
     </mat-card>
         <div #scroller class="chatfeed">
           <app-chat-feed></app-chat-feed>
-          <app-chat-form></app-chat-form>
         </div>
       </div>
     </div>
@@ -68,4 +67,23 @@
 </mat-sidenav-container>
 
 
+<div class="chatchannel">
+  <div class="sidebarWrapper">
+   <app-navbar></app-navbar>
+  </div>
+  <div #scroller class="chatfeed">
+    <div >
+      <app-chat-feed></app-chat-feed>
+    </div>
+  </div>
+  <div class="row" id="chats">
+    <div class="col">
+      <Button>Direct</Button>
+    </div>
+    <div class="col">Teams</div>
+    <app-add-room></app-add-room>
+    <app-roomlists></app-roomlists>
+  </div><br>
+  <!-- <app-chat-form></app-chat-form> -->
+</div>
 

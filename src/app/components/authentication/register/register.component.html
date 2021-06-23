@@ -76,42 +76,85 @@
             <div *ngIf="email.errors.maxlength">Email is too long.</div>
           </div>
         </div>
-        <div class="mb-3">
-          <label for="RegisterPassword" class="form-label">Password</label>
-          <br />
-          <mat-form-field appearance="outline">
-            <mat-label>Enter your password</mat-label>
-            <input
-              matInput
-              [type]="hide ? 'password' : 'text'"
-              placeholder="**********"
-              (ngModel)="(password)"
-              id="password"
-              name="password"
-              #password="ngModel"
-              required
-              pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$"
-              maxlength="20"
-            />
-            <button
-              mat-icon-button
-              matSuffix
-              (click)="hide = !hide"
-              [attr.aria-label]="'Hide password'"
-              [attr.aria-pressed]="hide"
+        <div [class.has-error]="confirmPassword.touched && confirmPassword.invalid">
+          <div name="password" class="mb-3">
+            <label for="RegisterPassword" class="form-label">Password</label>
+            <br />
+            <mat-form-field appearance="outline">
+              <mat-label>Enter your password</mat-label>
+              <input
+                matInput
+                [type]="hide ? 'password' : 'text'"
+                placeholder="**********"
+                (ngModel)="(password)"
+                id="password"
+                name="password"
+                (input)="confirmPassword.control.updateValueAndValidity()"
+                #password="ngModel"
+                required
+                pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$"
+                maxlength="20"
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+              >
+                <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+              </button>
+            </mat-form-field>
+            <div
+              *ngIf="password.invalid && (password.dirty || password.touched)"
+              class="alert alert-danger"
             >
-              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-            </button>
-          </mat-form-field>
-          <div
-            *ngIf="password.invalid && (password.dirty || password.touched)"
-            class="alert alert-danger"
-          >
-            <div *ngIf="password.errors.required">Password is required.</div>
+              <div *ngIf="password.errors.required">Password is required.</div>
 
-            <div *ngIf="password.errors.pattern">
-              Password should be atleast 8 characters long and should contain
-              one number, one character and one special character.
+              <div *ngIf="password.errors.pattern">
+                Password should be atleast 8 characters long and should contain
+                one number, one character and one special character.
+              </div>
+            </div>
+          </div>
+
+          <div name="confirmPassword" class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password</label>
+            <br />
+            <mat-form-field appearance="outline">
+              <mat-label>Type password again</mat-label>
+              <input
+                matInput
+                [type]="hide ? 'confirmPassword' : 'text'"
+                placeholder="**********"
+                (ngModel)="(confirmPassword)"
+                id="confirmPassword"
+                name="confirmPassword"
+                #confirmPassword="ngModel"
+                appConfirmEqualValidator="password"
+                required
+                pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$"
+                maxlength="20"
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide confirmPassword'"
+                [attr.aria-pressed]="hide"
+              >
+                <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+              </button>
+            </mat-form-field>
+            <div
+              *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="confirmPassword.errors.required">This field is required.</div>
+
+              <div *ngIf="confirmPassword.errors.notEqual && !confirmPassword.errors.required">
+                Passwords must match.
+              </div>
             </div>
           </div>
         </div>

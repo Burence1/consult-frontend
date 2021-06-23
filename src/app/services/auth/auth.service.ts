@@ -48,7 +48,7 @@ export class AuthService {
   }
 
   // tslint:disable-next-line: typedef
-  emailSignup(email: string, password: string, displayName: string) {
+  emailSignup(displayName: string, email: string, password: string, confirmPassword: string ) {
     this.afAuth.createUserWithEmailAndPassword(email, password)
     .then((user: any) => {
       this.authState = user;

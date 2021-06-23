@@ -1,8 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { ChatFeedComponent } from './../chat-feed/chat-feed.component';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked, OnChanges } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ChatService } from 'src/app/services/chat/chat.service';
 
 @Component({
   selector: 'app-chatroom',
@@ -19,17 +21,14 @@ export class ChatroomComponent implements OnInit, AfterViewChecked {
       shareReplay()
     );
 
-  constructor(private auth:AuthService,private breakpointObserver: BreakpointObserver) { }
+  
+
+  constructor(private chat: ChatService, private breakpointObserver: BreakpointObserver, private auth:AuthService) { }
 
   ngOnInit(): void {
-    this.user = this.auth.authUser();
-    this.user.subscribe(user => {
-      if (user) {
-        this.userEmail = user.email;
-        console.log(user)
-      }
-    });
+
   }
+
   logout() {
     this.auth.logout();
   }
