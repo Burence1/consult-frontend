@@ -47,7 +47,7 @@ export class AddRoomComponent implements OnInit {
       } else {
         const newRoom = firebase.database().ref('rooms/').push();
         newRoom.set(room);
-        this.router.navigate(['/roomlist']);
+        // this.router.navigate(['/roomlist']);
       }
     });
   }
