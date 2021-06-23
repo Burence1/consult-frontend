@@ -46,9 +46,39 @@ export class ChatroomComponent implements OnInit, AfterViewChecked {
   messages: any
   matcher = new MyErrorStateMatcher();
 
-  constructor() { }
+  constructor(private Auth: AngularFireAuth, private db: AngularFireDatabase, private router: Router,
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder) {
+    this.Auth.authState.subscribe(auth => {
+      if (auth !== undefined && auth !== null) {
+        this.user = auth;
+      }
+      this.getUser().valueChanges().subscribe(a => {
+        this.userName = a;
+        this.chatname = this.userName.displayName
+        console.log(this.chatname)
+      });
+
+      this.roomname = this.route.snapshot.params.roomname;
+      firebase.database().ref('chats/').on('value', resp => {
+        let chats = snapshotToArray(resp);
+        this.chats = chats.filter(x => x.roomname === this.roomname)
+        
+      });
+      firebase.database().ref('roomusers/').orderByChild('roomname').equalTo(this.roomname).on('value', (resp2: any) => {
+        const roomusers = snapshotToArray(resp2);
+        this.users = roomusers.filter(x => x.status === 'online');
+      });
+    })
+  }
 
   ngOnInit(): void {
+  }
+
+  getUser() {
+    const userId = this.user.uid;
+    const path = `/users/${userId}`;
+    return this.db.object(path);
   }
 
   scrollToBottom(): void {
