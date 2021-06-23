@@ -36,6 +36,7 @@ export class AddRoomComponent implements OnInit {
     this.roomForm = this.formBuilder.group({
       'roomname': [null, Validators.required]
     });
+    
   }
 
   onFormSubmit(form: any) {

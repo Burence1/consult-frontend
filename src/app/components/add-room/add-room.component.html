@@ -1,5 +1,5 @@
 <div class="container">
-  <form class="example-form" [formGroup]="roomForm" (ngSubmit)="onFormSubmit(roomForm.value)">
+  <form class="example-form" [formGroup]="roomForm" (ngSubmit)="onFormSubmit(roomForm.value);roomForm.reset()">
     <h2>Please enter new Room</h2>
     <mat-form-field class="example-full-width">
       <mat-label>Room Name</mat-label>
