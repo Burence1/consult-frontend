@@ -49,6 +49,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { AddRoomComponent } from './components/add-room/add-room.component';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { MatMenuModule } from '@angular/material/menu';
     TasksComponent,
     NewTaskComponent,
     TaskDialogComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AddRoomComponent
   ],
 
   imports: [
