@@ -73,6 +73,10 @@ export class ChatroomComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit(): void {
+    this.chatForm = this.formBuilder.group({
+      'message': [null, Validators.required]
+    });
+
   }
 
   getUser() {
