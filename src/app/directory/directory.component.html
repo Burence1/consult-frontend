@@ -8,27 +8,37 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4"></div>
-        <div class="col-md-4">
-            
-
-              <div class="row">
-                <div >
-                  <div class="col-md-6">
-                    <div class="card mt-5 p-3 mb-5" >
-                      <li class="list pb-3">
-                        <strong>{{ profile.displayName }}</strong>
+        <div class="col-md-6">
+          <br><h1 class="text-center directory">MEDICAL DIRECTORY</h1>
+          <div class="col-1-of-3" *ngFor='let profile of profiles'>
+            <div class="">
+              <div class="card">
+                <div class="card__side card__side--front-3">
+                  <div class="card__cta">
+                    <p class="btn btn--white">{{profile.displayName}}</p>
+                  </div>
+                  
+                </div>
+                <div class="card__side card__side--back card__side--back-3">
+                  <div class="card__details">
+                    <ul>
+                      <li><strong>Email:</strong>  <br> {{ profile.email }}</li>
+                      <li><strong>Department:</strong><br> {{ profile.department }}</li>
+                      <li><strong>Position:</strong> <br> {{ profile.position }}</li>
+                      <li><strong>Contact:</strong> <br> {{ profile.contact }}</li>
+                      <li><strong>Interests:</strong> <br> {{ profile.interest1 }}
+                        <br>{{ profile.interest2 }}
+                        <br>{{ profile.interest1 }}
                       </li>
                       
-                      <li class="list">{{ profile.email }}</li>
-                      <li class="list">{{ profile.department }}</li>
-                      <li>{{profile.position}}</li>
-                      <li>{{profile.contact}}</li>
-                      <li class="list">
-                      </li>
-                    </div>
+                    </ul>
                   </div>
                 </div>
               </div>
+            </div><br>
+            
+            
+          </div>
         </div>
     </div>
 </div>

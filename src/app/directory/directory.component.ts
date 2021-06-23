@@ -13,34 +13,19 @@ import { finalize } from "rxjs/operators";
 })
 export class DirectoryComponent implements OnInit {
 
-  profile: Profile;
-  currentId: string;
+  profiles: Profile[];
 
   constructor(public authService: AuthService, private profileService: ProfileService,
     @Inject(AngularFireStorage) private storage: AngularFireStorage, @Inject(FileServiceService) private fileService: FileServiceService) { 
       
-    this.findProfiles();
-    this.authService.user.subscribe(
-      (user) => {
-        this.currentId = user.uid;
-        console.log(this.currentId);
-        this.profileService.fetchProfileApi(this.currentId).subscribe(
-          (res) => {
-            this.profile = res;
-            console.log(res)
-    
-          }, error => {
-            console.error(error);
-          }
-        );
+    this.profileService.fetchAllProfiles().subscribe(
+      (res) => {
+        this.profiles = res;
+        console.log(res)
       }, error => {
         console.error(error);
       }
     );
-  }
-
-  findProfiles() {
-    
   }
 
   ngOnInit(): void {
