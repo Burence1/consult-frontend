@@ -10,6 +10,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { HomePageComponent } from './components/home/home-page/home-page.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
+import { DirectoryComponent } from './directory/directory.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -20,8 +21,10 @@ const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'chatroom', component: ChatroomComponent },
   { path: 'password_reset', component: ForgotPasswordComponent },
+  { path: 'directory', component: DirectoryComponent },
   { path: 'tasks', component: TasksComponent },
   { path: '**', component: NotFoundComponent },
+  
 
 ];
 

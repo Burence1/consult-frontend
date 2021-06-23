@@ -14,6 +14,9 @@ import { finalize } from "rxjs/operators";
 })
 export class ProfileComponent implements OnInit {
 
+  name = '!!!';
+  viewMode = 'tab1';
+
   selectedImage: any = null;
   url:string;
   id:string;
@@ -35,6 +38,8 @@ export class ProfileComponent implements OnInit {
   showForm: boolean=false
 
   constructor(public authService: AuthService, private profileService: ProfileService, @Inject(AngularFireStorage) private storage: AngularFireStorage, @Inject(FileServiceService) private fileService: FileServiceService) {
+    
+
     this.findProfiles();
     this.authService.user.subscribe(
       (user) => {
