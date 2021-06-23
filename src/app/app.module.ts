@@ -72,7 +72,7 @@ import { MatMenuModule } from '@angular/material/menu';
     TasksComponent,
     NewTaskComponent,
     TaskDialogComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
 
   imports: [
