@@ -35,6 +35,16 @@ export const snapshotToArray = (snapshot: any) => {
 export class ChatroomComponent implements OnInit, AfterViewChecked {
   @ViewChild('scroller') private feedScroll: ElementRef;
 
+  chatForm: FormGroup;
+  chatname = '';
+  roomname = '';
+  message = '';
+  users: any[];
+  chats: any[];
+  user: any;
+  userName: any;
+  messages: any
+  matcher = new MyErrorStateMatcher();
 
   constructor() { }
 
