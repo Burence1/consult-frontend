@@ -8,11 +8,14 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === true">
-    <mat-toolbar>Menu</mat-toolbar>
+      <img class="avatar mat-elevation-z8" src="https://image.freepik.com/free-vector/doctor-avatar-design_1146-14.jpg" />
+      <h4 class="name">Dr. Jane</h4>
+      <p class="designation">Gynacologist</p>
+      <hr>   
       
       <a mat-list-item href="" class="nav-item nav-link active" routerLink='/home' routerLinkActive='active'><mat-icon>home</mat-icon> Home</a>
-      <a mat-list-item class="nav-item nav-link" routerLink='profile' routerLinkActive='active'><mat-icon>contact_page</mat-icon>Profile</a> 
-      <a mat-list-item class="nav-item nav-link" routerLink='/chatroom' routerLinkActive='active'  matBadge="8" matBadgePosition="after" matBadgeColor="warn"><mat-icon>forum</mat-icon>Chat</a>
+      <a mat-list-item class="nav-item nav-link" routerLink='/profile' routerLinkActive='active'><mat-icon>contact_page</mat-icon>Profile</a> 
+      <a mat-list-item class="nav-item nav-link" routerLink='/chatroom' routerLinkActive='active' ><mat-icon>forum</mat-icon><span matBadge="4" matBadgeOverlap="false">Chat</span></a>
       <a mat-list-item class="nav-item nav-link" routerLink='about' routerLinkActive='active'><mat-icon>contact_support</mat-icon>Help</a>  
       <a mat-list-item class="nav-item nav-link" *ngIf="(user|async)?.uid" (click)="logout()"> <mat-icon>logout</mat-icon>Logout</a>
       <a mat-list-item class="nav-item nav-link" routerLink="/dashboard"> Dashboard</a>

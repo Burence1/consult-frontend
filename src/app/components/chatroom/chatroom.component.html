@@ -1,18 +1,71 @@
-<div class="chatchannel">
-  <div class="sidebarWrapper">
-   <app-navbar></app-navbar>
-  </div>
-  <div #scroller class="chatfeed">
-    <app-chat-feed></app-chat-feed>
-    <app-chat-form></app-chat-form>
-  </div>
-  <div class="row">
-    <div class="col">
-      <Button>Direct</Button>
+<mat-toolbar>
+  <button type="button" (click)="drawer.toggle()" mat-icon-button class="toggler">☰</button>
+      <span>Navigation</span>
+</mat-toolbar>
+     
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" 
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === true">
+      <img class="avatar mat-elevation-z8" src="https://image.freepik.com/free-vector/doctor-avatar-design_1146-14.jpg" />
+      <h4 class="name">Dr. Jane</h4>
+      <p class="designation">Gynacologist</p>
+      <hr>      
+      <a mat-list-item href="" class="nav-item nav-link active" routerLink='/home' routerLinkActive='active'><mat-icon>home</mat-icon> Home</a>
+      <a mat-list-item class="nav-item nav-link" routerLink='/profile' routerLinkActive='active'><mat-icon>contact_page</mat-icon>Profile</a> 
+      <a mat-list-item class="nav-item nav-link" routerLink='/chatroom' routerLinkActive='active'  ><mat-icon>forum</mat-icon><span matBadge="4" matBadgeOverlap="false">Chat</span></a>
+      <a mat-list-item class="nav-item nav-link" routerLink='about' routerLinkActive='active'><mat-icon>contact_support</mat-icon>Help</a>  
+      <a mat-list-item class="nav-item nav-link" *ngIf="(user|async)?.uid" (click)="logout()"> <mat-icon>logout</mat-icon>Logout</a>
+      <a mat-list-item class="nav-item nav-link" routerLink="/dashboard"> Dashboard</a>
+   
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="chatchannel">
+      <div class="sidebarWrapper">
+      <mat-card class="user-list center">
+        <div class="row">
+          <div class="col">
+            <mat-tab-group mat-align-tabs="center" backgroundColor="primary">
+              <mat-tab label="Users" class="tabs">
+                <mat-form-field appearance="outline" class="search">
+                  <mat-label><mat-icon>search</mat-icon></mat-label>
+                  <input
+                    matInput
+                    placeholder="Search..."
+                    name="search"
+                  />
+                </mat-form-field>
+                <div class="users mt-1">
+                  <button mat-raised-button color="primary" class="btn-user" center>Add User <mat-icon>add_circle</mat-icon></button>
+                <mat-card class="list mt-1"><img class="user" src="assets/images/team-doctors.jpg" alt=""> Simple card <p class="online"><img src="assets/images/on.png" alt="" width="10px" > Online</p></mat-card>
+                </div>
+              </mat-tab>
+              <mat-tab label="Teams">
+                <mat-form-field appearance="outline" class="search">
+                  <mat-label><mat-icon>search</mat-icon></mat-label>
+                  <input
+                    matInput
+                    placeholder="Search..."
+                    name="search"
+                  />
+                </mat-form-field>
+                <div class="users mt-1">
+                  <button mat-raised-button color="primary" class="btn-user" class=""  center>Add chat room <mat-icon>add_circle</mat-icon></button>
+                </div>
+              </mat-tab>
+            </mat-tab-group>         
+        </div>
+      </div>
+    </mat-card>
+        <div #scroller class="chatfeed">
+          <app-chat-feed></app-chat-feed>
+          <app-chat-form></app-chat-form>
+        </div>
+      </div>
     </div>
-    <div class="col">Teams</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 
-  </div><br>
-  <app-chat-form></app-chat-form>
-</div>
+
 
