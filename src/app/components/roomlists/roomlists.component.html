@@ -1,18 +1,12 @@
-<div class="example-container mat-elevation-z8">
+<div class="example-container">
+  <div class="mat-elevation">
   <h3>{{chatname}}</h3>
   <h2>Room List</h2>
   <div class="example-loading-shade" *ngIf="isLoadingResults">
-    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    <mat-progress-spinner mode="indeterminate" color="primary" *ngIf="isLoadingResults"></mat-progress-spinner>
   </div>
-  <div class="button-row">
-    <button mat-flat-button color="primary" [routerLink]="['/add-room']">
-      <mat-icon>add</mat-icon>
-    </button>
-  </div>
-  <div class="mat-elevation-z8">
     <table mat-table [dataSource]="rooms" class="example-table" matSort matSortActive="roomname" matSortDisableClear
       matSortDirection="asc">
-
       <!-- Room Name Column -->
       <ng-container matColumnDef="roomname">
         <th mat-header-cell *matHeaderCellDef>Room Name</th>
@@ -20,7 +14,7 @@
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="enterChatRoom(row.roomname)"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="ChatRoomUsers(row.roomname)"></tr>
     </table>
   </div>
 </div>

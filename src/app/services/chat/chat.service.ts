@@ -69,9 +69,9 @@ export class ChatService {
       this.chatname = this.chatname;
       this.roomname = this.route.snapshot.params.roomname;
       firebase.database().ref('chats/').on('value', resp => {
-        this.chats = [];
-        this.chats = snapshotToArray(resp);
-        // setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
+        let chats = snapshotToArray(resp);
+        this.chats = chats.filter(x => x.roomname === this.roomname)
+        console.log(this.chats)
       });
       firebase.database().ref('roomusers/').orderByChild('roomname').equalTo(this.roomname).on('value', (resp2: any) => {
         const roomusers = snapshotToArray(resp2);
@@ -137,11 +137,6 @@ export class ChatService {
         email: email
       }],
     })
-  }
-
-  getMessages(): AngularFireList<Chatmessage[]> {
-    // query to create our message feed binding
-    return this.db.list(' messages', ref => ref.orderByKey().limitToLast(25));
   }
 
   // tslint:disable-next-line: typedef

@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'tasks', component: TasksComponent },
   { path: 'add-room',component:AddRoomComponent},
   { path: 'roomlist',component:RoomlistsComponent},
-  { path: 'chatroom/:roomname',component:ChatFeedComponent},
+  { path: 'chatfeed/:roomname',component:ChatFeedComponent},
   { path: '**', component: NotFoundComponent },
 
 ];

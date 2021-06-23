@@ -2,14 +2,24 @@
   <mat-drawer-container class="drawer-container">
     <mat-drawer mode="side" opened class="left-drawer">
       <div class="users-pane">
+        <h3>Group users</h3>
         <mat-card class="users-card" *ngFor="let user of users">
           <mat-icon>person</mat-icon> <span class="username">{{user.chatname}}</span>
         </mat-card>
       </div>
     </mat-drawer>
     <mat-drawer-content class="chat-pane">
-      <div #chatcontent [scrollTop]="scrolltop" class="chat-content">
-        <div class="message-box" *ngFor="let chat of chats">
+      <div class="chat-content">
+        <nav class="navbar navbar-light bg-light">
+          <div class="container">
+            <ul>
+              <li><h3 class="text-center"><strong>{{roomname}}</strong></h3></li>
+              <li *ngFor="let chat of this.admin"><h4>Created By: {{chat.admin}}</h4></li>
+            </ul>
+          </div>
+        </nav>
+        
+        <div class="message-box" *ngFor="let chat of this.chats">
           <div class="chat-status" text-center *ngIf="chat.type==='join'||chat.type==='exit';else message">
             <span class="chat-date">{{chat.date | date:'short'}}</span>
             <span class="chat-content-center">{{chat.message}}</span>

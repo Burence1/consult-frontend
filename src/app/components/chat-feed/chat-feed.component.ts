@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, AfterViewChecked,Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
@@ -32,10 +32,12 @@ export const snapshotToArray = (snapshot: any) => {
   templateUrl: './chat-feed.component.html',
   styleUrls: ['./chat-feed.component.css']
 })
-export class ChatFeedComponent implements OnInit {
-  @ViewChild('chatcontent') chatcontent: ElementRef;
-  scrolltop: any | null;
-
+export class ChatFeedComponent implements OnInit, AfterViewChecked {
+  @ViewChild('scroller') private feedScroll: ElementRef;
+  // @ViewChild('chatcontent') chatcontent: ElementRef;
+  // scrolltop: any | null;
+  
+  
   chatForm: FormGroup;
   chatname = '';
   roomname = '';
@@ -45,7 +47,9 @@ export class ChatFeedComponent implements OnInit {
   user: any;
   userName: any;
   messages: any
+  rooms: any;
   matcher = new MyErrorStateMatcher();
+  admin: any;
 
   constructor(private Auth: AngularFireAuth, private db: AngularFireDatabase, private router: Router,
     private route: ActivatedRoute,
@@ -60,15 +64,22 @@ export class ChatFeedComponent implements OnInit {
       });
 
       this.roomname = this.route.snapshot.params.roomname;
-      console.log(this.roomname)
       firebase.database().ref('chats/').on('value', resp => {
         let chats = snapshotToArray(resp);
         this.chats = chats.filter(x => x.roomname === this.roomname)
-        setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
+        console.log(this.chats)
+       //setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
       });
       firebase.database().ref('roomusers/').orderByChild('roomname').equalTo(this.roomname).on('value', (resp2: any) => {
         const roomusers = snapshotToArray(resp2);
         this.users = roomusers.filter(x => x.status === 'online');
+      });
+      firebase.database().ref('rooms/').on('value', resp => {
+        // this.rooms = [];
+        let rooms = snapshotToArray(resp);
+        this.rooms = rooms.filter(x => x.roomname === this.roomname)
+        this.admin=this.rooms
+        console.log(this.admin)
       });
     })
   }
@@ -84,7 +95,6 @@ export class ChatFeedComponent implements OnInit {
     this.chatForm = this.formBuilder.group({
       'message': [null, Validators.required]
     });
-
   }
 
   onFormSubmit(form: any) {
@@ -104,26 +114,14 @@ export class ChatFeedComponent implements OnInit {
       'message': [null, Validators.required]
     });
   }
-  exitChat() {
-    const chat = { roomname: '', chatname: '', message: '', date: '', type: '' };
-    chat.roomname = this.roomname;
-    chat.chatname = this.chatname;
-    chat.date = new Date().toDateString();
-    chat.message = `${this.chatname} leave the room`;
-    chat.type = 'exit';
-    const newMessage = firebase.database().ref('chats/').push();
-    newMessage.set(chat);
+  
+  scrollToBottom(): void {
+    this.feedScroll.nativeElement.scrollTop
+      = this.feedScroll.nativeElement.scrollHeight;
+  }
 
-    firebase.database().ref('roomusers/').orderByChild('roomname').equalTo(this.roomname).on('value', (resp: any) => {
-      let roomuser = [];
-      roomuser = snapshotToArray(resp);
-      const user = roomuser.find(x => x.chatname === this.chatname);
-      if (user !== undefined) {
-        const userRef = firebase.database().ref('roomusers/' + user.key);
-        userRef.update({ status: 'offline' });
-      }
-    });
-
-    this.router.navigate(['/roomlist']);
+  // tslint:disable-next-line: typedef
+  ngAfterViewChecked() {
+    this.scrollToBottom();
   }
 }

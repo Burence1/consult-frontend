@@ -38,5 +38,6 @@
 	background-color: gray;
 }
 
-
-
+#chats{
+    max-width: 20em;
+}

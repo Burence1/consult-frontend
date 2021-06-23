@@ -2,15 +2,16 @@
 .example-container {
   display: flex;
   padding: 10px;
+  height: 100vh;
 }
 
-.drawer-container {
+/* .drawer-container {
   position: absolute;
   right: 0;
   left: 0;
   bottom: 0;
   top: 0;
-}
+} */
 
 .left-drawer {
   width: 200px;
@@ -154,4 +155,12 @@ footer.sticky-footer {
 .chat-content {
   overflow-y: scroll;
   height: 600px;
+}
+
+ul{
+  list-style: none;
+}
+
+li{
+  text-transform: capitalize;
 }

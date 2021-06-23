@@ -1,0 +1,4 @@
+.new-room{
+  display: flex;
+  flex-direction: row;
+}
