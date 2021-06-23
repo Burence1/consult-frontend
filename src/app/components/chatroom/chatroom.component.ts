@@ -79,6 +79,23 @@ export class ChatroomComponent implements OnInit, AfterViewChecked {
 
   }
 
+  onFormSubmit(form: any) {
+    var day = new Date();
+    const options = { day: 'numeric', month: 'long', year: "numeric", timeZone: "Asia/Kolkata" } as const;
+    const today = day.toLocaleDateString("en-IN", options);
+
+    const chat = form;
+    chat.roomname = this.roomname;
+    chat.chatname = this.chatname;
+    chat.date = today;
+    chat.type = 'message';
+    const newMessage = firebase.database().ref('chats/').push();
+    newMessage.set(chat);
+    this.chatForm = this.formBuilder.group({
+      'message': [null, Validators.required]
+    });
+  }
+
   getUser() {
     const userId = this.user.uid;
     const path = `/users/${userId}`;
