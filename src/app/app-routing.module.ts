@@ -1,3 +1,4 @@
+import { RoomlistsComponent } from './components/roomlists/roomlists.component';
 import { AddRoomComponent } from './components/add-room/add-room.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './components/authentication/forgot-password/forgot-password.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'password_reset', component: ForgotPasswordComponent },
   { path: 'tasks', component: TasksComponent },
   { path: 'add-room',component:AddRoomComponent},
+  { path: 'roomlists',component:RoomlistsComponent},
   { path: '**', component: NotFoundComponent },
 
 ];
