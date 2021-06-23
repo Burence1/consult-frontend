@@ -102,6 +102,29 @@ export class ChatroomComponent implements OnInit, AfterViewChecked {
     return this.db.object(path);
   }
 
+  exitChat() {
+    const chat = { roomname: '', chatname: '', message: '', date: '', type: '' };
+    chat.roomname = this.roomname;
+    chat.chatname = this.chatname;
+    chat.date = new Date().toDateString();
+    chat.message = `${this.chatname} leave the room`;
+    chat.type = 'exit';
+    const newMessage = firebase.database().ref('chats/').push();
+    newMessage.set(chat);
+
+    firebase.database().ref('roomusers/').orderByChild('roomname').equalTo(this.roomname).on('value', (resp: any) => {
+      let roomuser = [];
+      roomuser = snapshotToArray(resp);
+      const user = roomuser.find(x => x.chatname === this.chatname);
+      if (user !== undefined) {
+        const userRef = firebase.database().ref('roomusers/' + user.key);
+        userRef.update({ status: 'offline' });
+      }
+    });
+
+    this.router.navigate(['/roomlist']);
+  }
+
   scrollToBottom(): void {
     this.feedScroll.nativeElement.scrollTop
       = this.feedScroll.nativeElement.scrollHeight;
