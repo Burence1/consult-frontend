@@ -64,4 +64,35 @@ export class RoomlistsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  enterChatRoom(roomname: string) {
+    // const chat = { roomname: '', chatname: '', message: '', date: '', type: '' };
+    // chat.roomname = roomname;
+    // chat.chatname = this.chatname;
+    // console.log(chat.chatname)
+    // chat.date = this.datepipe.transform(new Date(), 'dd/MM/yyyy HH:mm:ss');
+    // chat.message = `${this.chatname} enter the room`;
+    // chat.type = 'join';
+    // const newMessage = firebase.database().ref('chats/').push();
+    // newMessage.set(chat);
+
+    firebase.database().ref('roomusers/').orderByChild('roomname').equalTo(roomname).on('value', (resp: any) => {
+      let roomuser = [];
+      roomuser = snapshotToArray(resp);
+      const user = roomuser.find(x => x.chatname === this.chatname);
+      if (user !== undefined) {
+        const userRef = firebase.database().ref('roomusers/' + user.key);
+        userRef.update({ status: 'online' });
+      } else {
+        const newroomuser = { roomname: '', chatname: '', status: '' };
+        newroomuser.roomname = roomname;
+        newroomuser.chatname = this.chatname;
+        newroomuser.status = 'online';
+        const newRoomUser = firebase.database().ref('roomusers/').push();
+        newRoomUser.set(newroomuser);
+      }
+    });
+
+    this.router.navigate(['/chatroom', roomname]);
+  }
+
 }
