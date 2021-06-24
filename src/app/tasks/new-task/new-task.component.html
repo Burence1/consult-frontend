@@ -1,9 +1,0 @@
-
-<mat-card class="item" *ngIf="task" (dblclick)="edit.emit(task)">
-    <h3>{{task.title}}</h3>
-    <p>{{task.description }}</p>
-    <p><b>Tasked Owner:</b> {{task.owner }}</p>
-    <p><b>Due Date:</b> {{task.dateDue|date }}</p>
-</mat-card>
-
-<br>

@@ -28,13 +28,11 @@ const material = [
   MatDatepickerModule,
   MatNativeDateModule,
   MatSidenavModule,
- 
   MatCarouselModule.forRoot(),
   MatDialogModule,
   MatToolbarModule,
   MatBadgeModule,
   MatTabsModule,
-
   MatFormFieldModule,
   MatTableModule,
   MatProgressSpinnerModule,

@@ -30,17 +30,17 @@
 }
 
 .username {
-  position: absolute;
+  /* position: absolute; */
   margin-top: 5px;
   margin-left: 10px;
 }
 
 footer.sticky-footer {
-  position: fixed;
+  /* position: fixed; */
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 10px;
+  /* padding: 10px; */
   background-color: #ffffff;
   border-top: solid 1px #efefef;
 }
@@ -167,4 +167,8 @@ ul{
 
 li{
   text-transform: capitalize;
+}
+
+.msg-edit{
+  float: right;
 }

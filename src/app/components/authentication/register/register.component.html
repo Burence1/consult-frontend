@@ -306,6 +306,7 @@
             <div *ngIf="email.errors.maxlength">Email is too long.</div>
           </div>
         </div>
+
         <div [class.has-error]="confirmPassword.touched && confirmPassword.invalid">
           <div name="password" class="mb-3">
             <label for="RegisterPassword" class="form-label">Password</label>
@@ -325,7 +326,8 @@
                 pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$"
                 maxlength="20"
               />
-              <button
+              <span
+                class="hide"
                 mat-icon-button
                 matSuffix
                 (click)="hide = !hide"
@@ -333,7 +335,7 @@
                 [attr.aria-pressed]="hide"
               >
                 <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-              </button>
+              </span>
             </mat-form-field>
             <div
               *ngIf="password.invalid && (password.dirty || password.touched)"
@@ -366,7 +368,7 @@
                 pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$"
                 maxlength="20"
               />
-              <button
+              <span
                 mat-icon-button
                 matSuffix
                 (click)="hide = !hide"
@@ -374,7 +376,7 @@
                 [attr.aria-pressed]="hide"
               >
                 <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-              </button>
+              </span>
             </mat-form-field>
             <div
               *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)"
