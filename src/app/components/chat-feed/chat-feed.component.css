@@ -17,9 +17,9 @@
     height: 100vh;
 }
 
-/* .left-drawer {
+.left-drawer { 
   width: 200px;
-} */
+} 
 
 .users-pane {
   height: 500px;
@@ -30,17 +30,17 @@
 }
 
 .username {
-  /* position: absolute; */
+  position: absolute;
   margin-top: 5px;
   margin-left: 10px;
 }
 
 footer.sticky-footer {
-  /* position: fixed; */
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  /* padding: 10px; */
+  padding: 10px;
   background-color: #ffffff;
   border-top: solid 1px #efefef;
 }
@@ -55,7 +55,7 @@ footer.sticky-footer {
 }
 
 .message-box {
-  /* float: left;  */
+  float: left; 
   width: 98%;
   margin: 5px 0 0 2%;
 }

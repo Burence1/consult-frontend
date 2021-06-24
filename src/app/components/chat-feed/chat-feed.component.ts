@@ -32,7 +32,7 @@ export const snapshotToArray = (snapshot: any) => {
   templateUrl: './chat-feed.component.html',
   styleUrls: ['./chat-feed.component.css']
 })
-export class ChatFeedComponent implements OnInit, AfterViewChecked {
+export class ChatFeedComponent implements OnInit {
   @ViewChild('scroller') private feedScroll: ElementRef;
   // @ViewChild('chatcontent') chatcontent: ElementRef;
   // scrolltop: any | null;
@@ -99,7 +99,7 @@ export class ChatFeedComponent implements OnInit, AfterViewChecked {
 
   onFormSubmit(form: any) {
     var day = new Date();
-    const options = { day: 'numeric', month: 'long', year: "numeric", timeZone: "Asia/Kolkata" } as const;
+    const options = { day: 'numeric', month: 'long', year: "numeric", timeZone: "Africa/Nairobi" } as const;
     const today = day.toLocaleDateString("en-IN", options);
 
     const chat = form;
@@ -115,13 +115,13 @@ export class ChatFeedComponent implements OnInit, AfterViewChecked {
     });
   }
   
-  scrollToBottom(): void {
-    this.feedScroll.nativeElement.scrollTop
-      = this.feedScroll.nativeElement.scrollHeight;
-  }
+  // scrollToBottom(): void {
+  //   this.feedScroll.nativeElement.scrollTop
+  //     = this.feedScroll.nativeElement.scrollHeight;
+  // }
 
   // tslint:disable-next-line: typedef
-  ngAfterViewChecked() {
-    this.scrollToBottom();
-  }
+  // ngAfterViewChecked() {
+  //   this.scrollToBottom();
+  // }
 }

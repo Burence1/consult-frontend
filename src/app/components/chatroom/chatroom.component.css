@@ -145,6 +145,10 @@ mat-divider {
 
 
 /* new */
+.example-tab-icon {
+  margin-right: 8px;
+}
+
 .toggler{
   font-size: 40px;
 } 
@@ -168,7 +172,7 @@ mat-sidenav {
 }
 
 .content {
-  /* height: calc(100vh - 98px); */
+  height: calc(100vh - 98px);
   border-radius: 10px;
   margin: 16px;
   margin-left: 32px;
