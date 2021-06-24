@@ -7,35 +7,32 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-6">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
           <br><h1 class="text-center directory">MEDICAL DIRECTORY</h1>
           <div class="col-1-of-3" *ngFor='let profile of profiles'>
-            <div class="">
-              <div class="card">
-                <div class="card__side card__side--front-3">
-                  <div class="card__cta">
-                    <p class="btn btn--white">{{profile.displayName}}</p>
-                  </div>
-                  
-                </div>
-                <div class="card__side card__side--back card__side--back-3">
-                  <div class="card__details">
+
+
+            <main>
+              <div class='card'>
+                <div class='info'>
+                  <h1 class='title'>{{profile.displayName}}</h1>
+                  <div class='description'>
                     <ul>
-                      <li><strong>Email:</strong>  <br> {{ profile.email }}</li>
-                      <li><strong>Department:</strong><br> {{ profile.department }}</li>
-                      <li><strong>Position:</strong> <br> {{ profile.position }}</li>
-                      <li><strong>Contact:</strong> <br> {{ profile.contact }}</li>
-                      <li><strong>Interests:</strong> <br> {{ profile.interest1 }}
-                        <br>{{ profile.interest2 }}
-                        <br>{{ profile.interest1 }}
+                      <li><strong>Email:</strong>  {{ profile.email }}</li>
+                      <li><strong>Department:</strong> {{ profile.department }}</li>
+                      <li><strong>Position:</strong> {{ profile.position }}</li>
+                      <li><strong>Contact:</strong> {{ profile.contact }}</li>
+                      <li><strong>Interests:</strong>  {{ profile.interest1 }},
+                        {{ profile.interest2 }},
+                        {{ profile.interest1 }}
                       </li>
                       
                     </ul>
                   </div>
                 </div>
               </div>
-            </div><br>
+            </main>
             
             
           </div>
