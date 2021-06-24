@@ -116,7 +116,7 @@ export class ChatFeedComponent implements OnInit {
 
   deleteMsg(uid: any) {
     const key = uid
-    var del = confirm("Want to delete?");
+    var del = confirm("Are you sure you want to delete this message?");
     if (del) {
       firebase.database().ref(`chats/${key}`).remove();
     }
