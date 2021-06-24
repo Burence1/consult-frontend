@@ -1,0 +1,35 @@
+.container-wrapper{
+    display: flex;
+    font-size: 11.4px;
+}
+.addbtn{
+    margin: 20px;
+    margin-left: 23rem;
+}
+:host {
+    display: block;
+  }
+  
+  .item {
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+mat-toolbar {
+  background-color: #003060;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+.nav-link{
+  color: white;
+}
+.nav-link:hover{
+  color: #C0C0C0;
+}
+/* .addbtn button{
+  background-color: deepskyblue;
+  color: white;
+} */
+.all-tasks {
+  background-color: #AFE1AF;
+}

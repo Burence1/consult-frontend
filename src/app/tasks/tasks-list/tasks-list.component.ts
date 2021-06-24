@@ -1,17 +1,17 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Task } from './task';
+import { Task } from '../task';
 import { CdkDragDrop, transferArrayItem } from '@angular/cdk/drag-drop';
 import { MatDialog } from '@angular/material/dialog';
-import { TaskDialogComponent } from './task-dialog/task-dialog.component';
-import { TaskDialogResult } from './task-dialog/task-dialog.component';
+import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
+import { TaskDialogResult } from '../task-dialog/task-dialog.component';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import { TaskService } from './tasks-services/task.service';
+import { TaskService } from '../tasks-services/task.service';
 import { map } from 'rxjs/operators';
-import { HoldService } from './tasks-services/hold.service';
-import { DoneService } from './tasks-services/done.service';
+import { HoldService } from '../tasks-services/hold.service';
+import { DoneService } from '../tasks-services/done.service';
 
 const getObservable = (collection: AngularFireList<Task>) =>{
   const subject = new BehaviorSubject<Task[]>([]);
@@ -22,11 +22,11 @@ const getObservable = (collection: AngularFireList<Task>) =>{
 }
 
 @Component({
-  selector: 'app-tasks',
-  templateUrl: './tasks.component.html',
-  styleUrls: ['./tasks.component.css']
+  selector: 'app-tasks-list',
+  templateUrl: './tasks-list.component.html',
+  styleUrls: ['./tasks-list.component.css']
 })
-export class TasksComponent implements OnInit {
+export class TasksListComponent implements OnInit {
 
   @Input() task?: Task;
   todo: Task[];
@@ -48,7 +48,6 @@ export class TasksComponent implements OnInit {
   ngOnInit(): void {
 
     this.retrieveTasks();
-    this.retrieveUsers()
 
   }
 
@@ -78,10 +77,20 @@ export class TasksComponent implements OnInit {
         enableDelete: true,
       }
     });
+    
+    // const newPath = this.db.object<any>(path)
+    // console.log("PATH",newPath)
     dialogRef.afterClosed().subscribe((result: TaskDialogResult)=>{
+     
       if(result.delete){
-        this.taskService.delete(task.key)
+        if(list === 'todo'){
+          console.log(task.key)
 
+          return this.taskService.delete(task.key).then(() => {this.msg = 'deleted successfully!', console.log(this.msg)}).catch(err => console.log("Err",err));
+          console.log(task.key)
+        }
+       // console.log("KEY",task.key)
+       console.log(list === 'inProgress')
       } 
       else{
         this.taskService.update(task.key, task)
@@ -102,9 +111,5 @@ export class TasksComponent implements OnInit {
     });
     
     this.added = true; //might be problematic
-  }
-
-  retrieveUsers(){
-   
-  }
+  }    
 }

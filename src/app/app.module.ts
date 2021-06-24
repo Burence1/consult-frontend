@@ -58,6 +58,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { AddRoomComponent } from './components/add-room/add-room.component';
 import { RoomlistsComponent } from './components/roomlists/roomlists.component';
+import { TasksComponent } from './components/tasks/tasks.component';
 
 
 @NgModule({
@@ -78,6 +79,7 @@ import { RoomlistsComponent } from './components/roomlists/roomlists.component';
     NotFoundComponent,
     AddRoomComponent,
     RoomlistsComponent,
+    TasksComponent,
   ],
   entryComponents: [AddRoomComponent],
   imports: [

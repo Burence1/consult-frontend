@@ -13,7 +13,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatTabsModule} from '@angular/material/tabs';
 
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -33,18 +32,13 @@ const material = [
   MatDialogModule,
   MatToolbarModule,
   MatBadgeModule,
-<<<<<<< HEAD
-  MatTabsModule
-=======
   MatTabsModule,
-
   MatFormFieldModule,
   MatTableModule,
   MatProgressSpinnerModule,
   MatSortModule,
   MatSnackBarModule,
   MatInputModule,
->>>>>>> 337b481e7823cdb379c82691640802025d0e912e
 ];
 
 @NgModule({
