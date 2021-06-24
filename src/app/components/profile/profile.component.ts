@@ -14,6 +14,9 @@ import { finalize } from 'rxjs/operators';
 })
 export class ProfileComponent implements OnInit {
 
+  name = '!!!';
+  viewMode = 'tab1';
+
   selectedImage: any = null;
   url: string;
   id: string;

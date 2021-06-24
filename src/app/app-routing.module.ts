@@ -12,6 +12,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { HomePageComponent } from './components/home/home-page/home-page.component';
 // import { TasksComponent } from './components/tasks/tasks.component';
 import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
+import { DirectoryComponent } from './directory/directory.component';
 import { PhoneLoginComponent } from './components/authentication/phone-login/phone-login.component';
 import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
 import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.component';
@@ -29,12 +30,14 @@ const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'chats', component: ChatroomComponent },
   { path: 'password_reset', component: ForgotPasswordComponent },
+  { path: 'directory', component: DirectoryComponent },
   { path: 'add-room', component: AddRoomComponent},
   { path: 'roomlist', component: RoomlistsComponent},
   { path: 'chatfeed/:roomname', component: ChatFeedComponent},
   {path: 'tasks', component: TasksListComponent},
   {path: 'calendar', component: CalendarComponent},
   { path: '**', component: NotFoundComponent },
+
 
 ];
 
