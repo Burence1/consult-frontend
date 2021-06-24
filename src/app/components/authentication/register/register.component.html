@@ -306,8 +306,7 @@
             <div *ngIf="email.errors.maxlength">Email is too long.</div>
           </div>
         </div>
-
-        <div [class.has-error]="confirmPassword.touched && confirmPassword.invalid">
+        <div>
           <div name="password" class="mb-3">
             <label for="RegisterPassword" class="form-label">Password</label>
             <br />
@@ -320,7 +319,6 @@
                 (ngModel)="(password)"
                 id="password"
                 name="password"
-                (input)="confirmPassword.control.updateValueAndValidity()"
                 #password="ngModel"
                 required
                 pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$"

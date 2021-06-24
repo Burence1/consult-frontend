@@ -30,14 +30,17 @@ const colors: any = {
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
-  viewDate: Date = new Date()
+  constructor(private service: TaskService) {
+
+   }
+  viewDate: Date = new Date();
 
   tasks: Task[];
   dailyEvents: any;
   dailyDate: any;
 
-  view: CalendarView = CalendarView.Month
-  CalendarView = CalendarView
+  view: CalendarView = CalendarView.Month;
+  CalendarView = CalendarView;
 
   colors: any = {
     red: {
@@ -73,17 +76,13 @@ export class CalendarComponent implements OnInit {
     },
   ];
 
-  handleEvent(action: string, event: CalendarEvent): void{
-
-  }
-
   events: myEvent[] = [
     {
       start: new Date(),
-      title: "Assist the MD and clinical admins",
-      owner: "Nurse John"
+      title: 'Assist the MD and clinical admins',
+      owner: 'Nurse John'
     }
-  ]
+  ];
   //
   oldevents: myEvent[] = [
     // {
@@ -108,11 +107,17 @@ export class CalendarComponent implements OnInit {
   ];
 
 
-  activeDayIsOpen: boolean = true;
+  activeDayIsOpen = true;
+
+  refresh: Subject<any> = new Subject();
+
+  handleEvent(action: string, event: CalendarEvent): void{
+
+  }
   //
   dayClicked({ date, events }: { date: Date; events: any }): void {
-    console.log("CLICKED",date)
-    console.log("Events(s)",events)
+    console.log('CLICKED', date);
+    console.log('Events(s)', events);
     this.dailyEvents = events;
     this.dailyDate = date;
 
@@ -130,10 +135,8 @@ export class CalendarComponent implements OnInit {
   }
 
   setView(view: CalendarView): void{
-    this.view = view
+    this.view = view;
   }
-
-  refresh: Subject<any> = new Subject();
 
   addEvent(): void{
     this.events = [
@@ -144,14 +147,14 @@ export class CalendarComponent implements OnInit {
         start: startOfDay(new Date()),
         end: endOfDay(new Date()),
         color: colors.red.primary,
-        owner: "Dr Ann",
+        owner: 'Dr Ann',
         draggable: true,
         resizable: {
           beforeStart: true,
           afterEnd: true,
         },
       },
-    ]
+    ];
   }
 
   deleteEvent(eventToDelete: CalendarEvent): void{
@@ -159,35 +162,33 @@ export class CalendarComponent implements OnInit {
   }
 
   eventClicked({event}: { event: CalendarEvent}): void{
-   
+
   }
-  constructor(private service: TaskService) {
 
-   }
 
-  
   ngOnInit(): void {
     this.retrieveTasks();
   }
+  // tslint:disable-next-line: typedef
   retrieveTasks(){
     this.service.getAll().snapshotChanges().pipe(
-      map(changes => changes.map(c =>({
+      map(changes => changes.map(c => ({
         key: c.payload.key, ...c.payload.val()
       })))
     ).subscribe(data => {
       this.tasks = data;
-      console.log("data",this.tasks)
+      console.log('data', this.tasks);
 
       this.tasks.forEach(item => {
-        let newItem = {
+        const newItem = {
           start: new Date(item.dateDue),
           title: item.title,
           owner: item.owner,
-        }
-        console.log("NEW",newItem)
-        this.events.push(newItem)
-        console.log(this.events)
-      })
+        };
+        console.log('NEW', newItem);
+        this.events.push(newItem);
+        console.log(this.events);
+      });
     });
   }
 

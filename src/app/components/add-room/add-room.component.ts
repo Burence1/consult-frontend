@@ -26,26 +26,27 @@ export class AddRoomComponent implements OnInit {
   roomForm: FormGroup;
   chatname = '';
   roomname = '';
-  ref: any
+  ref: any;
   userName: any;
-  user:any
+  user: any;
   matcher = new MyErrorStateMatcher();
 
   constructor(private router: Router,
-    private route: ActivatedRoute,
-    private formBuilder: FormBuilder,
-    private snackBar: MatSnackBar,
-    private Auth: AngularFireAuth, private db: AngularFireDatabase) {
+              private route: ActivatedRoute,
+              private formBuilder: FormBuilder,
+              private snackBar: MatSnackBar,
+              private Auth: AngularFireAuth, private db: AngularFireDatabase) {
     this.Auth.authState.subscribe(auth => {
       if (auth !== undefined && auth !== null) {
         this.user = auth;
       }
       this.getUser().valueChanges().subscribe(a => {
         this.userName = a;
-        this.chatname = this.userName.displayName
+        this.chatname = this.userName.displayName;
       });
-    })
+    });
     }
+  // tslint:disable-next-line: typedef
   getUser() {
     const userId = this.user.uid;
     const path = `/users/${userId}`;
@@ -54,15 +55,16 @@ export class AddRoomComponent implements OnInit {
 
   ngOnInit(): void {
     this.roomForm = this.formBuilder.group({
-      'roomname': [null, Validators.required]
+      roomname: [null, Validators.required]
     });
-    
+
   }
 
+  // tslint:disable-next-line: typedef
   onFormSubmit(form: any) {
     this.ref = firebase.database().ref('rooms/');
     const room = form;
-    room.admin=this.chatname
+    room.admin = this.chatname;
     this.ref.orderByChild('roomname').equalTo(room.roomname).once('value', (snapshot: any) => {
       if (snapshot.exists()) {
         this.snackBar.open('Room name already exist!');
