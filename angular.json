@@ -41,13 +41,10 @@
               "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
-<<<<<<< HEAD
-              "src/assets/js/profile.js"
-=======
+              "src/assets/js/profile.js",
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "src/assets/js/Navbar.js"
->>>>>>> 5ee435b0852be6cae0b53f7636967cc584e78e37
             ]
           },
           "configurations": {
