@@ -98,14 +98,15 @@ export class ChatFeedComponent implements OnInit {
   }
 
   onFormSubmit(form: any) {
-    var day = new Date();
-    const options = { day: 'numeric', month: 'long', year: "numeric", timeZone: "Asia/Kolkata" } as const;
-    const today = day.toLocaleDateString("en-IN", options);
+    var today = new Date();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = date + ' ' + time;
 
     const chat = form;
     chat.roomname = this.roomname;
     chat.chatname = this.chatname;
-    chat.date = today;
+    chat.date = dateTime;
     chat.type = 'message';
     const newMessage = firebase.database().ref('chats/').push();
     newMessage.set(chat);
