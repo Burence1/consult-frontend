@@ -1,0 +1,26 @@
+<mat-card class="list on-hold">
+    <p class="empty-label" *ngIf="len === 0">Empty list</p>
+    <div *ngFor="let task of onHold">
+    <mat-card  class="item" *ngIf="task" (dblclick)="edit.emit(task)">
+       
+        <!-- <span>{{task.description }}</span> <br> -->
+        <!-- <span><b>Tasked Owner:</b> {{task.owner }}</span> <br> -->
+        <!-- <span><b>Due Date:</b> {{task.dateDue.toDate()|date  }}</span> -->
+        <div class="task-title">
+            <h3>{{task.title}}</h3>
+            <button mat-raised-button color="primary" (click)="continueTask(task)">continue</button>
+        </div>
+       
+  
+        <!-- <p>Status: {{task.status}}</p> -->
+    </mat-card>
+    <br>
+    </div>   
+  
+    <!-- <app-new-task (edit)="editTask('done', $event)" *ngFor="let task of done" [task]="task"></app-new-task> -->
+</mat-card>
+<div *ngIf="len !== 0">
+    <br>
+    <button class="btn" mat-raised-button color="warn" (click)="clear()">Clear</button>
+</div>
+

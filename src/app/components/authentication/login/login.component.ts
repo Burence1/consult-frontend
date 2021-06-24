@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth/auth.service';
+import { MatCarousel, MatCarouselComponent } from 'ng-mat-carousel';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

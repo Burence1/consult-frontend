@@ -18,6 +18,7 @@
 
 .header {
   color: black;
+  margin-left: 18%;
 }
 
 
@@ -54,7 +55,13 @@ a:hover {
 
 .nav-link {
   padding: 1rem 1.4rem;
-  
+  margin-left: 16%;
+  text-align: center;
+
+}
+
+form{
+  margin-left: 18%;
 }
 
 .ac {
@@ -79,3 +86,5 @@ img {
 .sp1>span {
   background-color: #003060;
 }
+
+

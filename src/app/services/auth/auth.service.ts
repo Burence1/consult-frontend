@@ -31,15 +31,29 @@ export class AuthService {
   authUser() {
     return this.user;
   }
+  // if (this.currentId.IsEmailVerified) {
+  //   console.log('Nice, it worked!');
+  //   this.toastr.success('Welcome to Consult!');
+  //   this.router.navigateByUrl('/home');
+  // }
+  // else {
+  //   console.log('Email verification sent');
+  // }
 
   // tslint:disable-next-line: typedef
   login(email: string, password: string) {
     this.afAuth
       .signInWithEmailAndPassword(email, password)
-      .then((value: any) => {
-        console.log('Nice, it worked!');
-        this.toastr.success('Welcome to Consult!');
-        this.router.navigateByUrl('/home');
+      .then((value) => {
+        if (!value.user.emailVerified) {
+              console.log('Please verify your email to login');
+              this.toastr.error('Please verify your email to login!');
+            }
+            else {
+              console.log('Nice, it worked!');
+              this.toastr.success('Welcome to Consult!');
+              this.router.navigateByUrl('/home');
+            }
       })
       .catch((err: { message: any }) => {
         console.log('Something went wrong: ', err.message);
@@ -48,11 +62,13 @@ export class AuthService {
   }
 
   // tslint:disable-next-line: typedef
-  emailSignup(email: string, password: string, displayName: string) {
+  emailSignup(displayName: string, email: string, password: string, confirmPassword: string ) {
     this.afAuth.createUserWithEmailAndPassword(email, password)
-    .then((user: any) => {
+    .then(async (user: firebase.auth.UserCredential) => {
+      await firebase.auth().currentUser.sendEmailVerification();
       this.authState = user;
-      console.log('Success', user);
+      console.log('We\'ve sent you an email verification link!');
+      console.log('Welcome, your account has been created!');
       const currentId = this.authState.user.uid;
       const status = 'online';
       this.setUserData(email, displayName, status, currentId);
