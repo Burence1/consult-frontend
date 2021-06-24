@@ -26,13 +26,12 @@ export const snapshotToArray = (snapshot: any) => {
   return returnArr;
 };
 
-
 @Component({
   selector: 'app-chat-feed',
   templateUrl: './chat-feed.component.html',
   styleUrls: ['./chat-feed.component.css']
 })
-export class ChatFeedComponent implements OnInit, AfterViewChecked {
+export class ChatFeedComponent implements OnInit {
   @ViewChild('scroller') private feedScroll: ElementRef;
   // @ViewChild('chatcontent') chatcontent: ElementRef;
   // scrolltop: any | null;
@@ -50,6 +49,7 @@ export class ChatFeedComponent implements OnInit, AfterViewChecked {
   rooms: any;
   matcher = new MyErrorStateMatcher();
   admin: any;
+  msg:any;
 
   constructor(private Auth: AngularFireAuth, private db: AngularFireDatabase, private router: Router,
     private route: ActivatedRoute,
@@ -67,19 +67,19 @@ export class ChatFeedComponent implements OnInit, AfterViewChecked {
       firebase.database().ref('chats/').on('value', resp => {
         let chats = snapshotToArray(resp);
         this.chats = chats.filter(x => x.roomname === this.roomname)
-        console.log(this.chats)
        //setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
       });
+      
       firebase.database().ref('roomusers/').orderByChild('roomname').equalTo(this.roomname).on('value', (resp2: any) => {
         const roomusers = snapshotToArray(resp2);
         this.users = roomusers.filter(x => x.status === 'online');
       });
+
       firebase.database().ref('rooms/').on('value', resp => {
         // this.rooms = [];
         let rooms = snapshotToArray(resp);
         this.rooms = rooms.filter(x => x.roomname === this.roomname)
         this.admin=this.rooms
-        console.log(this.admin)
       });
     })
   }
@@ -104,7 +104,6 @@ export class ChatFeedComponent implements OnInit, AfterViewChecked {
 
     const chat = form;
     chat.roomname = this.roomname;
-    console.log(chat.roomname)
     chat.chatname = this.chatname;
     chat.date = today;
     chat.type = 'message';
@@ -114,14 +113,22 @@ export class ChatFeedComponent implements OnInit, AfterViewChecked {
       'message': [null, Validators.required]
     });
   }
-  
-  scrollToBottom(): void {
-    this.feedScroll.nativeElement.scrollTop
-      = this.feedScroll.nativeElement.scrollHeight;
+
+  deleteMsg(uid: any) {
+    const key = uid
+    var del = confirm("Want to delete?");
+    if (del) {
+      firebase.database().ref(`chats/${key}`).remove();
+    }
   }
 
-  // tslint:disable-next-line: typedef
-  ngAfterViewChecked() {
-    this.scrollToBottom();
-  }
+  // scrollToBottom(): void {
+  //   this.feedScroll.nativeElement.scrollTop
+  //     = this.feedScroll.nativeElement.scrollHeight;
+  // }
+
+  // // tslint:disable-next-line: typedef
+  // ngAfterViewChecked() {
+  //   this.scrollToBottom();
+  // }
 }

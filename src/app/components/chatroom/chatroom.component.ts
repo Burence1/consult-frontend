@@ -40,6 +40,7 @@ export class ChatroomComponent implements OnInit, AfterViewChecked {
     this.auth.logout();
   }
 
+
   scrollToBottom(): void {
     this.feedScroll.nativeElement.scrollTop
       = this.feedScroll.nativeElement.scrollHeight;

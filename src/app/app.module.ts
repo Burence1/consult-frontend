@@ -70,6 +70,7 @@ import { NewTaskComponent } from './components/tasks/new-task/new-task.component
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -113,12 +114,14 @@ import { NewTaskComponent } from './components/tasks/new-task/new-task.component
     MaterialModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    MatMenuModule,
     
     DragDropModule,
     MatFormFieldModule,
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
+    MatIconModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [MessagingService, AsyncPipe],
