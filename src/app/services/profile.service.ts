@@ -14,16 +14,16 @@ import { Profile } from '../profile';
   providedIn: 'root',
 })
 export class ProfileService {
-  
-  //url =
 
-  //update_url =
+  // url =
+
+  // update_url =
 
   constructor(
     private afAuth: AngularFireAuth,
     private db: AngularFireDatabase
   ) {
-    
+
   }
 
   fetchProfileApi(id: string): Observable<Profile> {
@@ -37,6 +37,7 @@ export class ProfileService {
   //     .map((data: {profile: Profile}) => data.profile);
   // }
 
+  // tslint:disable-next-line: typedef
   update(id: string, profile: Profile) {
     const path = `users/${id}`;
     this.db.object<Profile>(path).update(profile);

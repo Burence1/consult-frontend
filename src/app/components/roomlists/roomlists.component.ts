@@ -33,19 +33,24 @@ export class RoomlistsComponent implements OnInit {
   displayedColumns: string[] = ['roomname'];
   rooms: any[];
   isLoadingResults = true;
-  feed:any
+  feed: any;
 
 
-  constructor(private Auth: AngularFireAuth, private db: AngularFireDatabase, private route: ActivatedRoute, private router: Router, private auth: AuthService, private chat: ChatService) {
+  constructor(private Auth: AngularFireAuth,
+              private db: AngularFireDatabase,
+              private route: ActivatedRoute,
+              private router: Router,
+              private auth: AuthService,
+              private chat: ChatService) {
     this.Auth.authState.subscribe(auth => {
       if (auth !== undefined && auth !== null) {
         this.user = auth;
         this.chatname = this.user.password;
-       
+
       }
       this.getUser().valueChanges().subscribe(a => {
         this.userName = a;
-        this.chatname = this.userName.displayName
+        this.chatname = this.userName.displayName;
       });
     });
     firebase.database().ref('rooms/').on('value', resp => {
@@ -56,6 +61,7 @@ export class RoomlistsComponent implements OnInit {
 
   }
 
+  // tslint:disable-next-line: typedef
   getUser() {
     const userId = this.user.uid;
     const path = `/users/${userId}`;
@@ -65,6 +71,7 @@ export class RoomlistsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // tslint:disable-next-line: typedef
   ChatRoomUsers(roomname: string) {
     firebase.database().ref('roomusers/').orderByChild('roomname').equalTo(roomname).on('value', (resp: any) => {
       let roomuser = [];
@@ -84,5 +91,5 @@ export class RoomlistsComponent implements OnInit {
     });
     this.router.navigate(['/chatfeed', roomname]);
   }
-  
+
 }

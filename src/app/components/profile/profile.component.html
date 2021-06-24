@@ -1,4 +1,4 @@
- 
+
 <div class="container">
   <p class="text-center">Welcome to your profile!</p>
 <div class="row">
@@ -9,10 +9,10 @@
             <div class="row">
               <div class="col-md-4"></div>
                 <div class="col-md-4">
-                  
-                 
+
+
                   <img [src]=" profile.image "  style="height: 100px; width:100px">
-                  
+
                   <h2>Dr: {{ profile.displayName }}</h2>
                 <div class="col-md-4"></div>
                 </div>
@@ -41,7 +41,11 @@
   </div>
   <div class="col-md-2"></div>
 </div>
-</div><br><br>
+</div>
+
+<button class="btn btn"><a href="home">sdmsndznDN</a></button>
+
+<br><br>
 
 
 <div class="user-info">
@@ -53,7 +57,7 @@
 
           <button (click)="toggleForm()">Update Profile</button>
 
-          
+
           <div *ngIf="showForm">
             <form (ngSubmit)='updateProfile()' #quoteForm='ngForm' id="form">
               <div class="form-group">
@@ -63,7 +67,7 @@
             <div class="form-group">
               <label for="profile_picture">Profile Picture</label><br>
               <input type="file" id="myFile" name="filename" [(ngModel)]="imageInput" name="image" (change)="showPreview($event)">
-              
+
           </div>
               <div class="form-group">
                   <label for="department">Department</label><br>
@@ -89,13 +93,13 @@
                 <label for="interests">Interest</label><br>
                 <input type="text" class="form-control" id="interests" placeholder="Enter your Interests" [(ngModel)]="interest3Input" name="interests" required >
               </div>
-              
+
               <button>Submit</button>
           </form>
           </div>
-          
+
         </div>
-        
+
       <div class="col-md-4"></div>
       </div>
     </div>

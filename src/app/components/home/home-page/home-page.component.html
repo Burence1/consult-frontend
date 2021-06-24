@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <div class="jumbotron jumbotron-fluid">
-=======
 <mat-toolbar>
   <button
     type="button"
@@ -27,8 +19,8 @@
     [opened]="(isHandset$ | async) === true"
   >
   <img class="avatar mat-elevation-z8" src="https://image.freepik.com/free-vector/doctor-avatar-design_1146-14.jpg" />
-  <h4 class="name">Dr. Jane</h4>
-  <p class="designation">Gynacologist</p>
+  <h4 class="name">Dr.{{ profile.displayName }}</h4>
+  <p class="designation">{{ profile.department }}</p>
   <hr>
 
     <a
@@ -68,9 +60,6 @@
     >
       <mat-icon>logout</mat-icon>Logout</a
     >
-    <a mat-list-item class="nav-item nav-link" routerLink="/dashboard">
-      Dashboard</a
-    >
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="content mat-elevation-z8">
@@ -78,47 +67,9 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-8">
-              <div class="jumbotron jumbotron-fluid">
->>>>>>> 337b481e7823cdb379c82691640802025d0e912e
-                <div class="container">
-                  <div class="row">
-                    <div class="col-md-5 jumbo-text">
-                      <h1 class="display-4">Welcome, Dr. Jane!</h1>
-                      <p class="lead">Have a nice day today</p>
-                      <button
-                        mat-raised-button
-                        routerLink="/profile"
-                        color="warn"
-                      >
-                        Go to profile
-                      </button>
-                    </div>
-                    <div class="col-md-6">
-                      <img
-                        src="assets/images/team-doctors.jpg"
-                        alt="doctors illustration"
-                        class="jumbo-img"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-6">
-              <mat-card class="inline-calendar-card">
-                <mat-calendar
-                  (selectedChange)="selected = $event"
-                ></mat-calendar>
-              </mat-card>
-              <p>Selected date: {{ selected | date }}</p>
-            </div>
-            <div class="highlights col-md-4">
-              <h3>Today's Highlights:</h3>
-            </div>
           </div>
         </div>
       </div>
