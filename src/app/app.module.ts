@@ -19,6 +19,7 @@ import { RegisterComponent } from './components/authentication/register/register
 import { EmailComponent } from './components/authentication/email/email.component';
 import { ForgotPasswordComponent } from './components/authentication/forgot-password/forgot-password.component';
 
+
 import { HomePageComponent } from './components/home/home-page/home-page.component';
 import { NavbarComponent } from './components/home/navbar/navbar.component';
 import { ChatroomComponent } from './components/chatroom/chatroom.component';
@@ -36,6 +37,7 @@ import { MatCarouselModule } from 'ng-mat-carousel';
 // import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
+import { DirectoryComponent } from './directory/directory.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
@@ -92,6 +94,10 @@ import { NewTaskComponent } from './components/tasks/new-task/new-task.component
     DoneTaskComponent,
     OnHoldComponent,
     TaskDialogComponent,
+    NotFoundComponent,
+    DirectoryComponent,
+    
+
     TasksListComponent,
     NewTaskComponent
   ],

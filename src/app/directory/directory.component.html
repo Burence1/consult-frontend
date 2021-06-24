@@ -1,0 +1,43 @@
+<mat-sidenav class="side-nav" #sidenav mode="side" opened>
+    <h1>
+      <a class="navbar navbar-brand logo">Consult</a>
+    </h1>
+    <app-navbar></app-navbar>
+</mat-sidenav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+          <br><h1 class="text-center directory">MEDICAL DIRECTORY</h1>
+          <div class="col-1-of-3" *ngFor='let profile of profiles'>
+
+
+            <main>
+              <div class='card'>
+                <div class='info'>
+                  <h1 class='title'>{{profile.displayName}}</h1>
+                  <div class='description'>
+                    <ul>
+                      <li><strong>Email:</strong>  {{ profile.email }}</li>
+                      <li><strong>Department:</strong> {{ profile.department }}</li>
+                      <li><strong>Position:</strong> {{ profile.position }}</li>
+                      <li><strong>Contact:</strong> {{ profile.contact }}</li>
+                      <li><strong>Interests:</strong>  {{ profile.interest1 }},
+                        {{ profile.interest2 }},
+                        {{ profile.interest1 }}
+                      </li>
+                      
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </main>
+            
+            
+          </div>
+        </div>
+    </div>
+</div>
+
+
