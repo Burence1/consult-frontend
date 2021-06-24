@@ -1,3 +1,5 @@
+import { RoomlistsComponent } from './components/roomlists/roomlists.component';
+import { AddRoomComponent } from './components/add-room/add-room.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './components/authentication/forgot-password/forgot-password.component';
 import { ChatroomComponent } from './components/chatroom/chatroom.component';
@@ -11,6 +13,7 @@ import { HomePageComponent } from './components/home/home-page/home-page.compone
 import { TasksComponent } from './tasks/tasks.component';
 import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
 import { PhoneLoginComponent } from './components/authentication/phone-login/phone-login.component';
+import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -20,9 +23,12 @@ const routes: Routes = [
   { path: 'signup', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'home', component: HomePageComponent },
-  { path: 'chatroom', component: ChatroomComponent },
+  { path: 'chats', component: ChatroomComponent },
   { path: 'password_reset', component: ForgotPasswordComponent },
   { path: 'tasks', component: TasksComponent },
+  { path: 'add-room', component: AddRoomComponent},
+  { path: 'roomlist', component: RoomlistsComponent},
+  { path: 'chatfeed/:roomname', component: ChatFeedComponent},
   { path: '**', component: NotFoundComponent },
 
 ];

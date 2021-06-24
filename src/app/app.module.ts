@@ -22,12 +22,9 @@ import { ForgotPasswordComponent } from './components/authentication/forgot-pass
 import { HomePageComponent } from './components/home/home-page/home-page.component';
 import { NavbarComponent } from './components/home/navbar/navbar.component';
 import { ChatroomComponent } from './components/chatroom/chatroom.component';
-import { ChatFormComponent } from './components/chat-form/chat-form.component';
 import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
-import { MessageComponent } from './components/message/message.component';
 import { environment } from 'src/environments/environment';
 import { ChatUsersComponent } from './components/chat-users/chat-users.component';
-import { UserItemsComponent } from './components/user-items/user-items.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DropzoneDirective } from './dropzone.directive';
 
@@ -49,6 +46,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { AddRoomComponent } from './components/add-room/add-room.component';
+import { RoomlistsComponent } from './components/roomlists/roomlists.component';
 
 
 @NgModule({
@@ -62,17 +61,16 @@ import { MatMenuModule } from '@angular/material/menu';
     HomePageComponent,
     NavbarComponent,
     ChatroomComponent,
-    ChatFormComponent,
     ChatFeedComponent,
-    MessageComponent,
     ChatUsersComponent,
-    UserItemsComponent,
     ProfileComponent,
     DropzoneDirective,
     TasksComponent,
     NewTaskComponent,
     TaskDialogComponent,
     NotFoundComponent,
+    AddRoomComponent,
+    RoomlistsComponent
   ],
 
   imports: [

@@ -19,7 +19,7 @@
 }
 .highlights{
     margin-top: 1rem;
-   
+
 }
 .logo{
     color: white;
@@ -33,7 +33,7 @@
 
 .toggler{
     font-size: 40px;
-  } 
+  }
   mat-toolbar {
     background: #004a9f;
     color: white;
@@ -54,7 +54,7 @@ mat-sidenav {
 }
 
 .content {
-    /* height: calc(100vh - 98px); */
+    height: calc(100vh - 98px);
     border-radius: 10px;
     margin: 16px;
     margin-left: 32px;

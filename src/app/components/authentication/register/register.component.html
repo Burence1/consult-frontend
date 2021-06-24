@@ -125,6 +125,7 @@
               <mat-label>Type password again</mat-label>
               <input
                 matInput
+                [type]="hide ? 'confirmPassword' : 'text'"
                 placeholder="**********"
                 (ngModel)="(confirmPassword)"
                 id="confirmPassword"
@@ -135,6 +136,15 @@
                 pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$"
                 maxlength="20"
               />
+              <span
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide confirmPassword'"
+                [attr.aria-pressed]="hide"
+              >
+                <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+              </span>
             </mat-form-field>
             <div
               *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)"
