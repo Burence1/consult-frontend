@@ -7,11 +7,13 @@ import { MessagingService } from './services/push-notifications/messaging.servic
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  opened!: boolean;
   title = 'Consult';
   message;
 
   constructor(private messagingService: MessagingService) {}
 
+  // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit() {
     this.messagingService.requestPermission();
     this.messagingService.receiveMessage();

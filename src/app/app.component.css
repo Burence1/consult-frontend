@@ -1,0 +1,29 @@
+mat-sidenav-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+.side-nav {
+    top: 0;
+    bottom: 0;
+    background-color: whitesmoke;
+    color: #003060;
+    width: 200px;
+}
+mat-contianer{
+    height: 100vh;
+}
+.toolbar{
+    display: flex;
+    justify-content: space-between;
+    background-color: #003060;
+    color: white;
+}
+.nav-link{
+    color: white;
+}
+.nav-link:hover{
+    color: deepskyblue;
+}

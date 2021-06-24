@@ -26,7 +26,11 @@ mat-toolbar {
 .nav-link:hover{
   color: #C0C0C0;
 }
-.addbtn button{
+/* .addbtn button{
   background-color: deepskyblue;
   color: white;
+} */
+.all-tasks {
+  background-color: #AFE1AF;
 }
+
