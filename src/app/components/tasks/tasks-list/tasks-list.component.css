@@ -4,7 +4,9 @@
 }
 .addbtn{
     margin: 20px;
-    margin-left: 23rem;
+    margin-left: 32rem;
+    display: flex;
+    justify-content: space-between;
 }
 :host {
     display: block;
@@ -33,4 +35,3 @@ mat-toolbar {
 .all-tasks {
   background-color: #AFE1AF;
 }
-

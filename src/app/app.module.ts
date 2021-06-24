@@ -60,6 +60,12 @@ import { AddRoomComponent } from './components/add-room/add-room.component';
 import { RoomlistsComponent } from './components/roomlists/roomlists.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { CalendarComponent } from './components/tasks/calendar/calendar.component';
+import { DoneTaskComponent } from './components/tasks/done-task/done-task.component';
+import { OnHoldComponent } from './components/tasks/on-hold/on-hold.component';
+import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
+import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.component';
+import { NewTaskComponent } from './components/tasks/new-task/new-task.component';
+
 
 
 @NgModule({
@@ -82,6 +88,11 @@ import { CalendarComponent } from './components/tasks/calendar/calendar.componen
     RoomlistsComponent,
     TasksComponent,
     CalendarComponent,
+    DoneTaskComponent,
+    OnHoldComponent,
+    TaskDialogComponent,
+    TasksListComponent,
+    NewTaskComponent
   ],
   entryComponents: [AddRoomComponent],
   imports: [

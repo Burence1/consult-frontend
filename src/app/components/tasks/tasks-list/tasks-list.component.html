@@ -1,13 +1,16 @@
 
 <div class="container">
-    <small class="text-center">Reading from Task List</small>
+    <!-- <small class="text-center">Reading from Task List</small> -->
     <br>
-     <div style="margin-left: 30rem;" class="addbtn">
+     <div class="addbtn">
       <button (click)="newTask()" mat-raised-button>
           <mat-icon>add</mat-icon> Add Task
         </button>
   
-        <a class="ml" routerLink="/newtasks">More</a>
+        <button mat-raised-button>
+          <mat-icon>event</mat-icon> 
+         <a style="text-decoration: none;" routerLink="/calendar">Calendar</a>
+        </button>
         <br>
         <br>
      
