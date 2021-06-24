@@ -33,10 +33,10 @@
             <div class=" overview-tab">
               <div class="tab-slider--nav">
                 <div class=" row tab-slider--tabs">
-                <div class="col-md-3 lead tab-slider--trigger" [class.active]="viewMode == 'tab1'" rel="tab1" (click)="viewMode ='tab1'">Overview</div>
-              <div class="col-md-3 lead tab-slider--trigger" [class.active]="viewMode == 'tab2'" rel="tab2" (click)="viewMode ='tab2'">Groups</div>
-              <div class="col-md-3 lead lead tab-slider--trigger" [class.active]="viewMode == 'tab3'" rel="tab3" (click)="viewMode ='tab3'">Work History</div>
-              <div class="col-md-3 lead lead tab-slider--trigger" [class.active]="viewMode == 'tab4'" rel="tab4" (click)="viewMode ='tab4'">Patients</div>
+                <div class="col-md-4 lead tab-slider--trigger" [class.active]="viewMode == 'tab1'" rel="tab1" (click)="viewMode ='tab1'">Overview</div>
+              <div class="col-md-4 lead tab-slider--trigger" [class.active]="viewMode == 'tab2'" rel="tab2" (click)="viewMode ='tab2'">BIO</div>
+              <div class="col-md-4 lead lead tab-slider--trigger" [class.active]="viewMode == 'tab3'" rel="tab3" (click)="viewMode ='tab3'">CHAT GROUPS</div>
+              
                 </div>
               </div>
               
@@ -85,17 +85,14 @@
                       </ul>
                     </div>
                     <div id="tab2" class="tab-slider--body" *ngSwitchCase="'tab2'">
-                      <h2 class="overview">CHAT GROUPS</h2>
+                      <h2 class="overview">BIO</h2>
                       
                     </div>
                     <div id="tab3" class="tab-slider--body" *ngSwitchCase="'tab3'">
-                      <h2 class="overview">WORK HISTORY</h2>
+                      <h2 class="overview">CHAT GROUPS</h2>
                       
                     </div>
-                    <div id="tab4" class="tab-slider--body" *ngSwitchCase="'tab4'">
-                      <h2 class="overview">PATIENTS</h2>
-                      
-                    </div>
+                    
                   </div>
                   
                   
