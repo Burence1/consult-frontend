@@ -89,7 +89,7 @@ export class RoomlistsComponent implements OnInit {
         newRoomUser.set(newroomuser);
       }
     });
-    this.router.navigate(['/chatfeed', roomname]);
+    this.router.navigate(['/chatfeed',roomname]);
   }
 
 }

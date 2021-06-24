@@ -17,9 +17,9 @@
     height: 100vh;
 }
 
-/* .left-drawer {
+.left-drawer { 
   width: 200px;
-} */
+} 
 
 .users-pane {
   height: 500px;
@@ -55,7 +55,7 @@ footer.sticky-footer {
 }
 
 .message-box {
-  /* float: left;  */
+  float: left; 
   width: 98%;
   margin: 5px 0 0 2%;
 }
@@ -167,4 +167,8 @@ ul{
 
 li{
   text-transform: capitalize;
+}
+
+.msg-edit{
+  float: right;
 }

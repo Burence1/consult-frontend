@@ -26,13 +26,12 @@ export const snapshotToArray = (snapshot: any) => {
   return returnArr;
 };
 
-
 @Component({
   selector: 'app-chat-feed',
   templateUrl: './chat-feed.component.html',
   styleUrls: ['./chat-feed.component.css']
 })
-export class ChatFeedComponent implements OnInit, AfterViewChecked {
+export class ChatFeedComponent implements OnInit {
   @ViewChild('scroller') private feedScroll: ElementRef;
   // @ViewChild('chatcontent') chatcontent: ElementRef;
   // scrolltop: any | null;
@@ -50,6 +49,7 @@ export class ChatFeedComponent implements OnInit, AfterViewChecked {
   rooms: any;
   matcher = new MyErrorStateMatcher();
   admin: any;
+  msg:any;
 
   constructor(private Auth: AngularFireAuth, private db: AngularFireDatabase, private router: Router,
               private route: ActivatedRoute,
@@ -65,21 +65,35 @@ export class ChatFeedComponent implements OnInit, AfterViewChecked {
 
       this.roomname = this.route.snapshot.params.roomname;
       firebase.database().ref('chats/').on('value', resp => {
+<<<<<<< HEAD
         const chats = snapshotToArray(resp);
         this.chats = chats.filter(x => x.roomname === this.roomname);
         console.log(this.chats);
        // setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
+=======
+        let chats = snapshotToArray(resp);
+        this.chats = chats.filter(x => x.roomname === this.roomname)
+       //setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
+>>>>>>> a5405bd2d594c307d57468ac6a93f81f61ee2f53
       });
+      
       firebase.database().ref('roomusers/').orderByChild('roomname').equalTo(this.roomname).on('value', (resp2: any) => {
         const roomusers = snapshotToArray(resp2);
         this.users = roomusers.filter(x => x.status === 'online');
       });
+
       firebase.database().ref('rooms/').on('value', resp => {
         // this.rooms = [];
+<<<<<<< HEAD
         const rooms = snapshotToArray(resp);
         this.rooms = rooms.filter(x => x.roomname === this.roomname);
         this.admin = this.rooms;
         console.log(this.admin);
+=======
+        let rooms = snapshotToArray(resp);
+        this.rooms = rooms.filter(x => x.roomname === this.roomname)
+        this.admin=this.rooms
+>>>>>>> a5405bd2d594c307d57468ac6a93f81f61ee2f53
       });
     });
   }
@@ -100,6 +114,7 @@ export class ChatFeedComponent implements OnInit, AfterViewChecked {
 
   // tslint:disable-next-line: typedef
   onFormSubmit(form: any) {
+<<<<<<< HEAD
     const day = new Date();
     const options = { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Kolkata' } as const;
     const today = day.toLocaleDateString('en-IN', options);
@@ -107,6 +122,14 @@ export class ChatFeedComponent implements OnInit, AfterViewChecked {
     const chat = form;
     chat.roomname = this.roomname;
     console.log(chat.roomname);
+=======
+    var day = new Date();
+    const options = { day: 'numeric', month: 'long', year: "numeric", timeZone: "Africa/Nairobi" } as const;
+    const today = day.toLocaleDateString("en-IN", options);
+
+    const chat = form;
+    chat.roomname = this.roomname;
+>>>>>>> a5405bd2d594c307d57468ac6a93f81f61ee2f53
     chat.chatname = this.chatname;
     chat.date = today;
     chat.type = 'message';
@@ -116,14 +139,22 @@ export class ChatFeedComponent implements OnInit, AfterViewChecked {
       'message': [null, Validators.required]
     });
   }
+<<<<<<< HEAD
 
   scrollToBottom(): void {
     this.feedScroll.nativeElement.scrollTop
       = this.feedScroll.nativeElement.scrollHeight;
   }
+=======
+  
+  // scrollToBottom(): void {
+  //   this.feedScroll.nativeElement.scrollTop
+  //     = this.feedScroll.nativeElement.scrollHeight;
+  // }
+>>>>>>> a5405bd2d594c307d57468ac6a93f81f61ee2f53
 
   // tslint:disable-next-line: typedef
-  ngAfterViewChecked() {
-    this.scrollToBottom();
-  }
+  // ngAfterViewChecked() {
+  //   this.scrollToBottom();
+  // }
 }

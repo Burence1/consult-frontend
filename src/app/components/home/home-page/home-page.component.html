@@ -7,7 +7,7 @@
   >
     ☰
   </button>
-  <span> Navigation</span>
+  <span>Navigation</span>
 </mat-toolbar>
 
 <mat-sidenav-container class="sidenav-container">
@@ -41,6 +41,13 @@
     <a
       mat-list-item
       class="nav-item nav-link"
+      routerLink="about"
+      routerLinkActive="active"
+      ><mat-icon>assignment</mat-icon>Tasks</a
+    >
+    <a
+      mat-list-item
+      class="nav-item nav-link"
       routerLink="/chats"
       routerLinkActive="active"
       ><mat-icon>forum</mat-icon><span matBadge="4" matBadgeOverlap="false">Chat</span></a
@@ -54,7 +61,7 @@
     >
     <a
       mat-list-item
-      class="nav-item nav-link"
+      class="nav-item nav-link pointer"
       *ngIf="(user | async)?.uid"
       (click)="logout()"
     >

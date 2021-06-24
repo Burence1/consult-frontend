@@ -69,6 +69,7 @@ import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.com
 import { NewTaskComponent } from './components/tasks/new-task/new-task.component';
 import { UpdateProfileComponent } from './components/userProfile/update-profile/update-profile/update-profile.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,6 +94,9 @@ import { UpdateProfileComponent } from './components/userProfile/update-profile/
     OnHoldComponent,
     TaskDialogComponent,
     NotFoundComponent,
+    AddRoomComponent,
+    RoomlistsComponent,
+
     DirectoryComponent,
     TasksListComponent,
     NewTaskComponent,
@@ -111,11 +115,13 @@ import { UpdateProfileComponent } from './components/userProfile/update-profile/
     MaterialModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    MatMenuModule,
     DragDropModule,
     MatFormFieldModule,
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
+    MatIconModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [MessagingService, AsyncPipe],
