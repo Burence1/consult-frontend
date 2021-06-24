@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
 
   email: any;
   password: any;
+  confirmPassword: any;
   displayName: any;
 
   constructor(public authService: AuthService, private toastr: ToastrService) { }
@@ -20,21 +21,18 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   // tslint:disable-next-line: typedef
   onSubmit(formData) {
     if (formData.valid) {
       console.log(formData.value);
       this.authService.emailSignup(
+        formData.value.displayName,
         formData.value.email,
         formData.value.password,
-        formData.value.displayName,
+        formData.value.confirmPassword
       );
     }
   }
 
-  // tslint:disable-next-line: typedef
-  showSuccess() {
-    this.toastr.info('Hello world!', 'Welcome', {    timeOut: 3000,
-    });
-  }
 }

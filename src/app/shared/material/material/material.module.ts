@@ -9,10 +9,16 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCarouselModule } from 'ng-mat-carousel';
 import { MatBadge, MatBadgeModule } from '@angular/material/badge';
+import { MatTabsModule } from '@angular/material/tabs'; 
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatTabsModule} from '@angular/material/tabs';
+
+import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSortModule } from '@angular/material/sort';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const material = [
   MatButtonModule,
@@ -27,7 +33,18 @@ const material = [
   MatDialogModule,
   MatToolbarModule,
   MatBadgeModule,
+<<<<<<< HEAD
   MatTabsModule
+=======
+  MatTabsModule,
+
+  MatFormFieldModule,
+  MatTableModule,
+  MatProgressSpinnerModule,
+  MatSortModule,
+  MatSnackBarModule,
+  MatInputModule,
+>>>>>>> 337b481e7823cdb379c82691640802025d0e912e
 ];
 
 @NgModule({

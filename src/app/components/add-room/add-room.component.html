@@ -1,0 +1,32 @@
+<!-- <div class="row">
+  <div class="col">
+<h2 mat-dialog-title>Rooms</h2>
+<mat-dialog-content class="mat-typography">
+  <form class="example-form" [formGroup]="roomForm" (ngSubmit)="onFormSubmit(roomForm.value);roomForm.reset()">
+    <h2>Please enter new Room</h2>
+    <div class="new-room">
+      <mat-form-field class="example">
+        <mat-label>Room Name</mat-label>
+        <input matInput placeholder="Enter room name" formControlName="roomname" [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!roomForm.get('roomname').valid && roomForm.get('roomname').touched">Enter room name</span>
+          <span>Enter room name</span>
+        </mat-error>
+      </mat-form-field>
+      <button color="primary" type="submit" [disabled]="!roomForm.valid" mat-button matSuffix mat-icon-button aria-label="Send">
+        <mat-icon>send</mat-icon>
+      </button>
+      <div class="button-row">
+        <button color="primary" type="submit" [disabled]="!roomForm.valid" mat-button matSuffix mat-icon-button aria-label="Send">
+          <mat-icon>send</mat-icon>
+        </button>
+      </div>
+    </div>
+    <app-roomlists></app-roomlists>
+  </form>
+  <mat-dialog-actions >
+    <button mat-button mat-dialog-close mat-dialog-close="true">Cancel</button>
+  </mat-dialog-actions>
+</mat-dialog-content>
+</div>
+</div> -->
