@@ -40,7 +40,7 @@
                     <mat-icon>edit</mat-icon>
                     <span>Update</span>
                   </button>
-                  <button mat-menu-item click="deleteSth()">
+                  <button mat-menu-item (click)="deleteMsg(chat.key)">
                     <mat-icon>delete</mat-icon>
                     <span>Delete</span>
                   </button>

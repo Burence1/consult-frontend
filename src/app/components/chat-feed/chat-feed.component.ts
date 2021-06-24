@@ -114,8 +114,12 @@ export class ChatFeedComponent implements OnInit {
     });
   }
 
-  deleteSth(key) {
-  firebase.database().ref(`chats/`+`{key}`).remove();
+  deleteMsg(uid: any) {
+    const key = uid
+    var del = confirm("Want to delete?");
+    if (del) {
+      firebase.database().ref(`chats/${key}`).remove();
+    }
   }
 
   // scrollToBottom(): void {
