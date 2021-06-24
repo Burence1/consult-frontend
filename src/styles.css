@@ -6,15 +6,20 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
 
 
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.hide {
+  cursor: pointer;
+}
 
-.dropzone { 
+.dropzone {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column; 
+    flex-direction: column;
     min-width: 80vw;
     font-weight: 200;
     height: 300px;

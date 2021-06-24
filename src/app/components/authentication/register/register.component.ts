@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   // tslint:disable-next-line: typedef
   onSubmit(formData) {
     if (formData.valid) {
@@ -29,14 +30,9 @@ export class RegisterComponent implements OnInit {
         formData.value.displayName,
         formData.value.email,
         formData.value.password,
-        formData.value.confirmPassword,
+        formData.value.confirmPassword
       );
     }
   }
 
-  // tslint:disable-next-line: typedef
-  showSuccess() {
-    this.toastr.info('Hello world!', 'Welcome', {    timeOut: 3000,
-    });
-  }
 }

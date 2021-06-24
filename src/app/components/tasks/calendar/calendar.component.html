@@ -1,0 +1,175 @@
+<div class="container">
+    <br>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-7">
+            <!-- <mat-card class="inline-calendar-card">
+                <mat-calendar (selectedChange)="selected = $event"></mat-calendar>
+              </mat-card>
+              <p>Selected date: {{selected|date}}</p> -->
+              <div class="row text-center">
+
+                <div class="col-md-4">
+                    <div class="btn-group">
+                        <div mat-raised-button class="btn btn-cal" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
+                           <mat-icon>
+                            arrow_back_ios
+                            </mat-icon>
+                          
+                        </div>
+                        <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">
+                            Today
+                        </div>
+                        <div class="btn btn-cal" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">
+                            <mat-icon>
+                                arrow_forward_ios
+                                </mat-icon>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-d col-md-4">
+                    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+                  </div>
+                <div class="col-md-4">
+                    <div class="btn-group">
+                        <div class="btn btn-cal" (click)="setView(CalendarView.Month)" [class.active]="view === CalendarView.Month">
+                            Month
+                        </div>
+                        <div class="btn btn-cal" (click)="setView(CalendarView.Week)" [class.active]="view === CalendarView.Week">
+                            Week
+                        </div>
+                        <div class="btn btn-cal" (click)="setView(CalendarView.Day)" [class.active]="view === CalendarView.Day">
+                            Day
+                        </div>
+                    </div>
+                </div>
+              
+            
+            </div>
+              <div [ngSwitch]="view">
+                <mwl-calendar-month-view (dayClicked)="dayClicked($event.day)" *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events" (eventClicked)="eventClicked($event)">
+                </mwl-calendar-month-view>
+                <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events">
+                </mwl-calendar-week-view>
+                <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events">
+                </mwl-calendar-day-view>
+                
+              </div>
+        </div>
+        <div class="highlights col-md-3">
+            <h2>Highlights:  <span> {{dailyDate|date}}</span>  </h2>
+           
+           
+            <!-- <div *ngFor="let e of events">
+                <mat-card>
+                    <mat-card-title>{{e.title}}</mat-card-title>
+                    <mat-card-content>
+                        starts: {{e.start|date}}
+                        ends: {{e.end|date}}
+                    </mat-card-content>
+                </mat-card>
+                <br>
+            </div> -->
+
+            <div *ngFor="let e of dailyEvents">
+                <mat-card class="dailyE">
+                <span><strong>{{e.title}}</strong></span> <br>
+                <span>{{e.description}}</span> <br>
+                <span> Assigned: {{e.owner}}</span>
+               
+                </mat-card>
+                <br>
+            </div>
+         
+        </div>
+        <div class="col-md-1">
+            <a routerLink='/tasks'>Create task</a>
+        </div>
+    </div>
+    <br /><br /><br />
+
+    <!-- <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-9">
+            <h3>
+                Edit events
+                <button class="btn btn-primary float-right" (click)="addEvent()">
+                    Add new
+                </button>
+                <div class="clearfix"></div>
+                </h3>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                              <th>Title</th>
+                              <th>Primary color</th>
+                              <th>Secondary color</th>
+                              <th>Starts at</th>
+                              <th>Ends at</th>
+                              <th>Remove</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let event of events">
+                                <td>
+                                    <input
+                                    type="text"
+                                    class="form-control"
+                                    [(ngModel)]="event.title"
+                                    (keyup)="refresh.next()"
+                                  />
+                                </td>
+                                <td>
+                                    <input
+                                    type="color"
+                                    [(ngModel)]="event.color"
+                                    (change)="refresh.next()"
+                                  />
+                                </td>
+                                <td>
+                                    <input
+                                    type="color"
+                                    [(ngModel)]="event.color"
+                                    (change)="refresh.next()"
+                                  />
+                                </td>
+                                <td>
+                                    <input
+                                    class="form-control"
+                                    type="text"
+                                    
+                                    [(ngModel)]="event.start"
+                                    (ngModelChange)="refresh.next()"
+                                    
+                                    dateFormat="Y-m-dTH:i"
+                                    altFormat="F j, Y H:i"
+                                    placeholder="Not set"
+                                  />
+                                </td>
+                                <td>
+                                    <input
+                                    class="form-control"
+                                    type="text"
+                                    
+                                    [(ngModel)]="event.start"
+                                    (ngModelChange)="refresh.next()"
+                                    
+                                    dateFormat="Y-m-dTH:i"
+                                    altFormat="F j, Y H:i"
+                                    placeholder="Not set"
+                                  />
+                                </td>
+                                <td>
+                                    <button class="btn btn-danger" (click)="deleteEvent(event)">
+                                      Delete
+                                    </button>
+                                  </td>
+                              </tr>
+                          </tbody>
+                    </table>
+                </div>
+        </div>
+    </div> -->
+</div>
