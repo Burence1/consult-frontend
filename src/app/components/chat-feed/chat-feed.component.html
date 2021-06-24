@@ -21,7 +21,7 @@
         
         <div class="message-box" *ngFor="let chat of this.chats">
           <div class="chat-status" text-center *ngIf="chat.type==='join'||chat.type==='exit';else message">
-            <span class="chat-date">{{chat.date | date:'short'}}</span>
+            <span class="chat-date">{{chat.date | date:'medium'}}</span>
             <span class="chat-content-center">{{chat.message}}</span>
           </div>
           <ng-template #message>
@@ -36,7 +36,7 @@
                   <mat-icon>more_vert</mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">
-                  <button mat-menu-item>
+                  <button mat-menu-item data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">
                     <mat-icon>edit</mat-icon>
                     <span>Update</span>
                   </button>
@@ -65,6 +65,29 @@
           </mat-form-field>
         </form>
       </footer>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+  tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalToggleLabel2"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" class="edit-form">
+        <form >
+          <div *ngFor="let chat of chats">
+            <input type="text" class="form-control" [(ngModel)]="chat.message" placeholder="message" name="message"><br>
+          </div>
+          
+
+          <button class="btn btn-sm mt-4" id="btn-update" style="background-color: orange;color: whitesmoke;"
+            type="submit" >Update</button>(click)="updateMsg(chat.key)"
+        </form>
+      </div>
     </div>
   </div>
 </div>

@@ -6,6 +6,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth'
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { Chatmessage } from 'src/app/classes/message/chatmessage';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -35,7 +36,9 @@ export class ChatFeedComponent implements OnInit {
   @ViewChild('scroller') private feedScroll: ElementRef;
   // @ViewChild('chatcontent') chatcontent: ElementRef;
   // scrolltop: any | null;
-  
+  updateM: Chatmessage = {
+    message: ''
+  }
   
   chatForm: FormGroup;
   chatname = '';
@@ -121,6 +124,21 @@ export class ChatFeedComponent implements OnInit {
     if (del) {
       firebase.database().ref(`chats/${key}`).remove();
     }
+  }
+
+  updateMsg(uid: any, message:any) {
+    const key = uid
+    var today = new Date();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = date + ' ' + time;
+
+    const chat = message;
+    chat.roomname = this.roomname;
+    chat.chatname = this.chatname;
+    chat.date = dateTime;
+    chat.type = 'message';
+    firebase.database().ref(`chats/${key}`).update(chat);
   }
 
   // scrollToBottom(): void {
