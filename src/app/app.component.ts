@@ -7,6 +7,7 @@ import { MessagingService } from './services/push-notifications/messaging.servic
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  opened!: boolean;
   title = 'Consult';
   message;
 

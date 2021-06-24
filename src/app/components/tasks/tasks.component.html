@@ -1,0 +1,39 @@
+
+<div class="container">
+  <small class="text-center">Reading from Tasks</small>
+  <br>
+   <div style="margin-left: 30rem;" class="addbtn">
+    <button (click)="newTask()" mat-raised-button>
+        <mat-icon>add</mat-icon> Add Task
+      </button>
+      <button mat-raised-button>
+        <mat-icon>event</mat-icon> Calendar
+      </button>
+
+      <!-- <a class="ml" routerLink="/newtasks">More</a> -->
+      <br>
+      <br>
+   
+   </div>
+    <div class="container-wrapper">
+        <div class="container">
+          <h2>All Tasks</h2>
+      
+          <mat-card class="list all-tasks">
+            <p class="empty-label" *ngIf="lenTasks === 0">Empty list</p>
+            <app-new-task (edit)="editTask('todo', $event)" *ngFor="let task of todo" [task]="task"></app-new-task>
+          </mat-card>
+        </div>
+      
+        <div class="container">
+          <h2>On Hold</h2>
+      
+          <app-on-hold (edit)="editTask('done', $event)"></app-on-hold>
+        </div>
+      
+        <div class="container">
+          <h2>Done</h2>
+            <app-done-task (edit)="editTask('done', $event)"></app-done-task>
+        </div>
+      </div>
+</div>

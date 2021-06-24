@@ -33,7 +33,6 @@ const material = [
   MatToolbarModule,
   MatBadgeModule,
   MatTabsModule,
-
   MatFormFieldModule,
   MatTableModule,
   MatProgressSpinnerModule,

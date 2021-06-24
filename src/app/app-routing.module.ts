@@ -10,10 +10,14 @@ import { RegisterComponent } from './components/authentication/register/register
 import { EmailComponent } from './components/authentication/email/email.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { HomePageComponent } from './components/home/home-page/home-page.component';
-import { TasksComponent } from './tasks/tasks.component';
+//import { TasksComponent } from './components/tasks/tasks.component';
 import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
 import { PhoneLoginComponent } from './components/authentication/phone-login/phone-login.component';
 import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
+import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.component';
+import { CalendarComponent } from './components/tasks/calendar/calendar.component';
+
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -25,10 +29,11 @@ const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'chats', component: ChatroomComponent },
   { path: 'password_reset', component: ForgotPasswordComponent },
-  { path: 'tasks', component: TasksComponent },
   { path: 'add-room',component:AddRoomComponent},
   { path: 'roomlist',component:RoomlistsComponent},
   { path: 'chatfeed/:roomname',component:ChatFeedComponent},
+  {path: 'tasks', component: TasksListComponent},
+  {path: 'calendar', component: CalendarComponent},
   { path: '**', component: NotFoundComponent },
 
 ];

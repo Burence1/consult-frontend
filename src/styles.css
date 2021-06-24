@@ -5,6 +5,8 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 

@@ -32,11 +32,21 @@ import { ToastrModule } from 'ngx-toastr';
 import { MatCarouselModule } from 'ng-mat-carousel';
 
 
-import { TasksComponent } from './tasks/tasks.component';
-import { TaskDialogComponent } from './tasks/task-dialog/task-dialog.component';
+// import { TasksComponent } from './components/tasks/tasks.component';
+// import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { NewTaskComponent } from './tasks/new-task/new-task.component';
 import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+import {
+  NgxMatDatetimePickerModule,
+  NgxMatNativeDateModule,
+  NgxMatTimepickerModule
+} from '@angular-material-components/datetime-picker';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -48,6 +58,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { AddRoomComponent } from './components/add-room/add-room.component';
 import { RoomlistsComponent } from './components/roomlists/roomlists.component';
+import { TasksComponent } from './components/tasks/tasks.component';
+import { CalendarComponent } from './components/tasks/calendar/calendar.component';
+import { DoneTaskComponent } from './components/tasks/done-task/done-task.component';
+import { OnHoldComponent } from './components/tasks/on-hold/on-hold.component';
+import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
+import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.component';
+import { NewTaskComponent } from './components/tasks/new-task/new-task.component';
+
 
 
 @NgModule({
@@ -65,12 +83,16 @@ import { RoomlistsComponent } from './components/roomlists/roomlists.component';
     ChatUsersComponent,
     ProfileComponent,
     DropzoneDirective,
-    TasksComponent,
-    NewTaskComponent,
-    TaskDialogComponent,
     NotFoundComponent,
     AddRoomComponent,
     RoomlistsComponent,
+    TasksComponent,
+    CalendarComponent,
+    DoneTaskComponent,
+    OnHoldComponent,
+    TaskDialogComponent,
+    TasksListComponent,
+    NewTaskComponent
   ],
   entryComponents: [AddRoomComponent],
   imports: [
@@ -85,7 +107,13 @@ import { RoomlistsComponent } from './components/roomlists/roomlists.component';
     MaterialModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    DragDropModule
+    
+    DragDropModule,
+    MatFormFieldModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [MessagingService, AsyncPipe],
   bootstrap: [AppComponent]
