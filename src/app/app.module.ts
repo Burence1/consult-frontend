@@ -30,12 +30,18 @@ import { ToastrModule } from 'ngx-toastr';
 // import { TasksComponent } from './components/tasks/tasks.component';
 // import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { NewTaskComponent } from './task/new-task/new-task.component';
 import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
-import { TaskComponent } from './task/task.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { TaskDialogComponent } from './task-dialog/task-dialog.component';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+import {
+  NgxMatDatetimePickerModule,
+  NgxMatNativeDateModule,
+  NgxMatTimepickerModule
+} from '@angular-material-components/datetime-picker';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+
 
 
 @NgModule({
@@ -56,9 +62,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     ProfileComponent,
     DropzoneDirective,
     NotFoundComponent,
-    TaskComponent,
-    TaskDialogComponent,
-    NewTaskComponent
 
   ],
   imports: [
@@ -75,7 +78,10 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     
     DragDropModule,
     MatFormFieldModule,
-    AngularFirestoreModule
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [],
   bootstrap: [AppComponent]
