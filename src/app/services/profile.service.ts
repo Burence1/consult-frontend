@@ -31,6 +31,11 @@ export class ProfileService {
     return this.db.object<Profile>(path).valueChanges();
   }
 
+  fetchAllProfiles(): Observable<Profile[]> {
+    const path = `/users`;
+    return this.db.list<Profile>(path).valueChanges();
+  }
+
   // get(name: string): Observable<Profile> {
 
   //   return this.apiService.get('/profile/' + name)
