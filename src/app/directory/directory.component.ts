@@ -2,7 +2,7 @@ import { Component, OnInit, Inject} from '@angular/core';
 import { Profile } from 'src/app/profile';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProfileService } from 'src/app/services/profile.service';
-import { FileServiceService } from 'src/app/services/files/file-service.service';
+import { FileService } from 'src/app/services/files/file-service.service';
 import { AngularFireStorage } from "@angular/fire/storage";
 import { finalize } from "rxjs/operators";
 
@@ -16,7 +16,7 @@ export class DirectoryComponent implements OnInit {
   profiles: Profile[];
 
   constructor(public authService: AuthService, private profileService: ProfileService,
-    @Inject(AngularFireStorage) private storage: AngularFireStorage, @Inject(FileServiceService) private fileService: FileServiceService) { 
+    @Inject(AngularFireStorage) private storage: AngularFireStorage, @Inject(FileService) private fileService: FileService) { 
       
     this.profileService.fetchAllProfiles().subscribe(
       (res) => {
