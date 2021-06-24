@@ -59,6 +59,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { AddRoomComponent } from './components/add-room/add-room.component';
 import { RoomlistsComponent } from './components/roomlists/roomlists.component';
 import { TasksComponent } from './components/tasks/tasks.component';
+import { CalendarComponent } from './components/tasks/calendar/calendar.component';
 
 
 @NgModule({
@@ -80,6 +81,7 @@ import { TasksComponent } from './components/tasks/tasks.component';
     AddRoomComponent,
     RoomlistsComponent,
     TasksComponent,
+    CalendarComponent,
   ],
   entryComponents: [AddRoomComponent],
   imports: [
