@@ -95,6 +95,9 @@ import { NewTaskComponent } from './components/tasks/new-task/new-task.component
     OnHoldComponent,
     TaskDialogComponent,
     NotFoundComponent,
+    AddRoomComponent,
+    RoomlistsComponent,
+  
     DirectoryComponent,
     
 

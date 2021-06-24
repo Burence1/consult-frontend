@@ -99,7 +99,7 @@ export class ChatFeedComponent implements OnInit {
 
   onFormSubmit(form: any) {
     var day = new Date();
-    const options = { day: 'numeric', month: 'long', year: "numeric", timeZone: "Asia/Kolkata" } as const;
+    const options = { day: 'numeric', month: 'long', year: "numeric", timeZone: "Africa/Nairobi" } as const;
     const today = day.toLocaleDateString("en-IN", options);
 
     const chat = form;
@@ -113,21 +113,13 @@ export class ChatFeedComponent implements OnInit {
       'message': [null, Validators.required]
     });
   }
-
-  deleteMsg(uid: any) {
-    const key = uid
-    var del = confirm("Want to delete?");
-    if (del) {
-      firebase.database().ref(`chats/${key}`).remove();
-    }
-  }
-
+  
   // scrollToBottom(): void {
   //   this.feedScroll.nativeElement.scrollTop
   //     = this.feedScroll.nativeElement.scrollHeight;
   // }
 
-  // // tslint:disable-next-line: typedef
+  // tslint:disable-next-line: typedef
   // ngAfterViewChecked() {
   //   this.scrollToBottom();
   // }
