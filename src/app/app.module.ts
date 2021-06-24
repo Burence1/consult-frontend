@@ -50,6 +50,7 @@ import { AddRoomComponent } from './components/add-room/add-room.component';
 import { RoomlistsComponent } from './components/roomlists/roomlists.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,7 +86,8 @@ import { RoomlistsComponent } from './components/roomlists/roomlists.component';
     MaterialModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    DragDropModule
+    DragDropModule,
+    MatMenuModule
   ],
   providers: [MessagingService, AsyncPipe],
   bootstrap: [AppComponent]

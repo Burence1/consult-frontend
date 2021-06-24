@@ -164,3 +164,7 @@ ul{
 li{
   text-transform: capitalize;
 }
+
+.msg-edit{
+  float: right;
+}
