@@ -4,19 +4,17 @@ import { MessagingService } from './services/push-notifications/messaging.servic
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-
   title = 'Consult';
   message;
 
-  constructor(private messagingService: MessagingService) { }
+  constructor(private messagingService: MessagingService) {}
 
-ngOnInit() {
-  this.messagingService.requestPermission();
-  this.messagingService.receiveMessage();
-  this.message = this.messagingService.currentMessage;
- }
-
+  ngOnInit() {
+    this.messagingService.requestPermission();
+    this.messagingService.receiveMessage();
+    this.message = this.messagingService.currentMessage;
+  }
 }

@@ -71,7 +71,6 @@ import { RoomlistsComponent } from './components/roomlists/roomlists.component';
     NotFoundComponent,
     AddRoomComponent,
     RoomlistsComponent,
-  
   ],
   entryComponents: [AddRoomComponent],
   imports: [
