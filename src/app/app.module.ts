@@ -71,9 +71,10 @@ import { RoomlistsComponent } from './components/roomlists/roomlists.component';
     TaskDialogComponent,
     NotFoundComponent,
     AddRoomComponent,
-    RoomlistsComponent
+    RoomlistsComponent,
+  
   ],
-
+  entryComponents: [AddRoomComponent],
   imports: [
     BrowserModule,
     FormsModule,
