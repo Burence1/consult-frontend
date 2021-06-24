@@ -8,12 +8,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
+.hide {
+  cursor: pointer;
+}
 
-.dropzone { 
+.dropzone {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column; 
+    flex-direction: column;
     min-width: 80vw;
     font-weight: 200;
     height: 300px;

@@ -22,11 +22,10 @@ const material = [
   MatDatepickerModule,
   MatNativeDateModule,
   MatSidenavModule,
- 
   MatCarouselModule.forRoot(),
   MatDialogModule,
   MatToolbarModule,
-  MatBadgeModule,
+  MatBadgeModule
 ];
 
 @NgModule({

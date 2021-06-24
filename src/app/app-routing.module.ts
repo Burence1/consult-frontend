@@ -10,11 +10,13 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { HomePageComponent } from './components/home/home-page/home-page.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
+import { PhoneLoginComponent } from './components/authentication/phone-login/phone-login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'email-login', component: EmailComponent },
+  { path: 'phone-login', component: PhoneLoginComponent },
   { path: 'signup', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'home', component: HomePageComponent },

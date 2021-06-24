@@ -76,7 +76,7 @@
             <div *ngIf="email.errors.maxlength">Email is too long.</div>
           </div>
         </div>
-        <div [class.has-error]="confirmPassword.touched && confirmPassword.invalid">
+        <div>
           <div name="password" class="mb-3">
             <label for="RegisterPassword" class="form-label">Password</label>
             <br />
@@ -89,13 +89,13 @@
                 (ngModel)="(password)"
                 id="password"
                 name="password"
-                (input)="confirmPassword.control.updateValueAndValidity()"
                 #password="ngModel"
                 required
                 pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$"
                 maxlength="20"
               />
-              <button
+              <span
+                class="hide"
                 mat-icon-button
                 matSuffix
                 (click)="hide = !hide"
@@ -103,7 +103,7 @@
                 [attr.aria-pressed]="hide"
               >
                 <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-              </button>
+              </span>
             </mat-form-field>
             <div
               *ngIf="password.invalid && (password.dirty || password.touched)"
@@ -125,7 +125,6 @@
               <mat-label>Type password again</mat-label>
               <input
                 matInput
-                [type]="hide ? 'confirmPassword' : 'text'"
                 placeholder="**********"
                 (ngModel)="(confirmPassword)"
                 id="confirmPassword"
@@ -136,15 +135,6 @@
                 pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$"
                 maxlength="20"
               />
-              <button
-                mat-icon-button
-                matSuffix
-                (click)="hide = !hide"
-                [attr.aria-label]="'Hide confirmPassword'"
-                [attr.aria-pressed]="hide"
-              >
-                <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-              </button>
             </mat-form-field>
             <div
               *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)"

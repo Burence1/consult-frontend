@@ -1,65 +1,68 @@
-// import { Component, OnInit } from '@angular/core';
-// import { WindowService } from 'src/app/services/window/window.service';
-// import * as firebase from 'firebase';
-// import { AngularFireAuth } from '@angular/fire/auth';
-// import { PhoneNumber } from 'src/app/classes/phoneNumber/phone-number';
+import { Component, OnInit } from '@angular/core';
+import { WindowService } from 'src/app/services/window/window.service';
+import firebase from 'firebase/app';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { PhoneNumber } from 'src/app/classes/phoneNumber/phone-number';
 
+@Component({
+  selector: 'app-phone-login',
+  templateUrl: './phone-login.component.html',
+  styleUrls: ['./phone-login.component.css'],
+})
+export class PhoneLoginComponent implements OnInit {
+  windowRef: any;
 
-// @Component({
-//   selector: 'app-phone-login',
-//   templateUrl: './phone-login.component.html',
-//   styleUrls: ['./phone-login.component.css']
-// })
-// export class PhoneLoginComponent implements OnInit {
+  phoneNumber = new PhoneNumber();
 
-//   windowRef: any;
+  verificationCode: string;
 
-//   phoneNumber = new PhoneNumber();
+  user: any;
 
-//   verificationCode: string;
+  constructor(private afAuth: AngularFireAuth, private win: WindowService) {}
 
-//   user: any;
+  // tslint:disable-next-line: typedef
+  ngOnInit() {
+    this.windowRef = this.win.windowRef;
+    this.windowRef.RecaptchaVerifier = new firebase.auth.RecaptchaVerifier(
+      'recaptcha-container',
+      {
+        size: 'normal',
+        callback: (response) => {
+          // reCAPTCHA solved, allow signInWithPhoneNumber.
+          // ...
+        },
+        'expired-callback': () => {
+          // Response expired. Ask user to solve reCAPTCHA again.
+          // ...
+        },
+      }
+    );
 
-//   constructor(private afAuth: AngularFireAuth,
-//               private win: WindowService) { }
+    this.windowRef.RecaptchaVerifier.render();
+  }
 
-//   // tslint:disable-next-line: typedef
-//   ngOnInit() {
-//     this.windowRef = this.win.windowRef;
-//     this.windowRef.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+  // tslint:disable-next-line: typedef
+  sendLoginCode() {
+    const appVerifier = this.windowRef.RecaptchaVerifier;
 
-//     this.windowRef.recaptchaVerifier.render();
-//   }
+    const num = this.phoneNumber.e164;
 
+    firebase
+      .auth()
+      .signInWithPhoneNumber(num, appVerifier)
+      .then((result) => {
+        this.windowRef.confirmationResult = result;
+      })
+      .catch((error) => console.log(error));
+  }
 
-//   // tslint:disable-next-line: typedef
-//   sendLoginCode() {
-
-//     const appVerifier = this.windowRef.recaptchaVerifier;
-
-//     const num = this.phoneNumber.e164;
-
-//     firebase.auth().signInWithPhoneNumber(num, appVerifier)
-//             .then(result => {
-
-//                 this.windowRef.confirmationResult = result;
-
-//             })
-//             .catch( error => console.log(error) );
-
-//   }
-
-//   // tslint:disable-next-line: typedef
-//   verifyLoginCode() {
-//     this.windowRef.confirmationResult
-//                   .confirm(this.verificationCode)
-//                   .then( result => {
-
-//                     this.user = result.user;
-
-//     })
-//     .catch( error => console.log(error, 'Incorrect code entered?'));
-//   }
-
-
-// }
+  // tslint:disable-next-line: typedef
+  verifyLoginCode() {
+    this.windowRef.confirmationResult
+      .confirm(this.verificationCode)
+      .then((result) => {
+        this.user = result.user;
+      })
+      .catch((error) => console.log(error, 'Incorrect code entered?'));
+  }
+}
