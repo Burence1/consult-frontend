@@ -2,23 +2,23 @@
   <button type="button" (click)="drawer.toggle()" mat-icon-button class="toggler">☰</button>
       <span>Navigation</span>
 </mat-toolbar>
-     
+
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" 
+  <mat-sidenav #drawer class="sidenav"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === true">
       <img class="avatar mat-elevation-z8" src="https://image.freepik.com/free-vector/doctor-avatar-design_1146-14.jpg" />
       <h4 class="name"><p>Department: </p></h4>
       <p class="designation">Gynacologist</p>
-      <hr>      
+      <hr>
       <a mat-list-item href="" class="nav-item nav-link active" routerLink='/home' routerLinkActive='active'><mat-icon>home</mat-icon> Home</a>
-      <a mat-list-item class="nav-item nav-link" routerLink='/profile' routerLinkActive='active'><mat-icon>contact_page</mat-icon>Profile</a> 
+      <a mat-list-item class="nav-item nav-link" routerLink='/profile' routerLinkActive='active'><mat-icon>contact_page</mat-icon>Profile</a>
       <a mat-list-item class="nav-item nav-link" routerLink='/chats' routerLinkActive='active'  ><mat-icon>forum</mat-icon><span matBadge="4" matBadgeOverlap="false">Chat</span></a>
-      <a mat-list-item class="nav-item nav-link" routerLink='about' routerLinkActive='active'><mat-icon>contact_support</mat-icon>Help</a>  
+      <a mat-list-item class="nav-item nav-link" routerLink='about' routerLinkActive='active'><mat-icon>contact_support</mat-icon>Help</a>
       <a mat-list-item class="nav-item nav-link" *ngIf="(user|async)?.uid" (click)="logout()"> <mat-icon>logout</mat-icon>Logout</a>
       <a mat-list-item class="nav-item nav-link" routerLink="/dashboard"> Dashboard</a>
-   
+
   </mat-sidenav>
   <mat-sidenav-content> -->
     <!-- <div class="chatchannel">
@@ -41,7 +41,7 @@
                 <mat-card class="list mt-1"><img class="user" src="assets/images/team-doctors.jpg" alt=""> Simple card <p class="online"><img src="assets/images/on.png" alt="" width="10px" > Online</p></mat-card>
                 </div>
               </mat-tab>
-              <mat-tab label="Teams">    
+              <mat-tab label="Teams">
                 <mat-form-field appearance="outline" class="search">
                   <mat-label><mat-icon>search</mat-icon></mat-label>
                   <input
@@ -54,10 +54,10 @@
                   <button mat-raised-button (click)="openDialog()" color="primary" class="btn-user" class=""  center>Add chat room <mat-icon>add_circle</mat-icon></button>
                   <app-add-room></app-add-room>
                   <app-roomlists></app-roomlists>
-                  
+
                 </div>
               </mat-tab>
-            </mat-tab-group>         
+            </mat-tab-group>
         </div>
       </div>
     </mat-card>
@@ -90,9 +90,9 @@
     [opened]="(isHandset$ | async) === true"
   >
   <img class="avatar mat-elevation-z8" src="https://image.freepik.com/free-vector/doctor-avatar-design_1146-14.jpg" />
-  <h4 class="name">Dr. Jane</h4>
-  <p class="designation">Gynacologist</p>
-  <hr> 
+  <h4 class="name">Dr.{{ profile.displayName }}</h4>
+  <p class="designation">{{ profile.department }}</p>
+  <hr>
 
     <a
       mat-list-item
@@ -108,6 +108,13 @@
       routerLink="/profile"
       routerLinkActive="active"
       ><mat-icon>contact_page</mat-icon>Profile</a
+    >
+    <a
+      mat-list-item
+      class="nav-item nav-link"
+      routerLink="/tasks"
+      routerLinkActive="active"
+      ><mat-icon>assignment</mat-icon>Tasks</a
     >
     <a
       mat-list-item
@@ -131,12 +138,9 @@
     >
       <mat-icon>logout</mat-icon>Logout</a
     >
-    <a mat-list-item class="nav-item nav-link" routerLink="/dashboard">
-      Dashboard</a
-    >
   </mat-sidenav>
   <mat-sidenav-content>
-    <div class="content mat-elevation-z8">
+    <div class="">
       <div class="example-sidenav-content">
         <div class="container-fluid">
           <div class="row">
@@ -144,15 +148,33 @@
               <app-add-room></app-add-room>
               <!-- <app-roomlists></app-roomlists> -->
               <!-- <app-chat-feed></app-chat-feed> -->
-              
+
             </div>
+              <mat-card>
+              <mat-tab-group>
+                <mat-tab>
+                  <ng-template mat-tab-label>
+                    <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+                    Chats
+                  </ng-template>
+                  <app-add-room></app-add-room>
+                </mat-tab>
+
+                <mat-tab>
+                  <ng-template mat-tab-label>
+                    <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+                    Rooms
+                  </ng-template>
+                 <!-- <app-chat-feed></app-chat-feed> -->
+                </mat-tab>
+              </mat-tab-group>
+            </mat-card>
           </div>
-        </div>
+          </div>
       </div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
->
 
 
 

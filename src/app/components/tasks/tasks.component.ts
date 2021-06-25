@@ -43,7 +43,7 @@ export class TasksComponent implements OnInit {
     status: 'todo'
   }
  
-  constructor(private dialog: MatDialog, private db: AngularFireDatabase, private taskService: TaskService, private store: AngularFirestore) { }
+  constructor(private dialog: MatDialog, private db: AngularFireDatabase, private taskService: TaskService) { }
 
   ngOnInit(): void {
 

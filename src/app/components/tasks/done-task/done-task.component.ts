@@ -12,7 +12,6 @@ import { AngularFireDatabase } from '@angular/fire/database';
 export class DoneTaskComponent implements OnInit {
 
   @Input() task?: Task;
-  
   @Output() edit = new EventEmitter<Task>();
   done: Task[];
   len = 0;
@@ -22,7 +21,7 @@ export class DoneTaskComponent implements OnInit {
     owner: '',
     dateDue: 1,
     status: 'todo'
-  }
+  };
   message = '';
 
   constructor(private service: DoneService, private db: AngularFireDatabase) { }
@@ -32,41 +31,46 @@ export class DoneTaskComponent implements OnInit {
     this.retrieveDoneTasks();
   }
 
+  // tslint:disable-next-line: use-lifecycle-interface
   ngOnChanges(): void{
     this.message = '';
-    this.currentTask = { ...this.task}
+    this.currentTask = { ...this.task};
   }
 
 
   deleteTask(): void{
-    if(this.currentTask.key){
+    if (this.currentTask.key){
       this.service.delete(this.currentTask.key).then(() => {
-       
-        this.message = 'task deleted successfully!'
-      }).catch(err => console.log(err))
+
+        this.message = 'task deleted successfully!';
+      }).catch(err => console.log(err));
     }
   }
 
 
 
+  // tslint:disable-next-line: typedef
   retrieveDoneTasks(){
     this.service.getAll().snapshotChanges().pipe(
-      map(changes => changes.map(c =>({
+      map(changes => changes.map(c => ({
         key: c.payload.key, ...c.payload.val()
       })))
-    ).subscribe(data =>{
+    ).subscribe(data => {
       this.done = data;
-      this.len = this.done.length
-    })
+      this.len = this.done.length;
+    });
   }
+  // tslint:disable-next-line: typedef
   end(task: Task){
-    this.service.delete(task.key)
+    this.service.delete(task.key);
   }
 
+  // tslint:disable-next-line: typedef
   createTask(task: Task){
-    this.service.create(task)
+    this.service.create(task);
   }
+  // tslint:disable-next-line: typedef
   clear(){
-    this.service.clearAll()
+    this.service.clearAll();
   }
 }

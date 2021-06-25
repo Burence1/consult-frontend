@@ -21,7 +21,10 @@
   margin-left: 18%;
 }
 
-
+.auth-btn{
+  background-color: #003060;
+  color: white;
+}
 .text
  {
    text-decoration: none;
