@@ -76,7 +76,7 @@ export class ProfileComponent implements OnInit {
     this.profile.image = this.imageInput;
     this.profile.interest1 = this.interest1Input
     var name = this.selectedImage.name;
-    const path = `profiles/${this.currentId}/${name}`;
+    const path = `profiles/${this.currentId}/${name}`
     const fileRef = this.storage.ref(path);
     this.storage.upload(path, this.selectedImage).snapshotChanges().pipe(
       finalize(() => {
@@ -118,8 +118,8 @@ export class ProfileComponent implements OnInit {
   view(){
     this.fileService.getImage(this.file);
   }
+  // tslint:disable-next-line: typedef
   logout() {
     this.auth.logout();
   }
 }
-

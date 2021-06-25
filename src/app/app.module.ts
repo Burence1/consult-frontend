@@ -26,7 +26,7 @@ import { ChatroomComponent } from './components/chatroom/chatroom.component';
 import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
 import { environment } from 'src/environments/environment';
 import { ChatUsersComponent } from './components/chat-users/chat-users.component';
-import { ProfileComponent } from './components/userProfile/profile/profile.component';
+// import { ProfileComponent } from './components/userProfile/profile/profile.component';
 import { DropzoneDirective } from './dropzone.directive';
 
 import { ToastrModule } from 'ngx-toastr';
@@ -84,7 +84,7 @@ import { UpdateProfileComponent } from './components/userProfile/update-profile/
     ChatroomComponent,
     ChatFeedComponent,
     ChatUsersComponent,
-    ProfileComponent,
+    // ProfileComponent,
     DropzoneDirective,
     NotFoundComponent,
     TasksComponent,
