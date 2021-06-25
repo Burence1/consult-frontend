@@ -50,9 +50,9 @@
                   <mat-card-content>
                     <form #formData="ngForm" (ngSubmit)="onSubmit(formData)" class="">
                       <h3 class="text-center"><strong>Register</strong></h3><hr>
-                      <table>   
-                        <tr>    
-                          <td>    
+                      <table>
+                        <tr>
+                          <td>
                             <label for="email" class="form-label">Name</label> <br />
                             <mat-form-field appearance="outline">
                               <mat-label>Enter your name</mat-label>
@@ -76,7 +76,7 @@
                               class="alert alert-danger"
                             >
                               <div *ngIf="displayName.errors.required">Name is required.</div>
-                  
+
                               <div *ngIf="displayName.errors.minlength">
                                 Name must be at least 3 characters long.
                               </div>
@@ -84,9 +84,9 @@
                                 Name must be alphabetic only.
                               </div>
                               <div *ngIf="displayName.errors.maxlength">Name is too long.</div>
-                            </div>  
-                          </td>    
-                          <td>    
+                            </div>
+                          </td>
+                          <td>
                             <label for="email" class="form-label">Email Address</label> <br />
                             <mat-form-field appearance="outline">
                               <mat-label>Enter your email</mat-label>
@@ -108,20 +108,20 @@
                               class="alert alert-danger"
                             >
                               <div *ngIf="email.errors.pattern">Enter a valid email address.</div>
-                  
+
                               <div *ngIf="email.errors.required">Email is required.</div>
-                  
+
                               <div *ngIf="email.errors.minlength">
                                 Email must be at least 10 characters long.
                               </div>
-                  
+
                               <div *ngIf="email.errors.maxlength">Email is too long.</div>
-                            </div> 
-                          </td>    
-                      </tr>    
-                   
-                      <tr>    
-                        <td> 
+                            </div>
+                          </td>
+                      </tr>
+
+                      <tr>
+                        <td>
                           <label for="RegisterPassword" class="form-label">Password</label>
                           <br />
                           <mat-form-field appearance="outline">
@@ -154,7 +154,7 @@
                             class="alert alert-danger"
                           >
                             <div *ngIf="password.errors.required">Password is required.</div>
-              
+
                             <div *ngIf="password.errors.pattern">
                               Password should be atleast 8 characters long and should contain
                               one number, one character and one special character.
@@ -195,13 +195,13 @@
                             class="alert alert-danger"
                           >
                             <div *ngIf="confirmPassword.errors.required">This field is required.</div>
-              
+
                             <div *ngIf="confirmPassword.errors.notEqual && !confirmPassword.errors.required">
                               Passwords must match.
                             </div>
                           </div>
                         </td>
-                      </tr>                               
+                      </tr>
                       <button
                         mat-raised-button
                         type="submit"
@@ -209,7 +209,7 @@
                         class="auth-btn text-center"
                       >
                         Sign Up <i class="fas fa-sign-in-alt"></i>
-                      </button> 
+                      </button>
                     <div>
                       <p>
                         <a class="mt-3" mat-button routerLink="/login" id="goback">Login</a>
@@ -225,7 +225,6 @@
       </div>
     </div>
   </div>
-<<<<<<< HEAD
 </div>
 
 <!-- <div class="container-fluid">
@@ -408,4 +407,5 @@
   </div>
 =======
 >>>>>>> f5bb038bbee4d01aec454ff623190fb1402c6efe
+>>>>>>> 8c192a21e1e0229b42e1cb6c61e0cf79bb889193
 </div> -->

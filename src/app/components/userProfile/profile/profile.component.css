@@ -11,6 +11,7 @@
     background-color: #003060;
 }
 
+
 .center {
     margin-top: 20px;
     margin-bottom: 10px;
@@ -156,13 +157,15 @@ td:first-child{
     padding: 1em;
     width: 100%;
     font-weight: 500;
-    background-color: #6658d3;
+    background-color: #003060;
     border-radius: 6px;
     color: #FFF;
     border: 0;
   }
-  .action-button:focus {
+  .action-button:hover {
     outline: 0;
+    background-color: white;
+    color: #003060;
   }
   
   .card-info {

@@ -98,11 +98,10 @@ import { UpdateProfileComponent } from './components/userProfile/update-profile/
     AddRoomComponent,
     RoomlistsComponent,
     DirectoryComponent,
-    DirectoryComponent,
     TasksListComponent,
     NewTaskComponent,
+    DashboardComponent,
     UpdateProfileComponent,
-    DashboardComponent
   ],
   entryComponents: [AddRoomComponent],
   imports: [
