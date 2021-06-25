@@ -69,7 +69,7 @@ import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.
 import { NewTaskComponent } from './components/tasks/new-task/new-task.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UpdateProfileComponent } from './components/userProfile/update-profile/update-profile/update-profile.component';
-
+import { TaskComponent } from './components/tasks/task/task.component';
 
 @NgModule({
   declarations: [
@@ -102,6 +102,7 @@ import { UpdateProfileComponent } from './components/userProfile/update-profile/
     NewTaskComponent,
     DashboardComponent,
     UpdateProfileComponent,
+    TaskComponent
   ],
   entryComponents: [AddRoomComponent],
   imports: [
