@@ -27,12 +27,8 @@ export class ProfileComponent implements OnInit {
 
   name = '!!!';
   viewMode = 'tab1';
-<<<<<<< HEAD:src/app/components/userProfile/profile/profile.component.ts
 
-  name = '!!!';
-  viewMode = 'tab1';
-=======
->>>>>>> 9064896c89d8d6564a340d8318cc6a4332ea5391:src/app/components/profile/profile.component.ts
+  
 
   selectedImage: any = null;
   url: string;
