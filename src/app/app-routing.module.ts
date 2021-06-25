@@ -15,8 +15,8 @@ import { NotFoundComponent } from './components/error-handling/not-found/not-fou
 import { DirectoryComponent } from './directory/directory.component';
 import { PhoneLoginComponent } from './components/authentication/phone-login/phone-login.component';
 import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
-//import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.component';
-//import { CalendarComponent } from './components/tasks/calendar/calendar.component';
+// import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.component';
+// import { CalendarComponent } from './components/tasks/calendar/calendar.component';
 
 
 
@@ -35,7 +35,7 @@ const routes: Routes = [
   { path: 'roomlist', component: RoomlistsComponent},
   { path: 'chatfeed/:roomname', component: ChatFeedComponent},
   {path: 'tasks', component: TasksComponent},
-  //{path: 'calendar', component: CalendarComponent},
+  // {path: 'calendar', component: CalendarComponent},
   { path: '**', component: NotFoundComponent },
 
 

@@ -1,6 +1,5 @@
-
 <div class="container">
-  <p class="text-center">Welcome to your profile</p>
+  <p class="text-center">Welcome to your profile!</p>
 <div class="row">
   <div class="col-md-2"></div>
   <div class="col-md-8 profile">
@@ -9,10 +8,7 @@
             <div class="row">
               <div class="col-md-4"></div>
                 <div class="col-md-4">
-
-
                   <img [src]=" profile.image " class="center" >
-
                   <h2 class="dr-name">Dr: {{ profile.displayName }}</h2>
                 <div class="col-md-4"></div>
                 </div>
@@ -23,12 +19,9 @@
                 <div class="col-md-4 lead tab-slider--trigger" [class.active]="viewMode == 'tab1'" rel="tab1" (click)="viewMode ='tab1'">Overview</div>
               <div class="col-md-4 lead tab-slider--trigger" [class.active]="viewMode == 'tab2'" rel="tab2" (click)="viewMode ='tab2'">BIO</div>
               <div class="col-md-4 lead lead tab-slider--trigger" [class.active]="viewMode == 'tab3'" rel="tab3" (click)="viewMode ='tab3'">CHAT GROUPS</div>
-
                 </div>
               </div>
-
             </div>
-
             <div class="container">
               <div class="row">
                 <div class="col-md-4"></div>
@@ -36,7 +29,6 @@
                   <div class="tab-slider--container" [ngSwitch]="viewMode">
                     <div id="tab1" class="tab-slider--body" *ngSwitchCase="'tab1'">
                       <h2 class="overview">PROFILE OVERVIEW</h2>
-
                       <table>
                         <tr>
                           <td>Name</td>
@@ -67,25 +59,17 @@
                       <p><strong>Interests:</strong></p>
                       <ul>
                         <li>{{ profile.interest1 }}</li>
-                        <li>{{ profile.interest2 }}</li>
-                        <li>{{ profile.interest3 }}</li>
                       </ul>
                     </div>
                     <div id="tab2" class="tab-slider--body" *ngSwitchCase="'tab2'">
                       <h2 class="overview">BIO</h2>
-
                     </div>
                     <div id="tab3" class="tab-slider--body" *ngSwitchCase="'tab3'">
                       <h2 class="overview">CHAT GROUPS</h2>
-
                     </div>
-
                   </div>
-
-
                 </div>
                 <!-- <div class="col-md-4"></div> -->
-
               </div>
             </div>
           </div>
@@ -94,112 +78,55 @@
   <div class="col-md-2"></div>
 </div>
 </div>
-
-<button class="btn btn"><a href="home">sdmsndznDN</a></button>
-
+<!-- <button class="btn btn"><a href="home">sdmsndznDN</a></button> -->
 <div class="mod">
   <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
   <i class="fas fa-user-edit"></i>
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title" id="staticBackdropLabel">
-          UPDATE PROFILE
-        </h2>
-        <h5 class="modal-title" id="staticBackdropLabel"><small>Update your account</small></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</button> -->
+</div><br><br>
+<div class="user-info">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-image">
+            <h2 class="card-heading">
+              UPDATE PROFILE
+              <small>Update your account</small>
+            </h2>
+          </div>
+          <form (ngSubmit)='updateProfile()' #quoteForm='ngForm' id="form" class="card-form">
+            <div class="input">
+              <input type="text" class="input-field" id="name" [(ngModel)]="displayNameInput" name="name" required/>
+              <label for="name" class="input-label">Full name</label>
+            </div>
+            <div class="input">
+              <label for="profile_picture">Profile Picture</label><br><br>
+              <input type="file" id="myFile" name="filename" [(ngModel)]="imageInput" name="image" (change)="showPreview($event)">
+            </div>
+            <div class="input">
+              <input type="text" class="input-field" id="department" [(ngModel)]="departmentInput" name="department" required/>
+              <label for="department" class="input-label">Department</label>
+            </div>
+            <div class="input">
+              <input type="text" class="input-field" id="position" [(ngModel)]="positionInput" name="position" required/>
+              <label for="position" class="input-label">Position</label>
+            </div>
+            <div class="input">
+              <input type="text" class="input-field" [(ngModel)]="contactInput" name="contact" required/>
+              <label for="contact" class="input-label">Contact</label>
+            </div>
+            <div class="input">
+              <input type="text" class="input-field" [(ngModel)]="interest1Input" name="interest1" required/>
+              <label class="input-label">Interest</label>
+            </div>
+              <button class="action-button">Submit</button>
+          </form>
+        </div>
       </div>
-      <div class="modal-body">
-
-        <form (ngSubmit)='updateProfile()' #quoteForm='ngForm' id="form" class="card-form">
-          <div class="input">
-            <input type="text" class="input-field" id="name" [(ngModel)]="displayNameInput" name="name" required/>
-            <label for="name" class="input-label">Full name</label>
-          </div>
-          <div class="input">
-            <label for="profile_picture">Profile Picture</label><br><br>
-            <input type="file" id="myFile" name="filename" [(ngModel)]="imageInput" name="image" (change)="showPreview($event)">
-          </div>
-          <div class="input">
-            <input type="text" class="input-field" id="department" [(ngModel)]="departmentInput" name="department" required/>
-            <label for="department" class="input-label">Department</label>
-          </div>
-          <div class="input">
-            <input type="text" class="input-field" id="position" [(ngModel)]="positionInput" name="position" required/>
-            <label for="position" class="input-label">Position</label>
-          </div>
-          <div class="input">
-            <input type="text" class="input-field" [(ngModel)]="contactInput" name="contact" required/>
-            <label for="contact" class="input-label">Contact</label>
-          </div>
-          <div class="input">
-            <input type="text" class="input-field" [(ngModel)]="interest1Input" name="interest1" required/>
-            <label class="input-label">Interest</label>
-          </div>
-          <div class="input">
-            <input type="text" class="input-field" [(ngModel)]="interest2Input" name="interest2" required/>
-            <label class="input-label">Interest</label>
-          </div>
-          <div class="input">
-            <input type="text" class="input-field" [(ngModel)]="interest3Input" name="interest3" required/>
-            <label class="input-label">Interest</label>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit</button>
-      </div>
+    <div class="col-md-4"></div>
     </div>
   </div>
 </div>
-</div>
-
-
-
-
-              <!-- <form (ngSubmit)='updateProfile()' #quoteForm='ngForm' id="form" class="card-form">
-
-                <div class="input">
-                  <input type="text" class="input-field" id="name" [(ngModel)]="displayNameInput" name="name" required/>
-                  <label for="name" class="input-label">Full name</label>
-                </div>
-                <div class="input">
-                  <label for="profile_picture">Profile Picture</label><br><br>
-                  <input type="file" id="myFile" name="filename" [(ngModel)]="imageInput" name="image" (change)="showPreview($event)">
-                </div>
-                <div class="input">
-                  <input type="text" class="input-field" id="department" [(ngModel)]="departmentInput" name="department" required/>
-                  <label for="department" class="input-label">Department</label>
-                </div>
-                <div class="input">
-                  <input type="text" class="input-field" id="position" [(ngModel)]="positionInput" name="position" required/>
-                  <label for="position" class="input-label">Position</label>
-                </div>
-                <div class="input">
-                  <input type="text" class="input-field" [(ngModel)]="contactInput" name="contact" required/>
-                  <label for="contact" class="input-label">Contact</label>
-                </div>
-                <div class="input">
-                  <input type="text" class="input-field" [(ngModel)]="interest1Input" name="interest1" required/>
-                  <label class="input-label">Interest</label>
-                </div>
-                <div class="input">
-                  <input type="text" class="input-field" [(ngModel)]="interest2Input" name="interest2" required/>
-                  <label class="input-label">Interest</label>
-                </div>
-                <div class="input">
-                  <input type="text" class="input-field" [(ngModel)]="interest3Input" name="interest3" required/>
-                  <label class="input-label">Interest</label>
-                </div>
-
-
-
-                  <button class="action-button">Submit</button>
-
-              </form> -->

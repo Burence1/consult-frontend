@@ -19,8 +19,8 @@
     [opened]="(isHandset$ | async) === true"
   >
   <img class="avatar mat-elevation-z8" src="https://image.freepik.com/free-vector/doctor-avatar-design_1146-14.jpg" />
-  <h4 class="name">Dr.{{ profile.displayName }}</h4>
-  <p class="designation">{{ profile.department }}</p>
+  <h4 class="name">Dr.Ian Kiplagat</h4>
+  <!-- <p class="designation">Head Surgeon</p> -->
   <hr>
 
     <a
@@ -41,7 +41,7 @@
     <a
       mat-list-item
       class="nav-item nav-link"
-      routerLink="/tasks"
+      href="/tasks"
       routerLinkActive="active"
       ><mat-icon>assignment</mat-icon>Tasks</a
     >
@@ -76,10 +76,10 @@
             <div class="col-md-8">
               <app-add-room></app-add-room>
               <!-- <app-roomlists></app-roomlists> -->
-              <app-chat-feed></app-chat-feed>
+              <!-- <app-chat-feed></app-chat-feed> -->
 
             </div>
-              <mat-card>
+              <!-- <mat-card>
               <mat-tab-group>
                 <mat-tab>
                   <ng-template mat-tab-label>
@@ -95,9 +95,9 @@
                     Rooms
                   </ng-template>
                  <!-- <app-chat-feed></app-chat-feed> -->
-                </mat-tab>
+                <!-- </mat-tab>
               </mat-tab-group>
-            </mat-card>
+            </mat-card>  -->
           </div>
           </div>
       </div>

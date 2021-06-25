@@ -43,8 +43,6 @@ export class ProfileComponent implements OnInit {
   displayNameInput: string;
   imageInput: string;
   interest1Input: string;
-  interest2Input: string;
-  interest3Input: string;
 
   showForm = false;
 
@@ -89,8 +87,6 @@ export class ProfileComponent implements OnInit {
     this.profile.displayName = this.displayNameInput;
     this.profile.image = this.imageInput;
     this.profile.interest1 = this.interest1Input;
-    this.profile.interest2 = this.interest2Input;
-    this.profile.interest3 = this.interest3Input;
 
     const name = this.selectedImage.name;
     const path = `profiles/${this.currentId}/${name}`;

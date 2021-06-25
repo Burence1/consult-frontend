@@ -1,4 +1,4 @@
-import { CalendarEvent } from "angular-calendar";
+import { CalendarEvent } from 'angular-calendar';
 
 export interface myEvent extends CalendarEvent{
     description?: string;
@@ -6,5 +6,5 @@ export interface myEvent extends CalendarEvent{
     assignedTo?: string;
     status?: string;
     done?: string;
-    owner: string
+    owner: string;
 }

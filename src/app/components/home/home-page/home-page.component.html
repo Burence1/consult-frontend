@@ -1,188 +1,120 @@
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <div class="jumbotron jumbotron-fluid">
-
 <mat-toolbar>
-  <button
-    type="button"
-    (click)="drawer.toggle()"
-    mat-icon-button
-    class="toggler"
-  >
+  <button type="button" (click)="drawer.toggle()" mat-icon-button class="toggler">
     ☰
   </button>
   <span>Navigation</span>
 </mat-toolbar>
-
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav
-    #drawer
-    class="sidenav"
-    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="(isHandset$ | async) === true"
-  >
-    <img
-      class="avatar mat-elevation-z8"
-      src="https://image.freepik.com/free-vector/doctor-avatar-design_1146-14.jpg"
-    />
-    <h4 class="name">Dr.{{ profile.displayName }}</h4>
-    <p class="designation">{{ profile.department }}</p>
+  <mat-sidenav #drawer class="sidenav" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === true">
+    <img class="avatar mat-elevation-z8" src="https://image.freepik.com/free-vector/doctor-avatar-design_1146-14.jpg" />
+    <h4 class="name">Dr.Ian Kiplagat</h4>
+    <!-- <p class="designation">Head Surgeon</p> -->
     <hr />
-
-    <a
-      mat-list-item
-      href=""
-      class="nav-item nav-link active"
-      routerLink="/home"
-      routerLinkActive="active"
-      ><mat-icon>home</mat-icon> Home</a
-    >
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-      routerLink="/profile"
-      routerLinkActive="active"
-      ><mat-icon>contact_page</mat-icon>Profile</a
-    >
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-
-
-      routerLink="/tasks"
-
-
-      routerLinkActive="active"
-      ><mat-icon>assignment</mat-icon>Tasks</a
-    >
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-      routerLink="/chats"
-      routerLinkActive="active"
-      ><mat-icon>forum</mat-icon
-      ><span matBadge="4" matBadgeOverlap="false">Chat</span></a
-    >
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-      routerLink="about"
-      routerLinkActive="active"
-      ><mat-icon>contact_support</mat-icon>Help</a
-    >
-    <a
-      mat-list-item
-      class="nav-item nav-link pointer"
-      *ngIf="(user | async)?.uid"
-      (click)="logout()"
-    >
-      <mat-icon>logout</mat-icon>Logout</a
-    >
+    <a mat-list-item href="" class="nav-item nav-link active" routerLink="/home" routerLinkActive="active">
+      <mat-icon>home</mat-icon> Home
+    </a>
+    <a mat-list-item class="nav-item nav-link" routerLink="/profile" routerLinkActive="active">
+      <mat-icon>contact_page</mat-icon>Profile
+    </a>
+    <a mat-list-item class="nav-item nav-link" href="/tasks" routerLinkActive="active">
+      <mat-icon>assignment</mat-icon>Tasks
+    </a>
+    <a mat-list-item class="nav-item nav-link" routerLink="/chats" routerLinkActive="active">
+      <mat-icon>forum</mat-icon><span matBadge="4" matBadgeOverlap="false">Chat</span>
+    </a>
+    <a mat-list-item class="nav-item nav-link" routerLink="about" routerLinkActive="active">
+      <mat-icon>contact_support</mat-icon>Help
+    </a>
+    <a mat-list-item class="nav-item nav-link pointer" *ngIf="(user | async)?.uid" (click)="logout()">
+      <mat-icon>logout</mat-icon>Logout
+    </a>
   </mat-sidenav>
   <mat-sidenav-content>
-        <div class="grid-container">
-          <h1 class="mat-h1">Home/<a >Dashboard</a></h1>
-          <mat-grid-list cols="1" rowHeight="350px">
-            <mat-grid-tile >
-              <mat-card class="dashboard-card">
-                <mat-card-header>
-                  <mat-card-title>
-
-                    <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                      <mat-icon>more_vert</mat-icon>
-                    </button>
-                    <mat-menu #menu="matMenu" xPosition="before">
-                      <button mat-menu-item>Expand</button>
-                      <button mat-menu-item>Remove</button>
-                    </mat-menu>
-                  </mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="dashboard-card-content">
-                  <div class="chat-text">
-                    <a href="/calendar">Calendar</a>
-
-                  </div>
-                </mat-card-content>
-
-              </mat-card>
-            </mat-grid-tile>
-
-          </mat-grid-list>
-        </div>
-        <div class="grid-container">
-          <mat-grid-list cols="2" rowHeight="350px">
-            <mat-grid-tile >
-              <mat-card class="dashboard-card">
-                <mat-card-header>
-                  <mat-card-title>
-
-                    <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                      <mat-icon>more_vert</mat-icon>
-                    </button>
-                    <mat-menu #menu="matMenu" xPosition="before">
-                      <button mat-menu-item>Expand</button>
-                      <button mat-menu-item>Remove</button>
-                    </mat-menu>
-                  </mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="dashboard-card-content">
-                  <div>
-                    <a href="/tasks">Tasks</a>
-                  </div>
-                </mat-card-content>
-
-              </mat-card>
-            </mat-grid-tile>
-
-          </mat-grid-list>
-        </div>
-
-        <div class="grid-container">
-          <mat-grid-list cols="1"  rowHeight="350px">
-            <mat-grid-tile >
-              <mat-card class="dashboard-card">
-                <mat-card-header>
-                  <mat-card-title>
-
-                    <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                      <mat-icon>more_vert</mat-icon>
-                    </button>
-                    <mat-menu #menu="matMenu" xPosition="before">
-                      <button mat-menu-item>Expand</button>
-                      <button mat-menu-item>Remove</button>
-                    </mat-menu>
-                  </mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="dashboard-card-content">
-                  <div>
-                    <a href="/chats">Chats</a>
-                  </div>
-                </mat-card-content>
-
-              </mat-card>
-            </mat-grid-tile>
-
-          </mat-grid-list>
-
-    <div class="content mat-elevation-z8">
-      <div class="example-sidenav-content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-2"></div>
+    <div class="grid-container">
+      <h1 class="mat-h1">Home/<a>Dashboard</a></h1>
+      <mat-grid-list cols="1" rowHeight="350px">
+        <mat-grid-tile>
+          <mat-card class="dashboard-card">
+            <mat-card-header>
+              <mat-card-title>
+                <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu" xPosition="before">
+                  <button mat-menu-item>Expand</button>
+                  <button mat-menu-item>Remove</button>
+                </mat-menu>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="dashboard-card-content">
+              <div class="chat-text">
+                <a href="/calendar">Calendar</a>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+    <div class="grid-container">
+      <mat-grid-list cols="2" rowHeight="350px">
+        <mat-grid-tile>
+          <mat-card class="dashboard-card">
+            <mat-card-header>
+              <mat-card-title>
+                <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu" xPosition="before">
+                  <button mat-menu-item>Expand</button>
+                  <button mat-menu-item>Remove</button>
+                </mat-menu>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="dashboard-card-content">
+              <div>
+                <a href="/tasks">Tasks</a>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+    <div class="grid-container">
+      <mat-grid-list cols="1" rowHeight="350px">
+        <mat-grid-tile>
+          <mat-card class="dashboard-card">
+            <mat-card-header>
+              <mat-card-title>
+                <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu" xPosition="before">
+                  <button mat-menu-item>Expand</button>
+                  <button mat-menu-item>Remove</button>
+                </mat-menu>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="dashboard-card-content">
+              <div>
+                <a href="/chats">Chats</a>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <div class="content mat-elevation-z8">
+        <div class="example-sidenav-content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-2"></div>
+            </div>
+            <div class="row">
+              <div class="col-md-2"></div>
+            </div>
           </div>
-          <div class="row">
-            <div class="col-md-2"></div>
-          </div>
-
         </div>
       </div>
     </div>
-  </div>
-
   </mat-sidenav-content>
 </mat-sidenav-container>

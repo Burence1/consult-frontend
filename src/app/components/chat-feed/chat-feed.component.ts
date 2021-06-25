@@ -6,6 +6,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { Chatmessage } from 'src/app/classes/message/chatmessage';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -35,7 +36,9 @@ export class ChatFeedComponent implements OnInit {
   @ViewChild('scroller') private feedScroll: ElementRef;
   // @ViewChild('chatcontent') chatcontent: ElementRef;
   // scrolltop: any | null;
-
+  updateM: Chatmessage = {
+    message: ''
+  }
 
   chatForm: FormGroup;
   chatname = '';
@@ -66,8 +69,9 @@ export class ChatFeedComponent implements OnInit {
       this.roomname = this.route.snapshot.params.roomname;
       firebase.database().ref('chats/').on('value', resp => {
         const chats = snapshotToArray(resp);
-        this.chats = chats.filter(x => x.roomname === this.roomname)
-       //setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
+        this.chats = chats.filter(x => x.roomname === this.roomname);
+        console.log(this.chats);
+       // setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
       });
 
       firebase.database().ref('roomusers/').orderByChild('roomname').equalTo(this.roomname).on('value', (resp2: any) => {
@@ -100,14 +104,15 @@ export class ChatFeedComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   onFormSubmit(form: any) {
-    var day = new Date();
-    const options = { day: 'numeric', month: 'long', year: "numeric", timeZone: "Africa/Nairobi" } as const;
-    const today = day.toLocaleDateString("en-IN", options);
+    var today = new Date();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+    var dateTime = date + ' ' + time;
 
     const chat = form;
     chat.roomname = this.roomname;
     chat.chatname = this.chatname;
-    chat.date = today;
+    chat.date = dateTime;
     chat.type = 'message';
     const newMessage = firebase.database().ref('chats/').push();
     newMessage.set(chat);
@@ -116,9 +121,27 @@ export class ChatFeedComponent implements OnInit {
     });
   }
 
-  scrollToBottom(): void {
-    this.feedScroll.nativeElement.scrollTop
-      = this.feedScroll.nativeElement.scrollHeight;
+  deleteMsg(uid: any) {
+    const key = uid
+    var del = confirm('Are you sure you want to delete this message?');
+    if (del) {
+      firebase.database().ref(`chats/${key}`).remove();
+    }
+  }
+
+  updateMsg(uid: any, message:any) {
+    const key = uid
+    var today = new Date();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+    var dateTime = date + ' ' + time;
+
+    const chat = message;
+    chat.roomname = this.roomname;
+    chat.chatname = this.chatname;
+    chat.date = dateTime;
+    chat.type = 'message';
+    firebase.database().ref(`chats/${key}`).update(chat);
   }
 
   // scrollToBottom(): void {
@@ -126,4 +149,9 @@ export class ChatFeedComponent implements OnInit {
   //     = this.feedScroll.nativeElement.scrollHeight;
   // }
 
+
+  // // tslint:disable-next-line: typedef
+  // ngAfterViewChecked() {
+  //   this.scrollToBottom();
+  // }
 }
