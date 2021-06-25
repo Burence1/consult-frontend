@@ -6,6 +6,9 @@ import { ProfileService } from 'src/app/services/profile.service';
 import { FileService } from 'src/app/services/files/file-service.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-profile',
@@ -13,6 +16,14 @@ import { finalize } from 'rxjs/operators';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  selected!: Date | null;
+  user: Observable<any>;
+  userEmail: any;
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
 
   name = '!!!';
   viewMode = 'tab1';
@@ -37,7 +48,8 @@ export class ProfileComponent implements OnInit {
 
   showForm = false;
 
-  constructor( public authService: AuthService,
+  constructor( public authService: AuthService, private auth:AuthService,
+                private breakpointObserver: BreakpointObserver,
                private profileService: ProfileService,
                @Inject(AngularFireStorage)
     private storage: AngularFireStorage,
@@ -129,5 +141,8 @@ export class ProfileComponent implements OnInit {
   // tslint:disable-next-line: typedef
   view(){
     this.fileService.getImage(this.file);
+  }
+  logout() {
+    this.auth.logout();
   }
 }

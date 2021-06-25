@@ -5,6 +5,7 @@ import { map, shareReplay } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -19,7 +20,7 @@ export class HomePageComponent implements OnInit {
       map(result => result.matches),
       shareReplay()
     );
-
+  
   constructor(private auth:AuthService,private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {

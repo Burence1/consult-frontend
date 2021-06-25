@@ -41,7 +41,7 @@
     <a
       mat-list-item
       class="nav-item nav-link"
-      routerLink="about"
+      routerLink="/tasks"
       routerLinkActive="active"
       ><mat-icon>assignment</mat-icon>Tasks</a
     >
@@ -69,55 +69,91 @@
     >
   </mat-sidenav>
   <mat-sidenav-content>
-    <div class="content mat-elevation-z8">
-      <div class="example-sidenav-content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-              <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-md-5 jumbo-text">
-                      <h1 class="display-4">Welcome, Dr. Jane!</h1>
-                      <p class="lead">Have a nice day today</p>
-                      <button
-                        mat-raised-button
-                        routerLink="/profile"
-                        color="warn"
-                      >
-                        Go to profile
-                      </button>
-                    </div>
-                    <div class="col-md-6">
-                      <img
-                        src="assets/images/team-doctors.jpg"
-                        alt="doctors illustration"
-                        class="jumbo-img"
-                      />
-                    </div>
+        <div class="grid-container">
+          <h1 class="mat-h1">Home/<a >Dashboard</a></h1>
+          <mat-grid-list cols="1" rowHeight="350px">
+            <mat-grid-tile >
+              <mat-card class="dashboard-card">
+                <mat-card-header>
+                  <mat-card-title>
+                    
+                    <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                      <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu" xPosition="before">
+                      <button mat-menu-item>Expand</button>
+                      <button mat-menu-item>Remove</button>
+                    </mat-menu>
+                  </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                  <div class="chat-text">
+                    <a href="/calendar">Calendar</a>
+                    
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-6">
-              <mat-card class="inline-calendar-card">
-                <mat-calendar
-                  (selectedChange)="selected = $event"
-                ></mat-calendar>
+                </mat-card-content>
+                
               </mat-card>
-              <p>Selected date: {{ selected | date }}</p>
-            </div>
-            <div class="highlights col-md-4">
-              <h3>Today's Highlights:</h3>
-            </div>
-          </div>
+            </mat-grid-tile>
+            
+          </mat-grid-list>
         </div>
-      </div>
-    </div>
+        <div class="grid-container">
+          <mat-grid-list cols="2" rowHeight="350px">
+            <mat-grid-tile >
+              <mat-card class="dashboard-card">
+                <mat-card-header>
+                  <mat-card-title>
+                    
+                    <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                      <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu" xPosition="before">
+                      <button mat-menu-item>Expand</button>
+                      <button mat-menu-item>Remove</button>
+                    </mat-menu>
+                  </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                  <div>
+                    <a href="/tasks">Tasks</a>
+                  </div>
+                </mat-card-content>
+                
+              </mat-card>
+            </mat-grid-tile>
+            
+          </mat-grid-list>
+        </div>
+
+        <div class="grid-container">
+          <mat-grid-list cols="1"  rowHeight="350px">
+            <mat-grid-tile >
+              <mat-card class="dashboard-card">
+                <mat-card-header>
+                  <mat-card-title>
+                    
+                    <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                      <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu" xPosition="before">
+                      <button mat-menu-item>Expand</button>
+                      <button mat-menu-item>Remove</button>
+                    </mat-menu>
+                  </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                  <div>
+                    <a href="/chats">Chats</a>
+                  </div>
+                </mat-card-content>
+                
+              </mat-card>
+            </mat-grid-tile>
+            
+          </mat-grid-list>
+        </div>
+        
   </mat-sidenav-content>
 </mat-sidenav-container>
 
