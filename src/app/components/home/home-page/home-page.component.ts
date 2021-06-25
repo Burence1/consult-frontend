@@ -26,44 +26,8 @@ export class HomePageComponent implements OnInit {
       map((result) => result.matches),
       shareReplay()
     );
-<<<<<<< HEAD
   
   constructor(private auth:AuthService,private breakpointObserver: BreakpointObserver) { }
-=======
-
-  constructor(
-    private auth: AuthService,
-    private breakpointObserver: BreakpointObserver,
-    private profileService: ProfileService,
-    @Inject(AngularFireStorage)
-    private storage: AngularFireStorage,
-    @Inject(FileService)
-    private fileService: FileService
-  ) {
-    this.findProfiles();
-    this.auth.user.subscribe(
-      (user) => {
-        this.currentId = user.uid;
-        console.log(this.currentId);
-        this.profileService.fetchProfileApi(this.currentId).subscribe(
-          (res) => {
-            this.profile = res;
-            console.log(res);
-          },
-          (error) => {
-            console.error(error);
-          }
-        );
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
-
-  // tslint:disable-next-line: typedef
-  findProfiles() {}
->>>>>>> dfc81156e0e6a9c991da9166e822d11877982164
 
   ngOnInit(): void {
     this.user = this.auth.authUser();
