@@ -67,6 +67,7 @@ import { OnHoldComponent } from './components/tasks/on-hold/on-hold.component';
 import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
 import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.component';
 import { NewTaskComponent } from './components/tasks/new-task/new-task.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { UpdateProfileComponent } from './components/userProfile/update-profile/update-profile/update-profile.component';
 
 
@@ -96,11 +97,12 @@ import { UpdateProfileComponent } from './components/userProfile/update-profile/
     NotFoundComponent,
     AddRoomComponent,
     RoomlistsComponent,
-
+    DirectoryComponent,
     DirectoryComponent,
     TasksListComponent,
     NewTaskComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    DashboardComponent
   ],
   entryComponents: [AddRoomComponent],
   imports: [
@@ -122,7 +124,11 @@ import { UpdateProfileComponent } from './components/userProfile/update-profile/
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
     MatIconModule,
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    MatGridListModule,
+    MatCardModule,
+    MatButtonModule,
+    LayoutModule
   ],
   providers: [MessagingService, AsyncPipe],
   bootstrap: [AppComponent]

@@ -112,6 +112,13 @@
     <a
       mat-list-item
       class="nav-item nav-link"
+      routerLink="/tasks"
+      routerLinkActive="active"
+      ><mat-icon>assignment</mat-icon>Tasks</a
+    >
+    <a
+      mat-list-item
+      class="nav-item nav-link"
       routerLink="/chats"
       routerLinkActive="active"
       ><mat-icon>forum</mat-icon><span matBadge="4" matBadgeOverlap="false">Chat</span></a
@@ -136,6 +143,13 @@
     <div class="">
       <div class="example-sidenav-content">
         <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <app-add-room></app-add-room>
+              <!-- <app-roomlists></app-roomlists> -->
+              <!-- <app-chat-feed></app-chat-feed> -->
+
+            </div>
               <mat-card>
               <mat-tab-group>
                 <mat-tab>

@@ -65,7 +65,7 @@ export class ChatFeedComponent implements OnInit {
 
       this.roomname = this.route.snapshot.params.roomname;
       firebase.database().ref('chats/').on('value', resp => {
-        let chats = snapshotToArray(resp);
+        const chats = snapshotToArray(resp);
         this.chats = chats.filter(x => x.roomname === this.roomname)
        //setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
       });
@@ -77,7 +77,7 @@ export class ChatFeedComponent implements OnInit {
 
       firebase.database().ref('rooms/').on('value', resp => {
         // this.rooms = [];
-        let rooms = snapshotToArray(resp);
+        const rooms = snapshotToArray(resp);
         this.rooms = rooms.filter(x => x.roomname === this.roomname)
         this.admin=this.rooms
       });
@@ -116,13 +116,9 @@ export class ChatFeedComponent implements OnInit {
     });
   }
 
-  // scrollToBottom(): void {
-  //   this.feedScroll.nativeElement.scrollTop
-  //     = this.feedScroll.nativeElement.scrollHeight;
-  // }
+  scrollToBottom(): void {
+    this.feedScroll.nativeElement.scrollTop
+      = this.feedScroll.nativeElement.scrollHeight;
+  }
 
-  // tslint:disable-next-line: typedef
-  // ngAfterViewChecked() {
-  //   this.scrollToBottom();
-  // }
 }

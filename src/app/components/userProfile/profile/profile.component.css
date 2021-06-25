@@ -8,7 +8,7 @@
 }
 
 .profile{
-    background-color: #eee;
+    background-color: #003060;
 }
 
 .center {
@@ -22,9 +22,10 @@
 }
 
 .dr-name{
-    padding: 20px;
-    background-color: #003060;
-    color: #ffffff;
+    padding: 10px;
+    background-color: white;
+    color: #003060;
+    border-radius: 10px;
 }
 
 /* .overview-tab{
@@ -38,15 +39,9 @@ td{
 }
 
 td:first-child{
-    font-weight: bold;
+    font-family: comfortaa;
+    font-size: 20px;
 }
-
-
-
-
-
-
-
   
   *, *:after, *:before {
     box-sizing: border-box;
@@ -76,7 +71,7 @@ td:first-child{
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 425px;
+    /* max-width: 425px; */
     background-color: #dbdbdb;
     border-radius: 10px;
     box-shadow: 0 10px 20px 0 rgba(129, 129, 129, 0.25);
@@ -188,7 +183,7 @@ td:first-child{
 }
 
 .overview{
-  color: #003060;
+  color: white;
   font-weight: bold;
   text-decoration: underline;
   padding-top: 20px;
@@ -225,9 +220,6 @@ td:first-child{
 }
 
 .tab-slider--trigger {
-  
- 
-  
   text-transform: uppercase;
   text-align: center;
   
@@ -241,4 +233,110 @@ td:first-child{
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+
+/* new */
+.logo{
+  color: white;
+}
+.logo1 {
+  width: 200px;
+  height: 100px;
+  margin-top: 20px;
+  margin-left: 35px
+}
+
+.pointer{
+cursor: pointer;
+}
+
+.toggler{
+  font-size: 40px;
+} 
+mat-toolbar {
+  background: #003060;
+  color: white;
+}
+
+.nav-item{
+  color: white;
+}
+mat-sidenav {
+  margin: 16px;
+  width: 200px;
+  border-right: none;
+  background: #003060;
+  color: white;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.content {
+  height: calc(100vh - 98px);
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2rem;
+  color: lightgray;
+}
+
+mat-sidenav-container {
+  height: calc(100vh - 65px);
+}
+.update{
+  background-color: #8597a3;
+}
+
+.profile{
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  height: 30vh;
+  background-color: white;
+  color: #003060;
+  margin-bottom: 1%;
+}
+
+.menu-button {
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+font-size: 1rem;
+}
+mat-icon {
+margin-right: 8px;
+}
+
+.avatar {
+margin-top: 16px;
+width: 100px;
+height: 100px;
+border-radius: 50%;
+}
+
+.name {
+margin-top: 8px;
+font-weight: normal;
+}
+
+.designation {
+margin-top: 2px;
+font-size: 0.7rem;
+color: lightgrey;
+}
+
+mat-divider {
+margin-top: 6px;
+margin-bottom: 6px;
+background-color: rgba(255, 255, 255, 0.5);
 }

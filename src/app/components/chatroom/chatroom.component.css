@@ -149,7 +149,7 @@ mat-divider {
   font-size: 40px;
 } 
 mat-toolbar {
-  background: #004a9f;
+  background: #003060;
   color: white;
 }
 
@@ -160,7 +160,7 @@ mat-sidenav {
   margin: 16px;
   width: 200px;
   border-right: none;
-  background: #002b5c;
+  background: #003060;
   color: white;
   border-radius: 10px;
   padding: 16px;
