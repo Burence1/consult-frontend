@@ -1,9 +1,14 @@
-
+<app-navbar></app-navbar>
 <div class="container">
-  <br>
-   <div style="margin-left: 30rem;" class="addbtn">
-    <button (click)="newTask()" mat-raised-button>
+
+  <div class="addbtn">
+    <button (click)="newTask()" mat-raised-button class="task">
         <mat-icon>add</mat-icon> Add Task
+      </button>
+
+      <button style="margin-left: 20px;" mat-raised-button>
+        <mat-icon>event</mat-icon> 
+       <a style="text-decoration: none; color: white;" routerLink="/calendar">Calendar</a>
       </button>
       <br>
       <br>
