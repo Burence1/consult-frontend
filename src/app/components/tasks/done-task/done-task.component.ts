@@ -12,7 +12,6 @@ import { AngularFireDatabase } from '@angular/fire/database';
 export class DoneTaskComponent implements OnInit {
 
   @Input() task?: Task;
-
   @Output() edit = new EventEmitter<Task>();
   done: Task[];
   len = 0;

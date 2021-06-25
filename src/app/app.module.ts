@@ -61,12 +61,13 @@ import { MatMenuModule } from '@angular/material/menu';
 import { AddRoomComponent } from './components/add-room/add-room.component';
 import { RoomlistsComponent } from './components/roomlists/roomlists.component';
 import { TasksComponent } from './components/tasks/tasks.component';
-import { CalendarComponent } from './components/tasks/calendar/calendar.component';
-import { DoneTaskComponent } from './components/tasks/done-task/done-task.component';
-import { OnHoldComponent } from './components/tasks/on-hold/on-hold.component';
+//import { CalendarComponent } from './components/tasks/calendar/calendar.component';
+//import { DoneTaskComponent } from './components/tasks/done-task/done-task.component';
+//import { OnHoldComponent } from './components/tasks/on-hold/on-hold.component';
 import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
-import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.component';
+//import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.component';
 import { NewTaskComponent } from './components/tasks/new-task/new-task.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { UpdateProfileComponent } from './components/userProfile/update-profile/update-profile/update-profile.component';
 
 
@@ -89,18 +90,18 @@ import { UpdateProfileComponent } from './components/userProfile/update-profile/
     AddRoomComponent,
     RoomlistsComponent,
     TasksComponent,
-    CalendarComponent,
-    DoneTaskComponent,
-    OnHoldComponent,
+    // CalendarComponent,
+    // DoneTaskComponent,
+    // OnHoldComponent,
     TaskDialogComponent,
     NotFoundComponent,
     AddRoomComponent,
     RoomlistsComponent,
-
     DirectoryComponent,
-    TasksListComponent,
+    //TasksListComponent,
     NewTaskComponent,
-    UpdateProfileComponent
+    DashboardComponent,
+    UpdateProfileComponent,
   ],
   entryComponents: [AddRoomComponent],
   imports: [
@@ -122,7 +123,11 @@ import { UpdateProfileComponent } from './components/userProfile/update-profile/
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
     MatIconModule,
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    MatGridListModule,
+    MatCardModule,
+    MatButtonModule,
+    LayoutModule
   ],
   providers: [MessagingService, AsyncPipe],
   bootstrap: [AppComponent]

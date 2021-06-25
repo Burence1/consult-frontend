@@ -73,7 +73,7 @@ export class ChatFeedComponent implements OnInit {
         console.log(this.chats);
        // setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
       });
-      
+
       firebase.database().ref('roomusers/').orderByChild('roomname').equalTo(this.roomname).on('value', (resp2: any) => {
         const roomusers = snapshotToArray(resp2);
         this.users = roomusers.filter(x => x.status === 'online');
@@ -81,7 +81,7 @@ export class ChatFeedComponent implements OnInit {
 
       firebase.database().ref('rooms/').on('value', resp => {
         // this.rooms = [];
-        let rooms = snapshotToArray(resp);
+        const rooms = snapshotToArray(resp);
         this.rooms = rooms.filter(x => x.roomname === this.roomname)
         this.admin=this.rooms
       });
