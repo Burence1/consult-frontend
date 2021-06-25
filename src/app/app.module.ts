@@ -68,6 +68,7 @@ import { NewTaskComponent } from './components/tasks/new-task/new-task.component
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,7 +93,7 @@ import { NewTaskComponent } from './components/tasks/new-task/new-task.component
     OnHoldComponent,
     TaskDialogComponent,
     TasksListComponent,
-    NewTaskComponent
+    NewTaskComponent,
   ],
   entryComponents: [AddRoomComponent],
   imports: [
