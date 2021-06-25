@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-=======
-
-# Dr. Little
-> About Us
-Doctor Little Kenya is a charitable humanitarian organization founded in 2016, which focuses on improving the living standards of the community at large by primarily addressing the welfare of little children.We offer the best standards of care for disadvantaged children in the community, impart resources for patients on knowledge about their health and, create a platform for stakeholders and organizations to support the community. 
->>>>>>> ef0c81821ea0965b24ec7c9df1d9f9eb4cc1cefb
 
 # Dr. Little
 > About Us
@@ -15,28 +8,13 @@ Doctor Little Kenya is a charitable humanitarian organization founded in 2016, w
 Here is a demo link []()
 
 # Landing Page
-![Landing page]("https://github.com/Burence1/consult-frontend/blob/dev/src/assets/images/reg.png")
+![Landing page](https://raw.githubusercontent.com/Burence1/consult-frontend/dev/src/assets/images/login.png)
 
 # Register Page
-![Register]("https://raw.githubusercontent.com/Burence1/consult-frontend/dev/src/assets/images/reg.png")
+![Register](https://raw.githubusercontent.com/Burence1/consult-frontend/dev/src/assets/images/reg.png)
 # Home Page
-![Home-page](https://github.com/Burence1/consult-frontend/blob/dev/src/assets/images/home.png)
+![Home-page](https://raw.githubusercontent.com/Burence1/consult-frontend/dev/src/assets/images/home.png)
 
-<<<<<<< HEAD
-=======
-
-# Demo
-Here is a demo link []()
-
-# Landing Page
-![]()
-
-# Register Page
-![]()
-# Home Page
-![]()
-
->>>>>>> ef0c81821ea0965b24ec7c9df1d9f9eb4cc1cefb
 # Mobile Support
 
 # [Usage]()
@@ -67,12 +45,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # Known Bugs
 
-<<<<<<< HEAD
 # License
 
 ### MIT [License]('https://github.com/Burence1/consult-frontend/blob/dev/LICENSE')
-=======
-# [License]()
-
-### MIT [License]()
->>>>>>> ef0c81821ea0965b24ec7c9df1d9f9eb4cc1cefb

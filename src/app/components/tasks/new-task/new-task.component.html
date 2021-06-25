@@ -1,20 +1,8 @@
-
 <mat-card class="item" *ngIf="task" (dblclick)="edit.emit(task)">
-    <div class="task-title">
-        <h4>{{task.title}}</h4>
-        <span><b>Due:</b> {{task.dateDue|date }}</span>
-      
-    </div>
-    <div>
-        <button mat-raised-button color="warn" (click)="markDone(task)">Mark done<mat-icon>check</mat-icon></button>
-        &middot;
-        <button mat-raised-button color="primary" (click)="onHold(task)">Put on hold<mat-icon>hourglass_bottom</mat-icon></button>
-    </div>
-    <!-- <span>{{task.description }}</span> <br> -->
-    <br>
-    <span><b>Task Owner:</b> {{task.owner }}</span> <br>
-   
-    <!-- <p>Status: {{task.status}}</p> -->
+    <h3>{{task.title}}</h3>
+    <span>{{task.description }}</span> <br>
+    <span><b>Tasked Owner:</b> {{task.owner }}</span> <br>
+    <span><b>Due Date:</b> {{task.dateDue.toDate()|date  }}</span>
 </mat-card>
 
 <br>
