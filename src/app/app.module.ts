@@ -67,13 +67,8 @@ import { OnHoldComponent } from './components/tasks/on-hold/on-hold.component';
 import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
 import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.component';
 import { NewTaskComponent } from './components/tasks/new-task/new-task.component';
-<<<<<<< HEAD
 import { DashboardComponent } from './dashboard/dashboard.component';
-
-
-=======
 import { UpdateProfileComponent } from './components/userProfile/update-profile/update-profile/update-profile.component';
->>>>>>> dfc81156e0e6a9c991da9166e822d11877982164
 
 
 @NgModule({
@@ -102,21 +97,12 @@ import { UpdateProfileComponent } from './components/userProfile/update-profile/
     NotFoundComponent,
     AddRoomComponent,
     RoomlistsComponent,
-<<<<<<< HEAD
-  
     DirectoryComponent,
-    
-=======
->>>>>>> dfc81156e0e6a9c991da9166e822d11877982164
-
     DirectoryComponent,
     TasksListComponent,
     NewTaskComponent,
-<<<<<<< HEAD
+    UpdateProfileComponent,
     DashboardComponent
-=======
-    UpdateProfileComponent
->>>>>>> dfc81156e0e6a9c991da9166e822d11877982164
   ],
   entryComponents: [AddRoomComponent],
   imports: [

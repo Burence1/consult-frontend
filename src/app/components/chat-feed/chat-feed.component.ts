@@ -65,18 +65,11 @@ export class ChatFeedComponent implements OnInit {
 
       this.roomname = this.route.snapshot.params.roomname;
       firebase.database().ref('chats/').on('value', resp => {
-<<<<<<< HEAD
         const chats = snapshotToArray(resp);
-        this.chats = chats.filter(x => x.roomname === this.roomname);
-        console.log(this.chats);
-       // setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
-=======
-        let chats = snapshotToArray(resp);
         this.chats = chats.filter(x => x.roomname === this.roomname)
        //setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
->>>>>>> a5405bd2d594c307d57468ac6a93f81f61ee2f53
       });
-      
+
       firebase.database().ref('roomusers/').orderByChild('roomname').equalTo(this.roomname).on('value', (resp2: any) => {
         const roomusers = snapshotToArray(resp2);
         this.users = roomusers.filter(x => x.status === 'online');
@@ -84,16 +77,9 @@ export class ChatFeedComponent implements OnInit {
 
       firebase.database().ref('rooms/').on('value', resp => {
         // this.rooms = [];
-<<<<<<< HEAD
         const rooms = snapshotToArray(resp);
-        this.rooms = rooms.filter(x => x.roomname === this.roomname);
-        this.admin = this.rooms;
-        console.log(this.admin);
-=======
-        let rooms = snapshotToArray(resp);
         this.rooms = rooms.filter(x => x.roomname === this.roomname)
         this.admin=this.rooms
->>>>>>> a5405bd2d594c307d57468ac6a93f81f61ee2f53
       });
     });
   }
@@ -114,22 +100,12 @@ export class ChatFeedComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   onFormSubmit(form: any) {
-<<<<<<< HEAD
-    const day = new Date();
-    const options = { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Kolkata' } as const;
-    const today = day.toLocaleDateString('en-IN', options);
-
-    const chat = form;
-    chat.roomname = this.roomname;
-    console.log(chat.roomname);
-=======
     var day = new Date();
     const options = { day: 'numeric', month: 'long', year: "numeric", timeZone: "Africa/Nairobi" } as const;
     const today = day.toLocaleDateString("en-IN", options);
 
     const chat = form;
     chat.roomname = this.roomname;
->>>>>>> a5405bd2d594c307d57468ac6a93f81f61ee2f53
     chat.chatname = this.chatname;
     chat.date = today;
     chat.type = 'message';
@@ -139,25 +115,10 @@ export class ChatFeedComponent implements OnInit {
       'message': [null, Validators.required]
     });
   }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 
   scrollToBottom(): void {
     this.feedScroll.nativeElement.scrollTop
       = this.feedScroll.nativeElement.scrollHeight;
   }
-=======
->>>>>>> dfc81156e0e6a9c991da9166e822d11877982164
-  
-  // scrollToBottom(): void {
-  //   this.feedScroll.nativeElement.scrollTop
-  //     = this.feedScroll.nativeElement.scrollHeight;
-  // }
->>>>>>> a5405bd2d594c307d57468ac6a93f81f61ee2f53
 
-  // tslint:disable-next-line: typedef
-  // ngAfterViewChecked() {
-  //   this.scrollToBottom();
-  // }
 }
