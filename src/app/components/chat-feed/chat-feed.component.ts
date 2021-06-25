@@ -127,5 +127,4 @@ export class ChatFeedComponent implements OnInit {
   //     = this.feedScroll.nativeElement.scrollHeight;
   // }
 
-
 }

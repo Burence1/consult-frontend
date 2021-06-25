@@ -9,7 +9,6 @@
   </button>
   <span>Navigation</span>
 </mat-toolbar>
-
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav
     #drawer
@@ -21,8 +20,7 @@
   <img class="avatar mat-elevation-z8" src="https://image.freepik.com/free-vector/doctor-avatar-design_1146-14.jpg" />
   <h4 class="name">Dr. Jane</h4>
   <p class="designation">Gynacologist</p>
-  <hr> 
-
+  <hr>
     <a
       mat-list-item
       href=""
@@ -76,14 +74,10 @@
           <div class="col-md-2"></div>
           <div class="col-12 profile">
               <div class="jumbotron jumbotron-fluid">
-                 
                     <div class="row">
                       <div class="col-md-4"></div>
                         <div class="col-md-4">
-                          
-                         
                           <img [src]=" profile.image " class="center" >
-                          
                           <h2 class="dr-name text-center">I am Dr: {{ profile.displayName }}</h2>
                         <div class="col-md-4"></div>
                         </div>
@@ -94,70 +88,58 @@
                         <div class="col-md-4 lead tab-slider--trigger" [class.active]="viewMode == 'tab1'" rel="tab1" (click)="viewMode ='tab1'">Overview</div>
                       <div class="col-md-4 lead tab-slider--trigger" [class.active]="viewMode == 'tab2'" rel="tab2" (click)="viewMode ='tab2'">BIO</div>
                       <div class="col-md-4 lead lead tab-slider--trigger" [class.active]="viewMode == 'tab3'" rel="tab3" (click)="viewMode ='tab3'">CHAT GROUPS</div>
-                      
                         </div>
                       </div>
-                      
                     </div>
-        
                     <div class="container">
                       <div class="row">
                         <div class="col-12">
                           <div class="tab-slider--container" [ngSwitch]="viewMode">
                             <div id="tab1" class="tab-slider--body" *ngSwitchCase="'tab1'">
                               <h2 class="overview text-center">PROFILE OVERVIEW</h2>
-                        
                               <table class="mat-elevation-z8">
                                 <tr>
-                                  <td>Name: {{ profile.displayName }}</td>      
+                                  <td>Name: {{ profile.displayName }}</td>
                                 </tr>
                                 <mat-divider></mat-divider>
                                 <tr>
-                                  <td>Email: {{ profile.email }}</td>  
+                                  <td>Email: {{ profile.email }}</td>
                                 </tr>
                                 <mat-divider></mat-divider>
                                 <tr>
-                                  <td>Department: {{ profile.department }}</td>      
+                                  <td>Department: {{ profile.department }}</td>
                                 </tr>
                                 <mat-divider></mat-divider>
                                 <tr>
-                                  <td>Position: {{ profile.position }}</td>  
+                                  <td>Position: {{ profile.position }}</td>
                                 </tr>
                                 <mat-divider></mat-divider>
                                 <tr>
-                                  <td>Contact: {{ profile.contact }}</td>    
-                                </tr> 
+                                  <td>Contact: {{ profile.contact }}</td>
+                                </tr>
                                 <mat-divider></mat-divider>
                                 <tr><td><p>Interests: {{ profile.interest1 }}</p></td></tr>
                             </table>
                             </div>
                             <div id="tab2" class="tab-slider--body" *ngSwitchCase="'tab2'">
                               <h2 class="overview">BIO</h2>
-                              
                             </div>
                             <div id="tab3" class="tab-slider--body" *ngSwitchCase="'tab3'">
                               <h2 class="overview">CHAT GROUPS</h2>
-                              
                             </div>
-                            
                           </div>
-                          
-                          
-                        </div>                        
+                        </div>
                       </div>
                     </div>
-                  
                 </div>
           </div>
           <div class="col-md-2"></div>
         </div>
         </div><br><br>
-        
       </div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
 <section id="updateProfile">
     <div class="container">
       <div class="row">
@@ -166,7 +148,7 @@
           <hr>
           <div class="container">
             <div class="card">
-              <div class="card-image">	
+              <div class="card-image">
                 <h2 class="card-heading">
                   UPDATE PROFILE
                   <small>Update your account</small>
@@ -216,16 +198,12 @@
                 </td>
               </tr>
                 </table>
-                <button class="action-button mt-5 text-center">Submit</button>  
-              </form> 
+                <button class="action-button mt-5 text-center">Submit</button>
+              </form>
             </div>
           </div>
           <div id="contact">
-          </div>          
+          </div>
         </div>
       </div>
     </div>
-
-  
-
-
