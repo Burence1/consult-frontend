@@ -1,8 +1,9 @@
-export class Task{
-    key?: string;
-    title: string;
-    owner: string;
-    dateDue: any;
-    status: string;
+export interface Task{
+    id?: string,
+    title: string,
+    description: string,
+    owner: string,
+    dateDue: any,
+    created: Date
 }
-//add status, creator, done
+//add status, creator, donedone
