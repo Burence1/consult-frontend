@@ -19,9 +19,9 @@
     [opened]="(isHandset$ | async) === true"
   >
   <img class="avatar mat-elevation-z8" src="https://image.freepik.com/free-vector/doctor-avatar-design_1146-14.jpg" />
-  <h4 class="name">Dr. Jane</h4>
-  <p class="designation">Gynacologist</p>
-  <hr> 
+  <h4 class="name">Dr.{{ profile.displayName }}</h4>
+  <p class="designation">{{ profile.department }}</p>
+  <hr>
 
     <a
       mat-list-item
@@ -41,7 +41,11 @@
     <a
       mat-list-item
       class="nav-item nav-link"
+<<<<<<< HEAD
       routerLink="/tasks"
+=======
+      routerLink="about"
+>>>>>>> dfc81156e0e6a9c991da9166e822d11877982164
       routerLinkActive="active"
       ><mat-icon>assignment</mat-icon>Tasks</a
     >
@@ -69,6 +73,7 @@
     >
   </mat-sidenav>
   <mat-sidenav-content>
+<<<<<<< HEAD
         <div class="grid-container">
           <h1 class="mat-h1">Home/<a >Dashboard</a></h1>
           <mat-grid-list cols="1" rowHeight="350px">
@@ -152,6 +157,17 @@
             </mat-grid-tile>
             
           </mat-grid-list>
+=======
+    <div class="content mat-elevation-z8">
+      <div class="example-sidenav-content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-2"></div>
+          </div>
+          <div class="row">
+            <div class="col-md-2"></div>
+          </div>
+>>>>>>> dfc81156e0e6a9c991da9166e822d11877982164
         </div>
         
   </mat-sidenav-content>

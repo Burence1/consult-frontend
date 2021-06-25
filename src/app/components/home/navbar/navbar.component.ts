@@ -18,17 +18,18 @@ export class NavbarComponent implements OnInit {
       shareReplay()
     );
 
-  constructor(private auth:AuthService, private breakpointObserver: BreakpointObserver) { }
+  constructor(private auth: AuthService, private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
     this.user = this.auth.authUser();
     this.user.subscribe(user => {
       if (user) {
         this.userEmail = user.email;
-        console.log(user)
+        console.log(user);
       }
     });
   }
+  // tslint:disable-next-line: typedef
   logout() {
     this.auth.logout();
   }
