@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Task } from './task';
 import { CdkDragDrop, transferArrayItem } from '@angular/cdk/drag-drop';
 import { MatDialog } from '@angular/material/dialog';
@@ -7,15 +7,10 @@ import { TaskDialogResult } from './task-dialog/task-dialog.component';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import { TaskService } from './tasks-services/task.service';
-import { map } from 'rxjs/operators';
-import { HoldService } from './tasks-services/hold.service';
-import { DoneService } from './tasks-services/done.service';
 
-const getObservable = (collection: AngularFireList<Task>) =>{
+const getObservable = (collection: AngularFirestoreCollection<Task>) =>{
   const subject = new BehaviorSubject<Task[]>([]);
-  collection.valueChanges().subscribe((val: Task[])=>{
+  collection.valueChanges({idField: 'id'}).subscribe((val: Task[])=>{
     subject.next(val)
   });
   return subject
@@ -28,47 +23,18 @@ const getObservable = (collection: AngularFireList<Task>) =>{
 })
 export class TasksComponent implements OnInit {
 
-  @Input() task?: Task;
-  todo: Task[];
-  inProgress: Task[];
+  todo  = getObservable(this.db.collection('todo')) as Observable<Task[]>;
+  inProgress = getObservable(this.db.collection('inProgress')) as Observable<Task[]>;
+  done = getObservable(this.db.collection('done')) as Observable<Task[]>;
 
-  added = false;
-  lenTasks = 0;
-  msg = '';
-
-  currentTask: Task = {
-    title: '',
-    owner: '',
-    dateDue: 2,
-    status: 'todo'
-  }
- 
-  constructor(private dialog: MatDialog, private db: AngularFireDatabase, private taskService: TaskService) { }
+  constructor(private dialog: MatDialog, private db: AngularFirestore) { }
 
   ngOnInit(): void {
-
-    this.retrieveTasks();
-    this.retrieveUsers()
-
+    console.log("BS",this.todo)
+    this.todo.forEach(items =>{
+      items.forEach(item => console.log(item.dateDue.toDate()))
+    })
   }
-
-  ngOnChanges(){
-    this.msg = '';
-    //this.currentTask = { ...this.task}
-  }
-
-  retrieveTasks(){
-    this.taskService.getAll().snapshotChanges().pipe(
-      map(changes => changes.map(c =>({
-        key: c.payload.key, ...c.payload.val()
-      })))
-    ).subscribe(data => {
-      this.todo = data;
-      this.lenTasks = this.todo.length;
-      console.log(this.todo)
-    });
-  }
-
 
   editTask(list: 'done' | 'todo' | 'inProgress', task: Task): void {
     const dialogRef = this.dialog.open(TaskDialogComponent, {
@@ -79,14 +45,35 @@ export class TasksComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe((result: TaskDialogResult)=>{
+     
       if(result.delete){
-        this.taskService.delete(task.key)
+       this.db.collection(list).doc(task.id).delete();
 
-      } 
-      else{
-        this.taskService.update(task.key, task)
+      } else{
+       this.db.collection(list).doc(task.id).update(task);
       }
     })
+  }
+
+  drop(event: CdkDragDrop<Task[] | any>): void {
+    if (event.previousContainer === event.container) {
+      return;
+    }
+    
+    const item = event.previousContainer.data[event.previousIndex];
+    this.db.firestore.runTransaction(() =>{
+      const promise = Promise.all([
+        this.db.collection(event.previousContainer.id).doc(item.id).delete(),
+        this.db.collection(event.container.id).add(item),
+      ]);
+      return promise;
+    })
+    transferArrayItem(
+      event.previousContainer.data,
+      event.container.data,
+      event.previousIndex,
+      event.currentIndex
+    );
   }
 
   newTask(): void{
@@ -96,15 +83,6 @@ export class TasksComponent implements OnInit {
         task: {},
       },
     });
-    dialogRef.afterClosed().subscribe((result: TaskDialogResult) => {result.task.status = 'todo',
-      console.log("TASK",result.task.dateDue)
-      this.taskService.create(result.task)
-    });
-    
-    this.added = true; //might be problematic
-  }
-
-  retrieveUsers(){
-   
+    dialogRef.afterClosed().subscribe((result: TaskDialogResult) => this.db.collection('todo').add(result.task))
   }
 }
