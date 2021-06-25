@@ -1,0 +1,103 @@
+ 
+<div class="container">
+  <p class="text-center">Welcome to your profile!</p>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 profile">
+      <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4"></div>
+                <div class="col-md-4">
+                  
+                 
+                  <img [src]=" profile.image "  style="height: 100px; width:100px">
+                  
+                  <h2>Dr: {{ profile.displayName }}</h2>
+                <div class="col-md-4"></div>
+                </div>
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                  <h4>Name: {{ profile.displayName }}</h4>
+                  <p>Email: {{ profile.email }}</p>
+                  <p>Department: {{ profile.department }}</p>
+                  <p>Position: {{ profile.position }}</p>
+                  <p>Contact: {{ profile.contact }}</p>
+                  <p>Interests:</p>
+                  <ul>
+                    <li>{{ profile.interest1 }}</li>
+                    <li>{{ profile.interest2 }}</li>
+                    <li>{{ profile.interest3 }}</li>
+                  </ul>
+                </div>
+                <div class="col-md-4"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+</div><br><br>
+
+
+<div class="user-info">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+
+          <button (click)="toggleForm()">Update Profile</button>
+
+          
+          <div *ngIf="showForm">
+            <form (ngSubmit)='updateProfile()' #quoteForm='ngForm' id="form">
+              <div class="form-group">
+                <label for="department">Name</label><br>
+                <input type="text" class="form-control" id="name" placeholder="Change your name"  [(ngModel)]="displayNameInput" name="name" required >
+            </div>
+            <div class="form-group">
+              <label for="profile_picture">Profile Picture</label><br>
+              <input type="file" id="myFile" name="filename" [(ngModel)]="imageInput" name="image" (change)="showPreview($event)">
+              
+          </div>
+              <div class="form-group">
+                  <label for="department">Department</label><br>
+                  <input type="text" class="form-control" id="department" placeholder="Enter your Department" [(ngModel)]="departmentInput" name="department" required >
+              </div>
+              <div class="form-group">
+                <label for="position">Position</label><br>
+                <input type="text" class="form-control" id="position" placeholder="Enter your Position" [(ngModel)]="positionInput" name="position" required >
+              </div>
+              <div class="form-group">
+                <label for="contact">Contact</label><br>
+                <input type="text" class="form-control" id="contact" placeholder="Contact" [(ngModel)]="contactInput" name="contact" required >
+              </div>
+              <div class="form-group">
+                <label for="interests">Interest</label><br>
+                <input type="text" class="form-control" id="interests" placeholder="Enter your Interests" [(ngModel)]="interest1Input" name="interests" required >
+              </div>
+              <div class="form-group">
+                <label for="interests">Interest</label><br>
+                <input type="text" class="form-control" id="interests" placeholder="Enter your Interests" [(ngModel)]="interest2Input" name="interests" required >
+              </div>
+              <div class="form-group">
+                <label for="interests">Interest</label><br>
+                <input type="text" class="form-control" id="interests" placeholder="Enter your Interests" [(ngModel)]="interest3Input" name="interests" required >
+              </div>
+              
+              <button>Submit</button>
+          </form>
+          </div>
+          
+        </div>
+        
+      <div class="col-md-4"></div>
+      </div>
+    </div>
+
+</div>
