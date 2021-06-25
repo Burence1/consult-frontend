@@ -67,8 +67,6 @@
                       <p><strong>Interests:</strong></p>
                       <ul>
                         <li>{{ profile.interest1 }}</li>
-                        <li>{{ profile.interest2 }}</li>
-                        <li>{{ profile.interest3 }}</li>
                       </ul>
                     </div>
                     <div id="tab2" class="tab-slider--body" *ngSwitchCase="'tab2'">
@@ -103,103 +101,66 @@
   <i class="fas fa-user-edit"></i>
 </button>
 
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title" id="staticBackdropLabel">
-          UPDATE PROFILE
-        </h2>
-        <h5 class="modal-title" id="staticBackdropLabel"><small>Update your account</small></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
 
-        <form (ngSubmit)='updateProfile()' #quoteForm='ngForm' id="form" class="card-form">
-          <div class="input">
-            <input type="text" class="input-field" id="name" [(ngModel)]="displayNameInput" name="name" required/>
-            <label for="name" class="input-label">Full name</label>
+
+</div><br><br>
+<div class="user-info">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+
+        
+
+        
+        <div class="card">
+          <div class="card-image">	
+            <h2 class="card-heading">
+              UPDATE PROFILE
+              <small>Update your account</small>
+            </h2>
           </div>
-          <div class="input">
-            <label for="profile_picture">Profile Picture</label><br><br>
-            <input type="file" id="myFile" name="filename" [(ngModel)]="imageInput" name="image" (change)="showPreview($event)">
-          </div>
-          <div class="input">
-            <input type="text" class="input-field" id="department" [(ngModel)]="departmentInput" name="department" required/>
-            <label for="department" class="input-label">Department</label>
-          </div>
-          <div class="input">
-            <input type="text" class="input-field" id="position" [(ngModel)]="positionInput" name="position" required/>
-            <label for="position" class="input-label">Position</label>
-          </div>
-          <div class="input">
-            <input type="text" class="input-field" [(ngModel)]="contactInput" name="contact" required/>
-            <label for="contact" class="input-label">Contact</label>
-          </div>
-          <div class="input">
-            <input type="text" class="input-field" [(ngModel)]="interest1Input" name="interest1" required/>
-            <label class="input-label">Interest</label>
-          </div>
-          <div class="input">
-            <input type="text" class="input-field" [(ngModel)]="interest2Input" name="interest2" required/>
-            <label class="input-label">Interest</label>
-          </div>
-          <div class="input">
-            <input type="text" class="input-field" [(ngModel)]="interest3Input" name="interest3" required/>
-            <label class="input-label">Interest</label>
-          </div>
-        </form>
+          <form (ngSubmit)='updateProfile()' #quoteForm='ngForm' id="form" class="card-form">
+          
+            <div class="input">
+              <input type="text" class="input-field" id="name" [(ngModel)]="displayNameInput" name="name" required/>
+              <label for="name" class="input-label">Full name</label>
+            </div>
+            <div class="input">
+              <label for="profile_picture">Profile Picture</label><br><br>
+              <input type="file" id="myFile" name="filename" [(ngModel)]="imageInput" name="image" (change)="showPreview($event)">
+            </div>
+            <div class="input">
+              <input type="text" class="input-field" id="department" [(ngModel)]="departmentInput" name="department" required/>
+              <label for="department" class="input-label">Department</label>
+            </div>
+            <div class="input">
+              <input type="text" class="input-field" id="position" [(ngModel)]="positionInput" name="position" required/>
+              <label for="position" class="input-label">Position</label>
+            </div>
+            <div class="input">
+              <input type="text" class="input-field" [(ngModel)]="contactInput" name="contact" required/>
+              <label for="contact" class="input-label">Contact</label>
+            </div>
+            <div class="input">
+              <input type="text" class="input-field" [(ngModel)]="interest1Input" name="interest1" required/>
+              <label class="input-label">Interest</label>
+            </div>
+            
+            
+            
+            
+              <button class="action-button">Submit</button>
+            
+          </form>
+          
+        </div>
+        
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit</button>
-      </div>
+      
+    <div class="col-md-4"></div>
     </div>
   </div>
+
 </div>
-</div>
-
-
-
-
-              <!-- <form (ngSubmit)='updateProfile()' #quoteForm='ngForm' id="form" class="card-form">
-
-                <div class="input">
-                  <input type="text" class="input-field" id="name" [(ngModel)]="displayNameInput" name="name" required/>
-                  <label for="name" class="input-label">Full name</label>
-                </div>
-                <div class="input">
-                  <label for="profile_picture">Profile Picture</label><br><br>
-                  <input type="file" id="myFile" name="filename" [(ngModel)]="imageInput" name="image" (change)="showPreview($event)">
-                </div>
-                <div class="input">
-                  <input type="text" class="input-field" id="department" [(ngModel)]="departmentInput" name="department" required/>
-                  <label for="department" class="input-label">Department</label>
-                </div>
-                <div class="input">
-                  <input type="text" class="input-field" id="position" [(ngModel)]="positionInput" name="position" required/>
-                  <label for="position" class="input-label">Position</label>
-                </div>
-                <div class="input">
-                  <input type="text" class="input-field" [(ngModel)]="contactInput" name="contact" required/>
-                  <label for="contact" class="input-label">Contact</label>
-                </div>
-                <div class="input">
-                  <input type="text" class="input-field" [(ngModel)]="interest1Input" name="interest1" required/>
-                  <label class="input-label">Interest</label>
-                </div>
-                <div class="input">
-                  <input type="text" class="input-field" [(ngModel)]="interest2Input" name="interest2" required/>
-                  <label class="input-label">Interest</label>
-                </div>
-                <div class="input">
-                  <input type="text" class="input-field" [(ngModel)]="interest3Input" name="interest3" required/>
-                  <label class="input-label">Interest</label>
-                </div>
-
-
-
-                  <button class="action-button">Submit</button>
-
-              </form> -->

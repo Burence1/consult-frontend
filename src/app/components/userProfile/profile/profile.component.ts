@@ -28,6 +28,8 @@ export class ProfileComponent implements OnInit {
   name = '!!!';
   viewMode = 'tab1';
 
+  
+
   selectedImage: any = null;
   url: string;
   id: string;
@@ -43,8 +45,7 @@ export class ProfileComponent implements OnInit {
   displayNameInput: string;
   imageInput: string;
   interest1Input: string;
-  interest2Input: string;
-  interest3Input: string;
+  
 
   showForm = false;
 
@@ -88,22 +89,22 @@ export class ProfileComponent implements OnInit {
     this.profile.contact = this.contactInput;
     this.profile.displayName = this.displayNameInput;
     this.profile.image = this.imageInput;
-    this.profile.interest1 = this.interest1Input;
-    this.profile.interest2 = this.interest2Input;
-    this.profile.interest3 = this.interest3Input;
+    this.profile.interest1 = this.interest1Input
+    
 
-    const name = this.selectedImage.name;
-    const path = `profiles/${this.currentId}/${name}`;
+    var name = this.selectedImage.name;
+    const path = `profiles/${this.currentId}/${name}`
     const fileRef = this.storage.ref(path);
     this.storage.upload(path, this.selectedImage).snapshotChanges().pipe(
       finalize(() => {
         fileRef.getDownloadURL().subscribe((url) => {
           this.profile.image = url;
           this.profileService.update(this.currentId, this.profile);
-        });
+        })
       })
     ).subscribe();
   }
+
 
   // profile: Profile;
   // currentUser: User;

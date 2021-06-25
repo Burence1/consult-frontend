@@ -31,12 +31,15 @@ const routes: Routes = [
   { path: 'chats', component: ChatroomComponent },
   { path: 'password_reset', component: ForgotPasswordComponent },
   { path: 'directory', component: DirectoryComponent },
+
   { path: 'add-room', component: AddRoomComponent},
   { path: 'roomlist', component: RoomlistsComponent},
   { path: 'chatfeed/:roomname', component: ChatFeedComponent},
   {path: 'tasks', component: TasksComponent},
   //{path: 'calendar', component: CalendarComponent},
   { path: '**', component: NotFoundComponent },
+  
+
 
 
 ];
