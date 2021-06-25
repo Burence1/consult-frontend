@@ -115,10 +115,27 @@ export class ChatFeedComponent implements OnInit {
       'message': [null, Validators.required]
     });
   }
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> ef0c81821ea0965b24ec7c9df1d9f9eb4cc1cefb
 
   scrollToBottom(): void {
     this.feedScroll.nativeElement.scrollTop
       = this.feedScroll.nativeElement.scrollHeight;
   }
+<<<<<<< HEAD
+=======
+>>>>>>> dfc81156e0e6a9c991da9166e822d11877982164
+  
+  // scrollToBottom(): void {
+  //   this.feedScroll.nativeElement.scrollTop
+  //     = this.feedScroll.nativeElement.scrollHeight;
+  // }
+>>>>>>> a5405bd2d594c307d57468ac6a93f81f61ee2f53
+=======
+>>>>>>> ef0c81821ea0965b24ec7c9df1d9f9eb4cc1cefb
 
 }
