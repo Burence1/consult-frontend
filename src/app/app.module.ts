@@ -97,7 +97,7 @@ import { UpdateProfileComponent } from './components/userProfile/update-profile/
     NotFoundComponent,
     AddRoomComponent,
     RoomlistsComponent,
-
+    DirectoryComponent,
     DirectoryComponent,
     TasksListComponent,
     NewTaskComponent,
