@@ -32,6 +32,7 @@ const routes: Routes = [
   { path: 'password_reset', component: ForgotPasswordComponent },
   { path: 'directory', component: DirectoryComponent },
 <<<<<<< HEAD
+<<<<<<< HEAD
   
   { path: 'add-room',component:AddRoomComponent},
   { path: 'roomlist',component:RoomlistsComponent},
@@ -41,10 +42,16 @@ const routes: Routes = [
   { path: 'roomlist', component: RoomlistsComponent},
   { path: 'chatfeed/:roomname', component: ChatFeedComponent},
 >>>>>>> 9064896c89d8d6564a340d8318cc6a4332ea5391
+=======
+  { path: 'add-room', component: AddRoomComponent},
+  { path: 'roomlist', component: RoomlistsComponent},
+  { path: 'chatfeed/:roomname', component: ChatFeedComponent},
+>>>>>>> 9064896c89d8d6564a340d8318cc6a4332ea5391
   {path: 'tasks', component: TasksListComponent},
   {path: 'calendar', component: CalendarComponent},
   { path: '**', component: NotFoundComponent },
   
+
 
 
 ];

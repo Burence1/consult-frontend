@@ -96,14 +96,20 @@ import { UpdateProfileComponent } from './components/userProfile/update-profile/
     TaskDialogComponent,
     NotFoundComponent,
 <<<<<<< HEAD
+<<<<<<< HEAD
     DirectoryComponent,
     
 
 =======
+=======
+>>>>>>> 9064896c89d8d6564a340d8318cc6a4332ea5391
     AddRoomComponent,
     RoomlistsComponent,
     DirectoryComponent,
     DirectoryComponent,
+<<<<<<< HEAD
+>>>>>>> 9064896c89d8d6564a340d8318cc6a4332ea5391
+=======
 >>>>>>> 9064896c89d8d6564a340d8318cc6a4332ea5391
     TasksListComponent,
     NewTaskComponent,
