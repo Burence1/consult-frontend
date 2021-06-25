@@ -11,7 +11,10 @@
 :host {
     display: block;
   }
-  
+.task{
+  background-color: #003060;
+  color: white;
+}  
   .item {
     margin-bottom: 10px;
     cursor: pointer;

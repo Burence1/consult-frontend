@@ -41,7 +41,11 @@
     <a
       mat-list-item
       class="nav-item nav-link"
+<<<<<<< HEAD
+      routerLink="/tasks"
+=======
       routerLink="about"
+>>>>>>> dfc81156e0e6a9c991da9166e822d11877982164
       routerLinkActive="active"
       ><mat-icon>assignment</mat-icon>Tasks</a
     >
@@ -69,6 +73,91 @@
     >
   </mat-sidenav>
   <mat-sidenav-content>
+<<<<<<< HEAD
+        <div class="grid-container">
+          <h1 class="mat-h1">Home/<a >Dashboard</a></h1>
+          <mat-grid-list cols="1" rowHeight="350px">
+            <mat-grid-tile >
+              <mat-card class="dashboard-card">
+                <mat-card-header>
+                  <mat-card-title>
+                    
+                    <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                      <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu" xPosition="before">
+                      <button mat-menu-item>Expand</button>
+                      <button mat-menu-item>Remove</button>
+                    </mat-menu>
+                  </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                  <div class="chat-text">
+                    <a href="/calendar">Calendar</a>
+                    
+                  </div>
+                </mat-card-content>
+                
+              </mat-card>
+            </mat-grid-tile>
+            
+          </mat-grid-list>
+        </div>
+        <div class="grid-container">
+          <mat-grid-list cols="2" rowHeight="350px">
+            <mat-grid-tile >
+              <mat-card class="dashboard-card">
+                <mat-card-header>
+                  <mat-card-title>
+                    
+                    <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                      <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu" xPosition="before">
+                      <button mat-menu-item>Expand</button>
+                      <button mat-menu-item>Remove</button>
+                    </mat-menu>
+                  </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                  <div>
+                    <a href="/tasks">Tasks</a>
+                  </div>
+                </mat-card-content>
+                
+              </mat-card>
+            </mat-grid-tile>
+            
+          </mat-grid-list>
+        </div>
+
+        <div class="grid-container">
+          <mat-grid-list cols="1"  rowHeight="350px">
+            <mat-grid-tile >
+              <mat-card class="dashboard-card">
+                <mat-card-header>
+                  <mat-card-title>
+                    
+                    <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                      <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu" xPosition="before">
+                      <button mat-menu-item>Expand</button>
+                      <button mat-menu-item>Remove</button>
+                    </mat-menu>
+                  </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                  <div>
+                    <a href="/chats">Chats</a>
+                  </div>
+                </mat-card-content>
+                
+              </mat-card>
+            </mat-grid-tile>
+            
+          </mat-grid-list>
+=======
     <div class="content mat-elevation-z8">
       <div class="example-sidenav-content">
         <div class="container-fluid">
@@ -78,9 +167,9 @@
           <div class="row">
             <div class="col-md-2"></div>
           </div>
+>>>>>>> dfc81156e0e6a9c991da9166e822d11877982164
         </div>
-      </div>
-    </div>
+        
   </mat-sidenav-content>
 </mat-sidenav-container>
 
