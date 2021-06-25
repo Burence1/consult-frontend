@@ -26,7 +26,7 @@ import { ChatroomComponent } from './components/chatroom/chatroom.component';
 import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
 import { environment } from 'src/environments/environment';
 import { ChatUsersComponent } from './components/chat-users/chat-users.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileComponent } from './components/userProfile/profile/profile.component';
 import { DropzoneDirective } from './dropzone.directive';
 
 import { ToastrModule } from 'ngx-toastr';
@@ -67,7 +67,8 @@ import { OnHoldComponent } from './components/tasks/on-hold/on-hold.component';
 import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
 import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.component';
 import { NewTaskComponent } from './components/tasks/new-task/new-task.component';
-
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UpdateProfileComponent } from './components/userProfile/update-profile/update-profile/update-profile.component';
 
 
 @NgModule({
@@ -94,11 +95,20 @@ import { NewTaskComponent } from './components/tasks/new-task/new-task.component
     OnHoldComponent,
     TaskDialogComponent,
     NotFoundComponent,
+<<<<<<< HEAD
     DirectoryComponent,
     
 
+=======
+    AddRoomComponent,
+    RoomlistsComponent,
+    DirectoryComponent,
+    DirectoryComponent,
+>>>>>>> 9064896c89d8d6564a340d8318cc6a4332ea5391
     TasksListComponent,
-    NewTaskComponent
+    NewTaskComponent,
+    DashboardComponent,
+    UpdateProfileComponent,
   ],
   entryComponents: [AddRoomComponent],
   imports: [
@@ -113,13 +123,18 @@ import { NewTaskComponent } from './components/tasks/new-task/new-task.component
     MaterialModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    
+    MatMenuModule,
     DragDropModule,
     MatFormFieldModule,
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
+    MatIconModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    MatGridListModule,
+    MatCardModule,
+    MatButtonModule,
+    LayoutModule
   ],
   providers: [MessagingService, AsyncPipe],
   bootstrap: [AppComponent]

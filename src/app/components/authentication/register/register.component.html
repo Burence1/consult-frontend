@@ -1,4 +1,236 @@
 <div class="container-fluid">
+  <div class="consult">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-10 col-md-12 col-lg-10 col-xl-8">
+        <div class="card d-flex mx-auto my-5">
+          <div class="row">
+            <div class="col-md-5 col-sm-12 col-xs-12 c1 p-5">
+              <div class="row mb-5 m-3">
+                <img src="" width="70vw" height="45vh" alt="Logo" />
+              </div>
+              <img
+                src="assets/images/team-doctors.jpg"
+                width="150vw"
+                height="120vh"
+                class="mx-auto d-flex"
+                alt="Doctor"
+              />
+              <div class="row justify-content-center">
+                <div
+                  class="
+                    w-75
+                    mx-md-5 mx-1 mx-sm-2
+                    mb-5
+                    mt-4
+                    px-sm-5 px-md-2 px-xl-1 px-2
+                  "
+                >
+                  <h1 class="wlcm">Welcome to Consult</h1>
+                  <span class="sp1">
+                    <span class="px-4 bg-white rounded-pill"></span>
+                    <span class="ml-2 px-1 rounded-circle"></span>
+                    <span class="ml-2 px-1 rounded-circle"></span>
+                  </span>
+                </div>
+              </div>
+            </div>
+              <div class="col-md-7 col-sm-12 col-xs-12 px-5 pt-3">
+                <div class="row">
+                  <nav
+                    class="
+                      nav
+                      font-weight-500
+                      mb-1 mb-sm-2 mb-lg-5
+                      px-sm-2 px-lg-5
+                    "
+                  >
+                  </nav>
+                </div>
+                <mat-card>
+                  <mat-card-content>
+                    <form #formData="ngForm" (ngSubmit)="onSubmit(formData)" class="">
+                      <h3 class="text-center"><strong>Register</strong></h3><hr>
+                      <table>   
+                        <tr>    
+                          <td>    
+                            <label for="email" class="form-label">Name</label> <br />
+                            <mat-form-field appearance="outline">
+                              <mat-label>Enter your name</mat-label>
+                              <input
+                                matInput
+                                placeholder="displayName"
+                                (ngModel)="(displayName)"
+                                id="displayName"
+                                name="displayName"
+                                #displayName="ngModel"
+                                required
+                                minlength="3"
+                                pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
+                                maxlength="15"
+                              />
+                            </mat-form-field>
+                            <div
+                              *ngIf="
+                                displayName.invalid && (displayName.dirty || displayName.touched)
+                              "
+                              class="alert alert-danger"
+                            >
+                              <div *ngIf="displayName.errors.required">Name is required.</div>
+                  
+                              <div *ngIf="displayName.errors.minlength">
+                                Name must be at least 3 characters long.
+                              </div>
+                              <div *ngIf="displayName.errors.pattern">
+                                Name must be alphabetic only.
+                              </div>
+                              <div *ngIf="displayName.errors.maxlength">Name is too long.</div>
+                            </div>  
+                          </td>    
+                          <td>    
+                            <label for="email" class="form-label">Email Address</label> <br />
+                            <mat-form-field appearance="outline">
+                              <mat-label>Enter your email</mat-label>
+                              <input
+                                matInput
+                                placeholder="janedoe@gmail.com"
+                                (ngModel)="(email)"
+                                id="email"
+                                name="email"
+                                #email="ngModel"
+                                required
+                                pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                                minlength="10"
+                                maxlength="30"
+                              />
+                            </mat-form-field>
+                            <div
+                              *ngIf="email.invalid && (email.dirty || email.touched)"
+                              class="alert alert-danger"
+                            >
+                              <div *ngIf="email.errors.pattern">Enter a valid email address.</div>
+                  
+                              <div *ngIf="email.errors.required">Email is required.</div>
+                  
+                              <div *ngIf="email.errors.minlength">
+                                Email must be at least 10 characters long.
+                              </div>
+                  
+                              <div *ngIf="email.errors.maxlength">Email is too long.</div>
+                            </div> 
+                          </td>    
+                      </tr>    
+                   
+                      <tr>    
+                        <td> 
+                          <label for="RegisterPassword" class="form-label">Password</label>
+                          <br />
+                          <mat-form-field appearance="outline">
+                            <mat-label>Enter your password</mat-label>
+                            <input
+                              matInput
+                              [type]="hide ? 'password' : 'text'"
+                              placeholder="**********"
+                              (ngModel)="(password)"
+                              id="password"
+                              name="password"
+                              (input)="confirmPassword.control.updateValueAndValidity()"
+                              #password="ngModel"
+                              required
+                              pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$"
+                              maxlength="20"
+                            />
+                            <button
+                              mat-icon-button
+                              matSuffix
+                              (click)="hide = !hide"
+                              [attr.aria-label]="'Hide password'"
+                              [attr.aria-pressed]="hide"
+                            >
+                              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                            </button>
+                          </mat-form-field>
+                          <div
+                            *ngIf="password.invalid && (password.dirty || password.touched)"
+                            class="alert alert-danger"
+                          >
+                            <div *ngIf="password.errors.required">Password is required.</div>
+              
+                            <div *ngIf="password.errors.pattern">
+                              Password should be atleast 8 characters long and should contain
+                              one number, one character and one special character.
+                            </div>
+                          </div>
+                        </td>
+
+                        <td>
+                          <label for="confirmPassword" class="form-label">Confirm Password</label>
+                          <br />
+                          <mat-form-field appearance="outline">
+                            <mat-label>Type password again</mat-label>
+                            <input
+                              matInput
+                              [type]="hide ? 'confirmPassword' : 'text'"
+                              placeholder="**********"
+                              (ngModel)="(confirmPassword)"
+                              id="confirmPassword"
+                              name="confirmPassword"
+                              #confirmPassword="ngModel"
+                              appConfirmEqualValidator="password"
+                              required
+                              pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$"
+                              maxlength="20"
+                            />
+                            <button
+                              mat-icon-button
+                              matSuffix
+                              (click)="hide = !hide"
+                              [attr.aria-label]="'Hide confirmPassword'"
+                              [attr.aria-pressed]="hide"
+                            >
+                              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                            </button>
+                          </mat-form-field>
+                          <div
+                            *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)"
+                            class="alert alert-danger"
+                          >
+                            <div *ngIf="confirmPassword.errors.required">This field is required.</div>
+              
+                            <div *ngIf="confirmPassword.errors.notEqual && !confirmPassword.errors.required">
+                              Passwords must match.
+                            </div>
+                          </div>
+                        </td>
+                      </tr>                               
+                      <button
+                        mat-raised-button
+                        type="submit"
+                        [disabled]="!formData.valid"
+                        class="auth-btn text-center"
+                      >
+                        Sign Up <i class="fas fa-sign-in-alt"></i>
+                      </button> 
+                    <div>
+                      <p>
+                        <a class="mt-3" mat-button routerLink="/login" id="goback">Login</a>
+                      </p>
+                    </div>
+                  </table>
+                  </form>
+                  </mat-card-content>
+                </mat-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+</div>
+
+<!-- <div class="container-fluid">
   <div class="row">
     <div class="col-6 consult">
       <h1>
@@ -76,8 +308,7 @@
             <div *ngIf="email.errors.maxlength">Email is too long.</div>
           </div>
         </div>
-
-        <div [class.has-error]="confirmPassword.touched && confirmPassword.invalid">
+        <div>
           <div name="password" class="mb-3">
             <label for="RegisterPassword" class="form-label">Password</label>
             <br />
@@ -90,7 +321,6 @@
                 (ngModel)="(password)"
                 id="password"
                 name="password"
-                (input)="confirmPassword.control.updateValueAndValidity()"
                 #password="ngModel"
                 required
                 pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$"
@@ -178,4 +408,7 @@
       </div>
     </div>
   </div>
-</div>
+=======
+>>>>>>> f5bb038bbee4d01aec454ff623190fb1402c6efe
+>>>>>>> ef0c81821ea0965b24ec7c9df1d9f9eb4cc1cefb
+</div> -->

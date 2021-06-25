@@ -13,6 +13,7 @@ export class AppComponent {
 
   constructor(private messagingService: MessagingService) {}
 
+  // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit() {
     this.messagingService.requestPermission();
     this.messagingService.receiveMessage();

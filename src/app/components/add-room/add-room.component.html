@@ -30,3 +30,34 @@
 </mat-dialog-content>
 </div>
 </div> -->
+
+
+    <div class="example-sidenav-content">
+      <div class="container-fluid">
+        <mat-card>
+        <div class="row">
+          <div class="">
+            <h2 mat-dialog-title>Rooms</h2>
+            <form class="example-form" [formGroup]="roomForm" (ngSubmit)="onFormSubmit(roomForm.value);roomForm.reset()">
+              <h2>Please enter new Room</h2>
+              <div class="new-room">
+                <mat-form-field class="example">
+                  <mat-label>Room Name</mat-label>
+                  <input matInput placeholder="Enter room name" formControlName="roomname" [errorStateMatcher]="matcher">
+                  <mat-error>
+                    <span *ngIf="!roomForm.get('roomname').valid && roomForm.get('roomname').touched">Enter room name</span>
+                    <span>Enter room name</span>
+                  </mat-error>
+                </mat-form-field>
+                <button color="primary" type="submit" [disabled]="!roomForm.valid" mat-button matSuffix mat-icon-button aria-label="Send">
+                  <mat-icon>send</mat-icon>
+                </button>
+              </div>
+            </form>
+            <app-roomlists></app-roomlists> 
+          </div>
+        </div>
+      </mat-card>
+      </div>
+  </div>
+
