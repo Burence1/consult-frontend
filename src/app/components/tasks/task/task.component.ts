@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarEvent, CalendarEventAction, CalendarView } from 'angular-calendar';
 import { addDays, addHours, endOfDay, endOfMonth, isSameDay, isSameMonth, startOfDay, subDays } from 'date-fns';
-import { myEvent } from './event';
-import { TaskService } from '../tasks-services/task.service';
-import { Task } from '../task';
+import { myEvent } from './task';
 import { Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Task } from '../task';
+import { NewTaskService } from '../tasks-services/newtask.service';
 
 
 const colors: any = {
@@ -23,16 +22,16 @@ const colors: any = {
   },
 };
 
-
 @Component({
-  selector: 'app-calendar',
-  templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.css']
+  selector: 'app-task',
+  templateUrl: './task.component.html',
+  styleUrls: ['./task.component.css']
 })
-export class CalendarComponent implements OnInit {
+export class TaskComponent implements OnInit {
+
   viewDate: Date = new Date()
 
-  tasks: Task[];
+  tasks: any;
   dailyEvents: any;
   dailyDate: any;
 
@@ -161,34 +160,29 @@ export class CalendarComponent implements OnInit {
   eventClicked({event}: { event: CalendarEvent}): void{
    
   }
-  constructor(private service: TaskService) {
+  constructor(private service: NewTaskService) {
 
    }
 
   
   ngOnInit(): void {
-    this.retrieveTasks();
-  }
-  retrieveTasks(){
-    this.service.getAll().snapshotChanges().pipe(
-      map(changes => changes.map(c =>({
-        key: c.payload.key, ...c.payload.val()
-      })))
-    ).subscribe(data => {
-      this.tasks = data;
-      console.log("data",this.tasks)
-
-      this.tasks.forEach(item => {
-        let newItem = {
-          start: new Date(item.dateDue),
-          title: item.title,
-          owner: item.owner,
-        }
-        console.log("NEW",newItem)
-        this.events.push(newItem)
-        console.log(this.events)
+    this.tasks = this.service.getTasks()
+    this.tasks.forEach((items: any[]) =>{
+      items.forEach(item => {
+        // console.log(item.dateDue.toDate())
+        // console.log("ITEM",item)
+       let newItem = {
+         start: item.dateDue.toDate(),
+         title: item.title,
+         owner: item.owner,
+       }
+       console.log("NEW",newItem)
+       this.events.push(newItem)
+      
       })
-    });
+    })
+   
+    console.log("Data",this.tasks)
   }
 
 }

@@ -41,11 +41,7 @@ import { DirectoryComponent } from './directory/directory.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
-import {
-  NgxMatDatetimePickerModule,
-  NgxMatNativeDateModule,
-  NgxMatTimepickerModule
-} from '@angular-material-components/datetime-picker';
+import {NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule} from '@angular-material-components/datetime-picker';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
@@ -58,17 +54,15 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatInputModule } from '@angular/material/input';
 import { AddRoomComponent } from './components/add-room/add-room.component';
 import { RoomlistsComponent } from './components/roomlists/roomlists.component';
 import { TasksComponent } from './components/tasks/tasks.component';
-// import { CalendarComponent } from './components/tasks/calendar/calendar.component';
-// import { DoneTaskComponent } from './components/tasks/done-task/done-task.component';
-// import { OnHoldComponent } from './components/tasks/on-hold/on-hold.component';
 import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
-// import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.component';
 import { NewTaskComponent } from './components/tasks/new-task/new-task.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { UpdateProfileComponent } from './components/userProfile/update-profile/update-profile/update-profile.component';
+import { TaskComponent } from './components/tasks/task/task.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -88,17 +82,13 @@ import { UpdateProfileComponent } from './components/userProfile/update-profile/
     DropzoneDirective,
     NotFoundComponent,
     TasksComponent,
-    // CalendarComponent,
-    // DoneTaskComponent,
-    // OnHoldComponent,
     TaskDialogComponent,
     AddRoomComponent,
     RoomlistsComponent,
     DirectoryComponent,
-    // TasksListComponent,
     NewTaskComponent,
     DashboardComponent,
-    UpdateProfileComponent,
+    TaskComponent
   ],
   entryComponents: [AddRoomComponent],
   imports: [
@@ -116,6 +106,7 @@ import { UpdateProfileComponent } from './components/userProfile/update-profile/
     MatMenuModule,
     DragDropModule,
     MatFormFieldModule,
+    MatInputModule,
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
@@ -124,7 +115,9 @@ import { UpdateProfileComponent } from './components/userProfile/update-profile/
     MatGridListModule,
     MatCardModule,
     MatButtonModule,
-    LayoutModule
+    LayoutModule,
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [MessagingService, AsyncPipe],
   bootstrap: [AppComponent]
