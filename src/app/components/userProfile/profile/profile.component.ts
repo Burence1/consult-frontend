@@ -103,6 +103,7 @@ export class ProfileComponent implements OnInit {
         })
       })
     ).subscribe();
+  
   }
 
 
