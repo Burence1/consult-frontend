@@ -20,6 +20,7 @@ export class TaskDialogComponent implements OnInit {
   }
 
   cancel(): void{
+    console.log("WHY")
     this.data.task.title = this.backupTask.title;
     this.data.task.owner = this.backupTask.owner
     this.data.task.dateDue = this.backupTask.dateDue

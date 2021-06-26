@@ -1,0 +1,11 @@
+.btn-cal {
+    background-color: deepskyblue;
+}
+.dailyE{
+    background-color: beige;
+}
+.highlights-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
