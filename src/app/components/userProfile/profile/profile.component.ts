@@ -44,7 +44,7 @@ export class ProfileComponent implements OnInit {
   contactInput: number;
   displayNameInput: string;
   imageInput: string;
-  interest1Input: string;
+  bioInput: string;
   
 
   showForm = false;
@@ -89,7 +89,7 @@ export class ProfileComponent implements OnInit {
     this.profile.contact = this.contactInput;
     this.profile.displayName = this.displayNameInput;
     this.profile.image = this.imageInput;
-    this.profile.interest1 = this.interest1Input
+    this.profile.bio = this.bioInput
     
 
     var name = this.selectedImage.name;
@@ -103,6 +103,7 @@ export class ProfileComponent implements OnInit {
         })
       })
     ).subscribe();
+  
   }
 
 
