@@ -9,6 +9,7 @@
 
 .profile{
     background-color: #003060;
+    padding-bottom: 100px;
 }
 
 
@@ -82,12 +83,13 @@ td:first-child{
   .card-image {
     border-radius: 8px;
     overflow: hidden;
-    padding-bottom: 65%;
-    background-image: url("https://images.unsplash.com/photo-1591766138175-adc7b22a3708?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80");
+    padding-bottom: 20%;
+    /* background-image: url("https://images.unsplash.com/photo-1591766138175-adc7b22a3708?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80"); */
     background-repeat: no-repeat;
     background-size: 150%;
     background-position: 0 5%;
     position: relative;
+    
   }
   
   .card-heading {
@@ -95,9 +97,9 @@ td:first-child{
     left: 10%;
     top: 15%;
     right: 10%;
-    font-size: 1.75rem;
+    font-size: 2.75rem;
     font-weight: bold;
-    color: #ffffff;
+    color: #003060;
     line-height: 1.222;
   }
   .card-heading small {

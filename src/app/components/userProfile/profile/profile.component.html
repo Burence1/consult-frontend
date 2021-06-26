@@ -13,7 +13,7 @@
 
                   <img [src]=" profile.image " class="center" >
 
-                  <h2 class="dr-name">Dr: {{ profile.displayName }}</h2>
+                  <h2 class="dr-name text-center">Dr: {{ profile.displayName }}</h2>
                 <div class="col-md-4"></div>
                 </div>
             </div>
@@ -31,11 +31,11 @@
 
             <div class="container">
               <div class="row">
-                <div class="col-md-4"></div>
+                <div class="col-md-2"></div>
                 <div class="col-md-8">
                   <div class="tab-slider--container" [ngSwitch]="viewMode">
                     <div id="tab1" class="tab-slider--body" *ngSwitchCase="'tab1'">
-                      <h2 class="overview">PROFILE OVERVIEW</h2>
+                      <h2 class="overview text-center">PROFILE OVERVIEW</h2>
 
                       <table>
                         <tr>
@@ -64,19 +64,17 @@
                           <td>{{ profile.contact }}</td>
                         </tr>
                       </table>
-                      <p><strong>Interests:</strong></p>
-                      <ul>
-                        <li>{{ profile.interest1 }}</li>
-                      </ul>
-                    </div>
-                    <div id="tab2" class="tab-slider--body" *ngSwitchCase="'tab2'">
-                      <h2 class="overview">BIO</h2>
+                    
+                    
 
-                    </div>
-                    <div id="tab3" class="tab-slider--body" *ngSwitchCase="'tab3'">
-                      <h2 class="overview">CHAT GROUPS</h2>
+                  </div>
+                  <div id="tab2" class="tab-slider--body" *ngSwitchCase="'tab2'">
+                    <h2 class="overview text-center">BIO</h2>
+                    <p class="text-light">{{profile.bio}}</p>
 
-                    </div>
+                  </div>
+                  <div id="tab3" class="tab-slider--body" *ngSwitchCase="'tab3'">
+                    <h2 class="overview text-center">CHAT GROUPS</h2>
 
                   </div>
 
@@ -93,30 +91,19 @@
 </div>
 </div>
 
-<button class="btn btn"><a href="home">sdmsndznDN</a></button>
-
-<div class="mod">
-  <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  <i class="fas fa-user-edit"></i>
-</button>
-
-
-
-</div><br><br>
 <div class="user-info">
   <div class="container">
     <div class="row">
 
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
 
         
 
         
         <div class="card">
           <div class="card-image">	
-            <h2 class="card-heading">
+            <h2 class="card-heading text-center">
               UPDATE PROFILE
               <small>Update your account</small>
             </h2>
@@ -144,9 +131,9 @@
               <label for="contact" class="input-label">Contact</label>
             </div>
             <div class="input">
-              <input type="text" class="input-field" [(ngModel)]="interest1Input" name="interest1" required/>
-              <label class="input-label">Interest</label>
-            </div>
+              <input type="text" class="input-field" [(ngModel)]="bioInput" name="bio" required/>
+              <label class="input-label text-area">Bio</label>
+            </div><br>
             
             
             
