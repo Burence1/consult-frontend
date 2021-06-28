@@ -13,7 +13,8 @@ import { Todo } from '../models/task';
 export class PatientTaskDialogComponent implements OnInit {
   currentId: string;
   profiles: Profile[];
-  selected: string;
+  selectedValue: string;
+
 
   private backupTask: Partial<Todo> = { ...this.data.task};
 
@@ -21,7 +22,7 @@ export class PatientTaskDialogComponent implements OnInit {
     this.profileService.fetchAllProfiles().subscribe(
       (res) => {
         this.profiles = res;
-        console.log(res);
+        //console.log(res);
       }, error => {
         console.error(error);
       }
@@ -30,7 +31,9 @@ export class PatientTaskDialogComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  showProfs(profile: Profile){
+    console.log("check",profile)
+  }
   cancel(): void{
     this.data.task.title = this.backupTask.title;
     this.data.task.description = this.backupTask.description;

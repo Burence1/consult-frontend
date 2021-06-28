@@ -9,14 +9,15 @@
         <textarea matInput [(ngModel)]="data.task.description"></textarea>
       </mat-form-field>
     
-      <mat-form-field>
-        <mat-label>Assign Task:</mat-label>
-        <mat-select [(value)]="selected">
-          <mat-option>none</mat-option>
-          <!-- ngfor user in users -->
-          <mat-option *ngFor="let profile of profiles" [value]="profile.displayName"></mat-option>
+      <mat-form-field appearance="fill">
+        <mat-label>Assign To:</mat-label>
+        <mat-select [(ngModel)]="data.task.assignedTo" name="assignedTo">
+          <mat-option *ngFor="let profile of profiles" [value]="profile.displayName">
+            {{profile.displayName}}
+          </mat-option>
         </mat-select>
       </mat-form-field>
+      <p> Selected: {{selectedValue}} </p>
     
       <mat-form-field>
         <mat-label>Choose a date</mat-label>
@@ -27,7 +28,9 @@
       
       <div mat-dialog-actions>
         <button mat-button [mat-dialog-close]="{ task: data.task }">OK</button>
+
         <button mat-button (click)="cancel()">Cancel</button>
+        <!-- <button (click)="showProfs()">click</button> -->
         <button *ngIf="data.enableDelete" mat-fab color="primary" aria-label="Delete" [mat-dialog-close]="{ task: data.task, delete: true }">
             <mat-icon>delete</mat-icon>
         </button>

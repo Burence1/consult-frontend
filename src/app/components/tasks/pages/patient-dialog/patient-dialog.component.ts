@@ -19,6 +19,7 @@ export class PatientDialogComponent implements OnInit {
     this.data.patient.firstName = this.backupPatient.firstName;
     this.data.patient.lastName = this.backupPatient.lastName;
     this.data.patient.email = this.backupPatient.email;
+    this.dialogRef.close(this.data);
   }
 }
 
