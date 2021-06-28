@@ -16,7 +16,6 @@ import { DirectoryComponent } from './directory/directory.component';
 import { PhoneLoginComponent } from './components/authentication/phone-login/phone-login.component';
 import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
 import { TaskComponent } from './components/tasks/task/task.component';
-import { CreateProfileComponent } from './components/userProfile/create-profile/create-profile/create-profile.component';
 // import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.component';
 // import { CalendarComponent } from './components/tasks/calendar/calendar.component';
 
@@ -27,7 +26,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'email-login', component: EmailComponent },
   { path: 'phone-login', component: PhoneLoginComponent },
-  { path: 'create-profile', component: CreateProfileComponent },
   { path: 'signup', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'home', component: HomePageComponent },

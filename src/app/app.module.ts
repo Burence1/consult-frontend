@@ -63,7 +63,6 @@ import { NewTaskComponent } from './components/tasks/new-task/new-task.component
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TaskComponent } from './components/tasks/task/task.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { CreateProfileComponent } from './components/userProfile/create-profile/create-profile/create-profile.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +89,6 @@ import { CreateProfileComponent } from './components/userProfile/create-profile/
     NewTaskComponent,
     DashboardComponent,
     TaskComponent,
-    CreateProfileComponent
   ],
   entryComponents: [AddRoomComponent],
   imports: [
