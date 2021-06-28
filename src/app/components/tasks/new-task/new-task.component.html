@@ -1,7 +1,7 @@
 <mat-card class="item" *ngIf="task" (dblclick)="edit.emit(task)">
     <h3>{{task.title}}</h3>
     <span><b>Task Owner:</b> {{task.owner }}</span> <br>
-    <span><b>Due Date:</b> {{task.dateDue.toDate()|date  }}</span>
+    <span><b>Due Date:</b> {{task.dateDue }}</span>
 </mat-card>
 
 <br>
