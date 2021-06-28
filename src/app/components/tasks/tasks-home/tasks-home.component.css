@@ -1,0 +1,13 @@
+
+.toolbar{
+    display: flex;
+    justify-content: space-between;
+    background-color: #003060;
+    color: white;
+}
+.nav-link{
+    color: white;
+}
+.nav-link:hover{
+    color: deepskyblue;
+}

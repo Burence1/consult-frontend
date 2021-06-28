@@ -1,3 +1,21 @@
+<mat-toolbar class="toolbar">
+    <div class="d-flex">
+        <img src="../../../../assets/images/logo.png" alt="" class="logo-img">
+    </div>
+    <div class="search">
+      <mat-form-field appearance="standard" style="color: white;" >
+        <input  matInput placeholder="">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+  <div>
+    <ul class="d-flex">
+      <a routerLink="/" class="nav-link">Home</a>
+      <a routerLink='tasks' class="nav-link">Calendar</a>
+      <a routerLink="addtasks" class="nav-link">Create Tasks</a>
+    </ul>
+  </div>
+  </mat-toolbar>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3">
@@ -17,7 +35,7 @@
             </mat-tab>
               <!-- patient tasks -->
               <mat-tab label="Patient Tasks">
-            
+                <app-task-view></app-task-view>
               </mat-tab>
               <!-- calendar -->
               <mat-tab label="Calendar">
