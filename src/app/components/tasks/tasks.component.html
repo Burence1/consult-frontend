@@ -1,4 +1,21 @@
-<app-navbar></app-navbar>
+<mat-toolbar class="toolbar">
+  <div class="d-flex">
+      <img src="../../../../assets/images/logo.png" alt="" class="logo-img">
+  </div>
+  <div class="search">
+    <mat-form-field appearance="standard" style="color: white;" >
+      <input  matInput placeholder="">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+<div>
+  <ul class="d-flex">
+    <a routerLink="/" class="nav-link">Home</a>
+    <a routerLink='/chats' class="nav-link">Chats</a>
+    <a routerLink="/directory" class="nav-link">Directory</a>
+  </ul>
+</div>
+</mat-toolbar>
 <div class="container">
 
   <div class="addbtn">
@@ -9,6 +26,11 @@
       <button style="margin-left: 20px;" mat-raised-button>
         <mat-icon>event</mat-icon> 
        <a style="text-decoration: none; color: white;" routerLink="/calendar">Calendar</a>
+      </button>
+
+      <button style="margin-left: 20px;" mat-raised-button>
+        <mat-icon>groups</mat-icon> 
+       <a style="text-decoration: none; color: white;" routerLink="/patients">Patient Tasks</a>
       </button>
       <br>
       <br>

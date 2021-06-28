@@ -16,6 +16,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 const material = [
   MatButtonModule,
@@ -34,6 +35,7 @@ const material = [
   MatSnackBarModule,
   MatDividerModule,
   MatGridListModule,
+  MatExpansionModule
 ];
 
 @NgModule({

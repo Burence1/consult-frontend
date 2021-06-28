@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <div class="extreme-col col-md-1"></div>
+        <div class="right-col col-md-4">
+         
+            <h2 class="text-center">Add a task:</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Task:</label>
+                <input type="text" class="form-control" name="name" [(ngModel)]="task.title">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="name">Description:</label>
+                <input type="text" class="form-control" name="name" [(ngModel)]="task.description">
+                </div>
+                <br>
+                <div class="form-group">
+                    <!-- assign people from the users database? -->
+                    <label for="name">Assign:</label>
+                <input type="text" class="form-control" name="name" [(ngModel)]="task.description">
+                </div>
+             
+            
+            <div class="btns">
+                
+                <button class="btn submit-btn" (click)="addTask()">Submit</button>
+                <button class="btn cancel-btn" routerLink='/'>Cancel</button>
+            </div>
+            </form>
+        </div>
+        <div class="extreme-col col-md-1"></div>
+        <div class="d-none d-md-flex col-md-4 col-lg-6 left-col">
+            <img src="../../../assets/images/clip-doctor-looks-at-eeg.png" alt="" class="bg-image">
+        </div>
+    </div>
+</div>
+
+
+

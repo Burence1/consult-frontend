@@ -18,4 +18,8 @@ export class NewTaskComponent implements OnInit {
   ngOnInit(): void{
     
   }
+  formatDate(date: string){
+  return date.toString()
+  }
 }
+  

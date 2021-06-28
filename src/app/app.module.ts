@@ -64,6 +64,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UpdateProfileComponent } from './components/userProfile/update-profile/update-profile/update-profile.component';
 import { TaskComponent } from './components/tasks/task/task.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { TasksHomeComponent } from './components/tasks/tasks-home/tasks-home.component';
+import { AddTaskComponent } from './components/tasks/pages/add-task/add-task.component';
+import { NewPatientComponent } from './components/tasks/pages/new-patient/new-patient.component';
+import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.component';
 
 
 @NgModule({
@@ -90,7 +94,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     NewTaskComponent,
     DashboardComponent,
     UpdateProfileComponent,
-    TaskComponent
+    TaskComponent,
+    TasksHomeComponent,
+    AddTaskComponent,
+    NewPatientComponent,
+    TaskViewComponent,
   ],
   entryComponents: [AddRoomComponent],
   imports: [

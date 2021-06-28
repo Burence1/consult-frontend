@@ -31,9 +31,9 @@ export class TasksComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("BS",this.todo)
-    this.todo.forEach(items =>{
-      items.forEach(item => console.log(item.dateDue.toDate()))
-    })
+    // this.todo.forEach(items =>{
+    //   items.forEach(item => console.log(item.dateDue.toDate()))
+    // })
   }
 
   editTask(list: 'done' | 'todo' | 'inProgress', task: Task): void {
