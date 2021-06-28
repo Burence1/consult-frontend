@@ -69,3 +69,6 @@ h2{
 .active{
     background-color: rgb(221, 231, 235);
 }
+.task-header h2{
+    margin-left: 15rem;
+}

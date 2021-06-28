@@ -3,7 +3,7 @@ export class Todo {
     title?: string;
     description?: string;
     dateDue?: string;
-    created?: Date;
+    created?: Date = new Date();
     createdBy?: string;
     department?: string;
     assignedto?: string;

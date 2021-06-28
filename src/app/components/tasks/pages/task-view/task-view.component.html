@@ -1,8 +1,27 @@
+<mat-toolbar class="toolbar">
+  <div class="d-flex">
+      <img src="../../../../assets/images/logo.png" alt="" class="logo-img">
+  </div>
+  <div class="search">
+    <mat-form-field appearance="standard" style="color: white;" >
+      <input  matInput placeholder="">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+<div>
+  <ul class="d-flex">
+    <a routerLink="/" class="nav-link">Home</a>
+    <a routerLink='/chats' class="nav-link">Chats</a>
+    <a routerLink="/directory" class="nav-link">Directory</a>
+    <a routerLink='/tasks' class="nav-link">Tasks</a>
+  </ul>
+</div>
+</mat-toolbar>
 <div class="container">
 
     <div class="this-row row">
        
-        <div class="patient-list col-md-3">
+        <div class="patient-list col-md-4">
             
             <div>
                 <div id="patient-header">
@@ -34,7 +53,7 @@
             </div>
             
         </div>
-        <div class="tasks-list col-md-6">
+        <div class="tasks-list col-md-8">
            <div class="task-header">
             <h2>Tasks</h2>
             <button mat-raised-button mat-fab routerLink="./add-task"><mat-icon>add</mat-icon></button>

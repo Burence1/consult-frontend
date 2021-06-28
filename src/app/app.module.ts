@@ -98,7 +98,7 @@ import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.
     TasksHomeComponent,
     AddTaskComponent,
     NewPatientComponent,
-    TaskViewComponent
+    TaskViewComponent,
   ],
   entryComponents: [AddRoomComponent],
   imports: [

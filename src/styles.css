@@ -48,4 +48,13 @@ progress::-webkit-progress-value {
     max-height: 60px;
     object-fit: contain;
 }
-
+.toolbar{
+    background-color: #003060;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+      
+}
+.toolbar .nav-link{
+    color: white;
+}
