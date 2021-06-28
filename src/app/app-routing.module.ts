@@ -16,6 +16,7 @@ import { DirectoryComponent } from './directory/directory.component';
 import { PhoneLoginComponent } from './components/authentication/phone-login/phone-login.component';
 import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
 import { TaskComponent } from './components/tasks/task/task.component';
+import { TasksHomeComponent } from './components/tasks/tasks-home/tasks-home.component';
 //import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.component';
 //import { CalendarComponent } from './components/tasks/calendar/calendar.component';
 
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'roomlist', component: RoomlistsComponent},
   { path: 'chatfeed/:roomname', component: ChatFeedComponent},
   {path: 'tasks', component: TasksComponent},
+  {path: 'all-tasks', component: TasksHomeComponent},
   {path: 'calendar', component: TaskComponent},
   { path: '**', component: NotFoundComponent },
   

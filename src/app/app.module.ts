@@ -64,6 +64,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UpdateProfileComponent } from './components/userProfile/update-profile/update-profile/update-profile.component';
 import { TaskComponent } from './components/tasks/task/task.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { TasksHomeComponent } from './components/tasks/tasks-home/tasks-home.component';
 
 
 @NgModule({
@@ -90,7 +91,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     NewTaskComponent,
     DashboardComponent,
     UpdateProfileComponent,
-    TaskComponent
+    TaskComponent,
+    TasksHomeComponent
   ],
   entryComponents: [AddRoomComponent],
   imports: [
