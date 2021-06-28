@@ -8,5 +8,6 @@ export class Profile {
     position?: string;
     contact?: number;
     interest1?: string;
+    bio?: string;
     
 }
