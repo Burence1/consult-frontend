@@ -60,7 +60,8 @@
         <div class="tasks-list col-md-8">
            <div class="task-header">
             <h2>Tasks</h2>
-            <button mat-raised-button mat-fab routerLink="./add-task"><mat-icon>add</mat-icon></button>
+            <!-- <button mat-raised-button mat-fab routerLink="./add-task"><mat-icon>add</mat-icon></button> -->
+            <button mat-raised-button mat-fab (click)="newPatientTask()"><mat-icon>add</mat-icon></button>
            </div>
            <div class="btn-area">
                <button class="btn" [class.active]="filter == 'all'" (click)="filter = 'all'" >All</button>
@@ -81,7 +82,7 @@
                         <mat-icon>more_vert</mat-icon>
                       </button>
                       <mat-menu #menu="matMenu">
-                        <button mat-menu-item (click)="edit(task)">
+                        <button mat-menu-item (click)="editPatientTask(task)">
                           <mat-icon>edit</mat-icon>
                           <span>Edit</span>
                         </button>

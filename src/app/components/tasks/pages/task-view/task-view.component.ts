@@ -9,6 +9,7 @@ import { map }from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { PatientDialogComponent, PatientDialogResult } from '../patient-dialog/patient-dialog.component';
 import { TaskDialogResult } from '../../task-dialog/task-dialog.component';
+import { PatientTaskDialogComponent, PatientTaskDialogResult } from '../patient-task-dialog/patient-task-dialog.component';
 
 @Component({
   selector: 'app-task-view',
@@ -76,9 +77,6 @@ export class TaskViewComponent implements OnInit {
    }
  }
 
- edit(task: Todo){
-
- }
  newPatient(): void{
   const dialogRef = this.dialog.open(PatientDialogComponent, {
     width: '500px',
@@ -108,4 +106,28 @@ export class TaskViewComponent implements OnInit {
    })
  }
 
+ newPatientTask(): void{
+   const newdialogRef = this.dialog.open(PatientTaskDialogComponent, {
+     width: '500px',
+     data: {
+       task: {},
+     },
+   });
+   newdialogRef.afterClosed().subscribe((result: PatientTaskDialogResult) =>{
+     this.patientService.addTask(this.patientId, result.task)
+   })
+ }
+
+ editPatientTask(task: Todo){
+  const newdialogRef = this.dialog.open(PatientTaskDialogComponent, {
+    width: '500px',
+    data: {
+      task,
+      enableDelete: true
+    },
+  });
+  newdialogRef.afterClosed().subscribe((result: PatientTaskDialogResult) =>{
+    this.patientService.updateTask(this.patientId, task.id, task);
+  })
+  }
 }

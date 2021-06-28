@@ -1,0 +1,36 @@
+<div class="container">
+    <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput cdkFocusInitial [(ngModel)]="data.task.title" />
+      </mat-form-field>
+    
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea matInput [(ngModel)]="data.task.description"></textarea>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <mat-label>Assign Task:</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option>none</mat-option>
+          <!-- ngfor user in users -->
+          <mat-option *ngFor="let profile of profiles" [value]="profile.displayName"></mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      
+      <div mat-dialog-actions>
+        <button mat-button [mat-dialog-close]="{ task: data.task }">OK</button>
+        <button mat-button (click)="cancel()">Cancel</button>
+        <button *ngIf="data.enableDelete" mat-fab color="primary" aria-label="Delete" [mat-dialog-close]="{ task: data.task, delete: true }">
+            <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    
+</div>

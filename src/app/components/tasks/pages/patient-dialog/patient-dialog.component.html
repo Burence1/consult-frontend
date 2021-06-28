@@ -17,7 +17,7 @@
         <button mat-button [mat-dialog-close]="{ patient: data.patient }">OK</button>
         <button mat-button (click)="cancel()">Cancel</button>
         <button *ngIf="data.enableDelete" mat-fab color="primary" aria-label="Delete" [mat-dialog-close]="{ patient: data.patient, delete: true }">
-    <mat-icon>delete</mat-icon>
-  </button>
+        <mat-icon>delete</mat-icon>
+    </button>
       </div>
 </div>
