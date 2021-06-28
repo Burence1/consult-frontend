@@ -13,7 +13,7 @@ import { MessagingService } from './services/push-notifications/messaging.servic
 import { AsyncPipe } from '@angular/common';
 import { ConfirmEqualValidatorDirective } from './shared/material/material/confirm-equal-validator.directive';
 
-
+import { PhoneLoginComponent } from './components/authentication/phone-login/phone-login.component';
 import { LoginComponent } from './components/authentication/login/login.component';
 import { RegisterComponent } from './components/authentication/register/register.component';
 import { EmailComponent } from './components/authentication/email/email.component';
@@ -26,7 +26,7 @@ import { ChatroomComponent } from './components/chatroom/chatroom.component';
 import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
 import { environment } from 'src/environments/environment';
 import { ChatUsersComponent } from './components/chat-users/chat-users.component';
-// import { ProfileComponent } from './components/userProfile/profile/profile.component';
+import { ProfileComponent } from './components/userProfile/profile/profile.component';
 import { DropzoneDirective } from './dropzone.directive';
 
 import { ToastrModule } from 'ngx-toastr';
@@ -63,7 +63,7 @@ import { NewTaskComponent } from './components/tasks/new-task/new-task.component
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TaskComponent } from './components/tasks/task/task.component';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { CreateProfileComponent } from './components/userProfile/create-profile/create-profile/create-profile.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +71,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     LoginComponent,
     RegisterComponent,
     ConfirmEqualValidatorDirective,
+    PhoneLoginComponent,
     EmailComponent,
     ForgotPasswordComponent,
     HomePageComponent,
@@ -78,7 +79,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ChatroomComponent,
     ChatFeedComponent,
     ChatUsersComponent,
-    // ProfileComponent,
+    ProfileComponent,
     DropzoneDirective,
     NotFoundComponent,
     TasksComponent,
@@ -88,7 +89,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     DirectoryComponent,
     NewTaskComponent,
     DashboardComponent,
-    TaskComponent
+    TaskComponent,
+    CreateProfileComponent
   ],
   entryComponents: [AddRoomComponent],
   imports: [

@@ -7,7 +7,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { ProfileService } from 'src/app/services/profile.service';
 import { FileService } from 'src/app/services/files/file-service.service';
 import { Profile } from 'src/app/profile';
-
+import { MessagingService } from 'src/app/services/push-notifications/messaging.service';
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -25,6 +25,8 @@ export class HomePageComponent implements OnInit {
       map((result) => result.matches),
       shareReplay()
     );
+  message: any;
+  opened!: boolean;
 
   constructor(
     private auth: AuthService,
@@ -33,7 +35,8 @@ export class HomePageComponent implements OnInit {
     @Inject(AngularFireStorage)
     private storage: AngularFireStorage,
     @Inject(FileService)
-    private fileService: FileService
+    private fileService: FileService,
+    private messagingService: MessagingService
   ) {
     this.findProfiles();
     this.auth.user.subscribe(
@@ -60,6 +63,9 @@ export class HomePageComponent implements OnInit {
   findProfiles() {}
 
   ngOnInit(): void {
+    this.messagingService.requestPermission();
+    this.messagingService.receiveMessage();
+    this.message = this.messagingService.currentMessage;
     this.user = this.auth.authUser();
     this.user.subscribe((user) => {
       if (user) {

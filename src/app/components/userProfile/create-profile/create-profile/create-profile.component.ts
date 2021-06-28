@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Profile } from 'src/app/profile';
 import { User } from 'src/app/user';
@@ -9,12 +9,14 @@ import { finalize } from 'rxjs/operators';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-create-profile',
+  templateUrl: './create-profile.component.html',
+  styleUrls: ['./create-profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class CreateProfileComponent implements OnInit {
+
   selected!: Date | null;
   user: Observable<any>;
   userEmail: any;
@@ -46,9 +48,9 @@ export class ProfileComponent implements OnInit {
                private breakpointObserver: BreakpointObserver,
                private profileService: ProfileService,
                @Inject(AngularFireStorage)
-               private storage: AngularFireStorage,
+    private storage: AngularFireStorage,
                @Inject(FileService)
-               private fileService: FileService) {
+    private fileService: FileService) {
     this.findProfiles();
     this.authService.user.subscribe(
       (user) => {
@@ -126,3 +128,4 @@ export class ProfileComponent implements OnInit {
   }
 
 }
+

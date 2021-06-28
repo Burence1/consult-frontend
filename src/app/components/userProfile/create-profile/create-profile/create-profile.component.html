@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card-image">
+    <h2 class="card-heading text-center">
+      UPDATE PROFILE
+      <small>Update your account</small>
+    </h2>
+  </div>
+  <form (ngSubmit)='updateProfile()' #quoteForm='ngForm' id="form" class="card-form">
+    <div class="input">
+      <input type="text" class="input-field" id="name" [(ngModel)]="displayNameInput" name="name" required/>
+      <label for="name" class="input-label">Full name</label>
+    </div>
+    <div class="input">
+      <label for="profile_picture">Profile Picture</label><br><br>
+      <input type="file" id="myFile" name="filename" [(ngModel)]="imageInput" name="image" (change)="showPreview($event)">
+    </div>
+    <div class="input">
+      <input type="text" class="input-field" id="department" [(ngModel)]="departmentInput" name="department" required/>
+      <label for="department" class="input-label">Department</label>
+    </div>
+    <div class="input">
+      <input type="text" class="input-field" id="position" [(ngModel)]="positionInput" name="position" required/>
+      <label for="position" class="input-label">Position</label>
+    </div>
+    <div class="input">
+      <input type="text" class="input-field" [(ngModel)]="contactInput" name="contact" required/>
+      <label for="contact" class="input-label">Contact</label>
+    </div>
+    <div class="input">
+      <input type="text" class="input-field" [(ngModel)]="bioInput" name="bio" required/>
+      <label class="input-label text-area">Bio</label>
+    </div><br>
+
+
+
+
+      <button class="action-button">Submit</button>
+  </form>
+</div>
