@@ -72,3 +72,7 @@ h2{
 .task-header h2{
     margin-left: 15rem;
 }
+.hidden-dets{
+    display: flex;
+    justify-content: space-between;
+}

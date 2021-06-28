@@ -91,4 +91,21 @@ export class TaskViewComponent implements OnInit {
   })
  }
 
+ editPatient(patient: Patient): void{
+   const dialogRef = this.dialog.open(PatientDialogComponent, {
+     width: '500px',
+     data: {
+       patient,
+       enableDelete: true
+     },
+   });
+   dialogRef.afterClosed().subscribe((result: PatientDialogResult) =>{
+      if(result.delete){
+        this.patientService.removePatient(patient.id);
+      }else{
+        this.patientService.updatePatient(patient.id, patient)
+      }
+   })
+ }
+
 }
