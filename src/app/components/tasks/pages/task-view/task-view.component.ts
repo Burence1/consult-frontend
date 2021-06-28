@@ -6,6 +6,9 @@ import { TaskService } from '../services/task.service';
 import { PatientService } from '../services/patient.service';
 import { Todo } from '../models/task';
 import { map }from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
+import { PatientDialogComponent, PatientDialogResult } from '../patient-dialog/patient-dialog.component';
+import { TaskDialogResult } from '../../task-dialog/task-dialog.component';
 
 @Component({
   selector: 'app-task-view',
@@ -21,7 +24,7 @@ export class TaskViewComponent implements OnInit {
   patientId!: string;
   editable = false;
 
-  constructor(private patientService: PatientService, private route: ActivatedRoute) { }
+  constructor(private patientService: PatientService, private route: ActivatedRoute, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.patientService.getAll().snapshotChanges().pipe(
@@ -71,6 +74,21 @@ export class TaskViewComponent implements OnInit {
    if(task.id){
      this.patientService.deleteTask(this.patientId, task.id)
    }
+ }
+
+ edit(task: Todo){
+
+ }
+ newPatient(): void{
+  const dialogRef = this.dialog.open(PatientDialogComponent, {
+    width: '500px',
+    data: {
+      patient: {},
+    }
+  });
+  dialogRef.afterClosed().subscribe((result: PatientDialogResult) => {
+    this.patientService.addPatient(result.patient);
+  })
  }
 
 }

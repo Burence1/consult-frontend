@@ -26,7 +26,8 @@
             <div>
                 <div id="patient-header">
                     <h2>Patients</h2>
-                    <button mat-raised-button class="addBtn btn-sm" routerLink="/new-patient"><mat-icon>add</mat-icon></button>
+                    <!-- <button mat-raised-button class="addBtn btn-sm" routerLink="/new-patient"><mat-icon>add</mat-icon></button> -->
+                    <button mat-raised-button class="addBtn btn-sm" (click)="newPatient()"><mat-icon>add</mat-icon></button>
                 </div>
                 <ul class="list-group" *ngFor="let patient of patients">
                 
@@ -77,7 +78,7 @@
                         <mat-icon>more_vert</mat-icon>
                       </button>
                       <mat-menu #menu="matMenu">
-                        <button mat-menu-item>
+                        <button mat-menu-item (click)="edit(task)">
                           <mat-icon>edit</mat-icon>
                           <span>Edit</span>
                         </button>
@@ -122,6 +123,7 @@
                </div>
                <small class="text-muted" *ngIf="task.done">Status: completed</small>
                <small class="text-muted" *ngIf="!task.done">Status: pending</small>
+               <p>Assigned: {{task.assignedTo}}</p>
                </div>  
            </div>
         </div>

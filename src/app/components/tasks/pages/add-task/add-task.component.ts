@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Todo } from '../models/task';
 import { PatientService } from '../services/patient.service';
+import { Profile } from 'src/app/profile';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { ProfileService } from 'src/app/services/profile.service';
+
 
 @Component({
   selector: 'app-add-task',
@@ -12,8 +16,20 @@ export class AddTaskComponent implements OnInit {
 
   task: Todo = {};
   patientId!: string;
+  currentId: string;
+  profiles: Profile[];
+  selected: string;
 
-  constructor(private route: ActivatedRoute, private service: PatientService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private service: PatientService, private router: Router, private auth: AuthService, private profileService: ProfileService) {
+    this.profileService.fetchAllProfiles().subscribe(
+      (res) => {
+        this.profiles = res;
+        console.log(res);
+      }, error => {
+        console.error(error);
+      }
+    );
+   }
 
   ngOnInit(): void {
 
