@@ -16,6 +16,8 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./directory.component.css']
 })
 export class DirectoryComponent implements OnInit {
+
+  searchText = '';
   profiles: Profile[];
   user: Observable<any>;
   userEmail: any;
@@ -25,8 +27,14 @@ export class DirectoryComponent implements OnInit {
       shareReplay()
     );
 
-  constructor(public authService: AuthService, private profileService: ProfileService, public auth: AuthService, private breakpointObserver: BreakpointObserver,
-              @Inject(AngularFireStorage) private storage: AngularFireStorage, @Inject(FileService) private fileService: FileService) {
+  constructor(public authService: AuthService,
+              private profileService: ProfileService,
+              public auth: AuthService,
+              private breakpointObserver: BreakpointObserver,
+              @Inject(AngularFireStorage)
+              private storage: AngularFireStorage,
+              @Inject(FileService)
+              private fileService: FileService) {
     this.profileService.fetchAllProfiles().subscribe(
       (res) => {
         this.profiles = res;
@@ -38,7 +46,7 @@ export class DirectoryComponent implements OnInit {
   }
 
   SearchDirectory( ){
-    
+
   }
   ngOnInit(): void {
     this.user = this.auth.authUser();
@@ -54,5 +62,10 @@ export class DirectoryComponent implements OnInit {
     this.auth.logout();
   }
 
-
+   // tslint:disable-next-line: typedef
+   filterCondition(profile) {
+     const search = profile.displayName.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1;
+     console.log(search);
+     return search;
+  }
 }

@@ -22,9 +22,6 @@ import { TasksHomeComponent } from './components/tasks/tasks-home/tasks-home.com
 import { NewPatientComponent } from './components/tasks/pages/new-patient/new-patient.component';
 import { AddTaskComponent } from './components/tasks/pages/add-task/add-task.component';
 import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.component';
-//import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.component';
-//import { CalendarComponent } from './components/tasks/calendar/calendar.component';
-
 
 
 const routes: Routes = [

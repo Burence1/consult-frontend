@@ -9,37 +9,48 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-4">
-          <br><h1 class="text-center directory">MEDICAL DIRECTORY</h1>
+          <form class="form-inline">
+            <input class="form-control" name="searchInput" placeholder="Search" #searchInput="ngModel" [(ngModel)]="searchText" style="width: 80%;">
+            <button class="btn btn-outline-primary" (click)="searchText=''">X</button>
+          </form>
+
           <div class="col-1-of-3" *ngFor='let profile of profiles'>
+            <div *ngIf="filterCondition(profile)">
+              <h1 class='title'>{{profile.displayName}}</h1>
+            </div>
+          </div> -->
 
 
-            <main>
-              <div class='card'>
-                <div class='info'>
-                  <h1 class='title'>{{profile.displayName}}</h1>
-                  <div class='description'>
-                    <ul>
-                      <li><strong>Email:</strong>  {{ profile.email }}</li>
-                      <li><strong>Department:</strong> {{ profile.department }}</li>
-                      <li><strong>Position:</strong> {{ profile.position }}</li>
-                      <li><strong>Contact:</strong> {{ profile.contact }}</li>
-                      <li><strong>Bio:</strong>  {{ profile.bio }},
-                        
-                      </li>
-                      
-                    </ul>
+          <!-- <br><h1 class="text-center directory">MEDICAL DIRECTORY</h1> -->
+          <!-- <div class="col-1-of-3" *ngFor='let profile of profiles'>
+
+
+              <main>
+                <div class='card'>
+                  <div class='info'>
+                    <h1 class='title'>{{profile.displayName}}</h1>
+                    <div class='description'>
+                      <ul>
+                        <li><strong>Email:</strong>  {{ profile.email }}</li>
+                        <li><strong>Department:</strong> {{ profile.department }}</li>
+                        <li><strong>Position:</strong> {{ profile.position }}</li>
+                        <li><strong>Contact:</strong> {{ profile.contact }}</li>
+                        <li><strong>Bio:</strong>  {{ profile.bio }},
+
+                        </li>
+
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </main>
-            
-            
+              </main>
+
+
           </div>
         </div>
     </div>
-</div>
+</div> -->
 
- -->
  <mat-toolbar>
   <button
     type="button"
@@ -135,7 +146,7 @@
                 <li><strong>Department:</strong> {{ profile.department }}</li>
                 <li><strong>Position:</strong> {{ profile.position }}</li>
                 <li><strong>Contact:</strong> {{ profile.contact }}</li>
-                <li><strong>Interests:</strong>  {{ profile.interest1 }}</li>  
+                <li><strong>Interests:</strong>  {{ profile.interest1 }}</li>
               </mat-card>
             </ul>
             <div class="go-corner" href="#">
@@ -149,17 +160,17 @@
       </div>
     </div>
   </div>
-        
+
   </mat-sidenav-content>
 </mat-sidenav-container>
 
- 
-<!-- <mat-grid-list cols="1" rowHeight="350px"> 
+
+<!-- <mat-grid-list cols="1" rowHeight="350px">
   <mat-grid-tile >
     <mat-card class="dashboard-card">
       <mat-card-header>
         <mat-card-title>
-          
+
           <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
             <mat-icon>more_vert</mat-icon>
           </button>
@@ -171,13 +182,13 @@
       </mat-card-header>
       <mat-card-content class="dashboard-card-content">
         <div class="chat-text">
-          <a href="/calendar">Calendar</a>                    
+          <a href="/calendar">Calendar</a>
         </div>
       </mat-card-content>
-      
+
     </mat-card>
   </mat-grid-tile>
-  
+
 </mat-grid-list>
 
   <div class="grid-container">
@@ -186,7 +197,7 @@
     <mat-card class="dashboard-card">
       <mat-card-header>
         <mat-card-title>
-          
+
           <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
             <mat-icon>more_vert</mat-icon>
           </button>
@@ -201,10 +212,10 @@
           <a href="/tasks">Tasks</a>
         </div>
       </mat-card-content>
-      
+
     </mat-card>
   </mat-grid-tile>
-  
+
 </mat-grid-list>
 </div>
 
@@ -214,7 +225,7 @@
     <mat-card class="dashboard-card">
       <mat-card-header>
         <mat-card-title>
-          
+
           <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
             <mat-icon>more_vert</mat-icon>
           </button>
@@ -229,8 +240,8 @@
           <a href="/chats">Chats</a>
         </div>
       </mat-card-content>
-      
+
     </mat-card>
   </mat-grid-tile>
-  
+
 </mat-grid-list> -->
