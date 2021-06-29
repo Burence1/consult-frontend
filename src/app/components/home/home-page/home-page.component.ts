@@ -8,7 +8,6 @@ import { ProfileService } from 'src/app/services/profile.service';
 import { FileService } from 'src/app/services/files/file-service.service';
 import { Profile } from 'src/app/profile';
 
-
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',

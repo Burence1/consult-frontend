@@ -1,29 +1,23 @@
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="jumbotron jumbotron-fluid">
+
 <mat-toolbar>
-  <button
-    type="button"
-    (click)="drawer.toggle()"
-    mat-icon-button
-    class="toggler"
-  >
+  <button type="button" (click)="drawer.toggle()" mat-icon-button class="toggler">
     ☰
   </button>
   <span>Navigation</span>
 </mat-toolbar>
-
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav
-    #drawer
-    class="sidenav"
-    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="(isHandset$ | async) === true"
-  >
-    <img
-      class="avatar mat-elevation-z8"
-      src="https://image.freepik.com/free-vector/doctor-avatar-design_1146-14.jpg"
-    />
-    <h4 class="name">Dr.{{ profile.displayName }}</h4>
-    <p class="designation">{{ profile.department }}</p>
+  <mat-sidenav #drawer class="sidenav" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === true">
+    <img class="avatar mat-elevation-z8" src="https://image.freepik.com/free-vector/doctor-avatar-design_1146-14.jpg" />
+    <!-- <h4 class="name">Dr.{{ profile.displayName }}</h4>
+    <p class="designation">{{ profile.department }}</p> -->
     <hr />
 
     <a

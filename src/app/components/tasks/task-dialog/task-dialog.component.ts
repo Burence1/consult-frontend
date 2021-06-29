@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Task } from '../task';
 
@@ -9,37 +9,40 @@ import { Task } from '../task';
 })
 export class TaskDialogComponent implements OnInit {
 
-  private backupTask: Partial<Task> = { ...this.data.task}
+  minDate: Date;
+  private backupTask: Partial<Task> = { ...this.data.task };
 
   constructor(
     public dialogRef: MatDialogRef<TaskDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: TaskDialogData
-  ) { }
+    @Inject(MAT_DIALOG_DATA) public data: TaskDialogData) {
+      this.minDate = new Date();
+      // this.minDate.setDate(this.minDate)
+    }
 
-  ngOnInit(): void {
-  }
-
-  cancel(): void{
+  cancel(): void {
+    
     this.data.task.title = this.backupTask.title;
-    this.data.task.owner = this.backupTask.owner
+    this.data.task.description = this.backupTask.description;
     this.data.task.dateDue = this.backupTask.dateDue
     this.dialogRef.close(this.data);
   }
 
-  formatDate(e) {
-    var convertDate = new Date(e.target.value);
-    this.data.task.dateDue = convertDate
-    console.log("heh",this.data.task.dateDue)
+  ngOnInit(): void {
   }
 
+  formatDate(e){
+    var convertedDate = new Date(e.target.value)
+    this.data.task.dateDue = convertedDate
+    console.log(this.data.task.dateDue)
+    }
 }
 
-export interface TaskDialogData{
+export interface TaskDialogData {
   task: Partial<Task>;
   enableDelete: boolean;
 }
 
-export interface TaskDialogResult{
+export interface TaskDialogResult {
   task: Task;
   delete?: boolean;
 }

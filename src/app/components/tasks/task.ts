@@ -1,8 +1,11 @@
 export class Task{
-    key?: string;
+    id?: string;
     title: string;
+    description: string;
     owner: string;
     dateDue: any;
-    status: string;
+    created: Date;
+    from?: string;
+    to?: string;
 }
-//add status, creator, done
+//add status, creator, donedone

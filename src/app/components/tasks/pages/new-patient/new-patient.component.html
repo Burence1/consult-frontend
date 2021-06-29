@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <div class="d-none d-md-flex col-md-4 col-lg-6 left-col">
+            <img src="../../../assets/images/clip-doctor-and-patient.png" alt="" class="bg-image">
+        </div>
+        <div class="extreme-col col-md-1"></div>
+        <div class="right-col col-md-4">
+         
+            <h2 class="text-center">Add a patient:</h2>
+            <form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                
+                            <label for="name">First Name:</label>
+                            <input type="text" class="form-control" [(ngModel)]="patient.firstName" name="firstName">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                
+                            <label for="name">Last Name:</label>
+                            <input type="text" class="form-control" [(ngModel)]="patient.lastName" name="name">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3">
+                
+                        <label for="name">Email Address:</label>
+                        <input type="text" class="form-control" [(ngModel)]="patient.email" name="name">
+                    </div>
+                </div>
+            
+            <div class="btns">
+                
+                <button class="btn submit-btn" (click)="addPatient()">Submit</button>
+                <button class="btn cancel-btn" routerLink='/'>Cancel</button>
+            </div>
+            </form>
+        </div>
+        <div class="extreme-col col-md-1"></div>
+    </div>
+</div>
+

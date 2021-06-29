@@ -1,5 +1,4 @@
 import { OneChatComponent } from './one-chat/one-chat.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { RoomlistsComponent } from './components/roomlists/roomlists.component';
 import { AddRoomComponent } from './components/add-room/add-room.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -12,13 +11,18 @@ import { RegisterComponent } from './components/authentication/register/register
 import { EmailComponent } from './components/authentication/email/email.component';
 import { ProfileComponent } from './components/userProfile/profile/profile.component';
 import { HomePageComponent } from './components/home/home-page/home-page.component';
-// import { TasksComponent } from './components/tasks/tasks.component';
+import { TasksComponent } from './components/tasks/tasks.component';
 import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
 import { DirectoryComponent } from './directory/directory.component';
 import { PhoneLoginComponent } from './components/authentication/phone-login/phone-login.component';
 import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
-import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.component';
-import { CalendarComponent } from './components/tasks/calendar/calendar.component';
+import { TaskComponent } from './components/tasks/task/task.component';
+import { TasksHomeComponent } from './components/tasks/tasks-home/tasks-home.component';
+import { NewPatientComponent } from './components/tasks/pages/new-patient/new-patient.component';
+import { AddTaskComponent } from './components/tasks/pages/add-task/add-task.component';
+import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.component';
+//import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.component';
+//import { CalendarComponent } from './components/tasks/calendar/calendar.component';
 
 
 
@@ -33,15 +37,19 @@ const routes: Routes = [
   { path: 'chats', component: ChatroomComponent },
   { path: 'password_reset', component: ForgotPasswordComponent },
   { path: 'directory', component: DirectoryComponent },
+
   { path: 'add-room', component: AddRoomComponent},
   { path: 'roomlist', component: RoomlistsComponent},
   { path: 'chatfeed/:roomname', component: ChatFeedComponent},
   {path: 'One', component: OneChatComponent},
-  {path: 'tasks', component: TasksListComponent},
-  {path: 'dashboard', component: DashboardComponent},
-  {path: 'calendar', component: CalendarComponent},
+  {path: 'tasks', component: TasksHomeComponent},
+  {path: 'calendar', component: TaskComponent},
+  {path: '', redirectTo: 'patients', pathMatch: 'full'},
+  {path: 'new-patient', component: NewPatientComponent},
+  {path: 'patients', component: TaskViewComponent},
+  {path: 'patients/:patientId', component: TaskViewComponent},
+  {path: 'patients/:patientId/add-task', component: AddTaskComponent},
   { path: '**', component: NotFoundComponent },
-
 
 ];
 

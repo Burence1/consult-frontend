@@ -15,7 +15,6 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./directory.component.css']
 })
 export class DirectoryComponent implements OnInit {
-
   profiles: Profile[];
   user: Observable<any>;
   userEmail: any;
@@ -27,7 +26,6 @@ export class DirectoryComponent implements OnInit {
 
   constructor(public authService: AuthService, private profileService: ProfileService, public auth: AuthService, private breakpointObserver: BreakpointObserver,
               @Inject(AngularFireStorage) private storage: AngularFireStorage, @Inject(FileService) private fileService: FileService) {
-
     this.profileService.fetchAllProfiles().subscribe(
       (res) => {
         this.profiles = res;
@@ -37,7 +35,6 @@ export class DirectoryComponent implements OnInit {
       }
     );
   }
-
   ngOnInit(): void {
     this.user = this.auth.authUser();
     this.user.subscribe(user => {
