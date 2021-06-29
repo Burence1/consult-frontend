@@ -1,3 +1,4 @@
+import { OnboardComponent } from './onboard/onboard.component';
 import { OneChatComponent } from './one-chat/one-chat.component';
 import { RoomlistsComponent } from './components/roomlists/roomlists.component';
 import { AddRoomComponent } from './components/add-room/add-room.component';
@@ -27,7 +28,7 @@ import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'onboard', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'email-login', component: EmailComponent },
   { path: 'phone-login', component: PhoneLoginComponent },
@@ -42,6 +43,7 @@ const routes: Routes = [
   { path: 'roomlist', component: RoomlistsComponent},
   { path: 'chatfeed/:roomname', component: ChatFeedComponent},
   {path: 'One', component: OneChatComponent},
+  {path: 'onboard', component: OnboardComponent},
   {path: 'tasks', component: TasksHomeComponent},
   {path: 'calendar', component: TaskComponent},
   {path: '', redirectTo: 'patients', pathMatch: 'full'},

@@ -1,9 +1,10 @@
+import { AngularFireList } from '@angular/fire/database';
 import { Component, OnInit, Inject} from '@angular/core';
 import { Profile } from 'src/app/profile';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProfileService } from 'src/app/services/profile.service';
 import { FileService } from 'src/app/services/files/file-service.service';
-import { AngularFireStorage } from '@angular/fire/storage';
+import { AngularFireStorage, } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
@@ -34,6 +35,10 @@ export class DirectoryComponent implements OnInit {
         console.error(error);
       }
     );
+  }
+
+  SearchDirectory( ){
+    
   }
   ngOnInit(): void {
     this.user = this.auth.authUser();

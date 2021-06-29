@@ -69,6 +69,7 @@ import { NewPatientComponent } from './components/tasks/pages/new-patient/new-pa
 import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.component';
 import { PatientDialogComponent } from './components/tasks/pages/patient-dialog/patient-dialog.component';
 import { PatientTaskDialogComponent } from './components/tasks/pages/patient-task-dialog/patient-task-dialog.component';
+import { OnboardComponent } from './onboard/onboard.component';
 
 
 @NgModule({
@@ -102,6 +103,7 @@ import { PatientTaskDialogComponent } from './components/tasks/pages/patient-tas
     TaskViewComponent,
     PatientDialogComponent,
     PatientTaskDialogComponent,
+    OnboardComponent,
   ],
   entryComponents: [AddRoomComponent],
   imports: [
