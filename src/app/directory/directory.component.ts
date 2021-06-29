@@ -11,7 +11,10 @@ import { finalize } from 'rxjs/operators';
   styleUrls: ['./directory.component.css']
 })
 export class DirectoryComponent implements OnInit {
+
+  searchText = '';
   profiles: Profile[];
+
   constructor(public authService: AuthService, private profileService: ProfileService,
               @Inject(AngularFireStorage) private storage: AngularFireStorage, @Inject(FileService) private fileService: FileService) {
     this.profileService.fetchAllProfiles().subscribe(
@@ -24,5 +27,12 @@ export class DirectoryComponent implements OnInit {
     );
   }
   ngOnInit(): void {
+  }
+
+   // tslint:disable-next-line: typedef
+   filterCondition(profile) {
+     const search = profile.displayName.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1;
+     console.log(search);
+     return search;
   }
 }

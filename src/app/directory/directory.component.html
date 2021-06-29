@@ -9,29 +9,41 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-4">
+          <!-- <form class="form-inline">
+            <input class="form-control" name="searchInput" placeholder="Search" #searchInput="ngModel" [(ngModel)]="searchText" style="width: 80%;">
+            <button class="btn btn-outline-primary" (click)="searchText=''">X</button>
+          </form>
+
+          <div class="col-1-of-3" *ngFor='let profile of profiles'>
+            <div *ngIf="filterCondition(profile)">
+              <h1 class='title'>{{profile.displayName}}</h1>
+            </div>
+          </div> -->
+
+
           <br><h1 class="text-center directory">MEDICAL DIRECTORY</h1>
           <div class="col-1-of-3" *ngFor='let profile of profiles'>
 
 
-            <main>
-              <div class='card'>
-                <div class='info'>
-                  <h1 class='title'>{{profile.displayName}}</h1>
-                  <div class='description'>
-                    <ul>
-                      <li><strong>Email:</strong>  {{ profile.email }}</li>
-                      <li><strong>Department:</strong> {{ profile.department }}</li>
-                      <li><strong>Position:</strong> {{ profile.position }}</li>
-                      <li><strong>Contact:</strong> {{ profile.contact }}</li>
-                      <li><strong>Bio:</strong>  {{ profile.bio }},
+              <main>
+                <div class='card'>
+                  <div class='info'>
+                    <h1 class='title'>{{profile.displayName}}</h1>
+                    <div class='description'>
+                      <ul>
+                        <li><strong>Email:</strong>  {{ profile.email }}</li>
+                        <li><strong>Department:</strong> {{ profile.department }}</li>
+                        <li><strong>Position:</strong> {{ profile.position }}</li>
+                        <li><strong>Contact:</strong> {{ profile.contact }}</li>
+                        <li><strong>Bio:</strong>  {{ profile.bio }},
 
-                      </li>
+                        </li>
 
-                    </ul>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </main>
+              </main>
 
 
           </div>
