@@ -37,7 +37,8 @@ const material = [
   MatDividerModule,
   MatGridListModule,
   MatExpansionModule,
-  MatSelectModule
+  MatSelectModule,
+  MatToolbarModule,
 ];
 
 @NgModule({

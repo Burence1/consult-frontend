@@ -75,7 +75,6 @@ export class HomePageComponent implements OnInit {
     );
   }
 
-  // tslint:disable-next-line: typedef
   findProfiles() {}
 
   ngOnInit(): void {
