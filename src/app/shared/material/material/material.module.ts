@@ -17,6 +17,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { MatSelectModule } from '@angular/material/select';
 
 const material = [
   MatButtonModule,
@@ -35,7 +36,8 @@ const material = [
   MatSnackBarModule,
   MatDividerModule,
   MatGridListModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatSelectModule
 ];
 
 @NgModule({

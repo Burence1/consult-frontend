@@ -7,6 +7,9 @@ import { TaskDialogResult } from './task-dialog/task-dialog.component';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { Profile } from 'src/app/profile';
+import { ProfileService } from 'src/app/services/profile.service';
 
 const getObservable = (collection: AngularFirestoreCollection<Task>) =>{
   const subject = new BehaviorSubject<Task[]>([]);
@@ -26,8 +29,29 @@ export class TasksComponent implements OnInit {
   todo  = getObservable(this.db.collection('todo')) as Observable<Task[]>;
   inProgress = getObservable(this.db.collection('inProgress')) as Observable<Task[]>;
   done = getObservable(this.db.collection('done')) as Observable<Task[]>;
+  currentId: string;
+  profile: Profile;
 
-  constructor(private dialog: MatDialog, private db: AngularFirestore) { }
+  constructor(private dialog: MatDialog, private db: AngularFirestore, private auth: AuthService, private profileService: ProfileService) {
+    this.auth.user.subscribe(
+      (user) => {
+        this.currentId = user.uid;
+        console.log(this.currentId);
+        this.profileService.fetchProfileApi(this.currentId).subscribe(
+          (res) => {
+            this.profile = res;
+            console.log(res);
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+   }
 
   ngOnInit(): void {
     console.log("BS",this.todo)

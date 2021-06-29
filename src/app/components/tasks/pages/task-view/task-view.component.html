@@ -26,7 +26,8 @@
             <div>
                 <div id="patient-header">
                     <h2>Patients</h2>
-                    <button mat-raised-button class="addBtn btn-sm" routerLink="/new-patient"><mat-icon>add</mat-icon></button>
+                    <!-- <button mat-raised-button class="addBtn btn-sm" routerLink="/new-patient"><mat-icon>add</mat-icon></button> -->
+                    <button mat-raised-button class="addBtn btn-sm" (click)="newPatient()"><mat-icon>add</mat-icon></button>
                 </div>
                 <ul class="list-group" *ngFor="let patient of patients">
                 
@@ -39,24 +40,51 @@
                             <mat-icon>account_circle</mat-icon>
                           <span>{{patient.firstName}}</span>
                           <span>{{patient.lastName}}</span>
+                         
                           </mat-panel-title>
                         </mat-expansion-panel-header>
                         <p>Email: {{patient.email}}</p>
-                       
+                        <div class="hidden-dets">
+                          <button class="btn btn-sm btn-outline-success" (click)="editPatient(patient)">Edit</button>
+                          <button class="ms-3 btn-sm btn btn-outline-danger" aria-label="Delete" data-bs-toggle="modal" data-bs-target="#deletePatientModal">
+                           Delete
+                        </button>
+                        </div>                     
                         </mat-expansion-panel>
                    
                        
                         <!-- <span>{{patient.id}}</span> -->
                      </div>
                     </li>
+                                  <!-- modal -->
+                          <div class="modal fade" id="deletePatientModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                  <h3 class="ms-5 mt-3" id="deleteModalLabel">Are you sure you want to delete "{{patient.firstName}} {{patient.lastName}}"?</h3>
+                                
+                                  <div class="actions">
+                                      <div class="row">
+                                          <div class="col-md-6"></div>
+                                          <div class="col-md-6 modal-actions">
+                                            <button type="button" mat-raised-button color="primary" data-bs-dismiss="modal">cancel</button>
+                                            <button type="button" mat-raised-button color="warn" (click)="deletePatient(patient)" data-bs-dismiss="modal">delete</button>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- end of modal -->
                 </ul>
             </div>
+      
             
         </div>
         <div class="tasks-list col-md-8">
            <div class="task-header">
             <h2>Tasks</h2>
-            <button mat-raised-button mat-fab routerLink="./add-task"><mat-icon>add</mat-icon></button>
+            <!-- <button mat-raised-button mat-fab routerLink="./add-task"><mat-icon>add</mat-icon></button> -->
+            <button mat-raised-button mat-fab (click)="newPatientTask()"><mat-icon>add</mat-icon></button>
            </div>
            <div class="btn-area">
                <button class="btn" [class.active]="filter == 'all'" (click)="filter = 'all'" >All</button>
@@ -68,8 +96,7 @@
                <div class="task-title-area">
                  <div>
                     {{task.title}}
-                    
-                   
+                    <p *ngIf="task.description">{{task.description}}</p>  
                  </div>
                <div class="actions" *ngIf="!editable">
                   <div>
@@ -77,7 +104,7 @@
                         <mat-icon>more_vert</mat-icon>
                       </button>
                       <mat-menu #menu="matMenu">
-                        <button mat-menu-item>
+                        <button mat-menu-item (click)="editPatientTask(task)">
                           <mat-icon>edit</mat-icon>
                           <span>Edit</span>
                         </button>
@@ -122,6 +149,9 @@
                </div>
                <small class="text-muted" *ngIf="task.done">Status: completed</small>
                <small class="text-muted" *ngIf="!task.done">Status: pending</small>
+               <p>Assigned: {{task.assignedTo}}</p>
+               <p>Due: {{task.dateDue.toDate()|date}}</p>
+               <!-- <p>Created By: {{profile.displayName}}</p> -->
                </div>  
            </div>
         </div>

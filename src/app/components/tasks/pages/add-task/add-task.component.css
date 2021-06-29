@@ -32,3 +32,12 @@ h2, label{
     align-items: center;
     justify-content: center;
 }
+mat-form-field, [input]{
+  color: white;
+}
+mat-label, mat-datepicker-toggle{
+  color: white;
+}
+mat-form-field{
+  width: 30vw;
+}

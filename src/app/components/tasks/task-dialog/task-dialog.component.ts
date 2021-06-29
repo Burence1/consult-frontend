@@ -9,14 +9,18 @@ import { Task } from '../task';
 })
 export class TaskDialogComponent implements OnInit {
 
+  minDate: Date;
   private backupTask: Partial<Task> = { ...this.data.task };
 
   constructor(
     public dialogRef: MatDialogRef<TaskDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: TaskDialogData) {}
+    @Inject(MAT_DIALOG_DATA) public data: TaskDialogData) {
+      this.minDate = new Date();
+      // this.minDate.setDate(this.minDate)
+    }
 
   cancel(): void {
-    console.log("whyhyyyy")
+    
     this.data.task.title = this.backupTask.title;
     this.data.task.description = this.backupTask.description;
     this.data.task.dateDue = this.backupTask.dateDue

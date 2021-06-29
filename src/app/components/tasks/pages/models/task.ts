@@ -6,6 +6,6 @@ export class Todo {
     created?: Date = new Date();
     createdBy?: string;
     department?: string;
-    assignedto?: string;
+    assignedTo?: string;
     done?: boolean;
 }
