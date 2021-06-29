@@ -1,5 +1,6 @@
 
 /* You can add global styles to this file, and also import other style files */
+
 @import "~bootstrap/dist/css/bootstrap.css";
 @import '~ngx-toastr/toastr.css';
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
@@ -41,4 +42,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 progress::-webkit-progress-value {
     transition: width 0.1s ease;
 }
-
+.logo-img{
+    width: 100%;
+    max-width: 300px;
+    height: 100%;
+    max-height: 60px;
+    object-fit: contain;
+}
+.toolbar{
+    background-color: #003060;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+      
+}
+.toolbar .nav-link{
+    color: white;
+}

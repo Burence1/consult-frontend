@@ -33,8 +33,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { MatCarouselModule } from 'ng-mat-carousel';
 
 
-// import { TasksComponent } from './components/tasks/tasks.component';
-// import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
+
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
 import { DirectoryComponent } from './directory/directory.component';
@@ -63,6 +62,12 @@ import { NewTaskComponent } from './components/tasks/new-task/new-task.component
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TaskComponent } from './components/tasks/task/task.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { TasksHomeComponent } from './components/tasks/tasks-home/tasks-home.component';
+import { AddTaskComponent } from './components/tasks/pages/add-task/add-task.component';
+import { NewPatientComponent } from './components/tasks/pages/new-patient/new-patient.component';
+import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.component';
+import { PatientDialogComponent } from './components/tasks/pages/patient-dialog/patient-dialog.component';
+import { PatientTaskDialogComponent } from './components/tasks/pages/patient-task-dialog/patient-task-dialog.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +94,12 @@ import { MatDialogModule } from '@angular/material/dialog';
     NewTaskComponent,
     DashboardComponent,
     TaskComponent,
+    TasksHomeComponent,
+    AddTaskComponent,
+    NewPatientComponent,
+    TaskViewComponent,
+    PatientDialogComponent,
+    PatientTaskDialogComponent,
   ],
   entryComponents: [AddRoomComponent],
   imports: [

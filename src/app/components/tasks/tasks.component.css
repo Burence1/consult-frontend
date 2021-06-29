@@ -4,8 +4,8 @@
 }
 
 .addbtn{
-    margin: 20px;
-    margin-left: 32rem;
+    display: flex;
+    flex-direction: column;
     
 }
 .addbtn button{

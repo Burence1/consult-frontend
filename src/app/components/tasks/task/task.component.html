@@ -1,4 +1,3 @@
-<app-navbar></app-navbar>
 <div class="container">
     <br>
 
@@ -62,10 +61,10 @@
            <div class="highlights-header">
             <h2>Highlights:  <span> {{dailyDate|date}}</span>  </h2>
 
-            <button style="margin-left: 20px;" mat-raised-button color="accent"> 
-            <a style="text-decoration: none; color: black;" routerLink="/tasks">Add Tasks</a>
+            <!-- <button style="margin-left: 20px;" mat-raised-button color="accent" routerLink="/tasks"> 
+            <a style="text-decoration: none; color: black;">Add Tasks</a>
             <mat-icon>navigate_next</mat-icon> 
-            </button>
+            </button> -->
            </div>
                 
            
@@ -93,88 +92,4 @@
         </div>
     </div>
     <br /><br /><br />
-
-    <!-- <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-9">
-            <h3>
-                Edit events
-                <button class="btn btn-primary float-right" (click)="addEvent()">
-                    Add new
-                </button>
-                <div class="clearfix"></div>
-                </h3>
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                              <th>Title</th>
-                              <th>Primary color</th>
-                              <th>Secondary color</th>
-                              <th>Starts at</th>
-                              <th>Ends at</th>
-                              <th>Remove</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                              <tr *ngFor="let event of events">
-                                <td>
-                                    <input
-                                    type="text"
-                                    class="form-control"
-                                    [(ngModel)]="event.title"
-                                    (keyup)="refresh.next()"
-                                  />
-                                </td>
-                                <td>
-                                    <input
-                                    type="color"
-                                    [(ngModel)]="event.color"
-                                    (change)="refresh.next()"
-                                  />
-                                </td>
-                                <td>
-                                    <input
-                                    type="color"
-                                    [(ngModel)]="event.color"
-                                    (change)="refresh.next()"
-                                  />
-                                </td>
-                                <td>
-                                    <input
-                                    class="form-control"
-                                    type="text"
-                                    
-                                    [(ngModel)]="event.start"
-                                    (ngModelChange)="refresh.next()"
-                                    
-                                    dateFormat="Y-m-dTH:i"
-                                    altFormat="F j, Y H:i"
-                                    placeholder="Not set"
-                                  />
-                                </td>
-                                <td>
-                                    <input
-                                    class="form-control"
-                                    type="text"
-                                    
-                                    [(ngModel)]="event.start"
-                                    (ngModelChange)="refresh.next()"
-                                    
-                                    dateFormat="Y-m-dTH:i"
-                                    altFormat="F j, Y H:i"
-                                    placeholder="Not set"
-                                  />
-                                </td>
-                                <td>
-                                    <button class="btn btn-danger" (click)="deleteEvent(event)">
-                                      Delete
-                                    </button>
-                                  </td>
-                              </tr>
-                          </tbody>
-                    </table>
-                </div>
-        </div>
-    </div> -->
 </div>
