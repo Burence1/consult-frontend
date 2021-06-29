@@ -20,7 +20,7 @@ export class PatientTaskDialogComponent implements OnInit {
 
   constructor(private auth: AuthService, private profileService: ProfileService, public newdialogRef: MatDialogRef<Todo>, @Inject(MAT_DIALOG_DATA) public data: PatientTaskDialogData) { 
     this.minDate = new Date();
-    
+
     this.profileService.fetchAllProfiles().subscribe(
       (res) => {
         this.profiles = res;
@@ -43,6 +43,12 @@ export class PatientTaskDialogComponent implements OnInit {
     this.data.task.assignedTo = this.backupTask.assignedTo;
     this.newdialogRef.close(this.data)
   }
+
+  formatDate(e){
+    // var convertedDate = new Date(e.target.value)
+    // this.data.task.dateDue = convertedDate
+    // console.log(this.data.task.dateDue)
+    }
 
 }
 export interface PatientTaskDialogData{

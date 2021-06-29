@@ -150,6 +150,7 @@
                <small class="text-muted" *ngIf="task.done">Status: completed</small>
                <small class="text-muted" *ngIf="!task.done">Status: pending</small>
                <p>Assigned: {{task.assignedTo}}</p>
+               <p>Due: {{task.dateDue.toDate()|date}}</p>
                <!-- <p>Created By: {{profile.displayName}}</p> -->
                </div>  
            </div>

@@ -21,7 +21,7 @@
     
       <mat-form-field>
         <mat-label>Choose a date</mat-label>
-        <input matInput [matDatepicker]="picker" [min]='minDate'>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="data.task.dateDue" [min]='minDate' (dateChange)="formatDate($event)">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>

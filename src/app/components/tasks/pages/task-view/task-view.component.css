@@ -39,7 +39,8 @@ h2{
     margin-top: 7px;
 }
 .addBtn {
-    background-color: deepskyblue;
+    background-color: #003060;
+    color: white;
    
 }
 #patient-header{
