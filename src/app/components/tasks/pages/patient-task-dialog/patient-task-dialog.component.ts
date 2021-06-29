@@ -14,11 +14,13 @@ export class PatientTaskDialogComponent implements OnInit {
   currentId: string;
   profiles: Profile[];
   selectedValue: string;
-
+   minDate: Date;
 
   private backupTask: Partial<Todo> = { ...this.data.task};
 
   constructor(private auth: AuthService, private profileService: ProfileService, public newdialogRef: MatDialogRef<Todo>, @Inject(MAT_DIALOG_DATA) public data: PatientTaskDialogData) { 
+    this.minDate = new Date();
+    
     this.profileService.fetchAllProfiles().subscribe(
       (res) => {
         this.profiles = res;

@@ -9,10 +9,11 @@
   </mat-form-field>
   <mat-form-field>
     <mat-label>Task Due Date</mat-label>
-    <input matInput [ngxMatDatetimePicker]="picker" placeholder="..." [(ngModel)]="data.task.dateDue" (dateChange)="formatDate($event)">
+    <input matInput [ngxMatDatetimePicker]="picker" placeholder="..." [(ngModel)]="data.task.dateDue" [min]="minDate" (dateChange)="formatDate($event)">
     <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
     <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
   </mat-form-field>
+
   <div mat-dialog-actions>
     <button mat-button [mat-dialog-close]="{ task: data.task }">OK</button>
     <button mat-button (click)="cancel()">Cancel</button>

@@ -33,8 +33,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { MatCarouselModule } from 'ng-mat-carousel';
 
 
-// import { TasksComponent } from './components/tasks/tasks.component';
-// import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
+
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
 import { DirectoryComponent } from './directory/directory.component';
