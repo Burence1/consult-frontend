@@ -1,21 +1,103 @@
-.grid-container {
-  margin: 20px;
+.mat-stepper-horizontal {
+  margin-top: 8px;
 }
 
-.dashboard-card {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
+.mat-form-field {
+  margin-top: 16px;
 }
 
-.more-button {
-  position: absolute;
-  top: 5px;
-  right: 10px;
+.login{
+  background-color: #003060;
+  color: white;
+  
+}
+.consult {
+  background: #003060;
+  height: 100vh;
 }
 
-.dashboard-card-content {
+.container-fluid
+{
+  padding: 0;
+  margin: 0;
+}
+
+.row
+{
+  padding: 0;
+  margin: 0;
+}
+
+
+.header {
+  color: black;
+  margin-left: 18%;
+}
+
+.auth-btn{
+  background-color: #003060;
+  color: white;
+}
+.text
+ {
+   text-decoration: none;
+ }
+
+
+ /* new */
+
+ .card {
+  padding: 0px 10px;
+  border-radius: 20px
+}
+
+
+
+a {
+  margin: 0px;
+  font-size: 13px;
+  border-radius: 7px;
+  text-decoration: none;
+  color: black
+}
+
+a:hover {
+  color: #ffffff;
+  background-color: #003060
+}
+
+.nav-link {
+  padding: 1rem 1.4rem;
+  margin-left: 16%;
   text-align: center;
+
 }
+
+form{
+  margin-left: 18%;
+}
+
+.ac {
+  font-weight: bold;
+  color: #003060;
+  font-size: 12px;
+  font-family: Comfortaa;
+}
+img {
+  background-color: #7D7676;
+}
+
+.wlcm {
+  font-size: 30px;
+  color: #ffffff;
+}
+
+.sp1 {
+  font-size: 5px
+}
+
+.sp1>span {
+  background-color: #003060;
+}
+
+

@@ -1,3 +1,5 @@
+import { OneChatComponent } from './one-chat/one-chat.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { RoomlistsComponent } from './components/roomlists/roomlists.component';
 import { AddRoomComponent } from './components/add-room/add-room.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -34,7 +36,9 @@ const routes: Routes = [
   { path: 'add-room', component: AddRoomComponent},
   { path: 'roomlist', component: RoomlistsComponent},
   { path: 'chatfeed/:roomname', component: ChatFeedComponent},
+  {path: 'One', component: OneChatComponent},
   {path: 'tasks', component: TasksListComponent},
+  {path: 'dashboard', component: DashboardComponent},
   {path: 'calendar', component: CalendarComponent},
   { path: '**', component: NotFoundComponent },
 

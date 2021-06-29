@@ -53,6 +53,13 @@
     <a
       mat-list-item
       class="nav-item nav-link"
+      routerLink="/directory"
+      routerLinkActive="active"
+      ><mat-icon> contact_mail</mat-icon>Directory</a
+    >
+    <a
+      mat-list-item
+      class="nav-item nav-link"
       routerLink="about"
       routerLinkActive="active"
       ><mat-icon>contact_support</mat-icon>Help</a
@@ -77,7 +84,7 @@
                     <div class="row">
                       <div class="col-md-4"></div>
                         <div class="col-md-4">
-                          <img [src]=" profile.image " class="center" >
+                          <img [src]=" profile.image " class=" mt-5 avatar" >
                           <h2 class="dr-name text-center">I am Dr: {{ profile.displayName }}</h2>
                         <div class="col-md-4"></div>
                         </div>

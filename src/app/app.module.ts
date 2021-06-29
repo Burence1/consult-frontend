@@ -69,6 +69,7 @@ import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.com
 import { NewTaskComponent } from './components/tasks/new-task/new-task.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UpdateProfileComponent } from './components/userProfile/update-profile/update-profile/update-profile.component';
+import { OneChatComponent } from './one-chat/one-chat.component';
 
 
 @NgModule({
@@ -103,6 +104,7 @@ import { UpdateProfileComponent } from './components/userProfile/update-profile/
     NewTaskComponent,
     DashboardComponent,
     UpdateProfileComponent,
+    OneChatComponent,
   ],
   entryComponents: [AddRoomComponent],
   imports: [
