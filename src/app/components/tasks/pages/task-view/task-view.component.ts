@@ -14,6 +14,7 @@ import { DepartmentsService } from '../../tasks-services/departments.service';
 import { Profile } from 'src/app/profile';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProfileService } from 'src/app/services/profile.service';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-task-view',
@@ -31,8 +32,20 @@ export class TaskViewComponent implements OnInit {
   currentId: string;
   profile: Profile;
   profiles: Profile[];
+  searchMode: boolean;
+  results: Patient[] = [];
+  searchValue: string;
+  tasksLength: number;
 
-  constructor(private patientService: PatientService, private route: ActivatedRoute, private dialog: MatDialog, private router: Router, private auth: AuthService, private profileService: ProfileService) {
+  constructor(
+    private patientService: PatientService, 
+    private route: ActivatedRoute, 
+    private dialog: MatDialog, 
+    private router: Router, 
+    private auth: AuthService, 
+    private profileService: ProfileService,
+    private store: AngularFirestore
+    ) {
     this.auth.user.subscribe(
       (user) => {
         this.currentId = user.uid;
@@ -48,13 +61,14 @@ export class TaskViewComponent implements OnInit {
 
   ngOnInit(): void {
     
-
+    this.searchMode = false;
     this.patientService.getAll().snapshotChanges().pipe(
       map(changes => changes.map(c => ({
         id: c.payload.doc.id, ...c.payload.doc.data()
       })))
     ).subscribe(data =>{
       this.patients = data;
+      
     })
   
     this.route.params.subscribe((params: Params) =>{
@@ -62,6 +76,7 @@ export class TaskViewComponent implements OnInit {
       this.patientId = params.patientId;
      
         this.allTasks = this.patientService.getPatientTasks(params.patientId)
+        console.log("length",this.countItems(this.allTasks))
         this.doneTasks = this.patientService.getDoneTasks(params.patientId);
         this.undoneTasks = this.patientService.getUndoneTasks(params.patientId);
       
@@ -156,4 +171,41 @@ export class TaskViewComponent implements OnInit {
     this.patientService.removePatient(patient.id);
     this.router.navigate(['/patients'])
   }
+
+
+  performSearch(){
+    if(this.searchValue){
+      this.patients.filter(item =>{
+        console.log(item.firstName === this.searchValue)
+        if(item.firstName === this.searchValue){
+          console.log(item)
+            this.results.push(item)
+            this.searchMode = true;
+        }
+      })
+      this.patients = this.results;
+     // this.searchValue = '';
+    }
+    if(this.searchValue === ''){
+       return this.patients; 
+    }
+    // this.patientService.searchPatient(this.search).subscribe((results: any) =>{
+    //   this.patients = results;
+    //   console.log("try",results)
+    // })
+    
+  }
+
+  clearSearch(){
+    this.router.navigate(['../'], {relativeTo: this.route})
+  }
+
+  countItems(item: Observable<any>){
+    let count = 0;
+    for(let i = 0; i > count; i++){
+      
+    }
+    return count;
+  }
+
 }

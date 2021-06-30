@@ -18,6 +18,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MatSelectModule } from '@angular/material/select';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 const material = [
   MatButtonModule,
@@ -37,7 +38,8 @@ const material = [
   MatDividerModule,
   MatGridListModule,
   MatExpansionModule,
-  MatSelectModule
+  MatSelectModule,
+  ScrollingModule
 ];
 
 @NgModule({

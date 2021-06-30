@@ -42,7 +42,6 @@ const routes: Routes = [
   { path: 'chatfeed/:roomname', component: ChatFeedComponent},
   {path: 'tasks', component: TasksHomeComponent},
   {path: 'calendar', component: TaskComponent},
-  {path: '', redirectTo: 'patients', pathMatch: 'full'},
   {path: 'new-patient', component: NewPatientComponent},
   {path: 'patients', component: TaskViewComponent},
   {path: 'patients/:patientId', component: TaskViewComponent},
