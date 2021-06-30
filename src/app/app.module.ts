@@ -1,3 +1,4 @@
+import { FollowService } from './services/follow/follow.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -69,6 +70,7 @@ import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.
 import { PatientDialogComponent } from './components/tasks/pages/patient-dialog/patient-dialog.component';
 import { PatientTaskDialogComponent } from './components/tasks/pages/patient-task-dialog/patient-task-dialog.component';
 import { OnboardComponent } from './onboard/onboard.component';
+import { FollowComponent } from './components/follow/follow/follow.component';
 
 @NgModule({
   declarations: [
@@ -102,6 +104,7 @@ import { OnboardComponent } from './onboard/onboard.component';
     PatientDialogComponent,
     PatientTaskDialogComponent,
     OnboardComponent,
+    FollowComponent,
   ],
   entryComponents: [AddRoomComponent],
   imports: [
@@ -132,7 +135,7 @@ import { OnboardComponent } from './onboard/onboard.component';
     MatInputModule,
     MatDialogModule
   ],
-  providers: [MessagingService, AsyncPipe],
+  providers: [MessagingService, AsyncPipe, FollowService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
