@@ -11,6 +11,25 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AdditionalChatServiceService } from 'src/app/services/additional/additional-chat-service.service';
 
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
+
+export const snapshotToArray = (snapshot: any) => {
+  const returnArr: any[] = [];
+
+  snapshot.forEach((childSnapshot: any) => {
+    const item = childSnapshot.val();
+    item.key = childSnapshot.key;
+    returnArr.push(item);
+  });
+
+  return returnArr;
+};
+
 @Component({
   selector: 'app-addusers',
   templateUrl: './addusers.component.html',
