@@ -131,5 +131,4 @@ export class OneChatComponent implements OnInit {
       firebase.database().ref(`messages/${key}`).remove();
     }
   }
- 
 }
