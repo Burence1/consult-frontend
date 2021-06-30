@@ -5,7 +5,7 @@ export class Task{
     owner: string;
     dateDue: any;
     created: Date;
-    from?: string;
-    to?: string;
+    from?: any;
+    to?: any;
 }
 //add status, creator, donedone
