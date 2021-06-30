@@ -15,6 +15,16 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class ConvolistComponent implements OnInit {
 
+  user: any;
+  userId: any
+  userName: any;
+  chatname: any;
+  displayedColumns: string[] = ['roomname'];
+  conversations: any;
+  isLoadingResults = true;
+  receiver: any
+  userid: string
+
   constructor() { }
 
   ngOnInit(): void {
