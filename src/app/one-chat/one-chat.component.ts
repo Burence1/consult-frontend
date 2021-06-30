@@ -131,13 +131,5 @@ export class OneChatComponent implements OnInit {
       firebase.database().ref(`messages/${key}`).remove();
     }
   }
-
-  UpdateMsg(uid: any) {
-    const key = uid
-    var del = confirm("Want to delete?");
-    if (del) {
-      firebase.database().ref(`chats/${key}`).update(this.updateM);
-    }
-  }
  
 }
