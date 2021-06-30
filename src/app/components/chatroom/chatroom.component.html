@@ -1,72 +1,36 @@
 <mat-toolbar>
-  <button
-    type="button"
-    (click)="drawer.toggle()"
-    mat-icon-button
-    class="toggler"
-  >
+  <button type="button" (click)="drawer.toggle()" mat-icon-button class="toggler">
     ☰
   </button>
   <span>Navigation</span>
 </mat-toolbar>
 
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav
-    #drawer
-    class="sidenav"
-    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="(isHandset$ | async) === true"
-  >
-  <img class="avatar mat-elevation-z8" src="https://image.freepik.com/free-vector/doctor-avatar-design_1146-14.jpg" />
-  <h4 class="name">Dr.{{ profile.displayName }}</h4>
-  <p class="designation">{{ profile.department }}</p>
-  <hr>
+  <mat-sidenav #drawer class="sidenav" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === true">
+    <img class="avatar mat-elevation-z8" src="https://image.freepik.com/free-vector/doctor-avatar-design_1146-14.jpg" />
+    <h4 class="name">Dr.{{ profile.displayName }}</h4>
+    <p class="designation">{{ profile.department }}</p>
+    <hr>
 
-    <a
-      mat-list-item
-      href=""
-      class="nav-item nav-link active"
-      routerLink="/home"
-      routerLinkActive="active"
-      ><mat-icon>home</mat-icon> Home</a
-    >
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-      routerLink="/profile"
-      routerLinkActive="active"
-      ><mat-icon>contact_page</mat-icon>Profile</a
-    >
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-      href="/tasks"
-      routerLinkActive="active"
-      ><mat-icon>assignment</mat-icon>Tasks</a
-    >
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-      routerLink="/chats"
-      routerLinkActive="active"
-      ><mat-icon>forum</mat-icon><span matBadge="4" matBadgeOverlap="false">Chat</span></a
-    >
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-      routerLink="about"
-      routerLinkActive="active"
-      ><mat-icon>contact_support</mat-icon>Help</a
-    >
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-      *ngIf="(user | async)?.uid"
-      (click)="logout()"
-    >
-      <mat-icon>logout</mat-icon>Logout</a
-    >
+    <a mat-list-item href="" class="nav-item nav-link active" routerLink="/home" routerLinkActive="active">
+      <mat-icon>home</mat-icon> Home
+    </a>
+    <a mat-list-item class="nav-item nav-link" routerLink="/profile" routerLinkActive="active">
+      <mat-icon>contact_page</mat-icon>Profile
+    </a>
+    <a mat-list-item class="nav-item nav-link" href="/tasks" routerLinkActive="active">
+      <mat-icon>assignment</mat-icon>Tasks
+    </a>
+    <a mat-list-item class="nav-item nav-link" routerLink="/chats" routerLinkActive="active">
+      <mat-icon>forum</mat-icon><span matBadge="4" matBadgeOverlap="false">Chat</span>
+    </a>
+    <a mat-list-item class="nav-item nav-link" routerLink="about" routerLinkActive="active">
+      <mat-icon>contact_support</mat-icon>Help
+    </a>
+    <a mat-list-item class="nav-item nav-link" *ngIf="(user | async)?.uid" (click)="logout()">
+      <mat-icon>logout</mat-icon>Logout
+    </a>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="">
@@ -77,17 +41,17 @@
             <div class="col-md-8">
               <app-add-room></app-add-room>
               <!-- <app-roomlists></app-roomlists> -->
-              <app-chat-feed></app-chat-feed>
+              <!-- <app-chat-feed></app-chat-feed> -->
 
             </div>
-              <mat-card>
+            <mat-card>
               <mat-tab-group>
                 <mat-tab>
                   <ng-template mat-tab-label>
                     <mat-icon class="example-tab-icon">thumb_up</mat-icon>
                     Chats
                   </ng-template>
-                  
+
                 </mat-tab>
 
                 <mat-tab>
@@ -95,16 +59,13 @@
                     <mat-icon class="example-tab-icon">thumb_up</mat-icon>
                     Rooms
                   </ng-template>
-                 <!-- <app-chat-feed></app-chat-feed> -->
+                  <!-- <app-chat-feed></app-chat-feed> -->
                 </mat-tab>
               </mat-tab-group>
             </mat-card>
           </div>
-          </div>
+        </div>
       </div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-
-
