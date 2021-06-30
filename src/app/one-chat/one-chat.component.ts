@@ -75,7 +75,6 @@ export class OneChatComponent implements OnInit {
 
         })
       });
-
       this.roomname = this.route.snapshot.params.roomname;
       firebase.database().ref('messages/').on('value', resp => {
         let chats = snapshotToArray(resp);
