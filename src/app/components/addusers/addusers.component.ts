@@ -37,6 +37,20 @@ export const snapshotToArray = (snapshot: any) => {
 })
 export class AddusersComponent implements OnInit {
 
+  roomForm: FormGroup | any;
+  chatname = '';
+  roomname = '';
+  ref = firebase.database().ref('rooms/');
+  matcher = new MyErrorStateMatcher();
+  admin: string;
+  users: Array<any>;
+
+  username: any[]
+  uid: any
+  value: any
+  user: any
+  userName: any
+
   constructor() { }
 
   ngOnInit(): void {
