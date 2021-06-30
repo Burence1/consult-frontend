@@ -136,7 +136,7 @@ export class ConvolistComponent implements OnInit {
       recipient = this.snapshotToArray(resp, this.userid);
       const user = recipient.find(x => x.chatname === this.chatname);
     });
-    this.router.navigate(['/chatroom', displayName]);
+    this.router.navigate(['/direct', displayName]);
   }
 
 }
