@@ -1,1 +1,30 @@
-<p>addusers works!</p>
+<div class="container">
+  <form class="example-form" [formGroup]="roomForm" (ngSubmit)="onFormSubmit(roomForm.value)">
+    <button mat-icon-button (click)="open(list)" class="end">
+      <mat-icon matSuffix>person_add</mat-icon>
+    </button>
+    <!-- <h2>Please enter new Room</h2>
+      <mat-form-field class="example-full-width">
+        <mat-label>Room Name</mat-label>
+        <input matInput placeholder="Enter room name" formControlName="roomname"
+                [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!roomForm.get('roomname').valid && roomForm.get('roomname').touched">Enter room name</span>
+          <span>Enter room name</span>
+        </mat-error>
+      </mat-form-field>
+      <div class="button-row">
+          <button type="submit" [disabled]="!roomForm.valid" mat-fab color="primary"><mat-icon>save</mat-icon></button>
+      </div> -->
+  </form>
+</div>
+
+<ng-template #list>
+  <mat-list role="list" cdk-virtual-scroll-viewport itemSize="10" *ngIf="users">
+    <mat-list-item role="listitem" *ngFor="let x of users" (click)="onFormSubmit(x)">
+      <div>
+        {{ x?.displayName}}
+      </div>
+    </mat-list-item>
+  </mat-list>
+</ng-template>
