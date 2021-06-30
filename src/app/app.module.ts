@@ -70,6 +70,7 @@ import { PatientDialogComponent } from './components/tasks/pages/patient-dialog/
 import { PatientTaskDialogComponent } from './components/tasks/pages/patient-task-dialog/patient-task-dialog.component';
 import { OnboardComponent } from './onboard/onboard.component';
 import { AddusersComponent } from './components/addusers/addusers.component';
+import { ConvolistComponent } from './components/convolist/convolist.component';
 
 @NgModule({
   declarations: [
@@ -104,6 +105,7 @@ import { AddusersComponent } from './components/addusers/addusers.component';
     PatientTaskDialogComponent,
     OnboardComponent,
     AddusersComponent,
+    ConvolistComponent,
   ],
   entryComponents: [AddRoomComponent],
   imports: [
