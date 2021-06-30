@@ -134,7 +134,8 @@ import { ConvolistComponent } from './components/convolist/convolist.component';
     MatButtonModule,
     LayoutModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatListModule,
   ],
   providers: [MessagingService, AsyncPipe],
   bootstrap: [AppComponent]
