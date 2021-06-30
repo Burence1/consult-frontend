@@ -1,4 +1,4 @@
-import { CalendarEvent } from "angular-calendar";
+import { CalendarEvent } from 'angular-calendar';
 
 export interface myEvent extends CalendarEvent{
     description?: string;

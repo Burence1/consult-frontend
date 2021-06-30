@@ -13,7 +13,7 @@ import { MessagingService } from './services/push-notifications/messaging.servic
 import { AsyncPipe } from '@angular/common';
 import { ConfirmEqualValidatorDirective } from './shared/material/material/confirm-equal-validator.directive';
 
-
+import { PhoneLoginComponent } from './components/authentication/phone-login/phone-login.component';
 import { LoginComponent } from './components/authentication/login/login.component';
 import { RegisterComponent } from './components/authentication/register/register.component';
 import { EmailComponent } from './components/authentication/email/email.component';
@@ -59,8 +59,7 @@ import { RoomlistsComponent } from './components/roomlists/roomlists.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
 import { NewTaskComponent } from './components/tasks/new-task/new-task.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UpdateProfileComponent } from './components/userProfile/update-profile/update-profile/update-profile.component';
+import { OneChatComponent } from './one-chat/one-chat.component';
 import { TaskComponent } from './components/tasks/task/task.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TasksHomeComponent } from './components/tasks/tasks-home/tasks-home.component';
@@ -69,7 +68,7 @@ import { NewPatientComponent } from './components/tasks/pages/new-patient/new-pa
 import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.component';
 import { PatientDialogComponent } from './components/tasks/pages/patient-dialog/patient-dialog.component';
 import { PatientTaskDialogComponent } from './components/tasks/pages/patient-task-dialog/patient-task-dialog.component';
-
+import { OnboardComponent } from './onboard/onboard.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +76,7 @@ import { PatientTaskDialogComponent } from './components/tasks/pages/patient-tas
     LoginComponent,
     RegisterComponent,
     ConfirmEqualValidatorDirective,
+    PhoneLoginComponent,
     EmailComponent,
     ForgotPasswordComponent,
     HomePageComponent,
@@ -93,8 +93,7 @@ import { PatientTaskDialogComponent } from './components/tasks/pages/patient-tas
     RoomlistsComponent,
     DirectoryComponent,
     NewTaskComponent,
-    DashboardComponent,
-    UpdateProfileComponent,
+    OneChatComponent,
     TaskComponent,
     TasksHomeComponent,
     AddTaskComponent,
@@ -102,6 +101,7 @@ import { PatientTaskDialogComponent } from './components/tasks/pages/patient-tas
     TaskViewComponent,
     PatientDialogComponent,
     PatientTaskDialogComponent,
+    OnboardComponent,
   ],
   entryComponents: [AddRoomComponent],
   imports: [

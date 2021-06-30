@@ -1,125 +1,125 @@
 .jumbotron {
-    background-color: #003060;
-    margin-top: 2rem;
-    height: 300px;
-    color: white;
+  background-color: #003060;
+  margin-top: 2rem;
+  height: 300px;
+  color: white;
 }
 .jumbo-img {
-    max-width: 300px;
-    max-height: 250px;
-   margin-top: 20px;
+  max-width: 300px;
+  max-height: 250px;
+ margin-top: 20px;
 }
 .jumbo-text{
-    margin-left: 10px;
-    margin-top: 3rem;
+  margin-left: 10px;
+  margin-top: 3rem;
 }
 .inline-calendar-card{
-    width: 450px;
-    margin-left: 7rem;
+  width: 450px;
+  margin-left: 7rem;
 }
 .highlights{
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 .logo{
-    color: white;
+  color: white;
 }
 .logo1 {
-    width: 200px;
-    height: 100px;
-    margin-top: 20px;
-    margin-left: 35px
+  width: 200px;
+  height: 100px;
+  margin-top: 20px;
+  margin-left: 35px
 }
 .pointer{
-  cursor: pointer;
+cursor: pointer;
 }
 .toggler{
-    font-size: 40px;
-  }
-  mat-toolbar {
-    background: #003060;
-    color: white;
+  font-size: 40px;
+}
+mat-toolbar {
+  background: #003060;
+  color: white;
 }
 .nav-item{
-    color: white;
+  color: white;
 }
 mat-sidenav {
-    margin: 16px;
-    width: 200px;
-    border-right: none;
-    background: #003060;
-    color: white;
-    border-radius: 10px;
-    padding: 16px;
-    text-align: center;
+  margin: 16px;
+  width: 200px;
+  border-right: none;
+  background: #003060;
+  color: white;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
 }
 .content {
-    height: calc(100vh - 98px);
-    border-radius: 10px;
-    margin: 16px;
-    margin-left: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    color: lightgray;
+  height: calc(100vh - 98px);
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: lightgray;
 }
 mat-sidenav-container {
-    height: calc(100vh - 65px);
+  height: calc(100vh - 65px);
 }
 .menu-button {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  font-size: 1rem;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+font-size: 1rem;
 }
 mat-icon {
-  margin-right: 8px;
+margin-right: 8px;
 }
 .avatar {
-  margin-top: 16px;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+margin-top: 16px;
+width: 100px;
+height: 100px;
+border-radius: 50%;
 }
 .name {
-  margin-top: 8px;
-  font-weight: normal;
+margin-top: 8px;
+font-weight: normal;
 }
 .designation {
-  margin-top: 2px;
-  font-size: 0.7rem;
-  color: lightgrey;
+margin-top: 2px;
+font-size: 0.7rem;
+color: lightgrey;
 }
 mat-divider {
-  margin-top: 16px;
-  margin-bottom: 16px;
-  background-color: rgba(255, 255, 255, 0.5);
+margin-top: 16px;
+margin-bottom: 16px;
+background-color: rgba(255, 255, 255, 0.5);
 }
 .grid-container {
-  margin: 20px;
+margin: 20px;
 }
 .dashboard-card {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
+position: absolute;
+top: 15px;
+left: 15px;
+right: 15px;
+bottom: 15px;
 }
 .more-button {
-  position: absolute;
-  top: 5px;
-  right: 10px;
+position: absolute;
+top: 5px;
+right: 10px;
 }
 .dashboard-card-content {
-  text-align: center;
-  margin-top: 10%;
-  font-family: comfortaa;
-  font-size: 100px;
-  text-decoration: none;
+text-align: center;
+margin-top: 10%;
+font-family: comfortaa;
+font-size: 100px;
+text-decoration: none;
 }
 .example-card {
-  max-width: 400px;
+max-width: 400px;
 }
 .example-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');

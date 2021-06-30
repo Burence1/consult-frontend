@@ -1,3 +1,5 @@
+import { OnboardComponent } from './onboard/onboard.component';
+import { OneChatComponent } from './one-chat/one-chat.component';
 import { RoomlistsComponent } from './components/roomlists/roomlists.component';
 import { AddRoomComponent } from './components/add-room/add-room.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,13 +22,10 @@ import { TasksHomeComponent } from './components/tasks/tasks-home/tasks-home.com
 import { NewPatientComponent } from './components/tasks/pages/new-patient/new-patient.component';
 import { AddTaskComponent } from './components/tasks/pages/add-task/add-task.component';
 import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.component';
-//import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.component';
-//import { CalendarComponent } from './components/tasks/calendar/calendar.component';
-
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'onboard', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'email-login', component: EmailComponent },
   { path: 'phone-login', component: PhoneLoginComponent },
@@ -42,14 +41,16 @@ const routes: Routes = [
   { path: 'chatfeed/:roomname', component: ChatFeedComponent},
   {path: 'tasks', component: TasksHomeComponent},
   {path: 'calendar', component: TaskComponent},
+  {path: 'One', component: OneChatComponent},
+  {path: 'onboard', component: OnboardComponent},
+  {path: 'tasks', component: TasksHomeComponent},
+  {path: 'calendar', component: TaskComponent},
+  {path: '', redirectTo: 'patients', pathMatch: 'full'},
   {path: 'new-patient', component: NewPatientComponent},
   {path: 'patients', component: TaskViewComponent},
   {path: 'patients/:patientId', component: TaskViewComponent},
   {path: 'patients/:patientId/add-task', component: AddTaskComponent},
   { path: '**', component: NotFoundComponent },
-  
-
-
 
 ];
 

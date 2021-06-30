@@ -7,6 +7,9 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { ProfileService } from 'src/app/services/profile.service';
 import { FileService } from 'src/app/services/files/file-service.service';
 import { Profile } from 'src/app/profile';
+import { MessagingService } from 'src/app/services/push-notifications/messaging.service';
+import firebase from 'firebase/app';
+import 'firebase/firestore';
 
 @Component({
   selector: 'app-home-page',
@@ -25,6 +28,11 @@ export class HomePageComponent implements OnInit {
       map((result) => result.matches),
       shareReplay()
     );
+  message: any;
+  opened!: boolean;
+  username: any;
+  uid: any;
+  searchText = '';
 
   constructor(
     private auth: AuthService,
@@ -33,8 +41,19 @@ export class HomePageComponent implements OnInit {
     @Inject(AngularFireStorage)
     private storage: AngularFireStorage,
     @Inject(FileService)
-    private fileService: FileService
+    private fileService: FileService,
+    private messagingService: MessagingService
   ) {
+    firebase.database().ref('users/').on('value', (snapshot: any) => {
+      snapshot.forEach((childSnapshot: any) => {
+        const childKey = childSnapshot.key;
+        const childData = childSnapshot.val();
+        this.username = childData.displayName;
+        this.uid = childKey;
+        console.log(this.username);
+
+      });
+    });
     this.findProfiles();
     this.auth.user.subscribe(
       (user) => {
@@ -56,10 +75,12 @@ export class HomePageComponent implements OnInit {
     );
   }
 
-  // tslint:disable-next-line: typedef
   findProfiles() {}
 
   ngOnInit(): void {
+    this.messagingService.requestPermission();
+    this.messagingService.receiveMessage();
+    this.message = this.messagingService.currentMessage;
     this.user = this.auth.authUser();
     this.user.subscribe((user) => {
       if (user) {
@@ -72,4 +93,10 @@ export class HomePageComponent implements OnInit {
   logout() {
     this.auth.logout();
   }
+
+  // tslint:disable-next-line: typedef
+  filterCondition(users) {
+    return users.displayName.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1;
+  }
+
 }

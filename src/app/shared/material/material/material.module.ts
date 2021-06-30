@@ -39,7 +39,8 @@ const material = [
   MatGridListModule,
   MatExpansionModule,
   MatSelectModule,
-  ScrollingModule
+  ScrollingModule,
+  MatToolbarModule,
 ];
 
 @NgModule({

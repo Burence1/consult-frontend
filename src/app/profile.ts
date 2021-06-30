@@ -9,5 +9,5 @@ export class Profile {
     contact?: number;
     interest1?: string;
     bio?: string;
-    
+
 }
