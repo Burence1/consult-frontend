@@ -1,0 +1,33 @@
+<mat-toolbar class="toolbar">
+    <div class="d-flex">
+        <img src="../../../../assets/images/logo.png" alt="" class="logo-img">
+    </div>
+ 
+  <div>
+    <ul class="d-flex">
+      <a routerLink="/" class="nav-link">Home</a>
+      <a routerLink='/chats' class="nav-link">Chats</a>
+      <a routerLink="/directory" class="nav-link">Directory</a>
+    </ul>
+  </div>
+  </mat-toolbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-11">
+            <h2 class="text-center">Tasks Board</h2>
+            <mat-tab-group animationDuration="0ms">
+              <!-- common tasks -->
+              <mat-tab label="Kanban">
+                <app-tasks></app-tasks>
+            </mat-tab>
+              <!-- calendar -->
+              <mat-tab label="Calendar">
+                 <app-task></app-task>
+              </mat-tab>
+            </mat-tab-group>
+        </div>
+        <div class="col-md-1">
+          
+      </div>
+    </div>
+</div>

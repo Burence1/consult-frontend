@@ -13,7 +13,7 @@ import { MessagingService } from './services/push-notifications/messaging.servic
 import { AsyncPipe } from '@angular/common';
 import { ConfirmEqualValidatorDirective } from './shared/material/material/confirm-equal-validator.directive';
 
-
+import { PhoneLoginComponent } from './components/authentication/phone-login/phone-login.component';
 import { LoginComponent } from './components/authentication/login/login.component';
 import { RegisterComponent } from './components/authentication/register/register.component';
 import { EmailComponent } from './components/authentication/email/email.component';
@@ -33,19 +33,14 @@ import { ToastrModule } from 'ngx-toastr';
 import { MatCarouselModule } from 'ng-mat-carousel';
 
 
-// import { TasksComponent } from './components/tasks/tasks.component';
-// import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
+
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
 import { DirectoryComponent } from './directory/directory.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
-import {
-  NgxMatDatetimePickerModule,
-  NgxMatNativeDateModule,
-  NgxMatTimepickerModule
-} from '@angular-material-components/datetime-picker';
+import {NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule} from '@angular-material-components/datetime-picker';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
@@ -58,18 +53,22 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatInputModule } from '@angular/material/input';
 import { AddRoomComponent } from './components/add-room/add-room.component';
 import { RoomlistsComponent } from './components/roomlists/roomlists.component';
 import { TasksComponent } from './components/tasks/tasks.component';
-//import { CalendarComponent } from './components/tasks/calendar/calendar.component';
-//import { DoneTaskComponent } from './components/tasks/done-task/done-task.component';
-//import { OnHoldComponent } from './components/tasks/on-hold/on-hold.component';
 import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
-//import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.component';
 import { NewTaskComponent } from './components/tasks/new-task/new-task.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UpdateProfileComponent } from './components/userProfile/update-profile/update-profile/update-profile.component';
-
+import { OneChatComponent } from './one-chat/one-chat.component';
+import { TaskComponent } from './components/tasks/task/task.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TasksHomeComponent } from './components/tasks/tasks-home/tasks-home.component';
+import { AddTaskComponent } from './components/tasks/pages/add-task/add-task.component';
+import { NewPatientComponent } from './components/tasks/pages/new-patient/new-patient.component';
+import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.component';
+import { PatientDialogComponent } from './components/tasks/pages/patient-dialog/patient-dialog.component';
+import { PatientTaskDialogComponent } from './components/tasks/pages/patient-task-dialog/patient-task-dialog.component';
+import { OnboardComponent } from './onboard/onboard.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +76,7 @@ import { UpdateProfileComponent } from './components/userProfile/update-profile/
     LoginComponent,
     RegisterComponent,
     ConfirmEqualValidatorDirective,
+    PhoneLoginComponent,
     EmailComponent,
     ForgotPasswordComponent,
     HomePageComponent,
@@ -87,21 +87,21 @@ import { UpdateProfileComponent } from './components/userProfile/update-profile/
     ProfileComponent,
     DropzoneDirective,
     NotFoundComponent,
-    AddRoomComponent,
-    RoomlistsComponent,
     TasksComponent,
-    // CalendarComponent,
-    // DoneTaskComponent,
-    // OnHoldComponent,
     TaskDialogComponent,
-    NotFoundComponent,
     AddRoomComponent,
     RoomlistsComponent,
     DirectoryComponent,
-    //TasksListComponent,
     NewTaskComponent,
-    DashboardComponent,
-    UpdateProfileComponent,
+    OneChatComponent,
+    TaskComponent,
+    TasksHomeComponent,
+    AddTaskComponent,
+    NewPatientComponent,
+    TaskViewComponent,
+    PatientDialogComponent,
+    PatientTaskDialogComponent,
+    OnboardComponent,
   ],
   entryComponents: [AddRoomComponent],
   imports: [
@@ -119,6 +119,7 @@ import { UpdateProfileComponent } from './components/userProfile/update-profile/
     MatMenuModule,
     DragDropModule,
     MatFormFieldModule,
+    MatInputModule,
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
@@ -127,7 +128,9 @@ import { UpdateProfileComponent } from './components/userProfile/update-profile/
     MatGridListModule,
     MatCardModule,
     MatButtonModule,
-    LayoutModule
+    LayoutModule,
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [MessagingService, AsyncPipe],
   bootstrap: [AppComponent]

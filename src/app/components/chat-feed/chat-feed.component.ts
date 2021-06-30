@@ -39,7 +39,6 @@ export class ChatFeedComponent implements OnInit {
   updateM: Chatmessage = {
     message: ''
   }
-  
   chatForm: FormGroup;
   chatname = '';
   roomname = '';
@@ -106,7 +105,7 @@ export class ChatFeedComponent implements OnInit {
   onFormSubmit(form: any) {
     var today = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
     var dateTime = date + ' ' + time;
 
     const chat = form;
@@ -123,7 +122,7 @@ export class ChatFeedComponent implements OnInit {
 
   deleteMsg(uid: any) {
     const key = uid
-    var del = confirm("Are you sure you want to delete this message?");
+    var del = confirm('Are you sure you want to delete this message?');
     if (del) {
       firebase.database().ref(`chats/${key}`).remove();
     }
@@ -133,7 +132,7 @@ export class ChatFeedComponent implements OnInit {
     const key = uid
     var today = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
     var dateTime = date + ' ' + time;
 
     const chat = message;
@@ -143,7 +142,7 @@ export class ChatFeedComponent implements OnInit {
     chat.type = 'message';
     firebase.database().ref(`chats/${key}`).update(chat);
   }
-  
+
   // scrollToBottom(): void {
   //   this.feedScroll.nativeElement.scrollTop
   //     = this.feedScroll.nativeElement.scrollHeight;

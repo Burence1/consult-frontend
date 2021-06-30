@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireDatabaseModule, AngularFireList } from '@angular/fire/database';
+import { Injectable, OnInit } from '@angular/core';
+import { AngularFireDatabase, AngularFireDatabaseModule, AngularFireList, AngularFireObject } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
@@ -58,7 +58,7 @@ export class ChatService {
   constructor(private db: AngularFireDatabase,
     private Auth: AngularFireAuth, private router: Router,
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder,) {
+    private formBuilder: FormBuilder) {
     this.Auth.authState.subscribe(auth => {
       if (auth !== undefined && auth !== null) {
         this.user = auth;
@@ -83,6 +83,7 @@ export class ChatService {
   getGroup() {
     return this.group
   }
+
 
   getGroupss(): Observable<any> {
     this.groupChats = this.db.list('/groups');
@@ -151,3 +152,5 @@ export class ChatService {
     return (date + ' ' + time);
   }
 }
+
+

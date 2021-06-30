@@ -1,8 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Task } from '../task';
-import { DoneService } from '../tasks-services/done.service';
-import { TaskService } from '../tasks-services/task.service';
-import { HoldService } from '../tasks-services/hold.service';
+import { CurrentUser } from '../tasks.component';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-new-task',
@@ -15,7 +14,29 @@ export class NewTaskComponent implements OnInit {
 
   @Output() edit = new EventEmitter<Task>();
 
+  users: CurrentUser[] = [];
+  user: CurrentUser;
+  usersName: string = '';
+
   ngOnInit(): void{
     
   }
+  constructor(private auth: AuthService){
+    this.auth.authUser().subscribe((res: any) =>{
+      console.log("User", res)
+      let newuser = {
+        name: res.displayName,
+        email: res.email
+      }
+     // this.users.push(newuser);
+      this.usersName = newuser.name;
+      // this.usersName = this.user.name;
+      // console.log("testing user",this.usersName)
+      // console.log(this.users)
+    })
+  }
+  formatDate(date: string){
+  return date.toString()
+  }
 }
+  
