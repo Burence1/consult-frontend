@@ -51,9 +51,83 @@ export class AddusersComponent implements OnInit {
   user: any
   userName: any
 
-  constructor() { }
+  constructor(private router: Router,
+    private helper: AdditionalChatServiceService,
+    private db: AngularFireDatabase,
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private snackBar: MatSnackBar, private Auth: AngularFireAuth) {
+    this.Auth.authState.subscribe(auth => {
+      if (auth !== undefined && auth !== null) {
+        this.user = auth;
+      }
+      this.getUser().valueChanges().subscribe(a => {
+        this.userName = a;
+        this.chatname = this.userName.displayName
+      })
+
+      firebase.database().ref('users/').on('value', (snapshot: any) => {
+        snapshot.forEach((childSnapshot: any) => {
+          let childKey = childSnapshot.key;
+          let childData = childSnapshot.val();
+          this.username = childData.displayName
+          this.uid = childKey
+
+        });
+      });
+    });
+  }
+  getUser() {
+    const userId = this.user.uid;
+    const path = `/users/${userId}`;
+    return this.db.object(path);
+  }
+
+  getAllUsers() {
+    return firebase.database().ref('users/').once("value", snap => {
+      this.users = snapshotToArray(snap)
+    })
+  }
 
   ngOnInit(): void {
+    this.roomForm = this.formBuilder.group({
+      'roomname': [null, Validators.required]
+    });
+    this.getAllUsers()
+  }
+
+  open(list: any) {
+    this.helper.openDialog(list)
+  }
+
+  closeModal() {
+    this.helper.closeModal()
+  }
+
+  onFormSubmit(user: any) {
+
+    const convo = user;
+    this.admin = this.chatname
+    const unique = String(this.admin) + String(convo.displayName)
+    convo.convoname = unique
+    console.log(unique)
+    convo.sender = this.user.uid
+    convo.receiver = convo.key
+    console.log(convo)
+    firebase.database().ref('conversations/').orderByChild('convoname').equalTo(unique).once('value', (snapshot: any) => {
+      if (snapshot.exists()) {
+        this.snackBar.open('conversation already exist!', 'undo',
+          {
+            duration: 2000
+          });
+
+      } else {
+        const newRoom = firebase.database().ref('conversations/').push();
+        newRoom.set(convo);
+        this.router.navigate(['/roomlist']);
+      }
+
+    });
   }
 
 }
