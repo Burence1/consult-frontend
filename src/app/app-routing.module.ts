@@ -1,5 +1,5 @@
 import { OnboardComponent } from './onboard/onboard.component';
-import { OneChatComponent } from './one-chat/one-chat.component';
+import { OneChatComponent } from './components/one-chat/one-chat.component';
 import { RoomlistsComponent } from './components/roomlists/roomlists.component';
 import { AddRoomComponent } from './components/add-room/add-room.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';

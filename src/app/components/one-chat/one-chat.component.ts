@@ -1,4 +1,4 @@
-import { Chatmessage } from '../classes/message/chatmessage';
+import { Chatmessage } from '../../classes/message/chatmessage';
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';

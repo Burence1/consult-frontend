@@ -59,7 +59,7 @@ import { RoomlistsComponent } from './components/roomlists/roomlists.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
 import { NewTaskComponent } from './components/tasks/new-task/new-task.component';
-import { OneChatComponent } from './one-chat/one-chat.component';
+import { OneChatComponent } from './components/one-chat/one-chat.component';
 import { TaskComponent } from './components/tasks/task/task.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TasksHomeComponent } from './components/tasks/tasks-home/tasks-home.component';
