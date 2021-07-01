@@ -23,9 +23,7 @@ import { TasksHomeComponent } from './components/tasks/tasks-home/tasks-home.com
 import { NewPatientComponent } from './components/tasks/pages/new-patient/new-patient.component';
 import { AddTaskComponent } from './components/tasks/pages/add-task/add-task.component';
 import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.component';
-//import { TasksListComponent } from './components/tasks/tasks-list/tasks-list.component';
-//import { CalendarComponent } from './components/tasks/calendar/calendar.component';
-
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 const routes: Routes = [
@@ -48,11 +46,16 @@ const routes: Routes = [
   {path: 'tasks', component: TasksHomeComponent},
   {path: 'about', component: AboutComponent},
   {path: 'calendar', component: TaskComponent},
+  {path: 'One', component: OneChatComponent},
+  {path: 'onboard', component: OnboardComponent},
+  {path: 'tasks', component: TasksHomeComponent},
+  {path: 'calendar', component: TaskComponent},
   {path: '', redirectTo: 'patients', pathMatch: 'full'},
   {path: 'new-patient', component: NewPatientComponent},
   {path: 'patients', component: TaskViewComponent},
   {path: 'patients/:patientId', component: TaskViewComponent},
   {path: 'patients/:patientId/add-task', component: AddTaskComponent},
+  { path: 'directory/user-profile/:profile.id', component: UserProfileComponent},
   { path: '**', component: NotFoundComponent },
 
 ];

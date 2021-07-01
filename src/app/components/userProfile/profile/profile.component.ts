@@ -45,9 +45,11 @@ export class ProfileComponent implements OnInit {
   displayNameInput: string;
   imageInput: string;
   bioInput: string;
-  
+  interest1Input: string;
+  interest2Input: string;
+  interest3Input: string;
+  interest4Input: string;
 
-  showForm = false;
 
   constructor( public authService: AuthService, private auth:AuthService,
                 private breakpointObserver: BreakpointObserver,
@@ -90,6 +92,10 @@ export class ProfileComponent implements OnInit {
     this.profile.displayName = this.displayNameInput;
     this.profile.image = this.imageInput;
     this.profile.bio = this.bioInput
+    this.profile.interest1 = this.interest1Input
+    this.profile.interest2 = this.interest2Input
+    this.profile.interest3 = this.interest3Input
+    this.profile.interest4 = this.interest4Input
     
 
     var name = this.selectedImage.name;
@@ -120,15 +126,7 @@ export class ProfileComponent implements OnInit {
     this.fileService.getImageDetailList();
   }
 
-  // tslint:disable-next-line: typedef
-  toggleForm(){
-    this.showForm = !this.showForm;
-  }
-  // tslint:disable-next-line: typedef
-  hideForm(){
-
-    this.showForm = false;
-  }
+  
 
   // tslint:disable-next-line: typedef
   signOut() {

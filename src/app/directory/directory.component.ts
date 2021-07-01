@@ -16,6 +16,8 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./directory.component.css']
 })
 export class DirectoryComponent implements OnInit {
+
+  searchText = '';
   profiles: Profile[];
   user: Observable<any>;
   userEmail: any;
@@ -25,21 +27,30 @@ export class DirectoryComponent implements OnInit {
       shareReplay()
     );
 
-  constructor(public authService: AuthService, private profileService: ProfileService, public auth: AuthService, private breakpointObserver: BreakpointObserver,
-              @Inject(AngularFireStorage) private storage: AngularFireStorage, @Inject(FileService) private fileService: FileService) {
-    this.profileService.fetchAllProfiles().subscribe(
-      (res) => {
-        this.profiles = res;
-        console.log(res);
-      }, error => {
-        console.error(error);
-      }
-    );
+  constructor(public authService: AuthService,
+              private profileService: ProfileService,
+              public auth: AuthService,
+              private breakpointObserver: BreakpointObserver,
+              @Inject(AngularFireStorage)
+              private storage: AngularFireStorage,
+              @Inject(FileService)
+              private fileService: FileService) {
+                this.profileService.fetchAllProfilesSnapshot().subscribe(
+                  (res) => {
+                    this.profiles = res.map((value) => {
+                      let profile = value.payload.val();
+                      profile.id = value.payload.key;
+                      return profile;
+                    });
+                    console.log(this.profiles);
+                  },
+                  (error) => {
+                    console.error(error);
+                  }
+                );
   }
 
-  SearchDirectory( ){
-    
-  }
+  
   ngOnInit(): void {
     this.user = this.auth.authUser();
     this.user.subscribe(user => {
@@ -54,5 +65,10 @@ export class DirectoryComponent implements OnInit {
     this.auth.logout();
   }
 
-
+   // tslint:disable-next-line: typedef
+   filterCondition(profile) {
+     const search = profile.displayName.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1;
+     console.log(search);
+     return search;
+  }
 }

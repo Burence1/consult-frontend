@@ -44,30 +44,30 @@ td:first-child{
     font-family: comfortaa;
     font-size: 20px;
 }
-
+  
   *, *:after, *:before {
     box-sizing: border-box;
   }
-
+  
   body {
     font-family: "DM Sans", sans-serif;
     line-height: 1.5;
     background-color: #f1f3fb;
     padding: 0 2rem;
   }
-
+  
   img {
     max-width: 100%;
     display: block;
   }
-
+  
   input {
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none;
     border-radius: 0;
   }
-
+  
   .card {
     margin: 2rem auto;
     display: flex;
@@ -79,7 +79,7 @@ td:first-child{
     box-shadow: 0 10px 20px 0 rgba(129, 129, 129, 0.25);
     padding: 0.75rem;
   }
-
+  
   .card-image {
     border-radius: 8px;
     overflow: hidden;
@@ -89,9 +89,9 @@ td:first-child{
     background-size: 150%;
     background-position: 0 5%;
     position: relative;
-
+    
   }
-
+  
   .card-heading {
     position: absolute;
     left: 10%;
@@ -108,11 +108,11 @@ td:first-child{
     font-weight: 400;
     margin-top: 0.25em;
   }
-
+  
   .card-form {
     padding: 2rem 1rem 0;
   }
-
+  
   .input {
     display: flex;
     flex-direction: column-reverse;
@@ -122,15 +122,15 @@ td:first-child{
   .input + .input {
     margin-top: 1.5rem;
   }
-
+  
   .input-label {
     color: black;
-
+    
     position: absolute;
     top: 1.5rem;
     transition: 0.25s ease;
   }
-
+  
   .input-field {
     border: 0;
     z-index: 1;
@@ -148,11 +148,11 @@ td:first-child{
     color: #6658d3;
     transform: translateY(-1.5rem);
   }
-
+  
   .action {
     margin-top: 2rem;
   }
-
+  
   .action-button {
     font: inherit;
     font-size: 1.25rem;
@@ -169,7 +169,7 @@ td:first-child{
     background-color: white;
     color: #003060;
   }
-
+  
   .card-info {
     padding: 1rem 1rem;
     text-align: center;
@@ -196,7 +196,7 @@ td:first-child{
 
 
 .tab-slider--trigger.active {
-
+  
   color: #345F90;
   font-weight: bold;
   padding: 6px;
@@ -227,7 +227,7 @@ td:first-child{
 .tab-slider--trigger {
   text-transform: uppercase;
   text-align: center;
-
+  
   position: relative;
   z-index: 2;
   cursor: pointer;
@@ -258,7 +258,7 @@ cursor: pointer;
 
 .toggler{
   font-size: 40px;
-}
+} 
 mat-toolbar {
   background: #003060;
   color: white;
@@ -350,4 +350,9 @@ background-color: rgba(255, 255, 255, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+li{
+  list-style: none;
 }
