@@ -7,11 +7,14 @@ import { TaskDialogResult } from './task-dialog/task-dialog.component';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Profile } from 'src/app/profile';
 import { ProfileService } from 'src/app/services/profile.service';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import { map, tap, scan, mergeMap, throttleTime } from 'rxjs/operators';
+import { FileService } from 'src/app/services/files/file-service.service';
+
 
 const getObservable = (collection: AngularFirestoreCollection<Task>) =>{
   const subject = new BehaviorSubject<Task[]>([]);
@@ -44,8 +47,11 @@ export class TasksComponent implements OnInit {
   currentId: string;
   profile: Profile;
   myuser: CurrentUser;
+  uid:any
+  user: Observable<any>;
 
-  constructor(private dialog: MatDialog, private db: AngularFirestore, private auth: AuthService, private profileService: ProfileService) {
+  
+  constructor(private dialog: MatDialog, private breakpointObserver: BreakpointObserver, private db: AngularFirestore, private auth: AuthService, private profileService: ProfileService, private fileService: FileService,) {
     this.auth.user.subscribe(
       (user) => {this.currentId = user.uid;
         this.profileService.fetchProfileApi(this.currentId).subscribe(
@@ -118,6 +124,9 @@ export class TasksComponent implements OnInit {
 
   filterTasks(){
 
+  }
+  logout() {
+    this.auth.logout();
   }
 
 }

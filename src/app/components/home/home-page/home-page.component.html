@@ -7,6 +7,7 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === true">
+    <!-- <img src="assets/images/logo.png" alt="" width="30px" height="20px"> -->
     <img class="avatar mat-elevation-z8" src="https://image.freepik.com/free-vector/doctor-avatar-design_1146-14.jpg" />
     <h4 class="name">Dr.{{ profile.displayName }}</h4>
     <p class="designation">{{ profile.department }}</p>
@@ -36,6 +37,15 @@
       routerLinkActive="active"
       ><mat-icon>assignment</mat-icon>Tasks</a
     >
+    <a
+      mat-list-item
+      class="nav-item nav-link"
+      routerLink="/chats"
+      routerLinkActive="active"
+      ><mat-icon>forum</mat-icon
+      ><span matBadge="4" matBadgeOverlap="false">Rooms</span></a
+    >
+
     <a
       mat-list-item
       class="nav-item nav-link"
