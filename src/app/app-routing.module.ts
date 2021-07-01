@@ -22,6 +22,7 @@ import { TasksHomeComponent } from './components/tasks/tasks-home/tasks-home.com
 import { NewPatientComponent } from './components/tasks/pages/new-patient/new-patient.component';
 import { AddTaskComponent } from './components/tasks/pages/add-task/add-task.component';
 import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 const routes: Routes = [
@@ -48,6 +49,7 @@ const routes: Routes = [
   {path: 'patients', component: TaskViewComponent},
   {path: 'patients/:patientId', component: TaskViewComponent},
   {path: 'patients/:patientId/add-task', component: AddTaskComponent},
+  { path: 'directory/user-profile/:profile.id', component: UserProfileComponent},
   { path: '**', component: NotFoundComponent },
 
 ];
