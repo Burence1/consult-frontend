@@ -7,6 +7,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class AdditionalChatServiceService {
 
+  animal: string;
+  name: string;
   dialogRef: any;
   constructor(
     private dialog: MatDialog,

@@ -124,10 +124,9 @@ export class AddusersComponent implements OnInit {
       } else {
         const newRoom = firebase.database().ref('conversations/').push();
         newRoom.set(convo);
-        this.router.navigate(['/roomlist']);
+        this.router.navigate(['/convolist']);
       }
 
     });
   }
-
 }

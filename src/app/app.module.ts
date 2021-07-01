@@ -71,7 +71,7 @@ import { PatientTaskDialogComponent } from './components/tasks/pages/patient-tas
 import { OnboardComponent } from './onboard/onboard.component';
 import { AddusersComponent } from './components/addusers/addusers.component';
 import { ConvolistComponent } from './components/convolist/convolist.component';
-import { ChannelComponent } from './components/channel/channel.component';
+
 
 @NgModule({
   declarations: [
@@ -107,7 +107,6 @@ import { ChannelComponent } from './components/channel/channel.component';
     OnboardComponent,
     AddusersComponent,
     ConvolistComponent,
-    ChannelComponent,
   ],
   entryComponents: [AddRoomComponent],
   imports: [
