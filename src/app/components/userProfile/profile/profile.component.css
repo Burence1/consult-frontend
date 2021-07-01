@@ -163,6 +163,7 @@ td:first-child{
     border-radius: 6px;
     color: #FFF;
     border: 0;
+    display: hide;
   }
   .action-button:hover {
     outline: 0;
