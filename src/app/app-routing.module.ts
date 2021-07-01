@@ -41,6 +41,8 @@ const routes: Routes = [
   { path: 'add-room', component: AddRoomComponent},
   { path: 'roomlist', component: RoomlistsComponent},
   { path: 'chatfeed/:roomname', component: ChatFeedComponent},
+  {path: 'tasks', component: TasksHomeComponent},
+  {path: 'calendar', component: TaskComponent},
   {path: 'One', component: OneChatComponent},
   {path: 'onboard', component: OnboardComponent},
   {path: 'tasks', component: TasksHomeComponent},

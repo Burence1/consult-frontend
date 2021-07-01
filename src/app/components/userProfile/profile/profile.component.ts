@@ -50,9 +50,9 @@ export class ProfileComponent implements OnInit {
                private breakpointObserver: BreakpointObserver,
                private profileService: ProfileService,
                @Inject(AngularFireStorage)
-    private storage: AngularFireStorage,
+               private storage: AngularFireStorage,
                @Inject(FileService)
-    private fileService: FileService) {
+               private fileService: FileService) {
     this.findProfiles();
     this.authService.user.subscribe(
       (user) => {
@@ -128,10 +128,6 @@ export class ProfileComponent implements OnInit {
   // tslint:disable-next-line: typedef
   view(){
     this.fileService.getImage(this.file);
-  }
-  // tslint:disable-next-line: typedef
-  logout() {
-    this.auth.logout();
   }
 
 }

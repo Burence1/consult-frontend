@@ -14,7 +14,7 @@ export class PatientTaskDialogComponent implements OnInit {
   currentId: string;
   profiles: Profile[];
   selectedValue: string;
-   minDate: Date;
+  minDate: Date;
 
   private backupTask: Partial<Todo> = { ...this.data.task};
 

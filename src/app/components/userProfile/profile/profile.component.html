@@ -1,4 +1,5 @@
 <div class="container">
+<<<<<<< HEAD
   <div class="row mt-5">
     <div class="col-md-2"></div>
     <div class="col-md-8 profile">
@@ -10,6 +11,69 @@
                     <img [src]=" profile.image " class="center" >
                     <h2 class="dr-name text-center">Dr: {{ profile.displayName }}</h2>
                   <div class="col-md-4"></div>
+=======
+<div class="row mt-5">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 profile">
+      <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4"></div>
+                <div class="col-md-4">
+                  <img [src]=" profile.image " class="center" >
+
+                  <h2 class="dr-name text-center">Dr: {{ profile.displayName }}</h2>
+                <div class="col-md-4"></div>
+                </div>
+            </div>
+            <div class=" overview-tab">
+              <div class="tab-slider--nav">
+                <div class=" row tab-slider--tabs">
+                <div class="col-md-4 lead tab-slider--trigger" [class.active]="viewMode == 'tab1'" rel="tab1" (click)="viewMode ='tab1'">Overview</div>
+              <div class="col-md-4 lead tab-slider--trigger" [class.active]="viewMode == 'tab2'" rel="tab2" (click)="viewMode ='tab2'">BIO</div>
+              <div class="col-md-4 lead lead tab-slider--trigger" [class.active]="viewMode == 'tab3'" rel="tab3" (click)="viewMode ='tab3'">CHAT GROUPS</div>
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                  <div class="tab-slider--container" [ngSwitch]="viewMode">
+                    <div id="tab1" class="tab-slider--body" *ngSwitchCase="'tab1'">
+                      <br>
+
+                      <table>
+                        <tr>
+                          <td>Name</td>
+                          <td></td>
+                          <td>{{ profile.displayName }}</td>
+                        </tr>
+                        <tr>
+                          <td>Email</td>
+                          <td></td>
+                          <td>{{ profile.email }}</td>
+                        </tr>
+                        <tr>
+                          <td>Department</td>
+                          <td></td>
+                          <td>{{ profile.department }}</td>
+                        </tr>
+                        <tr>
+                          <td>Position</td>
+                          <td></td>
+                          <td>{{ profile.position }}</td>
+                        </tr>
+                        <tr>
+                          <td>Contact</td>
+                          <td></td>
+                          <td>{{ profile.contact }}</td>
+                        </tr>
+                      </table>
+
+
+
+>>>>>>> cabdbde1cc003b86a4aab18723d329793d3c6649
                   </div>
               </div>
               <div class=" overview-tab">
@@ -19,6 +83,7 @@
                 <div class="col-md-4 lead tab-slider--trigger" [class.active]="viewMode == 'tab2'" rel="tab2" (click)="viewMode ='tab2'">BIO</div>
                 <div class="col-md-4 lead lead tab-slider--trigger" [class.active]="viewMode == 'tab3'" rel="tab3" (click)="viewMode ='tab3'">INTERESTS</div>
                   </div>
+<<<<<<< HEAD
                 </div>
               </div>
               <div class="container">
@@ -72,12 +137,21 @@
                   </div>
                   <!-- <div class="col-md-4"></div> -->
                 </div>
+=======
+                  <div id="tab3" class="tab-slider--body" *ngSwitchCase="'tab3'">
+
+
+                  </div>
+                </div>
+                <!-- <div class="col-md-4"></div> -->
+>>>>>>> cabdbde1cc003b86a4aab18723d329793d3c6649
               </div>
             </div>
           </div>
     </div>
     <div class="col-md-2"></div>
   </div>
+<<<<<<< HEAD
   </div>
   <div class="user-info">
     <div class="container">
@@ -143,6 +217,68 @@
                 <button class="action-button">Submit</button>
             </form>
           </div>
+=======
+  <div class="col-md-2"></div>
+</div>
+</div>
+
+<div class="user-info">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <div class="card-image">
+            <h2 class="card-heading text-center">
+              UPDATE PROFILE
+              <small>Update your account</small>
+            </h2>
+          </div>
+          <form (ngSubmit)='updateProfile()' #quoteForm='ngForm' id="form" class="card-form">
+            <div class="input">
+              <input type="text" class="input-field" id="name" [(ngModel)]="displayNameInput" name="name" required/>
+              <label for="name" class="input-label">Full name</label>
+            </div>
+            <div class="input">
+              <label for="profile_picture">Profile Picture</label><br><br>
+              <input type="file" id="myFile" name="filename" [(ngModel)]="imageInput" name="image" (change)="showPreview($event)">
+            </div>
+            <div class="input">
+              <input type="text" class="input-field" id="department" [(ngModel)]="departmentInput" name="department" required/>
+              <label for="department" class="input-label">Department</label>
+            </div>
+            <div class="input">
+              <input type="text" class="input-field" id="position" [(ngModel)]="positionInput" name="position" required/>
+              <label for="position" class="input-label">Position</label>
+            </div>
+            <div class="input">
+              <input type="text" class="input-field" [(ngModel)]="contactInput" name="contact" required/>
+              <label for="contact" class="input-label">Contact</label>
+            </div>
+            <div class="input">
+              <input type="text" class="input-field" [(ngModel)]="bioInput" name="bio" required/>
+              <label class="input-label text-area">Bio</label>
+            </div><br>
+
+
+
+
+              <button class="action-button">Submit</button>
+          </form>
+>>>>>>> cabdbde1cc003b86a4aab18723d329793d3c6649
         </div>
         <!-- <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -151,8 +287,22 @@
       </div>
     </div>
   </div>
+<<<<<<< HEAD
         </div>
       <div class="col-md-4"></div>
       </div>
     </div>
   </div>
+=======
+</div>
+
+
+
+
+
+      </div>
+    <div class="col-md-4"></div>
+    </div>
+  </div>
+</div>
+>>>>>>> cabdbde1cc003b86a4aab18723d329793d3c6649

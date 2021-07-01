@@ -57,13 +57,13 @@
       ><mat-icon>forum</mat-icon
       ><span matBadge="4" matBadgeOverlap="false">Chat</span></a
     >
-    <a
+    <!-- <a
       mat-list-item
       class="nav-item nav-link"
       routerLink="about"
       routerLinkActive="active"
       ><mat-icon>contact_support</mat-icon>Help</a
-    >
+    > -->
 
     <a
       mat-list-item
@@ -72,15 +72,14 @@
       routerLinkActive="active"
       ><mat-icon> contact_mail</mat-icon>Directory</a
     >
-    <a
+    <!-- <a
       mat-list-item
       class="nav-item nav-link pointer"
       *ngIf="(user | async)?.uid"
       (click)="logout()"
     >
       <mat-icon>logout</mat-icon>Logout</a
-    >
-    
+    > -->
   </mat-sidenav>
   <mat-sidenav-content>
         <div class="grid-container">
