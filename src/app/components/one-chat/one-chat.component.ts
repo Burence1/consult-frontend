@@ -54,11 +54,11 @@ export class OneChatComponent implements OnInit {
       });
 
       this.roomname = this.route.snapshot.params.displayName;
-      console.log(this.roomname);
+      console.log(this.roomname)
       firebase.database().ref('messages/').on('value', resp => {
         let chats = snapshotToArray(resp);
-        console.log(chats);
-        this.chats = chats.filter(x => x.roomname === this.roomname);
+        console.log(chats)
+        this.chats = chats.filter(x => x.roomname === this.roomname)
         setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
       });
 
@@ -95,7 +95,6 @@ export class OneChatComponent implements OnInit {
     return this.db.object(path);
   }
 
-
   ngOnInit(): void {
     this.chatForm = this.formBuilder.group({
       'message': [null, Validators.required]
@@ -107,11 +106,8 @@ export class OneChatComponent implements OnInit {
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
     var dateTime = date + ' ' + time;
-
     const chat = form;
-
     chat.roomname = this.roomname;
-
     chat.chatname = this.chatname;
     chat.sender = this.user.displayName;
 
