@@ -54,6 +54,7 @@ export class TaskDialogComponent implements OnInit {
   assign(){
     console.log(this.user.name)
     this.data.task.owner = this.user.name;
+    console.log(this.user.name)
   }
   ngOnInit(): void {
   }

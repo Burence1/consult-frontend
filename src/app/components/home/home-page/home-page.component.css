@@ -65,6 +65,7 @@ mat-sidenav {
 }
 mat-sidenav-container {
   height: calc(100vh - 65px);
+  overflow: hidden;
 }
 .menu-button {
 width: 100%;
@@ -77,23 +78,20 @@ mat-icon {
 margin-right: 8px;
 }
 .avatar {
-margin-top: 16px;
 width: 100px;
 height: 100px;
 border-radius: 50%;
 }
 .name {
-margin-top: 8px;
+  margin-top: 2px;
 font-weight: normal;
 }
 .designation {
-margin-top: 2px;
 font-size: 0.7rem;
 color: lightgrey;
 }
 mat-divider {
 margin-top: 16px;
-margin-bottom: 16px;
 background-color: rgba(255, 255, 255, 0.5);
 }
 .grid-container {
@@ -294,18 +292,11 @@ mat-card{
 }
 
 .jumbotron {
-  /* margin-top: 3%; */
-  text-align: center;
-  padding: 10px; 
+  height: 50vh
 }
-.jumbotron .btn {
-  padding: .75rem 1.5rem;
-  font-size: 1.5rem;
-}
-.head{
-  font-size: 40px;
-  font-weight: 800;
-  margin-top:2%;
+
+.img-class{
+  width: 100px;
 }
 blockquote{
   font-size: 20px;
@@ -351,4 +342,11 @@ q {
 .view{
   background: #2bc04b;
   color: white;
+}
+
+.img-fluid{
+  max-height: 50vh;
+}
+.nav-link:hover{
+  color: deepskyblue;
 }
