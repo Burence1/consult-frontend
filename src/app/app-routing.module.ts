@@ -1,6 +1,8 @@
+import { AddusersComponent } from './components/addusers/addusers.component';
+import { ConvolistComponent } from './components/convolist/convolist.component';
 import { AboutComponent } from './components/about/about.component';
 import { OnboardComponent } from './onboard/onboard.component';
-import { OneChatComponent } from './one-chat/one-chat.component';
+import { OneChatComponent } from './components/one-chat/one-chat.component';
 import { RoomlistsComponent } from './components/roomlists/roomlists.component';
 import { AddRoomComponent } from './components/add-room/add-room.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,6 +25,7 @@ import { TasksHomeComponent } from './components/tasks/tasks-home/tasks-home.com
 import { NewPatientComponent } from './components/tasks/pages/new-patient/new-patient.component';
 import { AddTaskComponent } from './components/tasks/pages/add-task/add-task.component';
 import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.component';
+import { FollowComponent } from './components/follow/follow/follow.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
@@ -37,6 +40,7 @@ const routes: Routes = [
   { path: 'chats', component: ChatroomComponent },
   { path: 'password_reset', component: ForgotPasswordComponent },
   { path: 'directory', component: DirectoryComponent },
+  { path: 'follow', component: FollowComponent },
 
   { path: 'add-room', component: AddRoomComponent},
   { path: 'roomlist', component: RoomlistsComponent},
@@ -46,7 +50,7 @@ const routes: Routes = [
   {path: 'tasks', component: TasksHomeComponent},
   {path: 'about', component: AboutComponent},
   {path: 'calendar', component: TaskComponent},
-  {path: 'One', component: OneChatComponent},
+  {path: 'chatroom/:displayName',component: OneChatComponent},
   {path: 'onboard', component: OnboardComponent},
   {path: 'tasks', component: TasksHomeComponent},
   {path: 'calendar', component: TaskComponent},
@@ -55,6 +59,8 @@ const routes: Routes = [
   {path: 'patients', component: TaskViewComponent},
   {path: 'patients/:patientId', component: TaskViewComponent},
   {path: 'patients/:patientId/add-task', component: AddTaskComponent},
+  {path: 'convolist',component:ConvolistComponent},
+  {path: 'addusers',component:AddusersComponent},
   { path: 'directory/user-profile/:profile.id', component: UserProfileComponent},
   { path: '**', component: NotFoundComponent },
 

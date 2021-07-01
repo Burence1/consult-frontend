@@ -12,5 +12,4 @@ export class Profile {
   interest3?: string;
   interest4?: string;
   bio?: string;
-  
 }

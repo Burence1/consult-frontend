@@ -9,7 +9,6 @@
   </button>
   <span>Navigation</span>
 </mat-toolbar>
-
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav
     #drawer
@@ -25,7 +24,6 @@
     <!-- <h4 class="name">Dr.{{ profile.displayName }}</h4>
     <p class="designation">{{ profile.department }}</p> -->
     <hr />
-
     <a
       mat-list-item
       href=""
@@ -44,11 +42,8 @@
     <a
       mat-list-item
       class="nav-item nav-link"
-
       routerLink="/tasks"
-
       routerLink="/tasks"
-
       routerLinkActive="active"
       ><mat-icon>assignment</mat-icon>Tasks</a
     >
@@ -82,32 +77,36 @@
     <div class="content ">
       <div class="example-sidenav-content">
         <div class="container">
+          <form class="form-inline">
+            <input class="form-control" name="searchInput" placeholder="Search" #searchInput="ngModel" [(ngModel)]="searchText" style="width: 80%;">
+            <button class="btn btn-outline-primary" (click)="searchText=''">X</button>
+          </form>
           <div class="" *ngFor='let profile of profiles'>
-          <a class="card1" [routerLink]="['user-profile', profile.id]">
-            <h3>{{profile.displayName}}</h3>
-            <img [src]=" profile.image " class=" mt-5 avatar">
-            <p class="small">Works in our organization</p>
-            <ul class="list">
-              <mat-card>
-                <li><strong>Email:</strong>  {{ profile.email }}</li>
-                <li><strong>Department:</strong> {{ profile.department }}</li>
-                <li><strong>Position:</strong> {{ profile.position }}</li>
-                <li><strong>Contact:</strong> {{ profile.contact }}</li>
-                
-              </mat-card>
-            </ul>
-            <div class="go-corner" href="#">
-              <div class="go-arrow">
-                →
-              </div>
+            <div *ngIf="filterCondition(profile)">
+              <a class="card1" [routerLink]="['user-profile', profile.id]">
+                <h3>{{profile.displayName}}</h3>
+                <img [src]=" profile.image " class=" mt-5 avatar">
+                <p class="small">Works in our organization</p>
+                <ul class="list">
+                  <mat-card>
+                    <li><strong>Email:</strong>  {{ profile.email }}</li>
+                    <li><strong>Department:</strong> {{ profile.department }}</li>
+                    <li><strong>Position:</strong> {{ profile.position }}</li>
+                    <li><strong>Contact:</strong> {{ profile.contact }}</li>
+                  </mat-card>
+                </ul>
+                <div class="go-corner" href="#">
+                  <div class="go-arrow">
+                    →
+                  </div>
+                </div>
+              </a>
             </div>
-          </a>
           </div>
         </div>
       </div>
     </div>
   </div>
-
   </mat-sidenav-content>
 </mat-sidenav-container>
 
