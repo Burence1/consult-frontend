@@ -50,7 +50,8 @@ export class OneChatComponent implements OnInit {
   messages: any
   matcher = new MyErrorStateMatcher();
   conversations: any;
-  convoname: any
+  convoname: any;
+
   constructor(private Auth: AngularFireAuth, private db: AngularFireDatabase, private router: Router,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder) {
@@ -73,11 +74,15 @@ export class OneChatComponent implements OnInit {
       });
 
       this.roomname = this.route.snapshot.params.displayName;
-      console.log(this.roomname)
+      //console.log(this.roomname)
       firebase.database().ref('messages/').on('value', resp => {
         let chats = snapshotToArray(resp);
         console.log(chats)
-        this.chats = chats.filter(x => x.roomname === this.roomname)
+        this.chats = chats.filter(x => {
+          console.log(x.name)
+          //x.name === this.convoname
+        })
+        console.log(this.chats)
         setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
       });
       
@@ -106,6 +111,7 @@ export class OneChatComponent implements OnInit {
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
     var dateTime = date + ' ' + time;
+
     const chat = form;
     chat.roomname = this.roomname;
     chat.chatname = this.chatname;
