@@ -51,7 +51,7 @@ export class TaskDialogComponent implements OnInit {
     this.dialogRef.close(this.data);
   }
   // tslint:disable-next-line: typedef
-  selfAssign(){
+  assign(){
     this.data.task.owner = this.user.name;
   }
   ngOnInit(): void {
