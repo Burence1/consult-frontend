@@ -1,11 +1,3 @@
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <div class="jumbotron jumbotron-fluid">
-
 <mat-toolbar>
   <button type="button" (click)="drawer.toggle()" mat-icon-button class="toggler">
     ☰
@@ -16,8 +8,8 @@
   <mat-sidenav #drawer class="sidenav" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === true">
     <img class="avatar mat-elevation-z8" src="https://image.freepik.com/free-vector/doctor-avatar-design_1146-14.jpg" />
-    <!-- <h4 class="name">Dr.{{ profile.displayName }}</h4>
-    <p class="designation">{{ profile.department }}</p> -->
+    <h4 class="name">Dr.{{ profile.displayName }}</h4>
+    <p class="designation">{{ profile.department }}</p>
     <hr />
 
     <a
@@ -41,8 +33,6 @@
 
       routerLink="/tasks"
 
-      routerLink="/tasks"
-
       routerLinkActive="active"
       ><mat-icon>assignment</mat-icon>Tasks</a
     >
@@ -57,7 +47,7 @@
     <a
       mat-list-item
       class="nav-item nav-link"
-      routerLink="about"
+      routerLink="/about"
       routerLinkActive="active"
       ><mat-icon>contact_support</mat-icon>Help</a
     >
@@ -69,6 +59,7 @@
       routerLinkActive="active"
       ><mat-icon> contact_mail</mat-icon>Directory</a
     >
+
     <a
       mat-list-item
       class="nav-item nav-link pointer"
@@ -79,104 +70,122 @@
     >
   </mat-sidenav>
   <mat-sidenav-content>
-
-        <div class="grid-container">
-          <h1 class="mat-h1">Home/<a >Dashboard</a></h1>
-          <mat-grid-list cols="1" rowHeight="350px">
-            <mat-grid-tile >
-              <mat-card class="dashboard-card">
-                <mat-card-header>
-                  <mat-card-title>
-                    
-                    <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                      <mat-icon>more_vert</mat-icon>
-                    </button>
-                    <mat-menu #menu="matMenu" xPosition="before">
-                      <button mat-menu-item>Expand</button>
-                      <button mat-menu-item>Remove</button>
-                    </mat-menu>
-                  </mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="dashboard-card-content">
-                  <div class="chat-text">
-                    <a href="/calendar">Calendar</a>                    
-                  </div>
-                </mat-card-content>
-                
-              </mat-card>
-            </mat-grid-tile>
-            
-          </mat-grid-list>
-        </div>
-        <div class="grid-container">
-          <mat-grid-list cols="2" rowHeight="350px">
-            <mat-grid-tile >
-              <mat-card class="dashboard-card">
-                <mat-card-header>
-                  <mat-card-title>
-                    
-                    <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                      <mat-icon>more_vert</mat-icon>
-                    </button>
-                    <mat-menu #menu="matMenu" xPosition="before">
-                      <button mat-menu-item>Expand</button>
-                      <button mat-menu-item>Remove</button>
-                    </mat-menu>
-                  </mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="dashboard-card-content">
-                  <div>
-                    <a href="/tasks">Tasks</a>
-                  </div>
-                </mat-card-content>
-                
-              </mat-card>
-            </mat-grid-tile>
-            
-          </mat-grid-list>
-        </div>
-
-        <div class="grid-container">
-          <mat-grid-list cols="1"  rowHeight="350px">
-            <mat-grid-tile >
-              <mat-card class="dashboard-card">
-                <mat-card-header>
-                  <mat-card-title>
-                    
-                    <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                      <mat-icon>more_vert</mat-icon>
-                    </button>
-                    <mat-menu #menu="matMenu" xPosition="before">
-                      <button mat-menu-item>Expand</button>
-                      <button mat-menu-item>Remove</button>
-                    </mat-menu>
-                  </mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="dashboard-card-content">
-                  <div>
-                    <a href="/chats">Chats</a>
-                  </div>
-                </mat-card-content>
-                
-              </mat-card>
-            </mat-grid-tile>
-            
-          </mat-grid-list>
-
-    <div class="content mat-elevation-z8">
-      <div class="example-sidenav-content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-2"></div>
-          </div>
-          <div class="row">
-            <div class="col-md-2"></div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="jumbotron">
+            <h1 class="head">Welcome, {{profile.displayName}}!</h1>
+            <blockquote> <em> <q>We should be concerned <br> not only about the health of individual patients, <br> but also the health of our entire society.
+              </q></em></blockquote>
+            <p>Dr. Ben Carson</p>
+            <p><a class="btn btn-lg btn-success btn-jom" href="/profile" role="button">Profile</a> <a class="btn btn-lg btn-primary" href="/tasks">Tasks</a></p>
           </div>
 
-        </div>
+  
+        <!-- Icon Cards-->
+          <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2 mt-4">
+              <div class="inforide">
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 col-sm-4 col-4 rideone">
+                      <img src="assets/images/doc.jpg">
+                  </div>
+                  <div class="col-lg-9 col-md-8 col-sm-8 col-8 fontsty">
+                      <h4>Employee</h4>
+                      <h2>20</h2>
+                  </div>
+                </div>
+              </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2 mt-4">
+              <div class="inforide">
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 col-sm-4 col-4 ridetwo">
+                      <img src="assets/images/doctors.jpg">
+                  </div>
+                  <div class="col-lg-9 col-md-8 col-sm-8 col-8 fontsty">
+                      <h4>Tasks</h4>
+                      <h2>120</h2>
+                  </div>
+                </div>
+              </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2 mt-4">
+              <div class="inforide">
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 col-sm-4 col-4 ridethree">
+                      <img src="assets/images/doc.jpg">
+                  </div>
+                  <div class="col-lg-9 col-md-8 col-sm-8 col-8 fontsty">
+                      <h4>Tasks</h4>
+                      <h2>50</h2>
+                  </div>
+                </div>
+              </div>
+          </div>
+  
       </div>
-    </div>
-  </div>
+        
+      <section class="pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+    
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row">
+    
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                            <img class="img-fluid" alt="100%x280" src="assets/images/nurses.jpg">
+                                            <div class="card-body">
+                                                <h2 class="card-title">Connect with many other doctors</h2> <hr>
+                                                <p class="card-text">We connect you to many professionals around Kenya</p>
+                                                <a class="btn btn-lg view" href="/directory"> View </a>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                            <img class="img-fluid" alt="100%x280" src="assets/images/doctors.jpg">
+                                            <div class="card-body">
+                                                <h2 class="card-title">Chat with users</h2> <hr>
+                                                <p class="card-text">With our new supporting chat feature you can reach out when in need.</p>
+                                                <a class="btn btn-lg view" href="/chats"> View </a>
+    
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                            <img class="img-fluid" alt="100%x280" src="assets/images/help.jpg">
+                                            <div class="card-body">
+                                                <h2 class="card-title">need help?</h2> <hr>
+                                                <p class="card-text">see pur help section on how to go through the app</p>
+                                                <a class="btn btn-lg view" href="/about"> View </a>
+    
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>   
+        
+      
+      </div>
+      </div>
+
+  
         
   </mat-sidenav-content>
 </mat-sidenav-container>

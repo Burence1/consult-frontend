@@ -7,6 +7,8 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { ProfileService } from 'src/app/services/profile.service';
 import { FileService } from 'src/app/services/files/file-service.service';
 import { Profile } from 'src/app/profile';
+import firebase from 'firebase/app';
+
 
 @Component({
   selector: 'app-home-page',
@@ -19,6 +21,10 @@ export class HomePageComponent implements OnInit {
   selected!: Date | null;
   user: Observable<any>;
   userEmail: any;
+
+  name: any;
+  username:any
+  uid:any
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(
@@ -34,16 +40,16 @@ export class HomePageComponent implements OnInit {
       private storage: AngularFireStorage,
       @Inject(FileService)
       private fileService: FileService
-    ) {
+    ) { 
       this.findProfiles();
       this.auth.user.subscribe(
         (user) => {
           this.currentId = user.uid;
-          console.log(this.currentId);
+          // console.log(this.currentId);
           this.profileService.fetchProfileApi(this.currentId).subscribe(
             (res) => {
               this.profile = res;
-              console.log(res);
+              // console.log(res);
             },
             (error) => {
               console.error(error);

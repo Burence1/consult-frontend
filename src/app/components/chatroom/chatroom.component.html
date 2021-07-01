@@ -23,58 +23,62 @@
   <p class="designation">{{ profile.department }}</p>
   <hr>
 
-    <a
-      mat-list-item
-      href=""
-      class="nav-item nav-link active"
-      routerLink="/home"
-      routerLinkActive="active"
-      ><mat-icon>home</mat-icon> Home</a
-    >
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-      routerLink="/profile"
-      routerLinkActive="active"
-      ><mat-icon>contact_page</mat-icon>Profile</a
-    >
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-      href="/tasks"
-      routerLinkActive="active"
-      ><mat-icon>assignment</mat-icon>Tasks</a
-    >
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-      routerLink="/chats"
-      routerLinkActive="active"
-      ><mat-icon>forum</mat-icon><span matBadge="4" matBadgeOverlap="false">Chat</span></a
-    >
+  <a
+  mat-list-item
+  href=""
+  class="nav-item nav-link active"
+  routerLink="/home"
+  routerLinkActive="active"
+  ><mat-icon>home</mat-icon> Home</a
+>
+<a
+  mat-list-item
+  class="nav-item nav-link"
+  routerLink="/profile"
+  routerLinkActive="active"
+  ><mat-icon>contact_page</mat-icon>Profile</a
+>
+<a
+  mat-list-item
+  class="nav-item nav-link"
 
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-      routerLink="/directory"
-      routerLinkActive="active"
-      ><mat-icon> contact_mail</mat-icon>Directory</a
-    >
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-      routerLink="about"
-      routerLinkActive="active"
-      ><mat-icon>contact_support</mat-icon>Help</a
-    >
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-      *ngIf="(user | async)?.uid"
-      (click)="logout()"
-    >
-      <mat-icon>logout</mat-icon>Logout</a
-    >
+  routerLink="/tasks"
+
+  routerLinkActive="active"
+  ><mat-icon>assignment</mat-icon>Tasks</a
+>
+<a
+  mat-list-item
+  class="nav-item nav-link"
+  routerLink="/chats"
+  routerLinkActive="active"
+  ><mat-icon>forum</mat-icon
+  ><span matBadge="4" matBadgeOverlap="false">Chat</span></a
+>
+<a
+  mat-list-item
+  class="nav-item nav-link"
+  routerLink="/about"
+  routerLinkActive="active"
+  ><mat-icon>contact_support</mat-icon>Help</a
+>
+
+<a
+  mat-list-item
+  class="nav-item nav-link"
+  routerLink="/directory"
+  routerLinkActive="active"
+  ><mat-icon> contact_mail</mat-icon>Directory</a
+>
+
+<a
+  mat-list-item
+  class="nav-item nav-link pointer"
+  *ngIf="(user | async)?.uid"
+  (click)="logout()"
+>
+  <mat-icon>logout</mat-icon>Logout</a
+>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="">

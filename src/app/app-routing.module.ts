@@ -1,3 +1,4 @@
+import { AboutComponent } from './components/about/about.component';
 import { OnboardComponent } from './onboard/onboard.component';
 import { OneChatComponent } from './one-chat/one-chat.component';
 import { RoomlistsComponent } from './components/roomlists/roomlists.component';
@@ -45,6 +46,7 @@ const routes: Routes = [
   {path: 'One', component: OneChatComponent},
   {path: 'onboard', component: OnboardComponent},
   {path: 'tasks', component: TasksHomeComponent},
+  {path: 'about', component: AboutComponent},
   {path: 'calendar', component: TaskComponent},
   {path: '', redirectTo: 'patients', pathMatch: 'full'},
   {path: 'new-patient', component: NewPatientComponent},

@@ -125,3 +125,230 @@ mat-divider {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
 }
+
+
+/* recent */
+.content-wrapper {
+  min-height: calc(100vh - 56px);
+  padding-top: 4rem;
+  overflow-x: hidden;
+  background: transparent;
+}
+
+.inforide {
+  box-shadow: 1px 2px 8px 0px #747272;
+  background-color: white;
+  border-radius: 8px;
+  height: 125px;
+}
+
+
+.rideone img {
+  width: 90%;
+  border-radius: 50%;
+}
+
+.ridetwo img {
+  width: 90%;
+  border-radius: 50%;
+}
+
+.ridethree img {
+  width: 90%;
+  border-radius: 50%;
+}
+.ridefour img {
+  width: 90%;
+  border-radius: 50%;
+}
+mat-card{
+  height: 50vh;
+}
+
+.rideone {
+  background-color: #6CC785;
+  padding-top: 25px;
+  border-radius: 8px 0px 0px 8px;
+  text-align: center;
+  height: 125px;
+  margin-left: 15px;
+}
+
+.ridetwo {
+  background-color: #003060;
+  padding-top: 30px;
+  border-radius: 8px 0px 0px 8px;
+  text-align: center;
+  height: 125px;
+  margin-left: 15px;
+}
+
+.ridethree {
+  background-color: #ff0000;
+  padding-top: 35px;
+  border-radius: 8px 0px 0px 8px;
+  text-align: center;
+  height: 125px;
+  margin-left: 15px;
+}
+
+.ridefour {
+  background-color: #dbe54e;
+  padding-top: 35px;
+  border-radius: 8px 0px 0px 8px;
+  text-align: center;
+  height: 300%;
+  margin-left: 15px;
+}
+
+.fontsty {
+  margin-right: -15px;
+}
+
+.fontsty h2{
+  color: #6E6E6E;
+  font-size: 35px;
+  margin-top: 15px;
+  text-align: right;
+  margin-right: 30px;
+}
+
+.fontsty h4{
+  color: #6E6E6E;
+  font-size: 25px;
+  margin-top: 20px;
+  text-align: right;
+  margin-right: 30px;
+}
+
+/* recently */
+.user_card {
+  height: 300px;
+  width: 50%;
+  margin-top: auto;
+  margin-bottom: 3%;
+  background: #003060;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+
+}
+.brand_logo_container {
+  position: absolute;
+  height: 150px;
+  width: 150px;
+  top: -45px;
+  border-radius: 50%;
+  background: #60a3bc;
+  padding: 10px;
+  text-align: center;
+}
+.brand_logo {
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+.form_container {
+  margin-top: 100px;
+}
+.login_btn {
+  width: 100%;
+  background: white !important;
+  color: #003060;
+}
+.btn-jom{
+  margin: 2%;
+}
+.login_btn a{
+  text-decoration: none;
+  color: #003060;
+  font-size: 20px;
+}
+.login_btn:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+}
+.login_container {
+  padding: 0 2rem;
+}
+.input-group-text {
+  background: #2bc04b !important;
+  color: white !important;
+  border: 0 !important;
+  border-radius: 0.25rem 0 0 0.25rem !important;
+}
+.input_user,
+.input_pass:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+  background-color: #c0392b !important;
+}
+
+.jumbotron {
+  /* margin-top: 3%; */
+  text-align: center;
+  padding: 10px; 
+}
+.jumbotron .btn {
+  padding: .75rem 1.5rem;
+  font-size: 1.5rem;
+}
+.head{
+  font-size: 40px;
+  font-weight: 800;
+  margin-top:2%;
+}
+blockquote{
+  font-size: 20px;
+}
+q::before,
+q::after {
+  animation: dancing 1s linear infinite;
+  display: inline-block;
+  transform: rotate(13deg);
+}
+
+@keyframes dancing {
+  0% {
+    transform: rotate(13deg) scale(2);
+  }
+
+  25% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(-13deg) scale(2);
+  }
+
+  75% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(13deg) scale(2);
+  }
+}
+q {
+  quotes: "‘" "’" "“" "”" "‘" "’" "“" "”";
+}
+
+
+.card-body{
+  background: #003060;
+  color: white;
+}
+
+.view{
+  background: #2bc04b;
+  color: white;
+}
