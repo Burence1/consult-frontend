@@ -24,9 +24,6 @@
                 <span class="msg-date"> at {{chat.date | date:'short'}}</span>
                 <div class="msg-del"><span class="msg-name" *ngIf="chat.chatname === chatname"><button type="button"
                       class="btn btn-danger" (click)="deleteMsg(chat.key)">Delete</button></span></div>
-                <div class="msg-del"><span class="msg-name" *ngIf="chat.chatname === chatname"
-                    data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"><button type="button"
-                      class="btn btn-danger">Update</button></span></div>
                 <p text-wrap>{{chat.message}}</p>
               </div>
             </div>
@@ -48,26 +45,4 @@
       </footer>
     </mat-drawer-content>
   </mat-drawer-container>
-</div>
-
-
-<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
-  tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title text-center" id="exampleModalToggleLabel2"></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body" *ngIf="updateM.$key" class="edit-form">
-        <form *ngFor="let chat of chats">
-          <input type="text" class="form-control" [(ngModel)]="updateM.message" placeholder="message"
-            name="message"><br>
-
-          <button class="btn btn-sm mt-4" id="btn-update" style="background-color: orange;color: whitesmoke;"
-            type="submit" (click)="UpdateMsg(chat.key)">Update</button>
-        </form>
-      </div>
-    </div>
-  </div>
 </div>

@@ -53,8 +53,8 @@ export class OneChatComponent implements OnInit {
   convoname: any;
 
   constructor(private Auth: AngularFireAuth, private db: AngularFireDatabase, private router: Router,
-    private route: ActivatedRoute,
-    private formBuilder: FormBuilder) {
+              private route: ActivatedRoute,
+              private formBuilder: FormBuilder) {
     this.Auth.authState.subscribe(auth => {
       if (auth !== undefined && auth !== null) {
         this.user = auth;
@@ -92,6 +92,7 @@ export class OneChatComponent implements OnInit {
     })
   }
 
+  // tslint:disable-next-line: typedef
   getUser() {
     const userId = this.user.uid;
     const path = `/users/${userId}`;
@@ -100,7 +101,7 @@ export class OneChatComponent implements OnInit {
 
   ngOnInit(): void {
     this.chatForm = this.formBuilder.group({
-      'message': [null, Validators.required]
+      message: [null, Validators.required]
     });
 
   }
@@ -124,23 +125,16 @@ export class OneChatComponent implements OnInit {
     const newMessage = firebase.database().ref('messages/').push();
     newMessage.set(chat);
     this.chatForm = this.formBuilder.group({
-      'message': [null, Validators.required]
+      message: [null, Validators.required]
     });
   }
 
+  // tslint:disable-next-line: typedef
   deleteMsg(uid: any) {
     const key = uid
     var del = confirm("Want to delete?");
     if (del) {
       firebase.database().ref(`messages/${key}`).remove();
-    }
-  }
-
-  UpdateMsg(uid: any) {
-    const key = uid
-    var del = confirm("Want to delete?");
-    if (del) {
-      firebase.database().ref(`chats/${key}`).update(this.updateM);
     }
   }
 }
