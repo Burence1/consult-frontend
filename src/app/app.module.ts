@@ -72,6 +72,9 @@ import { OnboardComponent } from './onboard/onboard.component';
 import { AddusersComponent } from './components/addusers/addusers.component';
 import { ConvolistComponent } from './components/convolist/convolist.component';
 
+import { AboutComponent } from './components/about/about.component';
+
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -107,6 +110,8 @@ import { ConvolistComponent } from './components/convolist/convolist.component';
     OnboardComponent,
     AddusersComponent,
     ConvolistComponent,
+    AboutComponent,
+    UserProfileComponent,
   ],
   entryComponents: [AddRoomComponent],
   imports: [

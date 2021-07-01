@@ -35,19 +35,22 @@ export class DirectoryComponent implements OnInit {
               private storage: AngularFireStorage,
               @Inject(FileService)
               private fileService: FileService) {
-    this.profileService.fetchAllProfiles().subscribe(
-      (res) => {
-        this.profiles = res;
-        console.log(res);
-      }, error => {
-        console.error(error);
-      }
-    );
+                this.profileService.fetchAllProfilesSnapshot().subscribe(
+                  (res) => {
+                    this.profiles = res.map((value) => {
+                      let profile = value.payload.val();
+                      profile.id = value.payload.key;
+                      return profile;
+                    });
+                    console.log(this.profiles);
+                  },
+                  (error) => {
+                    console.error(error);
+                  }
+                );
   }
 
-  SearchDirectory( ){
-
-  }
+  
   ngOnInit(): void {
     this.user = this.auth.authUser();
     this.user.subscribe(user => {

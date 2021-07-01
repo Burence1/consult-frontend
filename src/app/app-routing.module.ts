@@ -1,5 +1,6 @@
 import { AddusersComponent } from './components/addusers/addusers.component';
 import { ConvolistComponent } from './components/convolist/convolist.component';
+import { AboutComponent } from './components/about/about.component';
 import { OnboardComponent } from './onboard/onboard.component';
 import { OneChatComponent } from './components/one-chat/one-chat.component';
 import { RoomlistsComponent } from './components/roomlists/roomlists.component';
@@ -24,6 +25,7 @@ import { TasksHomeComponent } from './components/tasks/tasks-home/tasks-home.com
 import { NewPatientComponent } from './components/tasks/pages/new-patient/new-patient.component';
 import { AddTaskComponent } from './components/tasks/pages/add-task/add-task.component';
 import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 const routes: Routes = [
@@ -41,7 +43,10 @@ const routes: Routes = [
   { path: 'add-room', component: AddRoomComponent},
   { path: 'roomlist', component: RoomlistsComponent},
   { path: 'chatfeed/:roomname', component: ChatFeedComponent},
+  {path: 'One', component: OneChatComponent},
+  {path: 'onboard', component: OnboardComponent},
   {path: 'tasks', component: TasksHomeComponent},
+  {path: 'about', component: AboutComponent},
   {path: 'calendar', component: TaskComponent},
   {path: 'chatroom/:displayName',component: OneChatComponent},
   {path: 'onboard', component: OnboardComponent},
@@ -54,6 +59,7 @@ const routes: Routes = [
   {path: 'patients/:patientId/add-task', component: AddTaskComponent},
   {path: 'convolist',component:ConvolistComponent},
   {path: 'addusers',component:AddusersComponent},
+  { path: 'directory/user-profile/:profile.id', component: UserProfileComponent},
   { path: '**', component: NotFoundComponent },
 
 ];
