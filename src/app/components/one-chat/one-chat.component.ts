@@ -33,8 +33,8 @@ export const snapshotToArray = (snapshot: any) => {
 })
 export class OneChatComponent implements OnInit {
   constructor(private Auth: AngularFireAuth, private db: AngularFireDatabase, private router: Router,
-    private route: ActivatedRoute,
-    private formBuilder: FormBuilder) {
+              private route: ActivatedRoute,
+              private formBuilder: FormBuilder) {
     this.Auth.authState.subscribe(auth => {
       if (auth !== undefined && auth !== null) {
         this.user = auth;
@@ -46,8 +46,8 @@ export class OneChatComponent implements OnInit {
 
       firebase.database().ref('conversations/').on('value', (snapshot: any) => {
         snapshot.forEach((childSnapshot: any) => {
-          let childKey = childSnapshot.key;
-          let childData = childSnapshot.val();
+          const childKey = childSnapshot.key;
+          const childData = childSnapshot.val();
           this.convoname = childData.convoname;
           console.log(this.convoname);
          });
@@ -56,7 +56,7 @@ export class OneChatComponent implements OnInit {
       this.roomname = this.route.snapshot.params.displayName;
       console.log(this.roomname);
       firebase.database().ref('messages/').on('value', resp => {
-        let chats = snapshotToArray(resp);
+        const chats = snapshotToArray(resp);
         console.log(chats);
         this.chats = chats.filter(x => x.roomname === this.roomname);
         setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
@@ -89,29 +89,27 @@ export class OneChatComponent implements OnInit {
   convoname: any;
   name: any;
 
+  // tslint:disable-next-line: typedef
   getUser() {
     const userId = this.user.uid;
     const path = `/users/${userId}`;
     return this.db.object(path);
   }
 
-
   ngOnInit(): void {
     this.chatForm = this.formBuilder.group({
-      'message': [null, Validators.required]
+      message: [null, Validators.required]
     });
 
   }
+  // tslint:disable-next-line: typedef
   onFormSubmit(form: any) {
-    var today = new Date();
-    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
-    var dateTime = date + ' ' + time;
-
+    const today = new Date();
+    const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    const time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+    const dateTime = date + ' ' + time;
     const chat = form;
-
     chat.roomname = this.roomname;
-
     chat.chatname = this.chatname;
     chat.sender = this.user.displayName;
 
@@ -122,21 +120,23 @@ export class OneChatComponent implements OnInit {
     const newMessage = firebase.database().ref('messages/').push();
     newMessage.set(chat);
     this.chatForm = this.formBuilder.group({
-      'message': [null, Validators.required]
+      message: [null, Validators.required]
     });
   }
 
+  // tslint:disable-next-line: typedef
   deleteMsg(uid: any) {
     const key = uid;
-    var del = confirm('Want to delete?');
+    const del = confirm('Want to delete?');
     if (del) {
       firebase.database().ref(`messages/${key}`).remove();
     }
   }
 
+  // tslint:disable-next-line: typedef
   UpdateMsg(uid: any) {
     const key = uid;
-    var del = confirm("Want to delete?");
+    const del = confirm('Want to update?');
     if (del) {
       firebase.database().ref(`chats/${key}`).update(this.updateM);
     }

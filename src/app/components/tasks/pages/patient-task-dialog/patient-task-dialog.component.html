@@ -17,7 +17,9 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <p> Selected: {{selectedValue}} </p>
+      <p>
+        <button mat-raised-button color="primary" (click)="selfAssign()">self-assign</button>
+      </p>
     
       <mat-form-field>
         <mat-label>Choose a date</mat-label>
