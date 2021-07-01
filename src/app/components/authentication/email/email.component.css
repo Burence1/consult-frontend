@@ -18,7 +18,13 @@
 
 .header {
   color: black;
-  margin-left: 18%;
+  /* margin-left: 18%; */
+}
+.forgot-btn {
+  margin-left: 5.5rem
+}
+.mat-form-field{
+  width:350px !important;
 }
 
 .auth-btn{
@@ -73,9 +79,9 @@ form{
   font-size: 12px;
   font-family: Comfortaa;
 }
-img {
+/* img {
   background-color: #7D7676;
-}
+} */
 
 .wlcm {
   font-size: 30px;
