@@ -21,45 +21,47 @@ export class TaskDialogComponent implements OnInit {
   private backupTask: Partial<Task> = { ...this.data.task };
 
   constructor(private auth: AuthService, private profileService: ProfileService,
-    public dialogRef: MatDialogRef<TaskDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: TaskDialogData) {
+              public dialogRef: MatDialogRef<TaskDialogComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: TaskDialogData) {
       this.minDate = new Date();
       // this.minDate.setDate(this.minDate)
       this.profileService.fetchAllProfiles().subscribe(
         (res) => {this.profiles = res;
-          //console.log(res);
+          // console.log(res);
         }, error => {
           console.error(error);
         });
-        
-        this.auth.authUser().subscribe((res: any) =>{
+
+      this.auth.authUser().subscribe((res: any) => {
           this.user = {
             name: res.displayName,
             email: res.email
-          }
-        })
+          };
+        });
     }
 
   cancel(): void {
-    
+
     this.data.task.title = this.backupTask.title;
     this.data.task.description = this.backupTask.description;
     this.data.task.owner = this.backupTask.owner;
     this.data.task.from = this.backupTask.from;
     this.data.task.to = this.backupTask.to;
-    this.data.task.dateDue = this.backupTask.dateDue
+    this.data.task.dateDue = this.backupTask.dateDue;
     this.dialogRef.close(this.data);
   }
-  selfAssign(){
+  // tslint:disable-next-line: typedef
+  assign(){
     this.data.task.owner = this.user.name;
   }
   ngOnInit(): void {
   }
 
+  // tslint:disable-next-line: typedef
   formatDate(e){
-    var convertedDate = new Date(e.target.value)
-    this.data.task.dateDue = convertedDate
-    console.log(this.data.task.dateDue)
+    const convertedDate = new Date(e.target.value);
+    this.data.task.dateDue = convertedDate;
+    console.log(this.data.task.dateDue);
     }
 }
 

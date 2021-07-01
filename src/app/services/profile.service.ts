@@ -15,6 +15,7 @@ import { Profile } from '../profile';
   providedIn: 'root',
 })
 export class ProfileService {
+  currentUser: any;
 
   // url =
 
@@ -53,4 +54,5 @@ export class ProfileService {
     const path = `users/${id}`;
     this.db.object<Profile>(path).update(profile);
   }
+
 }

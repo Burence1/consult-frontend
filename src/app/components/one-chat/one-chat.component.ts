@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import firebase from 'firebase/app';
-import 'firebase/auth'
+import 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
 
@@ -69,23 +69,22 @@ export class OneChatComponent implements OnInit {
           let childKey = childSnapshot.key;
           let childData = childSnapshot.val();
           this.convoname = childData.convoname
-          console.log(this.convoname) 
-         })
+          console.log(this.convoname)
+        })
       });
 
       this.roomname = this.route.snapshot.params.displayName;
       //console.log(this.roomname)
       firebase.database().ref('messages/').on('value', resp => {
-        let chats = snapshotToArray(resp);
-        console.log(chats)
-        this.chats = chats.filter(x => {
-          console.log(x.name)
-          //x.name === this.convoname
-        })
+        const temporarychats = snapshotToArray(resp);
+        console.log(temporarychats)
+        console.log(this.chatname)
+        this.chats = temporarychats.filter(x => x.chatname === this.roomname || x.roomname === this.roomname)
         console.log(this.chats)
+        console.log(this.convoname)
         setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
       });
-      
+
       firebase.database().ref('roomusers/').orderByChild('roomname').equalTo(this.roomname).on('value', (resp2: any) => {
         const roomusers = snapshotToArray(resp2);
         this.users = roomusers.filter(x => x.status === 'online');
@@ -116,6 +115,7 @@ export class OneChatComponent implements OnInit {
     chat.roomname = this.roomname;
     chat.chatname = this.chatname;
     chat.sender = this.user.displayName
+    console.log(chat)
 
     chat.name = this.convoname
 

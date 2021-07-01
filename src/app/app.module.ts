@@ -1,3 +1,4 @@
+import { FollowService } from './services/follow/follow.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -69,6 +70,7 @@ import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.
 import { PatientDialogComponent } from './components/tasks/pages/patient-dialog/patient-dialog.component';
 import { PatientTaskDialogComponent } from './components/tasks/pages/patient-task-dialog/patient-task-dialog.component';
 import { OnboardComponent } from './onboard/onboard.component';
+import { FollowComponent } from './components/follow/follow/follow.component';
 import { AddusersComponent } from './components/addusers/addusers.component';
 import { ConvolistComponent } from './components/convolist/convolist.component';
 
@@ -108,6 +110,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     PatientDialogComponent,
     PatientTaskDialogComponent,
     OnboardComponent,
+    FollowComponent,
     AddusersComponent,
     ConvolistComponent,
     AboutComponent,
@@ -143,7 +146,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     MatDialogModule,
     MatListModule,
   ],
-  providers: [MessagingService, AsyncPipe],
+  providers: [MessagingService, AsyncPipe, FollowService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -25,6 +25,7 @@ import { TasksHomeComponent } from './components/tasks/tasks-home/tasks-home.com
 import { NewPatientComponent } from './components/tasks/pages/new-patient/new-patient.component';
 import { AddTaskComponent } from './components/tasks/pages/add-task/add-task.component';
 import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.component';
+import { FollowComponent } from './components/follow/follow/follow.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
@@ -39,10 +40,13 @@ const routes: Routes = [
   { path: 'chats', component: ChatroomComponent },
   { path: 'password_reset', component: ForgotPasswordComponent },
   { path: 'directory', component: DirectoryComponent },
+  { path: 'follow', component: FollowComponent },
 
   { path: 'add-room', component: AddRoomComponent},
   { path: 'roomlist', component: RoomlistsComponent},
   { path: 'chatfeed/:roomname', component: ChatFeedComponent},
+  {path: 'tasks', component: TasksHomeComponent},
+  {path: 'calendar', component: TaskComponent},
   {path: 'One', component: OneChatComponent},
   {path: 'onboard', component: OnboardComponent},
   {path: 'tasks', component: TasksHomeComponent},

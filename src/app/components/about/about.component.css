@@ -118,12 +118,12 @@ ul{
     padding: 10%;
 }
 .how-section1 h4{
-    color: #ffa500;
+    color: #ff0000;
     font-weight: bold;
     font-size: 30px;
 }
 .how-section1 .subheading{
-    color: #3931af;
+    color: #003060;
     font-size: 20px;
 }
 .how-section1 .row
@@ -135,7 +135,9 @@ ul{
     text-align: center;
 }
 .how-img img{
-    width: 40%;
+    width: 50%;
+    box-shadow:5px 10px #003060;
+    border: 1px solid;
 }
 
 .about{
