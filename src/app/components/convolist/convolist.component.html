@@ -1,18 +1,169 @@
-<div class="example-container mat-elevation-z8">
+<mat-toolbar>
+  <button type="button" (click)="drawer.toggle()" mat-icon-button class="toggler">
+    ☰
+  </button>
+  <span>Dashboard</span>
+</mat-toolbar>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === true">
+    <!-- <img class="avatar mat-elevation-z8" src="{{profile.image}}" />
+    <h4 class="name">Dr.{{ profile.displayName }}</h4>
+    <p class="designation">{{ profile.department }}</p> -->
+   <mat-divider></mat-divider>
+
+    <a
+      mat-list-item
+      class="nav-item nav-link"
+      routerLink="/profile"
+      routerLinkActive="active"
+      ><mat-icon>contact_page</mat-icon>Profile</a
+    >
+    <a
+      mat-list-item
+      class="nav-item nav-link"
+
+      href="/tasks"
+
+      routerLinkActive="active"
+      ><mat-icon>assignment</mat-icon>Tasks</a
+    >
+    <a
+      mat-list-item
+      class="nav-item nav-link"
+      routerLink="/chats"
+      routerLinkActive="active"
+      ><mat-icon>forum</mat-icon
+      ><span matBadge="4" matBadgeOverlap="false">Rooms</span></a
+    >
+
+    <a
+      mat-list-item
+      class="nav-item nav-link"
+      routerLink="/convolist"
+      routerLinkActive="active"
+      ><mat-icon>forum</mat-icon
+      ><span matBadge="4" matBadgeOverlap="false">Chat</span></a
+    >
+    <a
+      mat-list-item
+      class="nav-item nav-link"
+      routerLink="/about"
+      routerLinkActive="active"
+      ><mat-icon>contact_support</mat-icon>Help</a
+    >
+
+    <a
+      mat-list-item
+      class="nav-item nav-link"
+      routerLink="/directory"
+      routerLinkActive="active"
+      ><mat-icon> contact_mail</mat-icon>Directory</a
+    >
+
+    <!-- <a
+      mat-list-item
+      class="nav-item nav-link pointer"
+      *ngIf="(user | async)?.uid"
+      (click)="logout()"
+    >
+      <mat-icon>logout</mat-icon>Logout</a
+    > -->
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content-wrapper">
+      <div class="container">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="weather-card one">
+                <div class="top">
+                  <div class="wrapper">
+                    <div class="mynav">
+                      <a href="javascript:;"><span class="lnr lnr-chevron-left"></span></a>
+                      <a href="javascript:;"><span class="lnr lnr-cog"></span></a>
+                    </div>
+                    <h1 class="heading mb-2"></h1>
+                    <h3 class="location"></h3>
+                    <p class="temp">
+                      <span class="temp-value">{{chatname}}</span> 
+                      <br>
+                      <span class="deg"><app-addusers></app-addusers></span>
+                    </p>
+                  </div>
+                </div>
+                <div class="bottom">
+                  <div class="wrapper">
+                    <div class="example-loading-shade" *ngIf="isLoadingResults">
+                      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+                    </div>
+                <table mat-table [dataSource]="conversations" class="example-table" matSort matSortActive="roomname"
+                matSortDisableClear matSortDirection="asc">
+                <ng-container matColumnDef="roomname">
+                  <th mat-header-cell *matHeaderCellDef>conversations</th>
+                  <div class="convo">
+                    <div mat-cell *matCellDef="let row">
+                      <div *ngIf="row.show" class="convo">
+                        <mat-card class="mt-3 ">
+                          {{row.displayName}}
+                        </mat-card></div>
+                    </div>
+                  </div>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="enterChatRoom(row.displayName)"></tr>
+               </table>
+               </div>
+               </div>
+              </div>
+            </div>
+        
+            <div class="col">
+              <div class="weather-card rain">
+                <div class="top">
+                  <div class="wrapper">
+                    <div class="mynav">
+                      <a href="javascript:;"><span class="lnr lnr-chevron-left"></span></a>
+                      <a href="javascript:;"><span class="lnr lnr-cog"></span></a>
+                    </div>
+                    <h1 class="heading"></h1>
+                    <h3 class="location"></h3>
+                    <p class="temp">
+                      <span class="temp-value">{{chatname}}</span>
+                      <span class="deg">Add rooms here!</span>
+                      <a href="javascript:;"><span class="temp-type"></span></a>
+                    </p>
+                  </div>
+                </div>
+                <div class="bottom">
+                  <div class="wrapper">
+                    <span class="date"><app-add-room></app-add-room></span>                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+<!-- <div class="example-container mat-elevation-z8">
   <h3>{{chatname}}</h3>
   <div class="example-loading-shade" *ngIf="isLoadingResults">
     <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
   </div>
-  <!-- <div class="button-row">
-    <button mat-flat-button color="primary" [routerLink]="['/add-room']">
-      <mat-icon>add</mat-icon>
-    </button>
-  </div> -->
   <app-addusers></app-addusers>
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="conversations" class="example-table" matSort matSortActive="roomname"
       matSortDisableClear matSortDirection="asc">
-      <!-- Room Name Column -->
       <ng-container matColumnDef="roomname">
         <th mat-header-cell *matHeaderCellDef>conversations</th>
         <div>
@@ -26,4 +177,4 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="enterChatRoom(row.displayName)"></tr>
     </table>
   </div>
-</div>
+</div> -->

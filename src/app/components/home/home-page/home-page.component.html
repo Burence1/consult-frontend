@@ -2,7 +2,7 @@
   <button type="button" (click)="drawer.toggle()" mat-icon-button class="toggler">
     ☰
   </button>
-  <span>Navigation</span>
+  <span>Dashboard</span>
 </mat-toolbar>
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
@@ -12,14 +12,6 @@
     <p class="designation">{{ profile.department }}</p>
    <mat-divider></mat-divider>
 
-    <a
-      mat-list-item
-      href=""
-      class="nav-item nav-link active"
-      routerLink="/home"
-      routerLinkActive="active"
-      ><mat-icon>home</mat-icon> Home</a
-    >
     <a
       mat-list-item
       class="nav-item nav-link"
@@ -105,12 +97,10 @@
               <div class="col-md-7 text-md-left ml-3">
                 <img src="assets/images/cropped-consult.jpg" alt="logo" class="img-class">
                 <!-- Excerpt -->
-          
-                <p class="font-weight-normal">A clinical communication and collaboration platform that
-                  coordinates activities and data flow between health workers</p>
-                <p class="font-weight-normal">welcome back <a><strong>{{profile.displayName}}</strong>!</a></p>
-          
-                <a class="btn btn-success" color="success"  routerLink="/about">Read More!</a>
+                <h1 class="back">Welcome Back <a><strong>{{profile.displayName}}</strong>!</a></h1>
+                <p class="wel-text">Consult is a clinical communication and collaboration platform that
+                  coordinates activities and data flow between health workers</p>          
+                <a class="btn btn-success end" color="success"  routerLink="/about">Read More!</a>
           
               </div>
               <!-- Grid column -->
@@ -119,27 +109,7 @@
             <!-- Grid row -->
           
           </div>
-          <!-- News jumbotron -->
-          <!-- <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-              <h2>Hello world!</h2>
-              <p>
-                This is a simple hero unit, a simple jumbotron-style component for calling extra
-                attention to featured content or information.
-              </p>
-            
-              <hr class="my-4" />
-            
-              <p>
-                It uses utility classes for typography and spacing to space content out within the
-                larger container.
-              </p>
-              <button type="button" class="btn btn-primary">
-                Learn more
-              </button>
-            </div>
-        </div> -->
-        <!-- Icon Cards-->
+        
           <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2 mt-4">
               <div class="inforide">
                 <div class="row">
@@ -198,7 +168,7 @@
                                         <div class="card">
                                             <img class="img-fluid" alt="" src="assets/images/conn.png">
                                             <div class="card-body">
-                                                <h2 class="card-title">Connect with many other doctors</h2> <hr>
+                                                <h2 class="card-title"> <strong>Connect with Professionals</strong> </h2> <hr>
                                                 <p class="card-text">We connect you to many professionals around Kenya</p>
                                                 <a class="btn btn-lg view" href="/directory"> View </a>
                                             </div>
@@ -209,7 +179,7 @@
                                         <div class="card">
                                             <img class="img-fluid" alt="" src="assets/images/chat.jpg">
                                             <div class="card-body">
-                                                <h2 class="card-title">Chat with users</h2> <hr>
+                                                <h2 class="card-title"> <strong>Chat with Colleagues</strong> </h2> <hr>
                                                 <p class="card-text">With our new supporting chat feature you can reach out when in need.</p>
                                                 <a class="btn btn-lg view" href="/chats"> View </a>
 
@@ -220,7 +190,7 @@
                                         <div class="card">
                                             <img class="img-fluid" alt="100%x280" src="assets/images/help.jpeg">
                                             <div class="card-body">
-                                                <h2 class="card-title">Need help?</h2> <hr>
+                                                <h2 class="card-title"> <strong>Need help?</strong> </h2> <hr>
                                                 <p class="card-text">See our help section on how to go through the app</p>
                                                 <a class="btn btn-lg view" href="/about"> View </a>
 
