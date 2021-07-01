@@ -338,6 +338,7 @@ margin-right: 8px;
   }
   .nav-link:hover{
     color: deepskyblue;
+<<<<<<< HEAD
 }
   .user-img{
     width: 150px;
@@ -372,7 +373,27 @@ margin-right: 8px;
 
   ::-webkit-scrollbar-track {
   background: #f1f1f1; 
+=======
+>>>>>>> 05f174f4c437a2078d695cf94b5a7b990ef248eb
 }
+  .user-img{
+    width: 150px;
+    height: 150px;
+    /* margin-left: 35px; */
+    border-radius: 50%;
+  }
+  .name {
+    margin-top: 2px;
+  font-weight: normal;
+  }
+  .designation {
+  font-size: 0.7rem;
+  color: lightgrey;
+  }
+  mat-divider {
+  margin-top: 16px;
+  background-color: rgba(255, 255, 255, 0.5);
+  }
 
 /* Handle */
 
