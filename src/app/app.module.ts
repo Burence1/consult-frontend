@@ -60,7 +60,7 @@ import { RoomlistsComponent } from './components/roomlists/roomlists.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
 import { NewTaskComponent } from './components/tasks/new-task/new-task.component';
-import { OneChatComponent } from './one-chat/one-chat.component';
+import { OneChatComponent } from './components/one-chat/one-chat.component';
 import { TaskComponent } from './components/tasks/task/task.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TasksHomeComponent } from './components/tasks/tasks-home/tasks-home.component';
@@ -71,6 +71,12 @@ import { PatientDialogComponent } from './components/tasks/pages/patient-dialog/
 import { PatientTaskDialogComponent } from './components/tasks/pages/patient-task-dialog/patient-task-dialog.component';
 import { OnboardComponent } from './onboard/onboard.component';
 import { FollowComponent } from './components/follow/follow/follow.component';
+import { AddusersComponent } from './components/addusers/addusers.component';
+import { ConvolistComponent } from './components/convolist/convolist.component';
+
+import { AboutComponent } from './components/about/about.component';
+
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +111,10 @@ import { FollowComponent } from './components/follow/follow/follow.component';
     PatientTaskDialogComponent,
     OnboardComponent,
     FollowComponent,
+    AddusersComponent,
+    ConvolistComponent,
+    AboutComponent,
+    UserProfileComponent,
   ],
   entryComponents: [AddRoomComponent],
   imports: [
@@ -133,7 +143,8 @@ import { FollowComponent } from './components/follow/follow/follow.component';
     MatButtonModule,
     LayoutModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatListModule,
   ],
   providers: [MessagingService, AsyncPipe, FollowService],
   bootstrap: [AppComponent]

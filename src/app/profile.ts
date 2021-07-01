@@ -1,5 +1,5 @@
 export class Profile {
-  id: number;
+  id: string;
   displayName: string;
   email: string;
   status: string;
