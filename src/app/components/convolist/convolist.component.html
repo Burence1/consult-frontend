@@ -1,0 +1,29 @@
+<div class="example-container mat-elevation-z8">
+  <h3>{{chatname}}</h3>
+  <div class="example-loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <!-- <div class="button-row">
+    <button mat-flat-button color="primary" [routerLink]="['/add-room']">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div> -->
+  <app-addusers></app-addusers>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="conversations" class="example-table" matSort matSortActive="roomname"
+      matSortDisableClear matSortDirection="asc">
+      <!-- Room Name Column -->
+      <ng-container matColumnDef="roomname">
+        <th mat-header-cell *matHeaderCellDef>conversations</th>
+        <div>
+          <div mat-cell *matCellDef="let row">
+            <div *ngIf="row.show">{{row.displayName}}</div>
+          </div>
+        </div>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="enterChatRoom(row.displayName)"></tr>
+    </table>
+  </div>
+</div>

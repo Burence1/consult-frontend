@@ -59,7 +59,7 @@ import { RoomlistsComponent } from './components/roomlists/roomlists.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
 import { NewTaskComponent } from './components/tasks/new-task/new-task.component';
-import { OneChatComponent } from './one-chat/one-chat.component';
+import { OneChatComponent } from './components/one-chat/one-chat.component';
 import { TaskComponent } from './components/tasks/task/task.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TasksHomeComponent } from './components/tasks/tasks-home/tasks-home.component';
@@ -69,6 +69,9 @@ import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.
 import { PatientDialogComponent } from './components/tasks/pages/patient-dialog/patient-dialog.component';
 import { PatientTaskDialogComponent } from './components/tasks/pages/patient-task-dialog/patient-task-dialog.component';
 import { OnboardComponent } from './onboard/onboard.component';
+import { AddusersComponent } from './components/addusers/addusers.component';
+import { ConvolistComponent } from './components/convolist/convolist.component';
+
 import { AboutComponent } from './components/about/about.component';
 
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -105,6 +108,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     PatientDialogComponent,
     PatientTaskDialogComponent,
     OnboardComponent,
+    AddusersComponent,
+    ConvolistComponent,
     AboutComponent,
     UserProfileComponent,
   ],
@@ -135,7 +140,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     MatButtonModule,
     LayoutModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatListModule,
   ],
   providers: [MessagingService, AsyncPipe],
   bootstrap: [AppComponent]
