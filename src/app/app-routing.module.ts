@@ -28,6 +28,7 @@ import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.
 import { FollowComponent } from './components/follow/follow/follow.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
+import { AuthGuard } from './services/auth/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'onboard', pathMatch: 'full' },
@@ -45,18 +46,13 @@ const routes: Routes = [
   { path: 'add-room', component: AddRoomComponent},
   { path: 'roomlist', component: RoomlistsComponent},
   { path: 'chatfeed/:roomname', component: ChatFeedComponent},
-  {path: 'tasks', component: TasksHomeComponent},
-  {path: 'calendar', component: TaskComponent},
   {path: 'One', component: OneChatComponent},
   {path: 'onboard', component: OnboardComponent},
-  {path: 'tasks', component: TasksHomeComponent},
   {path: 'about', component: AboutComponent},
   {path: 'calendar', component: TaskComponent},
   {path: 'chatroom/:displayName',component: OneChatComponent},
   {path: 'onboard', component: OnboardComponent},
-  {path: 'tasks', component: TasksHomeComponent},
-  {path: 'calendar', component: TaskComponent},
-  {path: '', redirectTo: 'patients', pathMatch: 'full'},
+  {path: 'tasks', component: TasksHomeComponent, canActivate: [AuthGuard]},
   {path: 'new-patient', component: NewPatientComponent},
   {path: 'patients', component: TaskViewComponent},
   {path: 'patients/:patientId', component: TaskViewComponent},
