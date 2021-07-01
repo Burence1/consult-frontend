@@ -1,7 +1,7 @@
 <div class="container">
   <form class="example-form" [formGroup]="roomForm" (ngSubmit)="onFormSubmit(roomForm.value)">
     <button mat-icon-button (click)="open(list)" class="end">
-      <mat-icon matSuffix>person_add</mat-icon>
+      <span>Select</span> <mat-icon matSuffix>person_add</mat-icon>
     </button>
     <!-- <h2>Please enter new Room</h2>
       <mat-form-field class="example-full-width">

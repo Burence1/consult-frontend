@@ -331,6 +331,15 @@ mat-sidenav {
 }
 .nav-link:hover{
   color: deepskyblue;
+<<<<<<< HEAD
+}
+.nav-link, p, li, h3, label{
+  font-family: comfortaa;
+}
+span{
+  font-family: comfortaa;
+=======
+>>>>>>> 05f174f4c437a2078d695cf94b5a7b990ef248eb
 }
 
 mat-sidenav-container {
@@ -555,3 +564,26 @@ li{
   padding: 10px;
   margin-left: 30%;
 }  
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+
+  ::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+
+  ::-webkit-scrollbar-thumb {
+  background: #003060; 
+}
+
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  
+  background: #555; 
+} 

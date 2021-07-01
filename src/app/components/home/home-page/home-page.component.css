@@ -126,6 +126,10 @@ max-width: 400px;
 
 
 /* recent */
+.back{
+  font-size: 30px;
+  font-family: comfortaa
+}
 .content-wrapper {
   min-height: calc(100vh - 56px);
   padding-top: 4rem;
@@ -294,7 +298,23 @@ mat-card{
 .jumbotron {
   height: 50vh
 }
-
+.end{
+  font-family: roboto;
+  font-weight: 500;
+}
+.wel-text{
+  font-family: comfortaa;
+}
+h4{
+  font-family: comfortaa;
+}
+h2{
+  font-family: comfortaa;
+  font-size: 20px;
+}
+p{
+  font-family: comfortaa;
+}
 .img-class{
   width: 100px;
 }
@@ -342,11 +362,40 @@ q {
 .view{
   background: #2bc04b;
   color: white;
+  font-family: roboto;
 }
 
 .img-fluid{
   max-height: 50vh;
 }
+.nav-link{
+  font-family: comfortaa;
+}
 .nav-link:hover{
   color: deepskyblue;
 }
+span{
+  font-family: comfortaa;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+
+  ::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+
+  ::-webkit-scrollbar-thumb {
+  background: #003060; 
+}
+
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  
+  background: #555; 
+} 
