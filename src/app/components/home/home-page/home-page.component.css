@@ -65,6 +65,7 @@ mat-sidenav {
 }
 mat-sidenav-container {
   height: calc(100vh - 65px);
+  overflow: hidden;
 }
 .menu-button {
 width: 100%;
@@ -77,23 +78,20 @@ mat-icon {
 margin-right: 8px;
 }
 .avatar {
-margin-top: 16px;
 width: 100px;
 height: 100px;
 border-radius: 50%;
 }
 .name {
-margin-top: 8px;
+  margin-top: 2px;
 font-weight: normal;
 }
 .designation {
-margin-top: 2px;
 font-size: 0.7rem;
 color: lightgrey;
 }
 mat-divider {
 margin-top: 16px;
-margin-bottom: 16px;
 background-color: rgba(255, 255, 255, 0.5);
 }
 .grid-container {
@@ -128,6 +126,10 @@ max-width: 400px;
 
 
 /* recent */
+.back{
+  font-size: 30px;
+  font-family: comfortaa
+}
 .content-wrapper {
   min-height: calc(100vh - 56px);
   padding-top: 4rem;
@@ -294,18 +296,27 @@ mat-card{
 }
 
 .jumbotron {
-  /* margin-top: 3%; */
-  text-align: center;
-  padding: 10px; 
+  height: 50vh
 }
-.jumbotron .btn {
-  padding: .75rem 1.5rem;
-  font-size: 1.5rem;
+.end{
+  font-family: roboto;
+  font-weight: 500;
 }
-.head{
-  font-size: 40px;
-  font-weight: 800;
-  margin-top:2%;
+.wel-text{
+  font-family: comfortaa;
+}
+h4{
+  font-family: comfortaa;
+}
+h2{
+  font-family: comfortaa;
+  font-size: 20px;
+}
+p{
+  font-family: comfortaa;
+}
+.img-class{
+  width: 100px;
 }
 blockquote{
   font-size: 20px;
@@ -351,4 +362,40 @@ q {
 .view{
   background: #2bc04b;
   color: white;
+  font-family: roboto;
 }
+
+.img-fluid{
+  max-height: 50vh;
+}
+.nav-link{
+  font-family: comfortaa;
+}
+.nav-link:hover{
+  color: deepskyblue;
+}
+span{
+  font-family: comfortaa;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+
+  ::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+
+  ::-webkit-scrollbar-thumb {
+  background: #003060; 
+}
+
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  
+  background: #555; 
+} 

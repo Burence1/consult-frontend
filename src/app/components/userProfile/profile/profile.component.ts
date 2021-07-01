@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Profile } from 'src/app/profile';
 import { User } from 'src/app/user';
@@ -9,6 +9,8 @@ import { finalize } from 'rxjs/operators';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -117,8 +119,8 @@ export class ProfileComponent implements OnInit {
   view(){
     this.fileService.getImage(this.file);
   }
+  
   logout() {
     this.auth.logout();
   }
 }
-

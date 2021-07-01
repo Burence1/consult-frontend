@@ -1,7 +1,5 @@
 <div class="example-container">
   <div class="mat-elevation">
-  <h3>{{chatname}}</h3>
-  <h2>Room List</h2>
   <div class="example-loading-shade" *ngIf="isLoadingResults">
     <mat-progress-spinner mode="indeterminate" color="primary" *ngIf="isLoadingResults"></mat-progress-spinner>
   </div>
@@ -10,7 +8,8 @@
       <!-- Room Name Column -->
       <ng-container matColumnDef="roomname">
         <th mat-header-cell *matHeaderCellDef>Room Name</th>
-        <td mat-cell *matCellDef="let row">{{row.roomname}}</td>
+        <td mat-cell *matCellDef="let row">
+          <mat-card>{{row.roomname}}</mat-card></td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
