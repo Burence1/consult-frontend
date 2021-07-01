@@ -45,6 +45,7 @@ export class DirectoryComponent implements OnInit {
     );
   }
 
+  // tslint:disable-next-line: typedef
   SearchDirectory( ){
 
   }
@@ -58,6 +59,7 @@ export class DirectoryComponent implements OnInit {
     });
   }
 
+  // tslint:disable-next-line: typedef
   logout() {
     this.auth.logout();
   }
