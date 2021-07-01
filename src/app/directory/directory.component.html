@@ -136,17 +136,17 @@
       <div class="example-sidenav-content">
         <div class="container">
           <div class="" *ngFor='let profile of profiles'>
-          <a class="card1" href="#">
+          <a class="card1" [routerLink]="['user-profile', profile.id]">
             <h3>{{profile.displayName}}</h3>
             <img [src]=" profile.image " class=" mt-5 avatar">
-            <p class="small">Workers in our organization</p>
+            <p class="small">Works in our organization</p>
             <ul class="list">
               <mat-card>
                 <li><strong>Email:</strong>  {{ profile.email }}</li>
                 <li><strong>Department:</strong> {{ profile.department }}</li>
                 <li><strong>Position:</strong> {{ profile.position }}</li>
                 <li><strong>Contact:</strong> {{ profile.contact }}</li>
-                <li><strong>Interests:</strong>  {{ profile.interest1 }}</li>
+                
               </mat-card>
             </ul>
             <div class="go-corner" href="#">
