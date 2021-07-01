@@ -9,20 +9,28 @@ import { Todo } from '../models/task';
 })
 export class PatientService {
 
+  searchValue: string = "";
+  results: any;
   private dbPath = '/patients';
-  patients = this.store.collection('patients', ref => ref.orderBy('name')).valueChanges({idField: 'id'});
+  patients = this.store.collection('patients', ref => ref.orderBy('firstName')).valueChanges({idField: 'id'});
 
   patientsRef: AngularFirestoreCollection<Patient>;
 
   constructor(private store: AngularFirestore) { 
-    this.patientsRef = this.store.collection('patients');
+    this.patientsRef = this.store.collection('patients', ref => ref.orderBy('firstName'));
   }
   getAll(): AngularFirestoreCollection<Patient> {
     return this.patientsRef;
 
   }
 
-  
+  searchPatient(name: string){
+    let results = this.store.collection('patients', ref => ref.where("firstName", "==", "search")).valueChanges({idField: 'id'}) as Observable<Patient[]>;
+    return results;
+  }
+
+ 
+
   addPatient(patient: Patient): any{
     return this.patientsRef.add({ ...patient})
   }
@@ -41,6 +49,7 @@ export class PatientService {
     return tasksRef.add({...task});
 
   }
+
 
   getPatientTasks(patientId: string){
     let tasks = this.store.collection('patients').doc(patientId).collection('tasks').valueChanges({idField: 'id'}) as Observable<any>;

@@ -2,12 +2,6 @@
   <div class="d-flex">
       <img src="../../../../assets/images/logo.png" alt="" class="logo-img">
   </div>
-  <div class="search">
-    <mat-form-field appearance="standard" style="color: white;" >
-      <input  matInput placeholder="">
-      <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
-  </div>
 <div>
   <ul class="d-flex">
     <a routerLink="/" class="nav-link">Home</a>
@@ -28,6 +22,17 @@
                     <h2>Patients</h2>
                     <!-- <button mat-raised-button class="addBtn btn-sm" routerLink="/new-patient"><mat-icon>add</mat-icon></button> -->
                     <button mat-raised-button class="addBtn btn-sm" (click)="newPatient()"><mat-icon>add</mat-icon></button>
+                </div>
+                <div class="search">
+                  <p class="text-center">
+                    <mat-icon *ngIf="searchMode" (click)="clearSearch()">clear</mat-icon>
+                    <mat-form-field appearance="legacy">
+                     
+                      <input matInput placeholder="search..." [(ngModel)]="searchValue">
+                      <mat-icon matSuffix *ngIf="!searchMode"  (click)="performSearch()">search</mat-icon>
+                      
+                    </mat-form-field>
+                  </p>
                 </div>
                 <ul class="list-group" *ngFor="let patient of patients">
                 
@@ -82,10 +87,10 @@
         </div>
         <div class="tasks-list col-md-8">
            <div class="task-header">
-            <h2>Tasks</h2>
-            <!-- <button mat-raised-button mat-fab routerLink="./add-task"><mat-icon>add</mat-icon></button> -->
+            <h2>Tasks()</h2>
             <button mat-raised-button mat-fab (click)="newPatientTask()"><mat-icon>add</mat-icon></button>
            </div>
+
            <div class="btn-area">
                <button class="btn" [class.active]="filter == 'all'" (click)="filter = 'all'" >All</button>
                <button class="ms-3 btn" [class.active]="filter == 'active'" (click)="filter = 'active'">To Do</button>
