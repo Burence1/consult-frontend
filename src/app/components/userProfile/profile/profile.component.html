@@ -84,7 +84,7 @@
                       <div class=" row tab-slider--tabs">
                       <div class="col-md-4 lead tab-slider--trigger" [class.active]="viewMode == 'tab1'" rel="tab1" (click)="viewMode ='tab1'">Overview</div>
                     <div class="col-md-4 lead tab-slider--trigger" [class.active]="viewMode == 'tab2'" rel="tab2" (click)="viewMode ='tab2'">BIO</div>
-                    <div class="col-md-4 lead lead tab-slider--trigger" [class.active]="viewMode == 'tab3'" rel="tab3" (click)="viewMode ='tab3'">CHAT GROUPS</div>
+                    <div class="col-md-4 lead lead tab-slider--trigger" [class.active]="viewMode == 'tab3'" rel="tab3" (click)="viewMode ='tab3'">INTERESTS</div>
                       </div>
                     </div>
                   </div>
@@ -129,6 +129,12 @@
                           <p class="text-light">{{profile.bio}}</p>
                         </div>
                         <div id="tab3" class="tab-slider--body" *ngSwitchCase="'tab3'">
+                          <ul class="text-light">
+                            <br><br><li>{{profile.interest1}}</li><br>
+                            <li>{{profile.interest2}}</li><br>
+                            <li>{{profile.interest3}}</li><br>
+                            <li>{{profile.interest4}}</li><br>
+                          </ul>
                         </div>
                       </div>
                       <!-- <div class="col-md-4"></div> -->
@@ -146,56 +152,6 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
       <!-- Modal -->
-      <div class="modal fade modal-dialog-scrollable " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <div class="card">
-                <div class="card-image">
-                  <h2 class="card-heading text-center">
-                    UPDATE PROFILE
-                    <small>Update your account</small>
-                  </h2>
-                </div>
-                <form (ngSubmit)='updateProfile()' #quoteForm='ngForm' id="form" class="card-form">
-                  <div class="input">
-                    <input type="text" class="input-field" id="name" [(ngModel)]="displayNameInput" name="name" required/>
-                    <label for="name" class="input-label">Full name</label>
-                  </div>
-                  <div class="input">
-                    <label for="profile_picture">Profile Picture</label><br><br>
-                    <input type="file" id="myFile" name="filename" [(ngModel)]="imageInput" name="image" (change)="showPreview($event)">
-                  </div>
-                  <div class="input">
-                    <input type="text" class="input-field" id="department" [(ngModel)]="departmentInput" name="department" required/>
-                    <label for="department" class="input-label">Department</label>
-                  </div>
-                  <div class="input">
-                    <input type="text" class="input-field" id="position" [(ngModel)]="positionInput" name="position" required/>
-                    <label for="position" class="input-label">Position</label>
-                  </div>
-                  <div class="input">
-                    <input type="text" class="input-field" [(ngModel)]="contactInput" name="contact" required/>
-                    <label for="contact" class="input-label">Contact</label>
-                  </div>
-                  <div class="input">
-                    <input type="text" class="input-field" [(ngModel)]="bioInput" name="bio" required/>
-                    <label class="input-label text-area">Bio</label>
-                  </div><br>
-                    <button class="action-button">Submit</button>
-                </form>
-              </div>
-            </div>
-            <!-- <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Understood</button>
-            </div> -->
-          </div>
-        </div>
-      </div>
             </div>
           <div class="col-md-4"></div>
           </div>
@@ -204,3 +160,69 @@
       </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
+<div class="modal fade modal-dialog-scrollable " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <div class="card-image">
+            <h2 class="card-heading text-center">
+              UPDATE PROFILE
+              <small>Update your account</small>
+            </h2>
+          </div>
+          <form (ngSubmit)='updateProfile()' #quoteForm='ngForm' id="form" class="card-form">
+            <div class="input">
+              <input type="text" class="input-field" id="name" [(ngModel)]="displayNameInput" name="name" required/>
+              <label for="name" class="input-label">Full name</label>
+            </div>
+            <div class="input">
+              <label for="profile_picture">Profile Picture</label><br><br>
+              <input type="file" id="myFile" name="filename" [(ngModel)]="imageInput" name="image" (change)="showPreview($event)">
+            </div>
+            <div class="input">
+              <input type="text" class="input-field" id="department" [(ngModel)]="departmentInput" name="department" required/>
+              <label for="department" class="input-label">Department</label>
+            </div>
+            <div class="input">
+              <input type="text" class="input-field" id="position" [(ngModel)]="positionInput" name="position" required/>
+              <label for="position" class="input-label">Position</label>
+            </div>
+            <div class="input">
+              <input type="text" class="input-field" [(ngModel)]="contactInput" name="contact" required/>
+              <label for="contact" class="input-label">Contact</label>
+            </div>
+            <div class="input">
+              <input type="text" class="input-field" [(ngModel)]="bioInput" name="bio" required/>
+              <label class="input-label text-area">Bio</label>
+            </div>
+            <div class="input">
+              <input type="text" class="input-field" [(ngModel)]="interest1Input" name="interest" required/>
+              <label class="input-label text-area">Interest</label>
+            </div>
+            <div class="input">
+              <input type="text" class="input-field" [(ngModel)]="interest2Input" name="interest" required/>
+              <label class="input-label text-area">Interest</label>
+            </div>
+            <div class="input">
+              <input type="text" class="input-field" [(ngModel)]="interest3Input" name="interest" required/>
+              <label class="input-label text-area">Interest</label>
+            </div>
+            <div class="input">
+              <input type="text" class="input-field" [(ngModel)]="interest4Input" name="interest" required/>
+              <label class="input-label text-area">Interest</label>
+            </div><br>
+              <button class="action-button">Submit</button>
+          </form>
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>

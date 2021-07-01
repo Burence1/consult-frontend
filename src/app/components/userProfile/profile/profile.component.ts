@@ -142,6 +142,7 @@ export class ProfileComponent implements OnInit {
   view(){
     this.fileService.getImage(this.file);
   }
+  // tslint:disable-next-line: typedef
   logout() {
     this.auth.logout();
   }
