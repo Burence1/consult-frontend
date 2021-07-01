@@ -31,14 +31,6 @@ export class AuthService {
   authUser() {
     return this.user;
   }
-  // if (this.currentId.IsEmailVerified) {
-  //   console.log('Nice, it worked!');
-  //   this.toastr.success('Welcome to Consult!');
-  //   this.router.navigateByUrl('/home');
-  // }
-  // else {
-  //   console.log('Email verification sent');
-  // }
 
   // tslint:disable-next-line: typedef
   login(email: string, password: string) {

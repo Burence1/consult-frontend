@@ -1,9 +1,8 @@
-import { User } from 'src/app/classes/user/user';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { FollowService } from 'src/app/services/follow/follow.service';
-import { ProfileService } from 'src/app/services/profile.service';
 import { size } from 'lodash';
-import { Profile } from 'src/app/profile';
+import firebase from 'firebase/app';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-follow',
@@ -12,7 +11,7 @@ import { Profile } from 'src/app/profile';
 })
 export class FollowComponent implements OnInit, OnDestroy {
 
-  @Input() user: User = new User();        // a user who can be followed
+  @Input() user;        // a user who can be followed
   @Input() currentUser; // currently logged in user
 
   followerCount: number;
@@ -20,44 +19,54 @@ export class FollowComponent implements OnInit, OnDestroy {
 
   followers;
   following;
-  profiles: Profile[];
+  username: any;
+  uid: any;
 
 
-  constructor(private followSvc: FollowService,
-              private profileService: ProfileService ) {
-    this.profileService.fetchAllProfiles().subscribe(
-      (res) => {
-        this.profiles = res;
-        console.log(res);
-      }, error => {
+
+  constructor(private auth: AuthService,
+              private followSvc: FollowService) {
+    this.auth.user.subscribe(
+      (user) => {
+        this.currentUser = user.displayName;
+        console.log(this.currentUser);
+      },
+      (error) => {
         console.error(error);
       }
     );
+
+    firebase.database().ref('users/').on('value', (snapshot: any) => {
+      snapshot.forEach((childSnapshot: any) => {
+        const childKey = childSnapshot.key;
+        const childData = childSnapshot.val();
+        this.username = childData.displayName;
+        this.uid = childKey;
+        console.log(this.username);
+
+      });
+    });
   }
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
-    const userId = this.user.uid;
-    const currentUserId = this.currentUser.uid;
-    // console.log(this.currentUser)
 
     // checks if the currently logged in user is following this.user
-    this.following = this.followSvc.getFollowing(currentUserId, userId).valueChanges()
-                                   .subscribe((following: any)  => {
+    this.following = this.followSvc.getFollowing(this.currentUser, this.uid)
+    .valueChanges().subscribe((following: any) => {
 
-                                      this.isFollowing = following;
+                                      this.isFollowing = following.$value;
 
                                     });
 
     // retrieves the follower count for a user's profile
-    this.followers = this.followSvc.getFollowers(userId).valueChanges()
+    this.followers = this.followSvc.getFollowers(this.uid).valueChanges()
                                    .subscribe(followers => {
 
                                      this.followerCount = this.countFollowers(followers);
 
                                     });
   }
-
 
   // tslint:disable-next-line: typedef
   private countFollowers(followers) {
@@ -68,13 +77,8 @@ export class FollowComponent implements OnInit, OnDestroy {
 
   // tslint:disable-next-line: typedef
   toggleFollow() {
-    const userId = this.user.uid;
-    console.log(userId);
-    const currentUserId = this.currentUser.uid;
-    // console.log(currentUserId);
-
-    if (this.isFollowing) { this.followSvc.unfollow(currentUserId, userId); }
-    else { this.followSvc.follow(currentUserId, userId); }
+    if (this.isFollowing) { this.followSvc.unfollow(this.currentUser, this.uid); }
+    else { this.followSvc.follow(this.currentUser, this.uid); }
   }
 
 
@@ -83,6 +87,7 @@ export class FollowComponent implements OnInit, OnDestroy {
     this.followers.unsubscribe();
     this.following.unsubscribe();
   }
+
 
 }
 

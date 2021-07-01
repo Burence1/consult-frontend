@@ -7,9 +7,9 @@ export class FollowService {
   constructor(private db: AngularFireDatabase) { }
 
   // tslint:disable-next-line: typedef
-  getFollowers(userId: string) {
+  getFollowers(uid: string) {
     // Used to build the follower count
-    return this.db.object(`followers/${userId}`);
+    return this.db.object(`followers/${uid}`);
   }
 
   // tslint:disable-next-line: typedef
