@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, ReplaySubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import {
   AngularFireDatabase,
@@ -15,11 +15,8 @@ import { Profile } from '../profile';
   providedIn: 'root',
 })
 export class ProfileService {
+
   currentUser: any;
-
-  // url =
-
-  // update_url =
 
   constructor(
     private afAuth: AngularFireAuth,
