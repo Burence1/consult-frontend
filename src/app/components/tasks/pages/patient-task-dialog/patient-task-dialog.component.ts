@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProfileService } from 'src/app/services/profile.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Todo } from '../models/task';
+import { CurrentUser } from '../../tasks.component';
 
 @Component({
   selector: 'app-patient-task-dialog',
@@ -15,6 +16,7 @@ export class PatientTaskDialogComponent implements OnInit {
   profiles: Profile[];
   selectedValue: string;
   minDate: Date;
+  user: CurrentUser;
 
   private backupTask: Partial<Todo> = { ...this.data.task};
 
@@ -29,6 +31,12 @@ export class PatientTaskDialogComponent implements OnInit {
         console.error(error);
       }
     );
+    this.auth.authUser().subscribe((res: any) =>{
+      this.user = {
+        name: res.displayName,
+        email: res.email
+      }
+    })
   }
 
   ngOnInit(): void {
@@ -42,6 +50,11 @@ export class PatientTaskDialogComponent implements OnInit {
     this.data.task.dateDue = this.backupTask.dateDue;
     this.data.task.assignedTo = this.backupTask.assignedTo;
     this.newdialogRef.close(this.data)
+  }
+  selfAssign(){
+    
+    this.data.task.assignedTo = this.user.name;
+    console.log
   }
 
   formatDate(e){

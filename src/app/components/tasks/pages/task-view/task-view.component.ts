@@ -15,6 +15,7 @@ import { Profile } from 'src/app/profile';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProfileService } from 'src/app/services/profile.service';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { CurrentUser } from '../../tasks.component';
 
 @Component({
   selector: 'app-task-view',
@@ -36,6 +37,7 @@ export class TaskViewComponent implements OnInit {
   results: Patient[] = [];
   searchValue: string;
   tasksLength: number;
+  user: CurrentUser;
 
   constructor(
     private patientService: PatientService, 
@@ -46,17 +48,12 @@ export class TaskViewComponent implements OnInit {
     private profileService: ProfileService,
     private store: AngularFirestore
     ) {
-    this.auth.user.subscribe(
-      (user) => {
-        this.currentId = user.uid;
-        console.log(this.currentId);
-        this.profileService.fetchProfileApi(this.currentId).subscribe((res) => {
-            this.profile = res;
-          },
-          (error) => {
-            console.error(error);
-          });
-      });
+      this.auth.authUser().subscribe((res: any) =>{
+        this.user = {
+          name: res.displayName,
+          email: res.email
+        }
+      })
    }
 
   ngOnInit(): void {
@@ -76,7 +73,7 @@ export class TaskViewComponent implements OnInit {
       this.patientId = params.patientId;
      
         this.allTasks = this.patientService.getPatientTasks(params.patientId)
-        console.log("length",this.countItems(this.allTasks))
+        
         this.doneTasks = this.patientService.getDoneTasks(params.patientId);
         this.undoneTasks = this.patientService.getUndoneTasks(params.patientId);
       
@@ -150,6 +147,7 @@ export class TaskViewComponent implements OnInit {
      },
    });
    newdialogRef.afterClosed().subscribe((result: PatientTaskDialogResult) =>{
+     result.task.done = false;
      this.patientService.addTask(this.patientId, result.task)
    })
  }
