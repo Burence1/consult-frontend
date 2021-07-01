@@ -9,24 +9,23 @@ import { finalize } from 'rxjs/operators';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-
 @Component({
   selector: 'app-directory',
   templateUrl: './directory.component.html',
   styleUrls: ['./directory.component.css']
 })
 export class DirectoryComponent implements OnInit {
-
   searchText = '';
   profiles: Profile[];
   user: Observable<any>;
   userEmail: any;
+  profile: Profile;
+  currentId: string;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
-
   constructor(public authService: AuthService,
               private profileService: ProfileService,
               public auth: AuthService,
@@ -48,9 +47,29 @@ export class DirectoryComponent implements OnInit {
                     console.error(error);
                   }
                 );
+
+                this.findProfiles();
+    this.auth.user.subscribe(
+      (user) => {
+        this.currentId = user.uid;
+        console.log(this.currentId);
+        this.profileService.fetchProfileApi(this.currentId).subscribe(
+          (res) => {
+            this.profile = res;
+            console.log(res);
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
-  
+  findProfiles() {}
   ngOnInit(): void {
     this.user = this.auth.authUser();
     this.user.subscribe(user => {
@@ -60,12 +79,10 @@ export class DirectoryComponent implements OnInit {
       }
     });
   }
-
   // tslint:disable-next-line: typedef
   logout() {
     this.auth.logout();
   }
-
    // tslint:disable-next-line: typedef
    filterCondition(profile) {
      const search = profile.displayName.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1;

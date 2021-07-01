@@ -53,6 +53,7 @@ export class TaskDialogComponent implements OnInit {
   // tslint:disable-next-line: typedef
   assign(){
     this.data.task.owner = this.user.name;
+    console.log(this.user.name)
   }
   ngOnInit(): void {
   }

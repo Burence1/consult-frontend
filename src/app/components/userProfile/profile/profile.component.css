@@ -324,28 +324,32 @@ margin-right: 8px;
 }
 
 .avatar {
-margin-top: 16px;
-width: 100px;
-height: 100px;
-border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-left: 35px;
+  border-radius: 50%;
+  }
+  .nav-link:hover{
+    color: deepskyblue;
 }
-
-.name {
-margin-top: 8px;
-font-weight: normal;
-}
-
-.designation {
-margin-top: 2px;
-font-size: 0.7rem;
-color: lightgrey;
-}
-
-mat-divider {
-margin-top: 6px;
-margin-bottom: 6px;
-background-color: rgba(255, 255, 255, 0.5);
-}
+  .user-img{
+    width: 150px;
+    height: 150px;
+    /* margin-left: 35px; */
+    border-radius: 50%;
+  }
+  .name {
+    margin-top: 2px;
+  font-weight: normal;
+  }
+  .designation {
+  font-size: 0.7rem;
+  color: lightgrey;
+  }
+  mat-divider {
+  margin-top: 16px;
+  background-color: rgba(255, 255, 255, 0.5);
+  }
 
 .modal-button{
   display: flex;
