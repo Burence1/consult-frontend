@@ -74,13 +74,13 @@
   <mat-sidenav-content>
     <div class="col-12"></div>
    <div class="grid-container">
-    <div class="content ">
+      <form class="form-inline">
+        <input id="search" type="search" class="form-control" name="searchInput" placeholder="Search professional profiles" #searchInput="ngModel" [(ngModel)]="searchText" style="width: 50%;" >
+        <button type="submit" class="btn btn-outline-primary btn-search" (click)="searchText=''">X</button>
+      </form>
+    <div class="content">
       <div class="example-sidenav-content">
         <div class="container">
-          <form class="form-inline">
-            <input class="form-control" name="searchInput" placeholder="Search" #searchInput="ngModel" [(ngModel)]="searchText" style="width: 80%;">
-            <button class="btn btn-outline-primary" (click)="searchText=''">X</button>
-          </form>
           <div class="" *ngFor='let profile of profiles'>
             <div *ngIf="filterCondition(profile)">
               <a class="card1" [routerLink]="['user-profile', profile.id]">
