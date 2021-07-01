@@ -5,6 +5,7 @@ import {
   AngularFireDatabase,
   AngularFireList,
   AngularFireObject,
+  SnapshotAction
 } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 
@@ -14,6 +15,7 @@ import { Profile } from '../profile';
   providedIn: 'root',
 })
 export class ProfileService {
+  currentUser: any;
 
   // url =
 
@@ -36,6 +38,11 @@ export class ProfileService {
     return this.db.list<Profile>(path).valueChanges();
   }
 
+  fetchAllProfilesSnapshot(): Observable<SnapshotAction<Profile>[]> {
+    const path = `/users`;
+    return this.db.list<Profile>(path).snapshotChanges();
+  }
+
   // get(name: string): Observable<Profile> {
 
   //   return this.apiService.get('/profile/' + name)
@@ -47,4 +54,5 @@ export class ProfileService {
     const path = `users/${id}`;
     this.db.object<Profile>(path).update(profile);
   }
+
 }

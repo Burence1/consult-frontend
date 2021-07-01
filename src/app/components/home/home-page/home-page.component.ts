@@ -22,6 +22,10 @@ export class HomePageComponent implements OnInit {
   selected!: Date | null;
   user: Observable<any>;
   userEmail: any;
+
+  name: any;
+  username:any
+  uid:any
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(
@@ -30,8 +34,6 @@ export class HomePageComponent implements OnInit {
     );
   message: any;
   opened!: boolean;
-  username: any;
-  uid: any;
   searchText = '';
 
   constructor(

@@ -1,10 +1,5 @@
 <mat-toolbar>
-  <button
-    type="button"
-    (click)="drawer.toggle()"
-    mat-icon-button
-    class="toggler"
-  >
+  <button type="button" (click)="drawer.toggle()" mat-icon-button class="toggler">
     ☰
   </button>
   <span>Navigation</span>
@@ -63,7 +58,7 @@
     <a
       mat-list-item
       class="nav-item nav-link"
-      routerLink="about"
+      routerLink="/about"
       routerLinkActive="active"
       ><mat-icon>contact_support</mat-icon>Help</a
     >
@@ -102,16 +97,13 @@
                     <mat-icon class="example-tab-icon">thumb_up</mat-icon>
                     Rooms
                   </ng-template>
-                 <!-- <app-chat-feed></app-chat-feed> -->
+                 <app-chat-feed></app-chat-feed> -->
                 <!-- </mat-tab>
               </mat-tab-group>
             </mat-card>  -->
           </div>
-          </div>
+        </div>
       </div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-
-
