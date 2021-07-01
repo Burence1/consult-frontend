@@ -29,7 +29,9 @@
     <a
       mat-list-item
       class="nav-item nav-link"
+
       routerLink="/tasks"
+
       routerLinkActive="active"
       ><mat-icon>assignment</mat-icon>Tasks</a
     >
@@ -158,8 +160,11 @@
         </div>
       </div>
       </div>
+       
+        
   </mat-sidenav-content>
 </mat-sidenav-container>
+
 <div class="modal fade modal-dialog-scrollable " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -215,7 +220,7 @@
               <input type="text" class="input-field" [(ngModel)]="interest4Input" name="interest" required/>
               <label class="input-label text-area">Interest</label>
             </div><br>
-              <button class="action-button">Submit</button>
+              <button class="action-button" data-bs-dismiss="modal">Submit</button>
           </form>
         </div>
       </div>

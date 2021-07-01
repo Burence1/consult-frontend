@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import firebase from 'firebase/app';
-import 'firebase/auth'
+import 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
 
@@ -32,25 +32,6 @@ export const snapshotToArray = (snapshot: any) => {
   styleUrls: ['./one-chat.component.css']
 })
 export class OneChatComponent implements OnInit {
-  @ViewChild('chatcontent') chatcontent: ElementRef;
-  scrolltop: any | null;
-
-  updateM: Chatmessage = {
-    message: ''
-  }
-
-  chatForm: FormGroup;
-  chatname = '';
-  roomname = '';
-  message = '';
-  users: any[];
-  chats: any[];
-  user: any;
-  userName: any;
-  messages: any
-  matcher = new MyErrorStateMatcher();
-  conversations: any;
-  convoname: any
   constructor(private Auth: AngularFireAuth, private db: AngularFireDatabase, private router: Router,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder) {
@@ -60,16 +41,16 @@ export class OneChatComponent implements OnInit {
       }
       this.getUser().valueChanges().subscribe(a => {
         this.userName = a;
-        this.chatname = this.userName.displayName
+        this.chatname = this.userName.displayName;
       });
 
       firebase.database().ref('conversations/').on('value', (snapshot: any) => {
         snapshot.forEach((childSnapshot: any) => {
           let childKey = childSnapshot.key;
           let childData = childSnapshot.val();
-          this.convoname = childData.convoname
-          console.log(this.convoname) 
-         })
+          this.convoname = childData.convoname;
+          console.log(this.convoname);
+         });
       });
 
       this.roomname = this.route.snapshot.params.displayName;
@@ -80,13 +61,33 @@ export class OneChatComponent implements OnInit {
         this.chats = chats.filter(x => x.roomname === this.roomname)
         setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
       });
-      
+
       firebase.database().ref('roomusers/').orderByChild('roomname').equalTo(this.roomname).on('value', (resp2: any) => {
         const roomusers = snapshotToArray(resp2);
         this.users = roomusers.filter(x => x.status === 'online');
       });
-    })
+    });
   }
+  @ViewChild('chatcontent') chatcontent: ElementRef;
+  scrolltop: any | null;
+
+  updateM: Chatmessage = {
+    message: ''
+  };
+
+  chatForm: FormGroup;
+  chatname = '';
+  roomname = '';
+  message = '';
+  users: any[];
+  chats: any[];
+  user: any;
+  userName: any;
+  messages: any;
+  matcher = new MyErrorStateMatcher();
+  conversations: any;
+  convoname: any;
+  name: any;
 
   getUser() {
     const userId = this.user.uid;
@@ -100,7 +101,6 @@ export class OneChatComponent implements OnInit {
     });
 
   }
-  name: any
   onFormSubmit(form: any) {
     var today = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -109,9 +109,9 @@ export class OneChatComponent implements OnInit {
     const chat = form;
     chat.roomname = this.roomname;
     chat.chatname = this.chatname;
-    chat.sender = this.user.displayName
+    chat.sender = this.user.displayName;
 
-    chat.name = this.convoname
+    chat.name = this.convoname;
 
     chat.date = dateTime;
     chat.type = 'message';
@@ -123,15 +123,15 @@ export class OneChatComponent implements OnInit {
   }
 
   deleteMsg(uid: any) {
-    const key = uid
-    var del = confirm("Want to delete?");
+    const key = uid;
+    var del = confirm('Want to delete?');
     if (del) {
       firebase.database().ref(`messages/${key}`).remove();
     }
   }
 
   UpdateMsg(uid: any) {
-    const key = uid
+    const key = uid;
     var del = confirm("Want to delete?");
     if (del) {
       firebase.database().ref(`chats/${key}`).update(this.updateM);

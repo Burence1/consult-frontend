@@ -50,7 +50,7 @@ export class DirectoryComponent implements OnInit {
                 );
   }
 
-
+  
   ngOnInit(): void {
     this.user = this.auth.authUser();
     this.user.subscribe(user => {
