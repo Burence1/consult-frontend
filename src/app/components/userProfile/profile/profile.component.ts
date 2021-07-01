@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
   name = '!!!';
   viewMode = 'tab1';
 
-  
+
 
   selectedImage: any = null;
   url: string;
@@ -49,10 +49,12 @@ export class ProfileComponent implements OnInit {
   interest2Input: string;
   interest3Input: string;
   interest4Input: string;
+  showForm = false;
+  roomname = '';
 
-
-  constructor( public authService: AuthService, private auth:AuthService,
-                private breakpointObserver: BreakpointObserver,
+  constructor( public authService: AuthService,
+               private auth: AuthService,
+               private breakpointObserver: BreakpointObserver,
                private profileService: ProfileService,
                @Inject(AngularFireStorage)
     private storage: AngularFireStorage,
@@ -91,15 +93,13 @@ export class ProfileComponent implements OnInit {
     this.profile.contact = this.contactInput;
     this.profile.displayName = this.displayNameInput;
     this.profile.image = this.imageInput;
-    this.profile.bio = this.bioInput
-    this.profile.interest1 = this.interest1Input
-    this.profile.interest2 = this.interest2Input
-    this.profile.interest3 = this.interest3Input
-    this.profile.interest4 = this.interest4Input
-    
-
-    var name = this.selectedImage.name;
-    const path = `profiles/${this.currentId}/${name}`
+    this.profile.bio = this.bioInput;
+    this.profile.interest1 = this.interest1Input;
+    this.profile.interest2 = this.interest2Input;
+    this.profile.interest3 = this.interest3Input;
+    this.profile.interest4 = this.interest4Input;
+    const name = this.selectedImage.name;
+    const path = `profiles/${this.currentId}/${name}`;
     const fileRef = this.storage.ref(path);
     this.storage.upload(path, this.selectedImage).snapshotChanges().pipe(
       finalize(() => {
@@ -109,7 +109,7 @@ export class ProfileComponent implements OnInit {
         })
       })
     ).subscribe();
-  
+
   }
 
 
@@ -126,7 +126,7 @@ export class ProfileComponent implements OnInit {
     this.fileService.getImageDetailList();
   }
 
-  
+
 
   // tslint:disable-next-line: typedef
   signOut() {
@@ -142,6 +142,7 @@ export class ProfileComponent implements OnInit {
   view(){
     this.fileService.getImage(this.file);
   }
+  // tslint:disable-next-line: typedef
   logout() {
     this.auth.logout();
   }

@@ -38,7 +38,7 @@ export class DirectoryComponent implements OnInit {
                 this.profileService.fetchAllProfilesSnapshot().subscribe(
                   (res) => {
                     this.profiles = res.map((value) => {
-                      let profile = value.payload.val();
+                      const profile = value.payload.val();
                       profile.id = value.payload.key;
                       return profile;
                     });
@@ -50,7 +50,7 @@ export class DirectoryComponent implements OnInit {
                 );
   }
 
-  
+
   ngOnInit(): void {
     this.user = this.auth.authUser();
     this.user.subscribe(user => {
@@ -61,6 +61,7 @@ export class DirectoryComponent implements OnInit {
     });
   }
 
+  // tslint:disable-next-line: typedef
   logout() {
     this.auth.logout();
   }
