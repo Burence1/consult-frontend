@@ -32,48 +32,12 @@ export const snapshotToArray = (snapshot: any) => {
   styleUrls: ['./one-chat.component.css']
 })
 export class OneChatComponent implements OnInit {
-  constructor(private Auth: AngularFireAuth, private db: AngularFireDatabase, private router: Router,
-    private route: ActivatedRoute,
-    private formBuilder: FormBuilder) {
-    this.Auth.authState.subscribe(auth => {
-      if (auth !== undefined && auth !== null) {
-        this.user = auth;
-      }
-      this.getUser().valueChanges().subscribe(a => {
-        this.userName = a;
-        this.chatname = this.userName.displayName;
-      });
-
-      firebase.database().ref('conversations/').on('value', (snapshot: any) => {
-        snapshot.forEach((childSnapshot: any) => {
-          let childKey = childSnapshot.key;
-          let childData = childSnapshot.val();
-          this.convoname = childData.convoname;
-          console.log(this.convoname);
-         });
-      });
-
-      this.roomname = this.route.snapshot.params.displayName;
-      console.log(this.roomname)
-      firebase.database().ref('messages/').on('value', resp => {
-        let chats = snapshotToArray(resp);
-        console.log(chats)
-        this.chats = chats.filter(x => x.roomname === this.roomname)
-        setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
-      });
-
-      firebase.database().ref('roomusers/').orderByChild('roomname').equalTo(this.roomname).on('value', (resp2: any) => {
-        const roomusers = snapshotToArray(resp2);
-        this.users = roomusers.filter(x => x.status === 'online');
-      });
-    });
-  }
   @ViewChild('chatcontent') chatcontent: ElementRef;
   scrolltop: any | null;
 
   updateM: Chatmessage = {
     message: ''
-  };
+  }
 
   chatForm: FormGroup;
   chatname = '';
@@ -83,12 +47,52 @@ export class OneChatComponent implements OnInit {
   chats: any[];
   user: any;
   userName: any;
-  messages: any;
+  messages: any
   matcher = new MyErrorStateMatcher();
   conversations: any;
   convoname: any;
-  name: any;
 
+  constructor(private Auth: AngularFireAuth, private db: AngularFireDatabase, private router: Router,
+              private route: ActivatedRoute,
+              private formBuilder: FormBuilder) {
+    this.Auth.authState.subscribe(auth => {
+      if (auth !== undefined && auth !== null) {
+        this.user = auth;
+      }
+      this.getUser().valueChanges().subscribe(a => {
+        this.userName = a;
+        this.chatname = this.userName.displayName
+      });
+
+      firebase.database().ref('conversations/').on('value', (snapshot: any) => {
+        snapshot.forEach((childSnapshot: any) => {
+          let childKey = childSnapshot.key;
+          let childData = childSnapshot.val();
+          this.convoname = childData.convoname
+          console.log(this.convoname)
+        })
+      });
+
+      this.roomname = this.route.snapshot.params.displayName;
+      //console.log(this.roomname)
+      firebase.database().ref('messages/').on('value', resp => {
+        const temporarychats = snapshotToArray(resp);
+        console.log(temporarychats)
+        console.log(this.chatname)
+        this.chats = temporarychats.filter(x => x.chatname === this.roomname || x.roomname === this.roomname)
+        console.log(this.chats)
+        console.log(this.convoname)
+        setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
+      });
+
+      firebase.database().ref('roomusers/').orderByChild('roomname').equalTo(this.roomname).on('value', (resp2: any) => {
+        const roomusers = snapshotToArray(resp2);
+        this.users = roomusers.filter(x => x.status === 'online');
+      });
+    })
+  }
+
+  // tslint:disable-next-line: typedef
   getUser() {
     const userId = this.user.uid;
     const path = `/users/${userId}`;
@@ -97,44 +101,40 @@ export class OneChatComponent implements OnInit {
 
   ngOnInit(): void {
     this.chatForm = this.formBuilder.group({
-      'message': [null, Validators.required]
+      message: [null, Validators.required]
     });
 
   }
+  name: any
   onFormSubmit(form: any) {
     var today = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
     var dateTime = date + ' ' + time;
+
     const chat = form;
     chat.roomname = this.roomname;
     chat.chatname = this.chatname;
-    chat.sender = this.user.displayName;
+    chat.sender = this.user.displayName
+    console.log(chat)
 
-    chat.name = this.convoname;
+    chat.name = this.convoname
 
     chat.date = dateTime;
     chat.type = 'message';
     const newMessage = firebase.database().ref('messages/').push();
     newMessage.set(chat);
     this.chatForm = this.formBuilder.group({
-      'message': [null, Validators.required]
+      message: [null, Validators.required]
     });
   }
 
+  // tslint:disable-next-line: typedef
   deleteMsg(uid: any) {
-    const key = uid;
-    var del = confirm('Want to delete?');
-    if (del) {
-      firebase.database().ref(`messages/${key}`).remove();
-    }
-  }
-
-  UpdateMsg(uid: any) {
-    const key = uid;
+    const key = uid
     var del = confirm("Want to delete?");
     if (del) {
-      firebase.database().ref(`chats/${key}`).update(this.updateM);
+      firebase.database().ref(`messages/${key}`).remove();
     }
   }
 }
