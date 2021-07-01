@@ -1,3 +1,4 @@
+import { AboutComponent } from './components/about/about.component';
 import { OnboardComponent } from './onboard/onboard.component';
 import { OneChatComponent } from './one-chat/one-chat.component';
 import { RoomlistsComponent } from './components/roomlists/roomlists.component';
@@ -40,7 +41,10 @@ const routes: Routes = [
   { path: 'add-room', component: AddRoomComponent},
   { path: 'roomlist', component: RoomlistsComponent},
   { path: 'chatfeed/:roomname', component: ChatFeedComponent},
+  {path: 'One', component: OneChatComponent},
+  {path: 'onboard', component: OnboardComponent},
   {path: 'tasks', component: TasksHomeComponent},
+  {path: 'about', component: AboutComponent},
   {path: 'calendar', component: TaskComponent},
   {path: 'One', component: OneChatComponent},
   {path: 'onboard', component: OnboardComponent},
