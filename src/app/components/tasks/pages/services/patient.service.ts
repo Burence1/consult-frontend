@@ -52,7 +52,7 @@ export class PatientService {
 
 
   getPatientTasks(patientId: string){
-    let tasks = this.store.collection('patients').doc(patientId).collection('tasks').valueChanges({idField: 'id'}) as Observable<any>;
+    let tasks = this.store.collection('patients').doc(patientId).collection('tasks', ref => ref.orderBy('dateDue', 'asc')).valueChanges({idField: 'id'}) as Observable<any>;
     return tasks;
   }
 
