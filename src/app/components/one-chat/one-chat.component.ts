@@ -94,7 +94,6 @@ export class OneChatComponent implements OnInit {
     return this.db.object(path);
   }
 
-
   ngOnInit(): void {
     this.chatForm = this.formBuilder.group({
       'message': [null, Validators.required]
