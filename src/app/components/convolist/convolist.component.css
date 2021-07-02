@@ -86,7 +86,7 @@
     height: 230px;
     width: 100%;
     overflow: hidden;
-    background: url("https://s-media-cache-ak0.pinimg.com/564x/cf/1e/c4/cf1ec4b0c96e59657a46867a91bb0d1e.jpg") no-repeat;
+    background: url("../../../assets/images/team-doctors.jpg") no-repeat;
     background-size: cover;
     background-position: center center;
     text-align: center;
@@ -104,11 +104,11 @@
     font-size: 20px;
   }
   .weather-card .top .wrapper .mynav .lnr-chevron-left {
-    display: inline-block;
+    display: block;
     float: left;
   }
   .weather-card .top .wrapper .mynav .lnr-cog {
-    display: inline-block;
+    display: block;
     float: right;
   }
   .weather-card .top .wrapper .heading {
@@ -135,12 +135,13 @@
   }
   .weather-card .top .wrapper .temp .temp-value {
     display: inline-block;
-    font-size: 85px;
-    font-weight: 600;
+    font-size: 45px;
+    font-family: comfortaa;
+    font-weight: 800;
     color: #fff;
   }
   .weather-card .top .wrapper .temp .deg {
-    display: block;
+    display: inline-block;
     font-size: 15px;
     /* font-weight: 600; */
     color: #fff;
@@ -191,17 +192,17 @@
     display: inline-block;
   }
   .weather-card .bottom .wrapper .forecast li .condition {
-    display: inline-block;
-    vertical-align: middle;
+    display: block;
+    /* vertical-align: middle; */
     float: right;
     font-size: 25px;
   }
   .weather-card .bottom .wrapper .forecast li .condition .temp {
     display: inline-block;
     vertical-align: top;
-    font-family: 'Montserrat', sans-serif;
+    font-family: comfortaa;
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 500;
     padding-top: 2px;
   }
   .weather-card .bottom .wrapper .forecast li .condition .temp .deg {
@@ -218,7 +219,7 @@
     color: rgba(0, 0, 0, 0.8);
   }
   .weather-card.rain .top {
-    background: url("http://img.freepik.com/free-vector/girl-with-umbrella_1325-5.jpg?size=338&ext=jpg") no-repeat;
+    background: url("../../../assets/images/doctors.jpg") no-repeat;
     background-size: cover;
     background-position: center center;
   }
@@ -229,6 +230,9 @@
       font-family: comfortaa;
       font-size: 30px;
   }
+  .pointer{
+    cursor: pointer;
+    }
 
   .wrapper{
       max-height: 70vh;

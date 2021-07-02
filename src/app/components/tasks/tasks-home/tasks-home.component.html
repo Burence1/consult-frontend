@@ -1,17 +1,3 @@
-<!-- <mat-toolbar class="toolbar">
-    <div class="d-flex">
-        <img src="../../../../assets/images/cropped-consult.jpg" alt="" class="logo-img">
-    </div>
-
-  <div>
-    <ul class="d-flex">
-      <a routerLink="/home" class="nav-link">Home</a>
-      <a routerLink='/chats' class="nav-link">Chats</a>
-      <a routerLink="/directory" class="nav-link">Directory</a>
-    </ul>
-  </div>
-  </mat-toolbar> -->
-
 <mat-toolbar>
   <button type="button" (click)="drawer.toggle()" mat-icon-button class="toggler">
     ☰
@@ -45,20 +31,12 @@
       mat-list-item
       class="nav-item nav-link"
 
-      href="/tasks"
+      href="/patients"
 
       routerLinkActive="active"
-      ><mat-icon>assignment</mat-icon>Tasks</a
+      ><mat-icon>assignment</mat-icon>Page</a
     >
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-      routerLink="/chats"
-      routerLinkActive="active"
-      ><mat-icon>forum</mat-icon
-      ><span matBadge="4" matBadgeOverlap="false">Rooms</span></a
-    >
-
+   
     <a
       mat-list-item
       class="nav-item nav-link"

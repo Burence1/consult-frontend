@@ -338,6 +338,12 @@ mat-sidenav {
 span{
   font-family: comfortaa;
 }
+.nav-link, p, li, h3, label{
+  font-family: comfortaa;
+}
+span{
+  font-family: comfortaa;
+}
 
 mat-sidenav-container {
   height: calc(100vh - 65px);
