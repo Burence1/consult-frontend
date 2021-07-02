@@ -1,4 +1,4 @@
-<mat-toolbar class="toolbar">
+<!-- <mat-toolbar class="toolbar">
   <div class="d-flex">
       <img src="../../../../assets/images/logo.png" alt="" class="logo-img">
   </div>
@@ -10,155 +10,240 @@
     <a routerLink='/tasks' class="nav-link">Tasks</a>
   </ul>
 </div>
+</mat-toolbar> -->
+<mat-toolbar>
+  <button type="button" (click)="drawer.toggle()" mat-icon-button class="toggler">
+    ☰
+  </button>
+  <span>Patients</span>
 </mat-toolbar>
-<div class="container">
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === true">
+      <!-- <img class="avatar mat-elevation-z8" src="{{profile.image}}" />
+      <h4 class="name">Dr.{{ profile.displayName }}</h4>
+      <p class="designation">{{ profile.department }}</p>
+    <mat-divider></mat-divider> -->
 
-    <div class="this-row row">
-       
-        <div class="patient-list col-md-4">
-            
-            <div>
-                <div id="patient-header">
-                    <h2>Patients</h2>
-                    <!-- <button mat-raised-button class="addBtn btn-sm" routerLink="/new-patient"><mat-icon>add</mat-icon></button> -->
-                    <button mat-raised-button class="addBtn btn-sm" (click)="newPatient()"><mat-icon>add</mat-icon></button>
-                </div>
-                <div class="search">
-                  <p class="text-center">
-                    <mat-icon *ngIf="searchMode" (click)="clearSearch()">clear</mat-icon>
-                    <mat-form-field appearance="legacy">
-                     
-                      <input matInput placeholder="search..." [(ngModel)]="searchValue">
-                      <mat-icon matSuffix *ngIf="!searchMode"  (click)="performSearch()">search</mat-icon>
+    <a
+      mat-list-item
+      href=""
+      class="nav-item nav-link active"
+      routerLink="/home"
+      routerLinkActive="active"
+      ><mat-icon>home</mat-icon> Home</a
+    >
+    <a
+      mat-list-item
+      class="nav-item nav-link"
+      routerLink="/profile"
+      routerLinkActive="active"
+      ><mat-icon>contact_page</mat-icon>Profile</a
+    >
+    <a
+      mat-list-item
+      class="nav-item nav-link"
+
+      href="/tasks"
+
+      routerLinkActive="active"
+      ><mat-icon>assignment</mat-icon>Tasks</a
+    >
+   
+    <a
+      mat-list-item
+      class="nav-item nav-link"
+      routerLink="/convolist"
+      routerLinkActive="active"
+      ><mat-icon>forum</mat-icon
+      ><span matBadge="4" matBadgeOverlap="false">Chat</span></a
+    >
+    <a
+      mat-list-item
+      class="nav-item nav-link"
+      routerLink="/about"
+      routerLinkActive="active"
+      ><mat-icon>contact_support</mat-icon>Help</a
+    >
+
+    <a
+      mat-list-item
+      class="nav-item nav-link"
+      routerLink="/directory"
+      routerLinkActive="active"
+      ><mat-icon> contact_mail</mat-icon>Directory</a
+    >
+
+    <!-- <a
+      mat-list-item
+      class="nav-item nav-link pointer"
+      *ngIf="(user | async)?.uid"
+      (click)="logout()"
+    >
+      <mat-icon>logout</mat-icon>Logout</a
+    > -->
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content-wrapper">
+      <div class="container">
+        <div class="container">
+
+          <div class="this-row row">
+             
+              <div class="patient-list col-md-4">
+                  
+                  <div>
+                      <div id="patient-header">
+                          <h2>Patients</h2>
+                          <!-- <button mat-raised-button class="addBtn btn-sm" routerLink="/new-patient"><mat-icon>add</mat-icon></button> -->
+                          <button mat-raised-button class="addBtn btn-sm" (click)="newPatient()"><mat-icon>add</mat-icon></button>
+                      </div>
+                      <div class="search">
+                        <p class="text-center">
+                          <mat-icon *ngIf="searchMode" (click)="clearSearch()">clear</mat-icon>
+                          <mat-form-field appearance="legacy">
+                           
+                            <input matInput placeholder="search..." [(ngModel)]="searchValue">
+                            <mat-icon matSuffix *ngIf="!searchMode"  (click)="performSearch()">search</mat-icon>
+                            
+                          </mat-form-field>
+                        </p>
+                      </div>
+                      <ul class="list-group" *ngFor="let patient of patients">
                       
-                    </mat-form-field>
-                  </p>
-                </div>
-                <ul class="list-group" *ngFor="let patient of patients">
-                
-                    <li class="list-group-item" [routerLink]="['/patients', patient.id]">
-                    <div class="patient-detail">
-                     
-                        <mat-expansion-panel style="width: 100%;" hideToggle routerLinkActive="is-active">
-                          <mat-expansion-panel-header>
-                          <mat-panel-title>
-                            <mat-icon>account_circle</mat-icon>
-                          <span>{{patient.firstName}}</span>
-                          <span>{{patient.lastName}}</span>
+                          <li class="list-group-item" [routerLink]="['/patients', patient.id]">
+                          <div class="patient-detail">
+                           
+                              <mat-expansion-panel style="width: 100%;" hideToggle routerLinkActive="is-active">
+                                <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                  <mat-icon>account_circle</mat-icon>
+                                <span>{{patient.firstName}}</span>
+                                <span>{{patient.lastName}}</span>
+                               
+                                </mat-panel-title>
+                              </mat-expansion-panel-header>
+                              <p>Email: {{patient.email}}</p>
+                              <div class="hidden-dets">
+                                <button class="btn btn-sm btn-outline-success" (click)="editPatient(patient)">Edit</button>
+                                <button class="ms-3 btn-sm btn btn-outline-danger" aria-label="Delete" data-bs-toggle="modal" data-bs-target="#deletePatientModal">
+                                 Delete
+                              </button>
+                              </div>                     
+                              </mat-expansion-panel>
                          
-                          </mat-panel-title>
-                        </mat-expansion-panel-header>
-                        <p>Email: {{patient.email}}</p>
-                        <div class="hidden-dets">
-                          <button class="btn btn-sm btn-outline-success" (click)="editPatient(patient)">Edit</button>
-                          <button class="ms-3 btn-sm btn btn-outline-danger" aria-label="Delete" data-bs-toggle="modal" data-bs-target="#deletePatientModal">
-                           Delete
-                        </button>
-                        </div>                     
-                        </mat-expansion-panel>
-                   
-                       
-                        <!-- <span>{{patient.id}}</span> -->
-                     </div>
-                    </li>
-                                  <!-- modal -->
-                          <div class="modal fade" id="deletePatientModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                              <div class="modal-content">
-                                  <h3 class="ms-5 mt-3" id="deleteModalLabel">Are you sure you want to delete "{{patient.firstName}} {{patient.lastName}}"?</h3>
-                                
-                                  <div class="actions">
-                                      <div class="row">
-                                          <div class="col-md-6"></div>
-                                          <div class="col-md-6 modal-actions">
-                                            <button type="button" mat-raised-button color="primary" data-bs-dismiss="modal">cancel</button>
-                                            <button type="button" mat-raised-button color="warn" (click)="deletePatient(patient)" data-bs-dismiss="modal">delete</button>
-                                          </div>
-                                      </div>
+                             
+                              <!-- <span>{{patient.id}}</span> -->
+                           </div>
+                          </li>
+                                        <!-- modal -->
+                                <div class="modal fade" id="deletePatientModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <h3 class="ms-5 mt-3" id="deleteModalLabel">Are you sure you want to delete "{{patient.firstName}} {{patient.lastName}}"?</h3>
+                                      
+                                        <div class="actions">
+                                            <div class="row">
+                                                <div class="col-md-6"></div>
+                                                <div class="col-md-6 modal-actions">
+                                                  <button type="button" mat-raised-button color="primary" data-bs-dismiss="modal">cancel</button>
+                                                  <button type="button" mat-raised-button color="warn" (click)="deletePatient(patient)" data-bs-dismiss="modal">delete</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                   </div>
-                              </div>
+                                </div>
+                                <!-- end of modal -->
+                      </ul>
+                  </div>
+            
+                  
+              </div>
+              <div class="tasks-list col-md-8">
+                 <div class="task-header">
+                  <h2>Tasks</h2>
+                  <button mat-raised-button mat-fab (click)="newPatientTask()"><mat-icon>add</mat-icon></button>
+                 </div>
+      
+                 <div class="btn-area">
+                     <button class="btn" [class.active]="filter == 'all'" (click)="filter = 'all'" >All</button>
+                     <button class="ms-3 btn" [class.active]="filter == 'active'" (click)="filter = 'active'">To Do</button>
+                     <button class="ms-3 btn" [class.active]="filter =='done'" (click)="filter = 'done'">Done</button>
+                 </div>
+                 <div *ngFor="let task of tasks | async">
+                     <div id="task-area">
+                     <div class="task-title-area">
+                       <div>
+                          {{task.title}}
+                          <p *ngIf="task.description">{{task.description}}</p>  
+                       </div>
+                     <div class="actions" *ngIf="!editable">
+                        <div *ngIf="task.assignedTo === user.name">
+                          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="task actions">
+                              <mat-icon>more_vert</mat-icon>
+                            </button>
+                            <mat-menu #menu="matMenu">
+                              <button mat-menu-item (click)="editPatientTask(task)">
+                                <mat-icon>edit</mat-icon>
+                                <span>Edit</span>
+                              </button>
+                              <button mat-menu-item data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                <mat-icon>delete</mat-icon>
+                                <span>Delete</span>
+                              </button>
+                              <button mat-menu-item *ngIf="task.done" (click)=continue(task)>
+                                <mat-icon>check_circle</mat-icon>
+                                <span>Done</span>
+                              </button>
+                              <button mat-menu-item *ngIf="!task.done" (click)=complete(task)>
+                                  <mat-icon>pending</mat-icon>
+                                  <span>Pending</span>
+                                </button>
+                            </mat-menu>
+                        </div>
+                 
+                      <span>
+                        <!-- modal -->
+                        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <h3 class="ms-5 mt-3" id="deleteModalLabel">Are you sure you want to delete "{{task.title}}"?</h3>
+                              
+                                <div class="actions">
+                                    <div class="row">
+                                        <div class="col-md-6"></div>
+                                        <div class="col-md-6 modal-actions">
+                                          <button type="button" mat-raised-button color="primary" data-bs-dismiss="modal">cancel</button>
+                                          <button type="button" mat-raised-button color="warn" (click)="deleteTask(task)" data-bs-dismiss="modal">delete</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                           </div>
-                          <!-- end of modal -->
-                </ul>
-            </div>
-      
-            
-        </div>
-        <div class="tasks-list col-md-8">
-           <div class="task-header">
-            <h2>Tasks</h2>
-            <button mat-raised-button mat-fab (click)="newPatientTask()"><mat-icon>add</mat-icon></button>
-           </div>
-
-           <div class="btn-area">
-               <button class="btn" [class.active]="filter == 'all'" (click)="filter = 'all'" >All</button>
-               <button class="ms-3 btn" [class.active]="filter == 'active'" (click)="filter = 'active'">To Do</button>
-               <button class="ms-3 btn" [class.active]="filter =='done'" (click)="filter = 'done'">Done</button>
-           </div>
-           <div *ngFor="let task of tasks | async">
-               <div id="task-area">
-               <div class="task-title-area">
-                 <div>
-                    {{task.title}}
-                    <p *ngIf="task.description">{{task.description}}</p>  
+                        </div>
+                        <!-- end of modal -->
+                      </span>
+                     </div>
+                  
+                     </div>
+                     <small class="text-muted" *ngIf="task.done">Status: completed</small>
+                     <small class="text-muted" *ngIf="!task.done">Status: pending</small>
+                     <p>Assigned: {{task.assignedTo}}</p>
+                     <p>Due: {{task.dateDue.toDate()|date}}</p>
+                     <!-- <p>Created By: {{profile.displayName}}</p> -->
+                     </div>  
                  </div>
-               <div class="actions" *ngIf="!editable">
-                  <div *ngIf="task.assignedTo === user.name">
-                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="task actions">
-                        <mat-icon>more_vert</mat-icon>
-                      </button>
-                      <mat-menu #menu="matMenu">
-                        <button mat-menu-item (click)="editPatientTask(task)">
-                          <mat-icon>edit</mat-icon>
-                          <span>Edit</span>
-                        </button>
-                        <button mat-menu-item data-bs-toggle="modal" data-bs-target="#deleteModal">
-                          <mat-icon>delete</mat-icon>
-                          <span>Delete</span>
-                        </button>
-                        <button mat-menu-item *ngIf="task.done" (click)=continue(task)>
-                          <mat-icon>check_circle</mat-icon>
-                          <span>Done</span>
-                        </button>
-                        <button mat-menu-item *ngIf="!task.done" (click)=complete(task)>
-                            <mat-icon>pending</mat-icon>
-                            <span>Pending</span>
-                          </button>
-                      </mat-menu>
-                  </div>
-           
-                <span>
-                  <!-- modal -->
-                  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                      <div class="modal-content">
-                          <h3 class="ms-5 mt-3" id="deleteModalLabel">Are you sure you want to delete "{{task.title}}"?</h3>
-                        
-                          <div class="actions">
-                              <div class="row">
-                                  <div class="col-md-6"></div>
-                                  <div class="col-md-6 modal-actions">
-                                    <button type="button" mat-raised-button color="primary" data-bs-dismiss="modal">cancel</button>
-                                    <button type="button" mat-raised-button color="warn" (click)="deleteTask(task)" data-bs-dismiss="modal">delete</button>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- end of modal -->
-                </span>
-               </div>
-            
-               </div>
-               <small class="text-muted" *ngIf="task.done">Status: completed</small>
-               <small class="text-muted" *ngIf="!task.done">Status: pending</small>
-               <p>Assigned: {{task.assignedTo}}</p>
-               <p>Due: {{task.dateDue.toDate()|date}}</p>
-               <!-- <p>Created By: {{profile.displayName}}</p> -->
-               </div>  
-           </div>
-        </div>
-    </div>
-</div>
+              </div>
+          </div>
+      </div>
+      
+          
+   </div>
+   </div>
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

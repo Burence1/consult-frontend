@@ -7,10 +7,18 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === true">
-    <!-- <img class="avatar mat-elevation-z8" src="{{profile.image}}" />
+    <img class="avatar mat-elevation-z8" src="{{profile.image}}" />
     <h4 class="name">Dr.{{ profile.displayName }}</h4>
-    <p class="designation">{{ profile.department }}</p> -->
+    <p class="designation">{{ profile.department }}</p>
    <mat-divider></mat-divider>
+   <a
+      mat-list-item
+      href=""
+      class="nav-item nav-link active"
+      routerLink="/home"
+      routerLinkActive="active"
+      ><mat-icon>home</mat-icon> Home</a
+    >
 
     <a
       mat-list-item
@@ -28,15 +36,6 @@
       routerLinkActive="active"
       ><mat-icon>assignment</mat-icon>Tasks</a
     >
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-      routerLink="/chats"
-      routerLinkActive="active"
-      ><mat-icon>forum</mat-icon
-      ><span matBadge="4" matBadgeOverlap="false">Rooms</span></a
-    >
-
     <a
       mat-list-item
       class="nav-item nav-link"
@@ -64,7 +63,6 @@
     <!-- <a
       mat-list-item
       class="nav-item nav-link pointer"
-      *ngIf="(user | async)?.uid"
       (click)="logout()"
     >
       <mat-icon>logout</mat-icon>Logout</a
@@ -86,7 +84,7 @@
                     <h1 class="heading mb-2"></h1>
                     <h3 class="location"></h3>
                     <p class="temp">
-                      <span class="temp-value">{{chatname}}</span> 
+                      <span class="temp-value"><strong>{{chatname}}</strong></span> 
                       <br>
                       <span class="deg"><app-addusers></app-addusers></span>
                     </p>
@@ -130,7 +128,7 @@
                     <h1 class="heading"></h1>
                     <h3 class="location"></h3>
                     <p class="temp">
-                      <span class="temp-value">{{chatname}}</span>
+                      <span class="temp-value">{{chatname}}</span><br>
                       <span class="deg">Add rooms here!</span>
                       <a href="javascript:;"><span class="temp-type"></span></a>
                     </p>
@@ -155,26 +153,3 @@
 
 
 
-<!-- <div class="example-container mat-elevation-z8">
-  <h3>{{chatname}}</h3>
-  <div class="example-loading-shade" *ngIf="isLoadingResults">
-    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-  </div>
-  <app-addusers></app-addusers>
-  <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="conversations" class="example-table" matSort matSortActive="roomname"
-      matSortDisableClear matSortDirection="asc">
-      <ng-container matColumnDef="roomname">
-        <th mat-header-cell *matHeaderCellDef>conversations</th>
-        <div>
-          <div mat-cell *matCellDef="let row">
-            <div *ngIf="row.show">{{row.displayName}}</div>
-          </div>
-        </div>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="enterChatRoom(row.displayName)"></tr>
-    </table>
-  </div>
-</div> -->

@@ -4,4 +4,8 @@ mat-card{
     font-family: comfortaa;
     font-size: 30px;
     margin: 10px;
+    cursor: pointer;
 }
+.pointer{
+    cursor: pointer;
+    }

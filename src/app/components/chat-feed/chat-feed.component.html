@@ -1,4 +1,199 @@
- <div class="example-container mat-elevation-z8">
+<mat-toolbar>
+  <button type="button" (click)="drawer.toggle()" mat-icon-button class="toggler">
+    ☰
+  </button>
+  <span>ChatFeed</span>
+</mat-toolbar>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === true">
+    <img class="avatar mat-elevation-z8" src="{{profile.image}}" />
+    <h4 class="name">Dr.{{ profile.displayName }}</h4>
+    <p class="designation">{{ profile.department }}</p>
+   <mat-divider></mat-divider>
+
+    <a
+      mat-list-item
+      class="nav-item nav-link"
+      routerLink="/profile"
+      routerLinkActive="active"
+      ><mat-icon>contact_page</mat-icon>Profile</a
+    >
+    <a
+      mat-list-item
+      class="nav-item nav-link"
+
+      href="/tasks"
+
+      routerLinkActive="active"
+      ><mat-icon>assignment</mat-icon>Tasks</a
+    >
+    <a
+      mat-list-item
+      class="nav-item nav-link"
+      routerLink="/convolist"
+      routerLinkActive="active"
+      ><mat-icon>forum</mat-icon
+      ><span matBadge="4" matBadgeOverlap="false">Chat</span></a
+    >
+    <a
+      mat-list-item
+      class="nav-item nav-link"
+      routerLink="/about"
+      routerLinkActive="active"
+      ><mat-icon>contact_support</mat-icon>Help</a
+    >
+
+    <a
+      mat-list-item
+      class="nav-item nav-link"
+      routerLink="/directory"
+      routerLinkActive="active"
+      ><mat-icon> contact_mail</mat-icon>Directory</a
+    >
+
+    <!-- <a
+      mat-list-item
+      class="nav-item nav-link pointer"
+      *ngIf="(user | async)?.uid"
+      (click)="logout()"
+    >
+      <mat-icon>logout</mat-icon>Logout</a
+    > -->
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content-wrapper">
+      <div class="container">
+        <div class="container">
+
+          <!-- Page header start -->
+          <div class="page-title">
+              <div class="row gutters">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                      <h5 class="title">Welcome</h5>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12"> </div>
+              </div>
+          </div>
+          <!-- Page header end -->
+      
+          <!-- Content wrapper start -->
+          <div class="content-wrapper">
+      
+              <!-- Row start -->
+              <div class="row gutters">
+      
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      
+                      <div class="card m-0">
+      
+                          <!-- Row start -->
+                          <div class="row no-gutters">
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3">
+                               <div class="users-container">
+                                      <div class="chat-search-box">
+                                          <div class="input-group">
+                                              <input class="form-control" placeholder="Search">
+                                              <div class="input-group-btn">
+                                                  <button type="button" class="btn btn-info">
+                                                      <i class="fa fa-search"></i>
+                                                  </button>
+                                              </div>
+                                          </div>
+                                      </div>                                   
+                                      <ul class="users">
+                                        <li class="person" data-chat="person1"> <div class="user">
+                                           <h3 class="text-center"><strong>Room {{roomname}}</strong></h3>
+                                          </div>
+                                        </li>
+                                        <!-- <li *ngFor="let chat of this.admin"><h4>Created By: {{chat.admin}}</h4></li>                                          -->
+                                      </ul>
+                                      <div class="user-card">
+                                        <mat-card class="users-card" *ngFor="let user of users">
+                                          <mat-icon>person</mat-icon> <span class="username">{{user.chatname}}</span>
+                                        </mat-card>
+                                      </div>                                      
+                                  </div>
+                              </div>
+                              <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9">
+                                  <div class="selected-user">
+                                      <span>To: <span class="name">Emily Russell</span></span>
+                                  </div>
+                                  <br>
+                                 <br>
+                                  <div class="chat-container">
+                                    <mat-card class="chat-sec">
+                                    <div class="" *ngFor="let chat of this.chats">
+                                      <div class="" text-center *ngIf="chat.type==='join'||chat.type==='exit';else message">
+                                        <span class="">{{chat.date | date:'medium'}}</span>
+                                        <span class="">{{chat.message}}</span>
+                                      </div>
+                                      <ng-template #message>
+                                        <div class="chat-message">
+                                          <div class="right-bubble"
+                                            [ngClass]="{'right-bubble': chat.chatname === chatname, 'left-bubble': chat.chatname !== chatname}">
+                                            <span class="msg-name" *ngIf="chat.chatname === chatname"></span>
+                                            <span class="msg-name" *ngIf="chat.chatname !== chatname" style="text-transform: capitalize;">{{chat.chatname}}</span>
+                                            <span class="msg-date">  {{chat.date | date:'short'}}</span>
+                                            <div class="msg-edit" *ngIf="chat.chatname === chatname">
+                                            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                                              <mat-icon>more_vert</mat-icon>
+                                            </button>
+                                            <mat-menu #menu="matMenu">
+                                              <button mat-menu-item data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">
+                                                <mat-icon>edit</mat-icon>
+                                                <span>Update</span>
+                                              </button>
+                                              <button mat-menu-item (click)="deleteMsg(chat.key)">
+                                                <mat-icon>delete</mat-icon>
+                                                <span>Delete</span>
+                                              </button>
+                                            </mat-menu>
+                                            </div>
+                                            <p class="chat-text" text-wrap>{{chat.message}}</p>
+                                          </div>
+                                        </div>
+                                      </ng-template>
+                                    </div>
+                                  </mat-card>
+                                  <footer class="sticky-footer">
+                                    <form class="message-form " [formGroup]="chatForm" (ngSubmit)="onFormSubmit(chatForm.value)">
+                                      <mat-form-field class="message-form-field">
+                                        <input matInput placeholder="Enter message here" formControlName="message" [errorStateMatcher]="matcher">
+                                        <mat-error>
+                                          <span>Enter your message</span>
+                                        </mat-error>
+                                        <button type="submit" [disabled]="!chatForm.valid" mat-button matSuffix mat-icon-button aria-label="Send">
+                                          <mat-icon>send</mat-icon>
+                                        </button>
+                                      </mat-form-field>
+                                    </form>
+                                  </footer>
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- Row end -->
+                      </div>
+                  </div>
+      
+              </div>
+              <!-- Row end -->
+              
+      
+          </div>
+          </div>
+        
+
+      </div>
+      </div>
+
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+<!-- <div class="example-container mat-elevation-z8">
   <div class="drawer-container">
     <div class="left-drawer">
       <div class="users-pane">
@@ -36,10 +231,10 @@
                   <mat-icon>more_vert</mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">
-                  <!-- <button mat-menu-item data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">
+                  <button mat-menu-item data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">
                     <mat-icon>edit</mat-icon>
                     <span>Update</span>
-                  </button> -->
+                  </button>
                   <button mat-menu-item (click)="deleteMsg(chat.key)">
                     <mat-icon>delete</mat-icon>
                     <span>Delete</span>
@@ -90,47 +285,4 @@
       </div>
     </div>
   </div>
-</div>
-
-    <!-- <mat-card>
-        <h3>Group users</h3>
-        <mat-card class="users-card" *ngFor="let user of users">
-          <mat-icon>person</mat-icon> <span class="username">{{user.chatname}}</span>
-        </mat-card>
-        <div class="container">
-          <ul>
-            <li><h3 class="text-center"><strong>{{roomname}}</strong></h3></li>
-            <li *ngFor="let chat of this.admin"><h4>Created By: {{chat.admin}}</h4></li>
-          </ul>
-        </div>
-        <div class="message-box" *ngFor="let chat of this.chats">
-          <div class="chat-status" text-center *ngIf="chat.type==='join'||chat.type==='exit';else message">
-            <span class="chat-date">{{chat.date | date:'short'}}</span>
-            <span class="chat-content-center">{{chat.message}}</span>
-          </div>
-          <ng-template #message>
-            <div class="chat-message">
-              <div class="right-bubble"
-                [ngClass]="{'right-bubble': chat.chatname === chatname, 'left-bubble': chat.chatname !== chatname}">
-                <span class="msg-name" *ngIf="chat.chatname === chatname">Me</span>
-                <span class="msg-name" *ngIf="chat.chatname !== chatname">{{chat.chatname}}</span>
-                <span class="msg-date"> at {{chat.date | date:'short'}}</span>
-                <p text-wrap>{{chat.message}}</p>
-              </div>
-            </div>
-          </ng-template>
-          <form class="message-form" [formGroup]="chatForm" (ngSubmit)="onFormSubmit(chatForm.value)">
-            <mat-form-field class="message-form-field">
-              <input matInput placeholder="Enter message here" formControlName="message" [errorStateMatcher]="matcher">
-              <mat-error>
-                <span>Enter your message</span>
-              </mat-error>
-              <button type="submit" [disabled]="!chatForm.valid" mat-button matSuffix mat-icon-button aria-label="Send">
-                <mat-icon>send</mat-icon>
-              </button>
-            </mat-form-field>
-          </form>
-          </div>
-        </mat-card> 
-
-         -->
+</div> -->
