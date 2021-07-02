@@ -331,15 +331,18 @@ mat-sidenav {
 }
 .nav-link:hover{
   color: deepskyblue;
-<<<<<<< HEAD
 }
 .nav-link, p, li, h3, label{
   font-family: comfortaa;
 }
 span{
   font-family: comfortaa;
-=======
->>>>>>> 05f174f4c437a2078d695cf94b5a7b990ef248eb
+}
+.nav-link, p, li, h3, label{
+  font-family: comfortaa;
+}
+span{
+  font-family: comfortaa;
 }
 
 mat-sidenav-container {
