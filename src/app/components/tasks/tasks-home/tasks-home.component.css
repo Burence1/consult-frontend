@@ -17,12 +17,14 @@
 
 
 /* new */
+
 span{
   font-family: comfortaa;
 }
 .nav-link{
   font-family: comfortaa;
 }
+
 .logo{
     color: white;
   }
@@ -99,6 +101,7 @@ span{
   margin-top: 16px;
   margin-bottom: 16px;
   background-color: rgba(255, 255, 255, 0.5);
+
   }
   ::-webkit-scrollbar {
     width: 10px;
@@ -122,3 +125,4 @@ span{
     
     background: #555; 
   } 
+
