@@ -22,8 +22,6 @@ import { PhoneLoginComponent } from './components/authentication/phone-login/pho
 import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
 import { TaskComponent } from './components/tasks/task/task.component';
 import { TasksHomeComponent } from './components/tasks/tasks-home/tasks-home.component';
-import { NewPatientComponent } from './components/tasks/pages/new-patient/new-patient.component';
-import { AddTaskComponent } from './components/tasks/pages/add-task/add-task.component';
 import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.component';
 import { FollowComponent } from './components/follow/follow/follow.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';

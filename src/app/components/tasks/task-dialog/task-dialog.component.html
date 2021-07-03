@@ -1,6 +1,6 @@
 <mat-form-field>
     <mat-label>Title</mat-label>
-    <input matInput cdkFocusInitial [(ngModel)]="data.task.title" />
+    <input matInput cdkFocusInitial [(ngModel)]="data.task.title" required/>
   </mat-form-field>
   
   <mat-form-field>
@@ -22,14 +22,14 @@
 
   <mat-form-field>
     <mat-label>Starts:</mat-label>
-    <input matInput [ngxMatDatetimePicker]="picker" placeholder="..." [(ngModel)]="data.task.from" [min]="minDate" (dateChange)="formatDate($event)">
+    <input matInput [ngxMatDatetimePicker]="picker" placeholder="..." [(ngModel)]="data.task.start" [min]="minDate" required (dateChange)="formatDate($event)">
     <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
     <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
   </mat-form-field>
     <!-- start -->
     <mat-form-field>
       <mat-label>Ends:</mat-label>
-      <input matInput [ngxMatDatetimePicker]="picker2" placeholder="..." [(ngModel)]="data.task.to" [min]="minDate" (dateChange)="formatDate($event)">
+      <input matInput [ngxMatDatetimePicker]="picker2" placeholder="..." [(ngModel)]="data.task.end" [min]="minDate" required (dateChange)="formatDate($event)">
       <mat-datepicker-toggle matSuffix [for]="$any(picker2)"></mat-datepicker-toggle>
       <ngx-mat-datetime-picker #picker2></ngx-mat-datetime-picker>
     </mat-form-field>

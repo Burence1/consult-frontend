@@ -3,7 +3,7 @@ import { Profile } from 'src/app/profile';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProfileService } from 'src/app/services/profile.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Todo } from '../models/task';
+import { Todo } from '../models/patient-task';
 import { CurrentUser } from '../../tasks.component';
 
 @Component({
@@ -14,6 +14,7 @@ import { CurrentUser } from '../../tasks.component';
 export class PatientTaskDialogComponent implements OnInit {
   currentId: string;
   profiles: Profile[];
+  profile: Profile;
   selectedValue: string;
   minDate: Date;
   user: CurrentUser;
@@ -31,12 +32,25 @@ export class PatientTaskDialogComponent implements OnInit {
         console.error(error);
       }
     );
-    this.auth.authUser().subscribe((res: any) =>{
-      this.user = {
-        name: res.displayName,
-        email: res.email
-      }
-    })
+    // this.auth.authUser().subscribe((res: any) =>{
+    //   this.user = {
+    //     name: res.displayName,
+    //     email: res.email
+    //   }
+    // })
+    this.auth.user.subscribe(
+      (user) => {
+        this.currentId = user.uid;
+        console.log(this.currentId);
+        this.profileService.fetchProfileApi(this.currentId).subscribe(
+          (res) => {
+            this.profile = res;
+            console.log(res);
+          },(error) => {
+            console.error(error);
+          });
+      },(error) => {console.error(error);
+      });
   }
 
   ngOnInit(): void {
@@ -53,8 +67,7 @@ export class PatientTaskDialogComponent implements OnInit {
   }
   selfAssign(){
     
-    this.data.task.assignedTo = this.user.name;
-    console.log
+    this.data.task.assignedTo = this.profile.displayName;
   }
 
   formatDate(e){

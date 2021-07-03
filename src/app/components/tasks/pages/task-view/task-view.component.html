@@ -11,7 +11,7 @@
   </ul>
 </div>
 </mat-toolbar>
-<div class="container">
+<div class="container-fluid">
 
     <div class="this-row row">
        
@@ -20,7 +20,6 @@
             <div>
                 <div id="patient-header">
                     <h2>Patients</h2>
-                    <!-- <button mat-raised-button class="addBtn btn-sm" routerLink="/new-patient"><mat-icon>add</mat-icon></button> -->
                     <button mat-raised-button class="addBtn btn-sm" (click)="newPatient()"><mat-icon>add</mat-icon></button>
                 </div>
                 <div class="search">
@@ -103,7 +102,7 @@
                     {{task.title}}
                     <p *ngIf="task.description">{{task.description}}</p>  
                  </div>
-               <div class="actions" *ngIf="!editable">
+               <div class="actions">
                   <div *ngIf="task.assignedTo === user.name">
                     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="task actions">
                         <mat-icon>more_vert</mat-icon>

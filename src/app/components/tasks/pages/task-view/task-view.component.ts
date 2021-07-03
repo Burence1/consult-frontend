@@ -2,15 +2,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Patient } from '../models/patient';
-import { TaskService } from '../services/task.service';
 import { PatientService } from '../services/patient.service';
-import { Todo } from '../models/task';
+import { Todo } from '../models/patient-task';
 import { map }from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { PatientDialogComponent, PatientDialogResult } from '../patient-dialog/patient-dialog.component';
-import { TaskDialogResult } from '../../task-dialog/task-dialog.component';
 import { PatientTaskDialogComponent, PatientTaskDialogResult } from '../patient-task-dialog/patient-task-dialog.component';
-import { DepartmentsService } from '../../tasks-services/departments.service';
 import { Profile } from 'src/app/profile';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProfileService } from 'src/app/services/profile.service';
@@ -29,7 +26,6 @@ export class TaskViewComponent implements OnInit {
   undoneTasks: any;
   filter: 'all' | 'active' | 'done' = 'all';
   patientId!: string;
-  editable = false;
   currentId: string;
   profile: Profile;
   profiles: Profile[];
@@ -187,10 +183,6 @@ export class TaskViewComponent implements OnInit {
     if(this.searchValue === ''){
        return this.patients; 
     }
-    // this.patientService.searchPatient(this.search).subscribe((results: any) =>{
-    //   this.patients = results;
-    //   console.log("try",results)
-    // })
     
   }
 
@@ -198,12 +190,5 @@ export class TaskViewComponent implements OnInit {
     this.router.navigate(['../'], {relativeTo: this.route})
   }
 
-  countItems(item: Observable<any>){
-    let count = 0;
-    for(let i = 0; i > count; i++){
-      
-    }
-    return count;
-  }
 
 }

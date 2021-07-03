@@ -14,6 +14,7 @@ import { CurrentUser } from '../tasks.component';
 export class TaskDialogComponent implements OnInit {
   currentId: string;
   profiles: Profile[];
+  profile: Profile;
   selectedValue: string;
   minDate: Date;
   user: CurrentUser;
@@ -25,19 +26,39 @@ export class TaskDialogComponent implements OnInit {
               @Inject(MAT_DIALOG_DATA) public data: TaskDialogData) {
       this.minDate = new Date();
       // this.minDate.setDate(this.minDate)
-      this.profileService.fetchAllProfiles().subscribe(
-        (res) => {this.profiles = res;
-          // console.log(res);
-        }, error => {
+      this.profileService.fetchAllProfilesSnapshot().subscribe(
+        (res) => {
+          this.profiles = res.map((value) => {
+            const profile = value.payload.val();
+            profile.id = value.payload.key;
+            return profile;
+          });
+         // console.log(this.profiles);
+        },
+        (error) => {
           console.error(error);
-        });
+        }
+      );
 
-      this.auth.authUser().subscribe((res: any) => {
-          this.user = {
-            name: res.displayName,
-            email: res.email
-          };
-        });
+      // this.auth.authUser().subscribe((res: any) => {
+      //     this.user = {
+      //       name: res.displayName,
+      //       email: res.email
+      //     };
+      //   });
+        this.auth.user.subscribe(
+          (user) => {
+            this.currentId = user.uid;
+            console.log(this.currentId);
+            this.profileService.fetchProfileApi(this.currentId).subscribe(
+              (res) => {
+                this.profile = res;
+                console.log(res);
+              },(error) => {
+                console.error(error);
+              });
+          },(error) => {console.error(error);
+          });
     }
 
   cancel(): void {
@@ -45,15 +66,15 @@ export class TaskDialogComponent implements OnInit {
     this.data.task.title = this.backupTask.title;
     this.data.task.description = this.backupTask.description;
     this.data.task.owner = this.backupTask.owner;
-    this.data.task.from = this.backupTask.from;
-    this.data.task.to = this.backupTask.to;
+    this.data.task.start = this.backupTask.start;
+    this.data.task.end = this.backupTask.end;
     this.data.task.dateDue = this.backupTask.dateDue;
     this.dialogRef.close(this.data);
   }
   // tslint:disable-next-line: typedef
   assign(){
-    console.log(this.user.name)
-    this.data.task.owner = this.user.name;
+    console.log(this.profile.displayName)
+    this.data.task.owner = this.profile.displayName;
   }
   ngOnInit(): void {
   }

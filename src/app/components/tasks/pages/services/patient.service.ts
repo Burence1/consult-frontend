@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Patient } from '../models/patient';
-import { Todo } from '../models/task';
+import { Todo } from '../models/patient-task';
 
 @Injectable({
   providedIn: 'root'

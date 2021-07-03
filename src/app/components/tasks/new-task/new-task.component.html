@@ -1,8 +1,8 @@
-<div *ngIf="task.owner === usersName">
+<div>
     <mat-card class="item" *ngIf="task" (dblclick)="edit.emit(task)">
         <h3>{{task.title}}</h3>
         <span><b>Task Owner:</b> {{task.owner }}</span> <br>
-        <span><b>Due Date:</b> {{task.dateDue.toDate()|date }}</span> <br>
+        <span *ngIf="task.dateDue"><b>Due Date:</b> {{task.dateDue.toDate()|date }}</span> <br>
         <!-- <p><span>From: {{task.from.toDate()}}</span> to <span>{{task.to.toDate()}}</span></p> -->
         <span>Created By: {{usersName}}</span>
     </mat-card>

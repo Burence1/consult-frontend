@@ -2,6 +2,8 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Task } from '../task';
 import { CurrentUser } from '../tasks.component';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { Profile } from 'src/app/profile';
+import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-new-task',
@@ -16,25 +18,32 @@ export class NewTaskComponent implements OnInit {
 
   users: CurrentUser[] = [];
   user: CurrentUser;
-  usersName: string = '';
+  usersName: string;
+  currentId: string;
+  profiles: Profile[];
+  profile: Profile;
 
   ngOnInit(): void{
     
   }
-  constructor(private auth: AuthService){
-    this.auth.authUser().subscribe((res: any) =>{
-      console.log("User", res)
-      let newuser = {
-        name: res.displayName,
-        email: res.email
-      }
-     // this.users.push(newuser);
-      this.usersName = newuser.name;
-      // this.usersName = this.user.name;
-      // console.log("testing user",this.usersName)
-      // console.log(this.users)
-    })
+  constructor(private auth: AuthService, private profileService: ProfileService){
+
+    this.auth.user.subscribe(
+      (user) => {
+        this.currentId = user.uid;
+        //console.log(this.currentId);
+        this.profileService.fetchProfileApi(this.currentId).subscribe(
+          (res) => {
+            this.profile = res;
+            this.usersName = res.displayName;
+            //console.log(res);
+          },(error) => {
+            console.error(error);
+          });
+      },(error) => {console.error(error);
+      });
   }
+  
   formatDate(date: string){
   return date.toString()
   }

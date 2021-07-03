@@ -7,13 +7,11 @@ import { TaskDialogResult } from './task-dialog/task-dialog.component';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Profile } from 'src/app/profile';
 import { ProfileService } from 'src/app/services/profile.service';
-import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
-import { map, tap, scan, mergeMap, throttleTime } from 'rxjs/operators';
 import { FileService } from 'src/app/services/files/file-service.service';
+import { formatCurrency } from '@angular/common';
 
 
 const getObservable = (collection: AngularFirestoreCollection<Task>) =>{
@@ -33,17 +31,14 @@ const getObservable = (collection: AngularFirestoreCollection<Task>) =>{
 })
 export class TasksComponent implements OnInit {
 
-  @ViewChild(CdkVirtualScrollViewport)
-  viewport: CdkVirtualScrollViewport;
-
   theEnd = false;
   batch = 10;
   offset = new BehaviorSubject(null);
   infinite: Observable<any[]>;
 
-  todo  = getObservable(this.db.collection('todo')) as Observable<Task[]>;
-  inProgress = getObservable(this.db.collection('inProgress')) as Observable<Task[]>;
-  done = getObservable(this.db.collection('done')) as Observable<Task[]>;
+  todo: Observable<Task[]>;
+  inProgress: Observable<Task[]>;
+  done: Observable<Task[]>;
   currentId: string;
   profile: Profile;
   myuser: CurrentUser;
@@ -51,17 +46,25 @@ export class TasksComponent implements OnInit {
   user: Observable<any>;
 
   
-  constructor(private dialog: MatDialog, private breakpointObserver: BreakpointObserver, private db: AngularFirestore, private auth: AuthService, private profileService: ProfileService, private fileService: FileService,) {
+  constructor(
+    private dialog: MatDialog,
+    private db: AngularFirestore,
+    private auth: AuthService,
+    private profileService: ProfileService,
+    ) {
     this.auth.user.subscribe(
       (user) => {this.currentId = user.uid;
         this.profileService.fetchProfileApi(this.currentId).subscribe(
-          (res) => { this.profile = res },
+          (res) => { 
+            this.profile = res;
+            this.todo  = getObservable(this.db.collection('todo', ref => ref.where("owner", "==", `${this.profile.displayName}`)));
+            this.inProgress = getObservable(this.db.collection('inProgress', ref => ref.where("owner", "==", `${this.profile.displayName}`)));
+            this.done = getObservable(this.db.collection('done', ref => ref.where("owner", "==", `${this.profile.displayName}`)));
+          },
           (error) => {
             console.error(error);
           });
-      },
-      (error) => { console.error(error)});
-
+      },(error) => { console.error(error)});
    }
 
   ngOnInit(): void {
@@ -118,7 +121,12 @@ export class TasksComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result: TaskDialogResult) => {
       result.task.created = new Date();
-      this.db.collection('todo').add(result.task)
+      if(result.task.title && result.task.start && result.task.end){
+        this.db.collection('todo').add(result.task)
+      }
+      else{
+        console.log("invalid task format")
+      }
     })
   }
 
