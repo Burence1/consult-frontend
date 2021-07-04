@@ -5,13 +5,17 @@ import { Profile } from 'src/app/profile';
 import { AngularFireStorage } from '@angular/fire/storage';
 import firebase from 'firebase/app';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
+
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+
+
 
 @Component({
   selector: 'app-tasks-home',
   templateUrl: './tasks-home.component.html',
-  styleUrls: ['./tasks-home.component.css']
+  styleUrls: ['./tasks-home.component.css'],
 })
 export class TasksHomeComponent implements OnInit {
   profile: Profile;
@@ -25,8 +29,8 @@ export class TasksHomeComponent implements OnInit {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver,  ) {
-    
+  constructor(private breakpointObserver: BreakpointObserver,) {
+        
    }
 
    findProfiles(){}

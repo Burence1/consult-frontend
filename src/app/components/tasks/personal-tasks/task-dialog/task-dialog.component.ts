@@ -23,9 +23,9 @@ export class TaskDialogComponent implements OnInit {
 
   constructor(private auth: AuthService, private profileService: ProfileService,
               public dialogRef: MatDialogRef<TaskDialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: TaskDialogData) {
+              @Inject(MAT_DIALOG_DATA) public data: TaskDialogData)
+               {
       this.minDate = new Date();
-      // this.minDate.setDate(this.minDate)
       this.profileService.fetchAllProfilesSnapshot().subscribe(
         (res) => {
           this.profiles = res.map((value) => {
