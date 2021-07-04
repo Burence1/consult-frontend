@@ -4,7 +4,7 @@ export class Task{
     description: string;
     owner: string;
     dateDue: any;
-    created: Date;
+    created: any;
     start: any;
     end: any;
 }

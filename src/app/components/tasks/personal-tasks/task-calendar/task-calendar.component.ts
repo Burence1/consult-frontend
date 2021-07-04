@@ -1,15 +1,9 @@
-import { Component, OnInit,  ChangeDetectionStrategy, ViewChild, TemplateRef, } from '@angular/core';
-import { CalendarEvent, CalendarEventAction, CalendarView, CalendarMonthViewDay } from 'angular-calendar';
-import { addDays, addHours, endOfDay, endOfMonth, isSameDay, isSameMonth, startOfDay, subDays } from 'date-fns';
+import { Component, OnInit,  ChangeDetectionStrategy} from '@angular/core';
+import { CalendarEvent, CalendarView} from 'angular-calendar';
+import { endOfDay,  isSameDay, isSameMonth, startOfDay, } from 'date-fns';
 import { myEvent } from './event';
 import { Subject } from 'rxjs';
-import { Task } from '../models/task';
 import { NewTaskService } from '../services/events.service';
-import { CurrentUser } from '../tasks/tasks.component';
-import { AuthService } from 'src/app/services/auth/auth.service';
-import { Profile } from 'src/app/profile';
-import { ProfileService } from 'src/app/services/profile.service';
-import { AngularFirestore } from '@angular/fire/firestore';
 
 
 @Component({
@@ -19,39 +13,29 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['./task-calendar.component.css']
 })
 export class TaskCalendarComponent implements OnInit {
-
   viewDate: Date = new Date()
 
   tasks: any;
   dailyEvents: any;
   dailyDate: any;
 
-
   view: CalendarView = CalendarView.Month
   CalendarView = CalendarView
-  userName: string = '';
-  currentId: string;
-  profiles: Profile[];
-  profile: Profile = new Profile;
-
-  //
 
 
-  events: myEvent[] = []
-  //
+  events: myEvent[] = [
+    {
+      start: new Date(),
+      title: "Assist the MD and clinical admins",
+      owner: "Nurse John"
+    }
+  ]
 
   activeDayIsOpen: boolean = true;
+  
 
-  constructor(private service: NewTaskService, private store: AngularFirestore) {
-    this.events = this.service.getEvents();
-     
-  }
-
-  ngOnInit(): void { 
-   }
-
-  dayClicked({ date, events}: { date: Date; events: any }): void {
-    events = this.service.getEvents()
+  dayClicked({ date, events }: { date: Date; events: any }): void {
+    console.log("CLICKED",date)
     console.log("Events(s)",events)
     this.dailyEvents = events;
     this.dailyDate = date;
@@ -73,4 +57,37 @@ export class TaskCalendarComponent implements OnInit {
     this.view = view
   }
 
+  refresh: Subject<any> = new Subject();
+
+  
+
+
+  eventClicked({event}: { event: CalendarEvent}): void{
+   
+  }
+  constructor(private service: NewTaskService) {
+
+   }
+
+  
+  ngOnInit(): void {
+    console.log("this ones",this.service.getEvents())
+    this.tasks = this.service.getTasks()
+    this.tasks.forEach((items: any[]) =>{
+      items.forEach(item => {
+        // console.log(item.dateDue.toDate())
+        // console.log("ITEM",item)
+       let newItem = {
+         start: item.dateDue.toDate(),
+         title: item.title,
+         owner: item.owner,
+       }
+      // console.log("NEW",newItem)
+       this.events.push(newItem)
+      
+      })
+    })
+   
+    console.log("Data",this.tasks)
+  }
 }

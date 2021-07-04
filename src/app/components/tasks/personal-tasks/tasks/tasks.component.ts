@@ -29,11 +29,6 @@ const getObservable = (collection: AngularFirestoreCollection<Task>) =>{
 })
 export class TasksComponent implements OnInit {
 
-  theEnd = false;
-  batch = 10;
-  offset = new BehaviorSubject(null);
-  infinite: Observable<any[]>;
-
   todo: Observable<Task[]>;
   inProgress: Observable<Task[]>;
   done: Observable<Task[]>;
@@ -42,6 +37,8 @@ export class TasksComponent implements OnInit {
   myuser: CurrentUser;
   uid:any
   user: Observable<any>;
+  dueTodo: any[] = [];
+  today: Date = new Date()
 
   
   constructor(
@@ -58,6 +55,7 @@ export class TasksComponent implements OnInit {
             this.todo  = getObservable(this.db.collection('todo', ref => ref.where("owner", "==", `${this.profile.displayName}`)));
             this.inProgress = getObservable(this.db.collection('inProgress', ref => ref.where("owner", "==", `${this.profile.displayName}`)));
             this.done = getObservable(this.db.collection('done', ref => ref.where("owner", "==", `${this.profile.displayName}`)));
+            
           },
           (error) => {
             console.error(error);
@@ -66,7 +64,7 @@ export class TasksComponent implements OnInit {
    }
 
   ngOnInit(): void {
-  
+    this.dueTasks()
   }
 
   editTask(list: 'done' | 'todo' | 'inProgress', task: Task): void {
@@ -128,11 +126,14 @@ export class TasksComponent implements OnInit {
     })
   }
 
-  filterTasks(){
+  filterTasks(){  }
 
-  }
   logout() {
     this.auth.logout();
+  }
+
+  dueTasks(){
+   
   }
 
 }

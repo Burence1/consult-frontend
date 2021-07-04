@@ -22,6 +22,7 @@ export class NewTaskComponent implements OnInit {
   currentId: string;
   profiles: Profile[];
   profile: Profile;
+  today: Date = new Date()
 
   ngOnInit(): void{
     
