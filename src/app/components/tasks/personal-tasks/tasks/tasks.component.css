@@ -12,6 +12,9 @@
   background-color: #003060;
     color: white;
 }
+h2, p, a, button{
+  font-family: comfortaa;
+}
 :host {
     display: block;
   }
@@ -45,3 +48,28 @@ mat-toolbar {
 .done{
   background-color: lavender;
 }
+
+
+/* new */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+
+  ::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+
+  ::-webkit-scrollbar-thumb {
+  background: #003060; 
+}
+
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  
+  background: #555; 
+} 

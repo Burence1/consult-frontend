@@ -7,6 +7,12 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { User } from 'src/app/classes/user/user';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
+import { ProfileService } from 'src/app/services/profile.service';
+import { Profile } from 'src/app/profile';
+
 
 @Component({
   selector: 'app-convolist',
@@ -23,9 +29,25 @@ export class ConvolistComponent implements OnInit {
   conversations: any;
   isLoadingResults = true;
   receiver: any
+  uid:any
+  currentId: string;
+  profile: Profile;
   userid: string
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(
+      map((result) => result.matches),
+      shareReplay()
+    );
 
-  constructor(private Auth: AngularFireAuth, private db: AngularFireDatabase, private route: ActivatedRoute, private router: Router, private auth: AuthService, private chat: ChatService) {
+  constructor(private Auth: AngularFireAuth,  
+              private breakpointObserver: BreakpointObserver, 
+              private db: AngularFireDatabase, 
+              private route: ActivatedRoute, 
+              private router: Router, 
+              private auth: AuthService, 
+              private chat: ChatService,
+              private profileService: ProfileService,) {
     this.Auth.authState.subscribe(auth => {
       if (auth !== undefined && auth !== null) {
         this.user = auth;
@@ -60,8 +82,29 @@ export class ConvolistComponent implements OnInit {
 
     //   });
     // });
+    this.findProfiles();
+    this.auth.user.subscribe(
+      (user) => {
+        this.currentId = user.uid;
+        console.log(this.currentId);
+        this.profileService.fetchProfileApi(this.currentId).subscribe(
+          (res) => {
+            this.profile = res;
+            console.log(res);
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
 
   }
+
+  findProfiles(){}
 
   getUser() {
     const userId = this.user.uid;
@@ -83,6 +126,10 @@ export class ConvolistComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  logout() {
+    this.auth.logout();
   }
 
   snapshotToArray = (snapshot: any, userId: string) => {
@@ -138,4 +185,5 @@ export class ConvolistComponent implements OnInit {
     });
     this.router.navigate(['chatroom/', displayName]);
   }
+  
 }

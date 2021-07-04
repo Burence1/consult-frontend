@@ -11,6 +11,7 @@ import { MessagingService } from 'src/app/services/push-notifications/messaging.
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',

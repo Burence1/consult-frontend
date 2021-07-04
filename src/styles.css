@@ -15,7 +15,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .hide {
   cursor: pointer;
 }
-
+.nav-link:hover{
+    color: deepskyblue;
+}
 .dropzone {
     display: flex;
     align-items: center;

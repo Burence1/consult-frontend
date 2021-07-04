@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { Patient } from '../models/patient';
 import { PatientService } from '../services/patient.service';
 import { Todo } from '../models/patient-task';
-import { map }from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { PatientDialogComponent, PatientDialogResult } from '../patient-dialog/patient-dialog.component';
 import { PatientTaskDialogComponent, PatientTaskDialogResult } from '../patient-task-dialog/patient-task-dialog.component';
@@ -13,6 +12,9 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProfileService } from 'src/app/services/profile.service';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { CurrentUser } from '../../personal-tasks/tasks/tasks.component';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { map, shareReplay } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-task-view',
@@ -34,6 +36,12 @@ export class TaskViewComponent implements OnInit {
   searchValue: string;
   tasksLength: number;
   user: CurrentUser;
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(
+      map((result) => result.matches),
+      shareReplay()
+    );
 
   constructor(
     private patientService: PatientService, 
@@ -42,7 +50,8 @@ export class TaskViewComponent implements OnInit {
     private router: Router, 
     private auth: AuthService, 
     private profileService: ProfileService,
-    private store: AngularFirestore
+    private store: AngularFirestore,
+    private breakpointObserver: BreakpointObserver
     ) {
       this.auth.authUser().subscribe((res: any) =>{
         this.user = {
