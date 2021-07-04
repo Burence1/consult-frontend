@@ -4,7 +4,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProfileService } from 'src/app/services/profile.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Todo } from '../models/patient-task';
-import { CurrentUser } from '../../tasks.component';
+import { CurrentUser } from '../../personal-tasks/tasks/tasks.component';
 
 @Component({
   selector: 'app-patient-task-dialog',

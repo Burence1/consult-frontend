@@ -4,8 +4,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Profile } from 'src/app/profile';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProfileService } from 'src/app/services/profile.service';
-import { Task } from '../task';
-import { myEvent } from '../task/event';
+import { Task } from '../models/task';
+import { myEvent } from '../task-calendar/event';
 
 
 

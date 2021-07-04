@@ -57,16 +57,15 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { AddRoomComponent } from './components/add-room/add-room.component';
 import { RoomlistsComponent } from './components/roomlists/roomlists.component';
-import { TasksComponent } from './components/tasks/tasks.component';
-import { TaskDialogComponent } from './components/tasks/task-dialog/task-dialog.component';
-import { NewTaskComponent } from './components/tasks/new-task/new-task.component';
+import { TasksComponent } from './components/tasks/personal-tasks/tasks/tasks.component';
+import { TaskDialogComponent } from './components/tasks/personal-tasks/task-dialog/task-dialog.component';
+import { NewTaskComponent } from './components/tasks/personal-tasks/new-task/new-task.component';
 import { OneChatComponent } from './components/one-chat/one-chat.component';
-import { TaskComponent } from './components/tasks/task/task.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { TasksHomeComponent } from './components/tasks/tasks-home/tasks-home.component';
-import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.component';
-import { PatientDialogComponent } from './components/tasks/pages/patient-dialog/patient-dialog.component';
-import { PatientTaskDialogComponent } from './components/tasks/pages/patient-task-dialog/patient-task-dialog.component';
+import { TasksHomeComponent } from './components/tasks/personal-tasks/tasks-home/tasks-home.component';
+import { TaskViewComponent } from './components/tasks/patients-work/task-view/task-view.component';
+import { PatientDialogComponent } from './components/tasks/patients-work/patient-dialog/patient-dialog.component';
+import { PatientTaskDialogComponent } from './components/tasks/patients-work/patient-task-dialog/patient-task-dialog.component';
 import { OnboardComponent } from './onboard/onboard.component';
 import { FollowComponent } from './components/follow/follow/follow.component';
 import { AddusersComponent } from './components/addusers/addusers.component';
@@ -75,6 +74,7 @@ import { ConvolistComponent } from './components/convolist/convolist.component';
 import { AboutComponent } from './components/about/about.component';
 
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { TaskCalendarComponent } from './components/tasks/personal-tasks/task-calendar/task-calendar.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +100,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     DirectoryComponent,
     NewTaskComponent,
     OneChatComponent,
-    TaskComponent,
+    TaskCalendarComponent,
     TasksHomeComponent,
     TaskViewComponent,
     PatientDialogComponent,
@@ -111,6 +111,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     ConvolistComponent,
     AboutComponent,
     UserProfileComponent,
+    TaskCalendarComponent,
   ],
   entryComponents: [AddRoomComponent],
   imports: [

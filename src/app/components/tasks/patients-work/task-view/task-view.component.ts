@@ -12,7 +12,7 @@ import { Profile } from 'src/app/profile';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProfileService } from 'src/app/services/profile.service';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { CurrentUser } from '../../tasks.component';
+import { CurrentUser } from '../../personal-tasks/tasks/tasks.component';
 
 @Component({
   selector: 'app-task-view',

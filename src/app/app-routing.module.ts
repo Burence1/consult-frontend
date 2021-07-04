@@ -15,14 +15,12 @@ import { RegisterComponent } from './components/authentication/register/register
 import { EmailComponent } from './components/authentication/email/email.component';
 import { ProfileComponent } from './components/userProfile/profile/profile.component';
 import { HomePageComponent } from './components/home/home-page/home-page.component';
-import { TasksComponent } from './components/tasks/tasks.component';
 import { NotFoundComponent } from './components/error-handling/not-found/not-found.component';
 import { DirectoryComponent } from './directory/directory.component';
 import { PhoneLoginComponent } from './components/authentication/phone-login/phone-login.component';
 import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
-import { TaskComponent } from './components/tasks/task/task.component';
-import { TasksHomeComponent } from './components/tasks/tasks-home/tasks-home.component';
-import { TaskViewComponent } from './components/tasks/pages/task-view/task-view.component';
+import { TasksHomeComponent } from './components/tasks/personal-tasks/tasks-home/tasks-home.component';
+import { TaskViewComponent } from './components/tasks/patients-work/task-view/task-view.component';
 import { FollowComponent } from './components/follow/follow/follow.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 

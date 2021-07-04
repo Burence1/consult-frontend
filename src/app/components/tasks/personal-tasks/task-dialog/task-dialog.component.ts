@@ -1,10 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Profile } from 'src/app/profile';
-import { Task } from '../task';
+import { Task } from '../models/task';
 import { ProfileService } from 'src/app/services/profile.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { CurrentUser } from '../tasks.component';
+import { CurrentUser } from '../tasks/tasks.component';
 
 @Component({
   selector: 'app-task-dialog',

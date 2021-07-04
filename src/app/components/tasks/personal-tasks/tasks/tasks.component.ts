@@ -1,17 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Task } from './task';
+import { Task } from '../models/task';
 import { CdkDragDrop, transferArrayItem } from '@angular/cdk/drag-drop';
 import { MatDialog } from '@angular/material/dialog';
-import { TaskDialogComponent } from './task-dialog/task-dialog.component';
-import { TaskDialogResult } from './task-dialog/task-dialog.component';
+import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
+import { TaskDialogResult } from '../task-dialog/task-dialog.component';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Profile } from 'src/app/profile';
 import { ProfileService } from 'src/app/services/profile.service';
-import { FileService } from 'src/app/services/files/file-service.service';
-import { formatCurrency } from '@angular/common';
 
 
 const getObservable = (collection: AngularFirestoreCollection<Task>) =>{

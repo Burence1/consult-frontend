@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Task } from '../task';
-import { CurrentUser } from '../tasks.component';
+import { Task } from '../models/task';
+import { CurrentUser } from '../tasks/tasks.component';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Profile } from 'src/app/profile';
 import { ProfileService } from 'src/app/services/profile.service';

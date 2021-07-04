@@ -3,9 +3,9 @@ import { CalendarEvent, CalendarEventAction, CalendarView, CalendarMonthViewDay 
 import { addDays, addHours, endOfDay, endOfMonth, isSameDay, isSameMonth, startOfDay, subDays } from 'date-fns';
 import { myEvent } from './event';
 import { Subject } from 'rxjs';
-import { Task } from '../task';
-import { NewTaskService } from '../tasks-services/events.service';
-import { CurrentUser } from '../tasks.component';
+import { Task } from '../models/task';
+import { NewTaskService } from '../services/events.service';
+import { CurrentUser } from '../tasks/tasks.component';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Profile } from 'src/app/profile';
 import { ProfileService } from 'src/app/services/profile.service';
@@ -13,12 +13,12 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 
 @Component({
-  selector: 'app-task',
-  templateUrl: './task.component.html',
+  selector: 'app-task-calendar',
+  templateUrl: './task-calendar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrls: ['./task.component.css']
+  styleUrls: ['./task-calendar.component.css']
 })
-export class TaskComponent implements OnInit {
+export class TaskCalendarComponent implements OnInit {
 
   viewDate: Date = new Date()
 
