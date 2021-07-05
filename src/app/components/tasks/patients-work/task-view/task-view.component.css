@@ -237,3 +237,12 @@ mat-toolbar{
   justify-content: center;
   font-size: 1.5rem;
 }
+@media only screen and (max-width: 980px){
+  .this-row{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  mat-toolbar{
+    width: 100%;
+  }
+}

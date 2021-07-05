@@ -103,4 +103,7 @@ mat-toolbar {
     .smallscreenbtns{
       display: flex;
     }
+    .smallscreenbtns span{
+      display: none;
+    }
 }
