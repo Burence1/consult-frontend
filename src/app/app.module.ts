@@ -75,6 +75,8 @@ import { AboutComponent } from './components/about/about.component';
 
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { TaskCalendarComponent } from './components/tasks/personal-tasks/task-calendar/task-calendar.component';
+import{ init } from 'emailjs-com';
+
 
 @NgModule({
   declarations: [
@@ -142,6 +144,7 @@ import { TaskCalendarComponent } from './components/tasks/personal-tasks/task-ca
     MatInputModule,
     MatDialogModule,
     MatListModule,
+    
   ],
   providers: [MessagingService, AsyncPipe, FollowService],
   bootstrap: [AppComponent]

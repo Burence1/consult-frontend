@@ -10,6 +10,7 @@ import { BehaviorSubject } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Profile } from 'src/app/profile';
 import { ProfileService } from 'src/app/services/profile.service';
+import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 
 
 
@@ -65,7 +66,7 @@ export class TasksComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.dueTasks()
+
   }
 
   editTask(list: 'done' | 'todo' | 'inProgress', task: Task): void {
@@ -133,8 +134,14 @@ export class TasksComponent implements OnInit {
     this.auth.logout();
   }
 
-  dueTasks(){
-   
+  public sendEmail(e: Event) {
+    e.preventDefault();
+    emailjs.sendForm('service_33445jf', 'contact_form', e.target as HTMLFormElement, 'user_ZIsvOS6F3ZGfp18QHuJC5')
+      .then((result: EmailJSResponseStatus) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
   }
 
 }

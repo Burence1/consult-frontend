@@ -5,6 +5,8 @@ import { ProfileService } from 'src/app/services/profile.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Todo } from '../models/patient-task';
 import { CurrentUser } from '../../personal-tasks/tasks/tasks.component';
+import { ActivatedRoute, Params } from '@angular/router';
+import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 
 @Component({
   selector: 'app-patient-task-dialog',
@@ -18,10 +20,11 @@ export class PatientTaskDialogComponent implements OnInit {
   selectedValue: string;
   minDate: Date;
   user: CurrentUser;
+  patientId!: string;
 
   private backupTask: Partial<Todo> = { ...this.data.task};
 
-  constructor(private auth: AuthService, private profileService: ProfileService, public newdialogRef: MatDialogRef<Todo>, @Inject(MAT_DIALOG_DATA) public data: PatientTaskDialogData) { 
+  constructor( private route: ActivatedRoute, private auth: AuthService, private profileService: ProfileService, public newdialogRef: MatDialogRef<Todo>, @Inject(MAT_DIALOG_DATA) public data: PatientTaskDialogData) { 
     this.minDate = new Date();
 
     this.profileService.fetchAllProfiles().subscribe(
@@ -32,12 +35,7 @@ export class PatientTaskDialogComponent implements OnInit {
         console.error(error);
       }
     );
-    // this.auth.authUser().subscribe((res: any) =>{
-    //   this.user = {
-    //     name: res.displayName,
-    //     email: res.email
-    //   }
-    // })
+
     this.auth.user.subscribe(
       (user) => {
         this.currentId = user.uid;
@@ -54,6 +52,21 @@ export class PatientTaskDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.route.params.subscribe((params: Params) =>{
+      console.log("params",params)
+      this.patientId = params.patientId;
+      
+    })
+
+  }
+  public sendEmail(e: Event) {
+    e.preventDefault();
+    emailjs.sendForm('service_33445jf', 'template_xi67ytx', e.target as HTMLFormElement, 'user_ZIsvOS6F3ZGfp18QHuJC5')
+      .then((result: EmailJSResponseStatus) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
   }
   showProfs(profile: Profile){
     console.log("check",profile)

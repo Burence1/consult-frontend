@@ -154,6 +154,7 @@ export class TaskViewComponent implements OnInit {
    newdialogRef.afterClosed().subscribe((result: PatientTaskDialogResult) =>{
      result.task.done = false;
      this.patientService.addTask(this.patientId, result.task)
+     
    })
  }
 
