@@ -40,10 +40,10 @@ export const snapshotToArray = (snapshot: any) => {
   templateUrl: './chat-feed.component.html',
   styleUrls: ['./chat-feed.component.css']
 })
-export class ChatFeedComponent implements OnInit {
-  @ViewChild('scroller') private feedScroll: ElementRef;
-  // @ViewChild('chatcontent') chatcontent: ElementRef;
-  // scrolltop: any | null;
+export class ChatFeedComponent implements OnInit{
+  //@ViewChild('scroller') private feedScroll: ElementRef;
+  @ViewChild('chatcontent') chatcontent: ElementRef;
+  scrolltop: any | null;
   updateM: Chatmessage = {
     message: ''
   }
@@ -88,7 +88,7 @@ export class ChatFeedComponent implements OnInit {
         const chats = snapshotToArray(resp);
         this.chats = chats.filter(x => x.roomname === this.roomname);
         console.log(this.chats);
-       // setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
+        setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
       });
 
       firebase.database().ref('roomusers/').orderByChild('roomname').equalTo(this.roomname).on('value', (resp2: any) => {
@@ -191,7 +191,7 @@ export class ChatFeedComponent implements OnInit {
   // }
 
 
-  // // tslint:disable-next-line: typedef
+  // tslint:disable-next-line: typedef
   // ngAfterViewChecked() {
   //   this.scrollToBottom();
   // }
