@@ -25,7 +25,6 @@ import { FollowComponent } from './components/follow/follow/follow.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
 import { AuthGuard } from './services/auth/auth.guard';
-import { DraftComponent } from './components/tasks/draft/draft.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'onboard', pathMatch: 'full' },
@@ -54,7 +53,6 @@ const routes: Routes = [
   {path: 'convolist',component:ConvolistComponent},
   {path: 'addusers',component:AddusersComponent},
   { path: 'directory/user-profile/:profile.id', component: UserProfileComponent},
-  {path: 'draft', component: DraftComponent},
   { path: '**', component: NotFoundComponent },
 
 

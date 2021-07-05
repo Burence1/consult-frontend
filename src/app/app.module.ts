@@ -76,7 +76,6 @@ import { AboutComponent } from './components/about/about.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { TaskCalendarComponent } from './components/tasks/personal-tasks/task-calendar/task-calendar.component';
 import{ init } from 'emailjs-com';
-import { DraftComponent } from './components/tasks/draft/draft.component';
 
 
 @NgModule({
@@ -115,7 +114,6 @@ import { DraftComponent } from './components/tasks/draft/draft.component';
     AboutComponent,
     UserProfileComponent,
     TaskCalendarComponent,
-    DraftComponent,
   ],
   entryComponents: [AddRoomComponent],
   imports: [
