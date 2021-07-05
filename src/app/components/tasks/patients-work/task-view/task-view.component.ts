@@ -14,6 +14,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { CurrentUser } from '../../personal-tasks/tasks/tasks.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -44,7 +45,8 @@ export class TaskViewComponent implements OnInit {
     );
 
   constructor(
-    private patientService: PatientService, 
+    private patientService: PatientService,
+    private toastr: ToastrService,
     private route: ActivatedRoute, 
     private dialog: MatDialog, 
     private router: Router, 
@@ -53,12 +55,21 @@ export class TaskViewComponent implements OnInit {
     private store: AngularFirestore,
     private breakpointObserver: BreakpointObserver
     ) {
-      this.auth.authUser().subscribe((res: any) =>{
-        this.user = {
-          name: res.displayName,
-          email: res.email
-        }
-      })
+      this.auth.user.subscribe(
+        (user) => {this.currentId = user.uid;
+          this.profileService.fetchProfileApi(this.currentId).subscribe(
+            (res) => { 
+              this.profile = res;
+              this.user = {
+                name: res.displayName,
+                email: res.email
+              }
+            },
+            (error) => {
+              console.error(error);
+            });
+        },(error) => { console.error(error)});
+        
    }
 
   ngOnInit(): void {
@@ -123,7 +134,15 @@ export class TaskViewComponent implements OnInit {
     }
   });
   dialogRef.afterClosed().subscribe((result: PatientDialogResult) => {
-    this.patientService.addPatient(result.patient);
+    this.patients.forEach(patientItem =>{
+
+      if(patientItem.id === result.patient.id){
+        this.toastr.warning("Patient with name already exists", "Name already exists")
+        this.router.navigate(['./'], {relativeTo: this.route})
+      }
+    })
+
+      this.patientService.addPatient(result.patient.firstName.concat(result.patient.lastName), result.patient);
   })
  }
 
@@ -153,7 +172,12 @@ export class TaskViewComponent implements OnInit {
    });
    newdialogRef.afterClosed().subscribe((result: PatientTaskDialogResult) =>{
      result.task.done = false;
-     this.patientService.addTask(this.patientId, result.task)
+     if(result.task.title && result.task.assignedTo && result.task.dateDue){
+      this.patientService.addTask(this.patientId, result.task)
+     } else{
+      //  alert("invalid task. Please enter the correct details");
+       this.toastr.error("Please enter all the details", "Incorrect task format")
+     }
      
    })
  }

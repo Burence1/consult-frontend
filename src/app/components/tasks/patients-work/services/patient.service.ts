@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Observable } from 'rxjs';
 import { Patient } from '../models/patient';
 import { Todo } from '../models/patient-task';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class PatientService {
 
   patientsRef: AngularFirestoreCollection<Patient>;
 
-  constructor(private store: AngularFirestore) { 
+  constructor(private store: AngularFirestore, private toastr: ToastrService) { 
     this.patientsRef = this.store.collection('patients', ref => ref.orderBy('firstName'));
   }
   getAll(): AngularFirestoreCollection<Patient> {
@@ -31,8 +32,13 @@ export class PatientService {
 
  
 
-  addPatient(patient: Patient): any{
-    return this.patientsRef.add({ ...patient})
+  addPatient(uname:string, patient: Patient): any{
+   if(this.store.collection('patient').doc(`${uname}`)){
+     console.log("whoa there!")
+     this.toastr.warning("Patient with that name already exists")
+   }else{
+    return this.patientsRef.doc(`${uname}`).set({ ...patient})
+   }
   }
 
   updatePatient(key: string, value: any): Promise<void>{

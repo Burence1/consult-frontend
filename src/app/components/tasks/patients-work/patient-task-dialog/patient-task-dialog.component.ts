@@ -16,11 +16,12 @@ import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 export class PatientTaskDialogComponent implements OnInit {
   currentId: string;
   profiles: Profile[];
-  profile: Profile;
+  profile: Profile = new Profile;
   selectedValue: string;
   minDate: Date;
   user: CurrentUser;
   patientId!: string;
+  assignee_email: string;
 
   private backupTask: Partial<Todo> = { ...this.data.task};
 
@@ -52,14 +53,18 @@ export class PatientTaskDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("route",this.route)
     this.route.params.subscribe((params: Params) =>{
       console.log("params",params)
       this.patientId = params.patientId;
+
       
     })
 
   }
+
   public sendEmail(e: Event) {
+    console.log(this.assignee_email)
     e.preventDefault();
     emailjs.sendForm('service_33445jf', 'template_xi67ytx', e.target as HTMLFormElement, 'user_ZIsvOS6F3ZGfp18QHuJC5')
       .then((result: EmailJSResponseStatus) => {
@@ -68,6 +73,7 @@ export class PatientTaskDialogComponent implements OnInit {
         console.log(error.text);
       });
   }
+
   showProfs(profile: Profile){
     console.log("check",profile)
   }

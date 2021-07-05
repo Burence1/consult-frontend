@@ -1,105 +1,32 @@
-<!-- <mat-toolbar class="toolbar">
-  <div class="d-flex">
-      <img src="../../../../assets/images/logo.png" alt="" class="logo-img">
-  </div>
+  <mat-toolbar>
 <div>
-  <ul class="d-flex">
-    <a routerLink="/" class="nav-link">Home</a>
-    <a routerLink='/chats' class="nav-link">Chats</a>
-    <a routerLink="/directory" class="nav-link">Directory</a>
-    <a routerLink='/tasks' class="nav-link">Tasks</a>
-  </ul>
-</div>
-</mat-toolbar> -->
-<mat-toolbar>
-  <button type="button" (click)="drawer.toggle()" mat-icon-button class="toggler">
+  <button type="button" mat-icon-button class="toggler">
     ☰
   </button>
   <span>Patients</span>
+</div>
+<div routerLink="/profile">
+  <div *ngIf="user" class="userid"><strong>{{user.name[0]}}</strong></div>
+</div>
 </mat-toolbar>
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === true">
-      <!-- <img class="avatar mat-elevation-z8" src="{{profile.image}}" />
-      <h4 class="name">Dr.{{ profile.displayName }}</h4>
-      <p class="designation">{{ profile.department }}</p>
-    <mat-divider></mat-divider> -->
 
-    <a
-      mat-list-item
-      href=""
-      class="nav-item nav-link active"
-      routerLink="/home"
-      routerLinkActive="active"
-      ><mat-icon>home</mat-icon> Home</a
-    >
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-      routerLink="/profile"
-      routerLinkActive="active"
-      ><mat-icon>contact_page</mat-icon>Profile</a
-    >
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-
-      href="/tasks"
-
-      routerLinkActive="active"
-      ><mat-icon>assignment</mat-icon>Tasks</a
-    >
-   
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-      routerLink="/convolist"
-      routerLinkActive="active"
-      ><mat-icon>forum</mat-icon
-      ><span matBadge="4" matBadgeOverlap="false">Chat</span></a
-    >
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-      routerLink="/about"
-      routerLinkActive="active"
-      ><mat-icon>contact_support</mat-icon>Help</a
-    >
-
-    <a
-      mat-list-item
-      class="nav-item nav-link"
-      routerLink="/directory"
-      routerLinkActive="active"
-      ><mat-icon> contact_mail</mat-icon>Directory</a
-    >
-
-    <!-- <a
-      mat-list-item
-      class="nav-item nav-link pointer"
-      *ngIf="(user | async)?.uid"
-      (click)="logout()"
-    >
-      <mat-icon>logout</mat-icon>Logout</a
-    > -->
-  </mat-sidenav>
-  <mat-sidenav-content>
     <div class="content-wrapper">
-      <div class="container">
+      <div routerLink="/tasks" style="margin: 1rem;">
+        <mat-icon>arrow_back_ios</mat-icon><span>Back to calendar</span>
+      </div>
         <div class="container">
-
           <div class="this-row row">
              
               <div class="patient-list col-md-4">
                   
                   <div>
                       <div id="patient-header">
-                          <h2>Patients</h2>
+                          <h2 routerLink="/patients">Patients</h2>
                           <!-- <button mat-raised-button class="addBtn btn-sm" routerLink="/new-patient"><mat-icon>add</mat-icon></button> -->
-                          <button mat-raised-button class="addBtn btn-sm" (click)="newPatient()"><mat-icon>add</mat-icon></button>
+                          <button mat-raised-button class="addBtn btn-sm" (click)="newPatient()"><mat-icon>person_add</mat-icon></button>
                       </div>
                       <div class="search">
-                        <p class="text-center">
+                        <p>
                           <mat-icon *ngIf="searchMode" (click)="clearSearch()">clear</mat-icon>
                           <mat-form-field appearance="legacy">
                            
@@ -163,7 +90,7 @@
               <div class="tasks-list col-md-8">
                  <div class="task-header">
                   <h2>Tasks</h2>
-                  <button mat-raised-button mat-fab (click)="newPatientTask()"><mat-icon>add</mat-icon></button>
+                  <button class="task-btn" mat-raised-button (click)="newPatientTask()"><mat-icon>note_add</mat-icon></button>
                  </div>
       
                  <div class="btn-area">
@@ -178,7 +105,7 @@
                           {{task.title}}
                           <p *ngIf="task.description">{{task.description}}</p>  
                        </div>
-                     <div class="actions">
+                     <div *ngIf="user" class="actions">
                         <div *ngIf="task.assignedTo === user.name">
                           <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="task actions">
                               <mat-icon>more_vert</mat-icon>
@@ -231,19 +158,14 @@
                      <small class="text-muted" *ngIf="!task.done">Status: pending</small>
                      <p>Assigned: {{task.assignedTo}}</p>
                      <p>Due: {{task.dateDue.toDate()|date}}</p>
-                     <!-- <p>Created By: {{profile.displayName}}</p> -->
+                    
                      </div>  
                  </div>
               </div>
           </div>
       </div>
-      
-          
-   </div>
+
    </div>
 
-
-  </mat-sidenav-content>
-</mat-sidenav-container>
 
 

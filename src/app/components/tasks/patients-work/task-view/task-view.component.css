@@ -5,12 +5,34 @@
     background-color: white;
     margin-top: 3rem;
 }
-h2{
-    color: #003060;
+.patient-list h2{
+    color: deepskyblue;
     letter-spacing: 2px;
     text-align: center;
     text-transform: uppercase;
     font-size: 1.5rem;
+}
+.tasks-list h2{
+  color: #003060;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+.addBtn {
+  background-color: deepskyblue;
+  color: white;
+}
+.addBtn mat-icon{
+  margin-left: .3rem;
+}
+.task-btn mat-icon{
+  margin-left: .3rem;
+}
+
+.task-btn{
+  background-color: #003060;
+  color: white;
 }
 .this-row{
     border: 1px solid whitesmoke;
@@ -38,11 +60,7 @@ h2{
     justify-content: space-between;
     margin-top: 7px;
 }
-.addBtn {
-    background-color: #003060;
-    color: white;
-   
-}
+
 #patient-header{
     display: flex;
     justify-content: space-between;
@@ -186,7 +204,7 @@ span{
   /* Handle */
   
     ::-webkit-scrollbar-thumb {
-    background: #003060; 
+    background: #c1c1c1; 
   }
   
     
@@ -195,3 +213,27 @@ span{
     
     background: #555; 
   } 
+  .patient-list, .tasks-list{
+    display: block;
+
+    overflow: auto;
+    height: 80vh;
+  }
+mat-toolbar{
+  display: flex;
+  justify-content: space-between;
+}
+.prof-avi{
+  width: 50px;
+  height: 50px;
+}
+.userid{
+  background-color: #fed546;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
