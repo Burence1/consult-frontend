@@ -7,6 +7,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { ChatService } from 'src/app/services/chat/chat.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -52,7 +53,9 @@ export class OneChatComponent implements OnInit {
   conversations: any;
   convoname: any;
 
-  constructor(private Auth: AngularFireAuth, private db: AngularFireDatabase, private router: Router,
+  convo: string;
+
+  constructor(private chat: ChatService,private Auth: AngularFireAuth, private db: AngularFireDatabase, private router: Router,
               private route: ActivatedRoute,
               private formBuilder: FormBuilder) {
     this.Auth.authState.subscribe(auth => {
@@ -79,7 +82,7 @@ export class OneChatComponent implements OnInit {
         const temporarychats = snapshotToArray(resp);
         console.log(temporarychats)
         console.log(this.chatname)
-        this.chats = temporarychats.filter(x => x.chatname === this.roomname || x.roomname === this.roomname)
+        this.chats = temporarychats.filter(x => x.name === this.convo)
         console.log(this.chats)
         console.log(this.convoname)
         setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
@@ -90,6 +93,10 @@ export class OneChatComponent implements OnInit {
         this.users = roomusers.filter(x => x.status === 'online');
       });
     })
+  }
+  getConvo() {
+    this.convo = this.chat.getConvoname()
+    console.log(this.convo)
   }
 
   // tslint:disable-next-line: typedef
@@ -103,6 +110,7 @@ export class OneChatComponent implements OnInit {
     this.chatForm = this.formBuilder.group({
       message: [null, Validators.required]
     });
+    this.getConvo()
 
   }
   name: any
@@ -118,7 +126,7 @@ export class OneChatComponent implements OnInit {
     chat.sender = this.user.displayName
     console.log(chat)
 
-    chat.name = this.convoname
+    chat.name = this.convo
 
     chat.date = dateTime;
     chat.type = 'message';
