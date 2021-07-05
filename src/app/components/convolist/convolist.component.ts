@@ -20,7 +20,7 @@ import { Profile } from 'src/app/profile';
   styleUrls: ['./convolist.component.css']
 })
 export class ConvolistComponent implements OnInit {
-
+  convoname: string
   user: any;
   userId: any
   userName: any;
@@ -112,6 +112,12 @@ export class ConvolistComponent implements OnInit {
     return this.db.object(path);
   }
 
+  getConvo(convo: any) {
+    this.chat.setConvoname(convo.convoname)
+    console.log(this.convoname)
+    return this.convoname
+  }
+
   getCurrent(userId: string) {
     let currentuser
     firebase.database().ref('users/').on('value', (resp: any) => {
@@ -126,6 +132,7 @@ export class ConvolistComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.chat.setConvoname(this.convoname)
   }
 
   logout() {

@@ -55,6 +55,8 @@ export class ChatService {
   test: any
   chatcontent: any;
 
+  convoname: string
+
   constructor(private db: AngularFireDatabase,
     private Auth: AngularFireAuth, private router: Router,
     private route: ActivatedRoute,
@@ -78,6 +80,18 @@ export class ChatService {
         this.users = roomusers.filter(x => x.status === 'online');
       });
     });
+  }
+
+  setConvoname(data: any) {
+    this.convoname = data
+    console.log(this.convoname)
+
+  }
+
+  getConvoname() {
+    const convo = this.convoname
+    console.log(convo)
+    return convo
   }
 
   getGroup() {

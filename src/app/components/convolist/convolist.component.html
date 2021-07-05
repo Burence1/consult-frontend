@@ -101,7 +101,7 @@
                   <th mat-header-cell *matHeaderCellDef>conversations</th>
                   <div class="convo">
                     <div mat-cell *matCellDef="let row">
-                      <div *ngIf="row.show" class="convo">
+                      <div *ngIf="row.show" class="convo" (click)="getConvo(row)">
                         <mat-card class="mt-3 ">
                           {{row.displayName}}
                         </mat-card></div>
