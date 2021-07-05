@@ -40,7 +40,7 @@ export class NewTaskService {
           this.profile = res;
 
           this.tasks = this.getTasks()
-         // this.events = this.getEvents()
+         this.events = this.getEvents()
         },(error) => {
           console.error(error);
         });
@@ -60,7 +60,7 @@ export class NewTaskService {
 
     this.store.collection('todo', ref => ref.where("owner", "==", `${this.profile.displayName}`)).valueChanges().subscribe(data=>{
       this.tasks = data;
-      console.log("whyyy",this.tasks)
+      console.log("whyyy",this.profile.displayName)
       this.tasks.forEach(task=>{
          task.end = task.end.toDate()
          task.start = task.start.toDate()
@@ -68,7 +68,7 @@ export class NewTaskService {
          task.dateDue = task.dateDue.toDate()
         });
     });
-    //return this.tasks;
+    return this.tasks;
   }
 
 
