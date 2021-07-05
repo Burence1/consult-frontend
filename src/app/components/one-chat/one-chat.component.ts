@@ -76,6 +76,18 @@ export class OneChatComponent implements OnInit {
         })
       });
 
+      // this.roomname = this.route.snapshot.params.displayName;
+      // //console.log(this.roomname)
+      // firebase.database().ref('messages/').on('value', resp => {
+      //   const temporarychats = snapshotToArray(resp);
+      //   console.log(temporarychats)
+      //   console.log(this.chatname)
+      //   this.chats = temporarychats.filter(x => x.chatname === this.roomname || x.roomname === this.roomname)
+      //   console.log(this.chats)
+      //   console.log(this.convoname)
+      //   setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
+      // });
+
       this.roomname = this.route.snapshot.params.displayName;
       //console.log(this.roomname)
       firebase.database().ref('messages/').on('value', resp => {
