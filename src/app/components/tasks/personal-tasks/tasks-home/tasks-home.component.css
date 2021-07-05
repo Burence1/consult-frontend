@@ -125,4 +125,13 @@ span{
     
     background: #555; 
   } 
-
+@media only screen and (min-width: 600px){
+  .small-screen{
+    display: none;
+  }
+}
+  @media only screen and (max-width: 600px) {
+    .tabs {
+     display: none;
+    }
+  }

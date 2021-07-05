@@ -33,12 +33,7 @@ export class PatientService {
  
 
   addPatient(uname:string, patient: Patient): any{
-   if(this.store.collection('patient').doc(`${uname}`)){
-     console.log("whoa there!")
-     this.toastr.warning("Patient with that name already exists")
-   }else{
     return this.patientsRef.doc(`${uname}`).set({ ...patient})
-   }
   }
 
   updatePatient(key: string, value: any): Promise<void>{

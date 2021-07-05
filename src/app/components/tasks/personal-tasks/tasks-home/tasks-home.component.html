@@ -75,18 +75,22 @@
       <div class="container-fluid">
           <div class="container-fluid">
             <div class="row">
-                <div class="col-md-11">
+                <div class="tabs col-md-11">
                     <h2 class="mt-3 text-center">Tasks Board</h2>
                     <mat-tab-group animationDuration="0ms">
-                          <!-- calendar -->
-                          <mat-tab label="Calendar">
-                            <app-task-calendar></app-task-calendar>
-                         </mat-tab>
+                      
                       <!-- common tasks -->
-                      <mat-tab label="Kanban">
+                      <mat-tab class="kanban" label="Kanban">
                         <app-tasks></app-tasks>
                     </mat-tab>
+                        <!-- calendar -->
+                        <mat-tab class="cal" label="Calendar">
+                          <app-task-calendar></app-task-calendar>
+                       </mat-tab>
                     </mat-tab-group>
+                </div>
+                <div class="small-screen">
+                  <app-tasks></app-tasks>
                 </div>
                 <div class="col-md-1">
         

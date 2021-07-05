@@ -34,6 +34,15 @@ mat-card::-webkit-scrollbar {
   background-color: #003060;
     color: white;
 }
+.smallscreenbtns{
+  margin-top: 1rem;
+  display: none;
+}
+.smallscreenbtns button{
+  background-color: #003060;
+  color: white;
+  margin: .5rem;
+}
 h2, p, a, button{
   font-family: comfortaa;
 }
@@ -71,4 +80,27 @@ mat-toolbar {
 .done{
   background-color: lavender;
 }
+@media only screen and (max-width: 1050px) {
+  .container-wrapper{
+    flex-direction: column;
+  }
+  .container{
+    max-width: 600px;
+  }
+  .addbtn span{
+    display: none;
+  }
+}
 
+@media only screen and (max-width: 600px){
+    .container{
+      max-height: 600px;
+      margin-bottom: 1rem;
+    }
+    .addbtn{
+      display: none;
+    }
+    .smallscreenbtns{
+      display: flex;
+    }
+}

@@ -9,12 +9,26 @@
         <textarea name="message"></textarea>
         <input type="submit" value="Send">
       </form> -->
-      <div class="col-md-10">
+      <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
         <div class="container-wrapper">
           
           <div class="container">
+            <div class="smallscreenbtns">
+          
+              <button (click)="newTask()" mat-raised-button class="task">
+                  <mat-icon>add</mat-icon><span>Add Task</span>
+                </button>
+                  <br>      
+                <button mat-raised-button>
+                  <mat-icon>groups</mat-icon> 
+                 <a style="text-decoration: none; color: white;" routerLink="/patients"><span>Patient Tasks</span></a>
+                </button>
+             
+              </div>
             <h2>All Tasks</h2>
-            <!-- <p>{{myuser.name}}</p> -->
+            <!-- for very small screens -->
+          
+            <!--end -->
             <mat-card
               cdkDropList
               id="todo"
@@ -40,11 +54,11 @@
               [cdkDropListConnectedTo]="[todoList, doneList]"
               (cdkDropListDropped)="drop($event)"
               class="list in-progress">
-              <p class="empty-label" *ngIf="(inProgress | async)?.length === 0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus harum repellendus culpa ad, ipsa sint. Officia dignissimos reiciendis sunt totam maxime veritatis velit a, quod error omnis nemo! Harum omnis beatae fugiat et unde possimus incidunt mollitia, at maiores vitae totam quas culpa, cupiditate assumenda repellendus pariatur id? Suscipit corporis labore quis quam quia ipsa quaerat dolor a similique, inventore neque eos laboriosam quod nihil ratione hic maiores eius magni mollitia aliquid sapiente accusamus. Id ullam quasi tenetur omnis vitae quaerat quas consequuntur qui amet deserunt adipisci nobis voluptatibus dolorum cum ex corrupti laborum, explicabo praesentium dolor fugit ut. Vero voluptates quod dolorum officia repudiandae sunt adipisci natus ad explicabo illum consequatur quisquam neque minus reprehenderit inventore, magnam similique beatae sit nemo odio ut eius laboriosam. Quidem earum quaerat reiciendis, dolorem quas sint? Assumenda quaerat alias eveniet repudiandae, soluta a rem corporis est, quas iure amet nesciunt aliquam culpa non ab, aliquid cum magni unde. Recusandae ipsum vitae dolor labore quibusdam laborum, delectus omnis sit eum amet aliquid minima, quo in autem. Libero vel voluptatibus magnam incidunt consequatur temporibus repellat explicabo vero voluptas ipsa, suscipit quo natus, quisquam neque modi corrupti ex in! Quia omnis nesciunt numquam impedit ducimus ipsam quaerat, placeat mollitia itaque saepe in nulla excepturi ratione dolorem molestiae obcaecati quasi explicabo, ut delectus fuga? Exercitationem ducimus maxime, reprehenderit cumque, expedita architecto libero consectetur aut cum, pariatur alias voluptate magni eaque id ea placeat ad repellendus quaerat maiores repellat saepe modi nam tenetur animi. Dolor ipsa saepe nisi minima quisquam doloribus possimus quos officiis. Illo sint reiciendis debitis voluptatem sit voluptatum laboriosam molestiae sapiente ullam omnis ipsam libero non id voluptate veniam beatae soluta, blanditiis itaque in mollitia eius odio voluptates! Hic, aperiam neque. Quae dolor repellendus sit consequuntur odio esse asperiores recusandae, dicta ipsam quos voluptate culpa.</p>
+              <p class="empty-label" *ngIf="(inProgress | async)?.length === 0">Empty List</p>
               <app-new-task (edit)="editTask('inProgress', $event)" *ngFor="let task of inProgress | async" cdkDrag [task]="task"></app-new-task>
             </mat-card>
           </div>
-        
+          
           <div class="container">
             <h2>Done</h2>
         
@@ -62,25 +76,21 @@
           </div>
         </div>
       </div>
-      <div class="col-md-2">
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
         <br>
        
         <div class="addbtn">
           
           <button (click)="newTask()" mat-raised-button class="task">
-              <mat-icon>add</mat-icon> Add Task
+              <mat-icon>add</mat-icon><span>Add Task</span>
             </button>
               <br>      
             <button mat-raised-button>
               <mat-icon>groups</mat-icon> 
-             <a style="text-decoration: none; color: white;" routerLink="/patients">Patient Tasks</a>
+             <a style="text-decoration: none; color: white;" routerLink="/patients"><span>Patient Tasks</span></a>
             </button>
          
          </div>
-         <div class="due">
-          <h3>Due Today</h3>
-            <p>{{dueTodo.length}}</p>
-        </div>
       </div>
     
     </div>
