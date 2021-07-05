@@ -1,0 +1,17 @@
+.task-title{
+    display: flex;
+    justify-content: space-between;
+}
+mat-card{
+    display: flex;
+    justify-content: space-between;
+}
+.due{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: brown;
+}
+.content{
+    color: #3b3b3b;
+}

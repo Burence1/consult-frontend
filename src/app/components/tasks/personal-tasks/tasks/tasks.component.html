@@ -1,0 +1,90 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+        <div class="container-wrapper">
+          
+          <div class="container">
+            <div class="smallscreenbtns">
+          
+              <button (click)="newTask()" mat-raised-button class="task">
+                  <mat-icon>add</mat-icon><span>Add Task</span>
+                </button>
+                  <br>      
+                <button mat-raised-button routerLink="/patients">
+                  <mat-icon>groups</mat-icon> 
+                 <a style="text-decoration: none; color: white;"><span>Patient Tasks</span></a>
+                </button>
+             
+              </div>
+            <h2>All Tasks</h2>
+            <!-- for very small screens -->
+          
+            <!--end -->
+            <mat-card
+              cdkDropList
+              id="todo"
+              #todoList="cdkDropList"
+              [cdkDropListData]="todo | async"
+              [cdkDropListConnectedTo]="[doneList, inProgressList]"
+              (cdkDropListDropped)="drop($event)"
+              class=" container-fluid list all-tasks"
+              >
+              <p class="empty-label" *ngIf="(todo | async)?.length === 0">Empty list</p>
+              <app-new-task (edit)="editTask('todo', $event)" *ngFor="let task of todo | async" cdkDrag [task]="task"></app-new-task>
+          </mat-card>
+          </div>
+        
+          <div class="container">
+            <h2>On Hold</h2>
+        
+            <mat-card
+              cdkDropList
+              id="inProgress"
+              #inProgressList="cdkDropList"
+              [cdkDropListData]="inProgress | async"
+              [cdkDropListConnectedTo]="[todoList, doneList]"
+              (cdkDropListDropped)="drop($event)"
+              class="list in-progress">
+              <p class="empty-label" *ngIf="(inProgress | async)?.length === 0">Empty List</p>
+              <app-new-task (edit)="editTask('inProgress', $event)" *ngFor="let task of inProgress | async" cdkDrag [task]="task"></app-new-task>
+            </mat-card>
+          </div>
+          
+          <div class="container">
+            <h2>Done</h2>
+        
+            <mat-card
+              cdkDropList
+              id="done"
+              #doneList="cdkDropList"
+              [cdkDropListData]="done | async"
+              [cdkDropListConnectedTo]="[todoList, inProgressList]"
+              (cdkDropListDropped)="drop($event)"
+              class="list done">
+              <p class="empty-label" *ngIf="(done | async)?.length === 0">Empty list</p>
+              <app-new-task (edit)="editTask('done', $event)" *ngFor="let task of done | async" cdkDrag [task]="task"></app-new-task>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+        <br>
+       
+        <div class="addbtn">
+          
+          <button (click)="newTask()" mat-raised-button class="task">
+              <mat-icon>add</mat-icon><span>Add Task</span>
+            </button>
+              <br>      
+            <button mat-raised-button>
+              <mat-icon>groups</mat-icon> 
+             <a style="text-decoration: none; color: white;" routerLink="/patients"><span>Patient Tasks</span></a>
+            </button>
+         
+         </div>
+      </div>
+    
+    </div>
+     
+</div>
+
