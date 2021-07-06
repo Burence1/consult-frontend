@@ -599,7 +599,7 @@ footer.sticky-footer {
   background: #003060;
   color: white;
   border-radius: 10px;
-  margin-left: 30%;
+  margin-left: 120%;
   max-width: 70vh;
   padding: 24px;
   margin: 20px;
@@ -626,7 +626,7 @@ footer.sticky-footer {
   border-radius: 10px;
   color: white;
   margin-right: 80%;
-  max-width: 80vh;
+  max-width: 60vh;
   padding: 24px;
   margin: 20px;
   text-align: left;
