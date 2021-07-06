@@ -1,10 +1,10 @@
 .example-container {
-  display: flex;
+  display: flex; 
   padding: 10px;
 }
 
 .drawer-container {
-  position: absolute;
+  position: absolute; 
   right: 0;
   left: 0;
   bottom: 0;
@@ -30,7 +30,7 @@
 }
 
 footer.sticky-footer {
-  position: fixed;
+  position: fixed; 
   bottom: 0;
   left: 0;
   width: 100%;
@@ -62,9 +62,6 @@ footer.sticky-footer {
 .chat-message .right-bubble {
   position: relative;
   background: #dcf8c6;
-  border-top-left-radius: .4em;
-  border-bottom-left-radius: .4em;
-  border-bottom-right-radius: .4em;
   padding: 5px 10px 10px;
   left: 15%;
 }
@@ -95,9 +92,6 @@ footer.sticky-footer {
 .chat-message .left-bubble {
   position: relative;
   background: lightblue;
-  border-top-right-radius: .4em;
-  border-bottom-left-radius: .4em;
-  border-bottom-right-radius: .4em;
   padding: 5px 10px 10px;
   left: 5%;
 }
@@ -153,4 +147,111 @@ footer.sticky-footer {
 .chat-content {
   overflow-y: scroll;
   height: 600px;
+}
+
+/* new */
+
+.logo{
+  color: white;
+}
+.logo1 {
+  width: 200px;
+  height: 100px;
+  margin-top: 20px;
+  margin-left: 35px
+}
+.pointer{
+cursor: pointer;
+}
+.toggler{
+  font-size: 40px;
+}
+mat-toolbar {
+  background: #003060;
+  color: white;
+}
+.nav-item{
+  color: white;
+}
+mat-sidenav {
+  margin: 16px;
+  width: 200px;
+  border-right: none;
+  background: #003060;
+  color: white;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.content {
+  height: calc(100vh - 98px);
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: lightgray;
+  overflow: auto;
+}
+mat-sidenav-container {
+  height: calc(100vh - 65px);
+  overflow: hidden;
+}
+.menu-button {
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+font-size: 1rem;
+}
+mat-icon {
+margin-right: 8px;
+}
+.avatar {
+width: 100px;
+height: 100px;
+border-radius: 50%;
+}
+.name {
+  margin-top: 2px;
+font-weight: normal;
+}
+.designation {
+font-size: 0.7rem;
+color: lightgrey;
+}
+mat-divider {
+margin-top: 16px;
+background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+
+  ::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+
+  ::-webkit-scrollbar-thumb {
+  background: #003060; 
+}
+
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  
+  background: #555; 
+} 
+
+mat-card{
+  overflow-y: auto;
+  height: 80vh;
 }
