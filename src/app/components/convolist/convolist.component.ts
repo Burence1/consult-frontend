@@ -139,10 +139,6 @@ export class ConvolistComponent implements OnInit {
     this.auth.logout();
   }
 
-  logout() {
-    this.auth.logout();
-  }
-
   snapshotToArray = (snapshot: any, userId: string) => {
 
     const returnArr: any[] = [];
