@@ -1,76 +1,29 @@
-<<<<<<< HEAD
-<div class="conatiner" style="background-color: #003060;">
-  <img src="assets/images/cropped-consult.jpg" alt="" height="60px" width="70px">
-  <div class="wrap">    
-    <div class="box one">
-      <div class="date">
-        <h4></h4>
-        <br>
-=======
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-
-<div class="container-fluid px-1 px-md-4 px-lg-1 px-xl-5 py-4 mx-auto">
-  <div class="card card0 border-0">
-    <div class="row d-flex">
-        <div class="col-lg-6">
-            <div class="card1 pb-5">
-<<<<<<< HEAD
-                <div class="row"> <img src="" alt="LOGO" class="logo"> </div>
-=======
-                <div class="row"> <img src="assets/images/cropped-consult.jpg" alt="LOGO" class="logo" height="100px"> </div>
->>>>>>> f6065ac62971d84b5d13ab41b2b4717683a5aec7
-                <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> 
-                  <img src="https://semmes-murphey.imgix.net/uploads/media-library/Doctors-Illustration.png"> 
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="card2 card border-0 px-4 py-5">
-              <div class="row px-3 mb-4">
-                  <div class="line"></div> <small class="welcome text-center">Welcome</small><div class="line"></div>
-              </div>
-              <div class="row px-3">
-               
-                    <button (click)="loginGoogle()" class="google" >
-                      Signin With Google
-                    </button>
-                    <small class="or center">or</small>
-                    <button routerLink="/email-login" class="email">Email</button>
-                    <small>Don't have an account? </small><a routerLink="/signup" routerLinkActive="active"
-                       href=""><strong>Register</strong></a>
-                    <button class="btn btn-rounded reg">  </button>
-
-               
-                </div>
-          </div>
->>>>>>> 1f606478da10a169966c5eff1f0f0bb080a26ed4
-      </div>
-      <button routerLink="/email-login" class="email"><img src="assets/images/mail.png" alt="" style="border-radius: 50%;" height="34px" width="37px">Email</button>
-    </div>
-    
-    <div class="box two">
-      <div class="date">
-        <h4></h4>
-        <br>
-      </div>
-      <button (click)="loginGoogle()" class="google" >
-         <img src="assets/images/gm.png" alt="" style="border-radius: 50%;" height="20px">  Signin With Google
-      </button>
-    </div>
-
-    <div class="box three">
-      <div class="date">
-        <h4></h4>
-        <br>
-      </div>
-      <button >
-        <small>Don't have an account? </small><a routerLink="/signup" routerLinkActive="active"
-       href=""><strong>Register</strong></a>
-      </button>
-    </div>  
+<div class="sidenav">
+  <div class="login-main-text">
+    <img src="assets/images/cropped-consult.jpg" alt="LOGO" height="300px" width="400px">
   </div>
+</div>
+<div class="main">
+  <!-- <img src="assets/images/chat.jpg" alt=""> -->
+  <div class="col-md-6 col-sm-12">
+     <div class="login-form">
+        <form>
+          <button (click)="loginGoogle()" class="google" >
+            Signin With Google
+          </button>
+          <br>
+          <small class="or center">or</small>
+          <br>
+          <button routerLink="/email-login" class="email">Email</button>
+          <br>
+          <small>Don't have an account? </small><a routerLink="/signup" routerLinkActive="active"
+             href=""><strong>Register</strong></a>
+        <br>
+        </form>
+     </div>
   </div>
-    
+</div>
+
     
   <!-- <button (click)="loginGoogle()" class="google" >
     Signin With Google
