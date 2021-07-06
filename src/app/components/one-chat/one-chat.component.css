@@ -61,9 +61,11 @@ footer.sticky-footer {
 
 .chat-message .right-bubble {
   position: relative;
-  background: #dcf8c6;
+  background: #003060;
+  /* border-radius: 10px; */
+  color: white;
   padding: 5px 10px 10px;
-  left: 15%;
+  left: 5%;
 }
 
 .chat-message .right-bubble span.msg-name {
@@ -83,7 +85,7 @@ footer.sticky-footer {
   width: 0;
   height: 0;
   border: 27px solid transparent;
-  border-left-color: #dcf8c6;
+  border-left-color: #003060;
   border-right: 0;
   border-top: 0;
   margin-top: -13.5px;
@@ -91,7 +93,9 @@ footer.sticky-footer {
 }
 .chat-message .left-bubble {
   position: relative;
-  background: lightblue;
+  background: #161818;
+  /* border-radius: 10px; */
+  color: white;
   padding: 5px 10px 10px;
   left: 5%;
 }
@@ -111,7 +115,7 @@ footer.sticky-footer {
   width: 0;
   height: 0;
   border: 27px solid transparent;
-  border-right-color: lightblue;
+  border-right-color: #161818;
   border-left: 0;
   border-top: 0;
   margin-top: -13.5px;
