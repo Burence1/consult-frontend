@@ -67,7 +67,9 @@ export class AddRoomComponent implements OnInit {
     room.admin = this.chatname;
     this.ref.orderByChild('roomname').equalTo(room.roomname).once('value', (snapshot: any) => {
       if (snapshot.exists()) {
-        this.snackBar.open('Room name already exist!');
+        this.snackBar.open('Room name already exist!', 'undo', {
+          duration: 2000
+        });
       } else {
         const newRoom = firebase.database().ref('rooms/').push();
         newRoom.set(room);

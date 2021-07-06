@@ -111,6 +111,7 @@ export class AddusersComponent implements OnInit {
     const unique = String(this.admin) + String(convo.displayName)
     convo.convoname = unique
     console.log(unique)
+    
     convo.sender = this.user.uid
     convo.receiver = convo.key
     console.log(convo)
