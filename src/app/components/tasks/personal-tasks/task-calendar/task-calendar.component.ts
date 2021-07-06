@@ -33,7 +33,7 @@ export class TaskCalendarComponent implements OnInit {
     {
       start: new Date(),
       title: "Assist the MD and clinical admins",
-      owner: "Nurse John"
+      owner: this.profile.displayName,
     }
   ]
 
@@ -103,9 +103,5 @@ export class TaskCalendarComponent implements OnInit {
 
   
   ngOnInit(): void {
-
-   
-   
-    console.log("Data",this.tasks)
   }
 }

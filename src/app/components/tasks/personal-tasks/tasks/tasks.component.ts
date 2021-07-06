@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { Profile } from 'src/app/profile';
 import { ProfileService } from 'src/app/services/profile.service';
 import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
+import { ToastrService } from 'ngx-toastr';
 
 
 const getObservable = (collection: AngularFirestoreCollection<Task>) =>{
@@ -45,6 +46,7 @@ export class TasksComponent implements OnInit {
     private dialog: MatDialog,
     private db: AngularFirestore,
     private auth: AuthService,
+    private toastr: ToastrService,
     private profileService: ProfileService,
     ) {
     this.auth.user.subscribe(
@@ -121,7 +123,7 @@ export class TasksComponent implements OnInit {
         this.db.collection('todo').add(result.task)
       }
       else{
-        console.log("invalid task format")
+        this.toastr.warning("invalid task format!")
       }
     })
   }

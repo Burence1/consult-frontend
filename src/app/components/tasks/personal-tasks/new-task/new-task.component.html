@@ -1,4 +1,4 @@
-<div *ngIf="task.owner == 'JMbugua'">
+<div *ngIf="task.owner == usersName">
     <mat-card class="item" *ngIf="task" (dblclick)="edit.emit(task)">
         <div class="content">
             <h3>{{task.title}}</h3>
