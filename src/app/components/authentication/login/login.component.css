@@ -161,7 +161,8 @@ input.input-txt {
 }
 
 .main-head{
-    height: 150px;
+    /* height: 150px; */
+	max-height: 100vh;
     background: #FFF;
    
 }
