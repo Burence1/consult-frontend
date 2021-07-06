@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+.container{
+    font-family: 'Lato', sans-serif;
+    background-color: white;
+    margin-top: 3rem;
+}
+.patient-list h2{
+    color: deepskyblue;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+.tasks-list h2{
+  color: #003060;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+.addBtn {
+  background-color: deepskyblue;
+  color: white;
+}
+.addBtn mat-icon{
+  margin-left: .3rem;
+}
+.task-btn mat-icon{
+  margin-left: .3rem;
+}
+
+.task-btn{
+  background-color: #003060;
+  color: white;
+}
+.this-row{
+    border: 1px solid whitesmoke;
+    height: 80vh;
+    width: 100%;
+}
+.tasks-list{
+    background-color: whitesmoke;
+}
+.is-active{
+    background-color: #c1c1c1;
+}
+
+
+.patient-detail{
+    display: flex;
+    padding: 10px;
+}
+.patient-detail span{
+    font-size: 1rem;
+    margin-left: 10px;
+}
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 7px;
+}
+
+#patient-header{
+    display: flex;
+    justify-content: space-between;
+    margin: 7px 2px;
+
+}
+.is-active{
+    background-color: rgb(221, 231, 235);
+}
+#task-area{
+    background-color: white;
+    margin: 10px;
+    padding: 20px;
+}
+.task-title-area{
+    display: flex;
+    justify-content: space-between;
+}
+.modal-actions{
+    display: flex;
+}
+.modal-actions button{
+    margin: 1rem;
+}
+
+.task-header h2{
+    margin-left: 15rem;
+}
+.hidden-dets{
+    display: flex;
+}
+
+
+.nav-link{
+    color: white;
+}
+.nav-link:hover{
+    color: deepskyblue;
+}
+.logo-img{
+    height: 100%;
+}
+
+
+/* new */
+span{
+  font-family: comfortaa;
+}
+.nav-link{
+  font-family: comfortaa;
+}
+.logo{
+    color: white;
+  }
+  .logo1 {
+    width: 200px;
+    height: 100px;
+    margin-top: 20px;
+    margin-left: 35px
+  }
+  .pointer{
+  cursor: pointer;
+  }
+  .toggler{
+    font-size: 40px;
+  }
+  nav {
+    background: #003060;
+    color: white;
+  }
+  .nav-link{
+    font-size: 1.5rem;
+    font-family: 'Lato', 'sans-serif';
+    color: #c1c1c1;
+  }
+  .active{
+   
+    color: white;
+  }
+  .nav-item{
+  
+    color: #c1c1c1;
+  }
+  .userid{
+    color: white;
+  }
+  .btn-area .active{
+    background-color: #003060;
+  }
+  mat-sidenav {
+    margin: 16px;
+    width: 200px;
+    border-right: none;
+    background: #003060;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  .content {
+    height: calc(100vh - 98px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: lightgray;
+  }
+  mat-sidenav-container {
+    height: calc(100vh - 65px);
+    overflow: hidden;
+  }
+  .menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+  }
+  mat-icon {
+  margin-right: 8px;
+  }
+  .avatar {
+  margin-top: 16px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  }
+  .name {
+  margin-top: 8px;
+  font-weight: normal;
+  }
+  .designation {
+  margin-top: 2px;
+  font-size: 0.7rem;
+  color: lightgrey;
+  }
+  mat-divider {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: rgba(255, 255, 255, 0.5);
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  
+    ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+  
+  /* Handle */
+  
+    ::-webkit-scrollbar-thumb {
+    background: #c1c1c1; 
+  }
+  
+    
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    
+    background: #555; 
+  } 
+  .patient-list, .tasks-list{
+    display: block;
+
+    overflow: auto;
+    height: 80vh;
+  }
+mat-toolbar{
+  display: flex;
+  justify-content: space-between;
+}
+.prof-avi{
+  width: 50px;
+  height: 50px;
+}
+.userid{
+  background-color: #fed546;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+@media only screen and (max-width: 980px){
+  .this-row{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  mat-toolbar{
+    width: 100%;
+  }
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}

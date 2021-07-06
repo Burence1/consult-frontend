@@ -1,0 +1,109 @@
+.container-wrapper{
+    display: flex;
+    font-size: 11.4px;
+}
+mat-card{
+  
+  display: block;
+
+  overflow: auto;
+  height: 80vh;
+
+}
+mat-card::-webkit-scrollbar {
+  width: 7px;
+  height: 8px;
+  background-color: #aaa; /* or add it to the track */
+}
+.all-tasks{
+  padding: 10px;
+}
+/* .all-tasks::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: #aaa; 
+} */
+
+
+.addbtn{
+    display: flex;
+    flex-direction: column;
+    
+}
+.addbtn button{
+  background-color: #003060;
+    color: white;
+}
+.smallscreenbtns{
+  margin-top: 1rem;
+  display: none;
+}
+.smallscreenbtns button{
+  background-color: #003060;
+  color: white;
+  margin: .5rem;
+}
+h2, p, a, button{
+  font-family: comfortaa;
+}
+:host {
+    display: block;
+  }
+  
+  .item {
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+mat-toolbar {
+  background-color: #003060;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+.nav-link{
+  color: white;
+}
+.nav-link:hover{
+  color: #C0C0C0;
+}
+/* .addbtn button{
+  background-color: deepskyblue;
+  color: white;
+} */
+.all-tasks {
+  background-color: #AFE1AF;
+
+}
+.in-progress{
+  background-color: linen;
+}
+.done{
+  background-color: lavender;
+}
+@media only screen and (max-width: 1050px) {
+  .container-wrapper{
+    flex-direction: column;
+  }
+  .container{
+    max-width: 600px;
+  }
+  .addbtn span{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px){
+    .container{
+      max-height: 600px;
+      margin-bottom: 1rem;
+    }
+    .addbtn{
+      display: none;
+    }
+    .smallscreenbtns{
+      display: flex;
+    }
+    .smallscreenbtns span{
+      display: none;
+    }
+}
