@@ -85,9 +85,7 @@
 .modal-actions button{
     margin: 1rem;
 }
-.active{
-    background-color: rgb(221, 231, 235);
-}
+
 .task-header h2{
     margin-left: 15rem;
 }
@@ -129,12 +127,28 @@ span{
   .toggler{
     font-size: 40px;
   }
-  mat-toolbar {
+  nav {
     background: #003060;
     color: white;
   }
-  .nav-item{
+  .nav-link{
+    font-size: 1.5rem;
+    font-family: 'Lato', 'sans-serif';
+    color: #c1c1c1;
+  }
+  .active{
+   
     color: white;
+  }
+  .nav-item{
+  
+    color: #c1c1c1;
+  }
+  .userid{
+    color: white;
+  }
+  .btn-area .active{
+    background-color: #003060;
   }
   mat-sidenav {
     margin: 16px;
