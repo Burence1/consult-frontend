@@ -8,6 +8,14 @@ import 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { ChatService } from 'src/app/services/chat/chat.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
+import { ProfileService } from 'src/app/services/profile.service';
+import { Profile } from 'src/app/profile';
+import { AuthService } from 'src/app/services/auth/auth.service';
+
+
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -40,6 +48,8 @@ export class OneChatComponent implements OnInit {
     message: ''
   }
 
+  profile: Profile;
+  currentId: string;
   chatForm: FormGroup;
   chatname = '';
   roomname = '';
@@ -54,10 +64,19 @@ export class OneChatComponent implements OnInit {
   convoname: any;
 
   convo: string;
+  isHandset$: Observable<boolean> = this.breakpointObserver
+  .observe(Breakpoints.Handset)
+  .pipe(
+    map((result) => result.matches),
+    shareReplay()
+  );
 
   constructor(private chat: ChatService,private Auth: AngularFireAuth, private db: AngularFireDatabase, private router: Router,
               private route: ActivatedRoute,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              private breakpointObserver: BreakpointObserver,
+              private profileService: ProfileService,
+              private auth: AuthService) {
     this.Auth.authState.subscribe(auth => {
       if (auth !== undefined && auth !== null) {
         this.user = auth;
@@ -105,7 +124,28 @@ export class OneChatComponent implements OnInit {
         this.users = roomusers.filter(x => x.status === 'online');
       });
     })
+    this.findProfiles();
+    this.auth.user.subscribe(
+      (user) => {
+        this.currentId = user.uid;
+        console.log(this.currentId);
+        this.profileService.fetchProfileApi(this.currentId).subscribe(
+          (res) => {
+            this.profile = res;
+            console.log(res);
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
+
+  findProfiles(){}
   getConvo() {
     this.convo = this.chat.getConvoname()
     console.log(this.convo)
